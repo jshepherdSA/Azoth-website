@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
-import { Certifications } from "@/components/certifications";
+import { CertificationsCarousel } from "@/components/certifications-carousel";
 import { Accordion, type AccordionItem } from "@/components/accordion";
 import { YouTubeEmbed } from "@/components/youtube-embed";
 
@@ -58,18 +58,18 @@ export default function QualityPage() {
         ]}
       />
 
-      <Certifications />
+      <CertificationsCarousel />
 
       {/* Quality intro */}
       <section className="bg-surface py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative aspect-[5/3] overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-hairline">
+          <div className="flex justify-center">
             <Image
               src="/images/capabilities-quality.png"
               alt="ISO 9001:2015 Certified Company"
-              fill
-              className="object-contain p-10"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              width={648}
+              height={280}
+              className="h-auto w-full max-w-md object-contain"
             />
           </div>
           <div>
@@ -87,12 +87,14 @@ export default function QualityPage() {
 
       {/* Skills & Specialties */}
       <section className="bg-white py-20">
-        <div className="container-az">
-          <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Skills &amp; Specialties</h2>
-          <div className="mt-10 grid items-start gap-12 lg:grid-cols-2">
-            <Accordion items={specialties} />
-            <YouTubeEmbed id="KfhWyELuwCc" title="Azoth — Quality & Certifications" />
+        <div className="container-az grid items-start gap-12 lg:grid-cols-2">
+          <div>
+            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Skills &amp; Specialties</h2>
+            <div className="mt-10">
+              <Accordion items={specialties} />
+            </div>
           </div>
+          <YouTubeEmbed id="KfhWyELuwCc" title="Azoth — Quality & Certifications" />
         </div>
       </section>
     </>

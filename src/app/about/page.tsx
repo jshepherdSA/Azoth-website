@@ -87,7 +87,7 @@ export default function AboutPage() {
           src="/images/about-counter-banner-scaled.png"
           alt=""
           fill
-          className="-z-10 object-cover object-center opacity-30"
+          className="-z-10 object-cover object-center opacity-55"
           sizes="100vw"
         />
         <div className="container-az grid grid-cols-2 gap-5 lg:grid-cols-4">

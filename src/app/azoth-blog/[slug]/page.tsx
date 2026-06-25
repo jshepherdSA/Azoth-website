@@ -54,10 +54,10 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           alt=""
           fill
           priority
-          className="-z-10 object-cover object-center opacity-25"
+          className="-z-10 object-cover object-center opacity-60"
           sizes="100vw"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/85 to-ink/60" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/35" />
         <div className="container-az max-w-3xl py-16 sm:py-20">
           <nav aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-2 text-sm text-white/70">

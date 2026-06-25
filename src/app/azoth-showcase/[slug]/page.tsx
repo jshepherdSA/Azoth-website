@@ -56,10 +56,10 @@ export default async function ShowcaseItemPage({ params }: { params: Promise<Par
           src="/images/breadcrumb-banner-new.png"
           alt=""
           fill
-          className="-z-10 object-cover object-center opacity-25"
+          className="-z-10 object-cover object-center opacity-65"
           sizes="100vw"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/85 to-ink/60" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/85 via-ink/45 to-ink/25" />
         <div className="container-az py-10 sm:py-12">
           <nav aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-2 text-sm text-white/70">

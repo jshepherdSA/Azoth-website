@@ -5,18 +5,13 @@ import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
 import { IndustriesSection } from "@/components/industries-section";
+import { LmmGallery } from "@/components/lmm-gallery";
 
 export const metadata: Metadata = {
   title: "Lithography Metal Manufacturing",
   description:
     "LMM enables high-precision small and micro metal components with an Ra of 2 μm and tolerances to ±0.05 mm — in 316L, 17-4PH, Ti-6Al-4V, and copper.",
 };
-
-const gallery = [
-  { src: "/images/llm-slide-one.png", alt: "LMM-printed metal blade component" },
-  { src: "/images/llm-slide-first-card.png", alt: "LMM-printed cylindrical metal component" },
-  { src: "/images/llm-slide-sec-card.png", alt: "LMM-printed precision metal component" },
-];
 
 const materials = ["316L Stainless Steel", "17-4PH Stainless Steel", "Ti-6Al-4V", "Pure Copper"];
 
@@ -26,13 +21,22 @@ const highlights = [
   "Suitable for both single-piece production and mass manufacturing",
 ];
 
-const production = [
-  { label: "High Volumes", value: "Thousands of parts per day" },
-  { label: "Support Free", value: "Down to 50µm walls" },
-  { label: "USA-Based", value: "Azoth enables automated serial production in the USA" },
-  { label: "Reshoring", value: "Reshore MIM and micro-machined level parts on 7–15 day lead times" },
-  { label: "Adaptable", value: "Adaptable material system" },
-  { label: "Fast", value: "Development to production in the same month" },
+// Reproduces the original "Launching Your Production Application" content exactly,
+// including its bold headings with (and without) bulleted sub-items.
+const production: { heading: string; items: string[] }[] = [
+  { heading: "High Volumes", items: ["Thousands of parts per day"] },
+  { heading: "High Volumes", items: ["Support free", "Down to 50um walls"] },
+  { heading: "Azoth enables automated serial production in the USA", items: [] },
+  { heading: "Reshore MIM and Micro Machined level parts on 7-15 day lead times", items: [] },
+  { heading: "Adaptable material system", items: ["Development to production in the same month"] },
+];
+
+// Four parts shown in the "How Do I Get Started?" grid (zoom on hover).
+const startImages = [
+  { src: "/images/chakra.png", alt: "LMM-printed gear" },
+  { src: "/images/chip-2-incus_shooting_dec23-118-1024x721.jpg", alt: "Hand holding a micro SD card tray with tweezers" },
+  { src: "/images/bolt-screw.png", alt: "LMM-printed bolt and screw" },
+  { src: "/images/incus.png", alt: "LMM-printed Incus precision components" },
 ];
 
 const steps = [
@@ -71,25 +75,10 @@ export default function LmmPage() {
         ]}
       />
 
-      {/* Parts gallery */}
-      <section className="bg-white py-16">
+      {/* Hero parts gallery */}
+      <section className="bg-white py-12">
         <div className="container-az">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Precision Metal AM</Eyebrow>
-            <h2 className="mt-3 text-2xl font-extrabold text-ink sm:text-3xl">
-              Small, Complex, Production-Ready Metal Parts
-            </h2>
-          </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {gallery.map((g) => (
-              <div
-                key={g.src}
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-surface ring-1 ring-hairline"
-              >
-                <Image src={g.src} alt={g.alt} fill className="object-cover" sizes="(max-width:640px) 100vw, 33vw" />
-              </div>
-            ))}
-          </div>
+          <LmmGallery />
         </div>
       </section>
 
@@ -98,21 +87,22 @@ export default function LmmPage() {
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <div>
             <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Materials Offered</h2>
-            <ul className="mt-6 space-y-3">
+            <ul className="mt-6 space-y-5">
               {materials.map((m) => (
                 <li key={m} className="flex items-center gap-3 text-lg font-medium text-ink-soft">
-                  <span className="h-2 w-2 rounded-full bg-brand" />
+                  <Image src="/images/step-icon.svg" alt="" width={26} height={26} className="h-6 w-6 shrink-0" />
                   {m}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="relative aspect-[5/2] overflow-hidden rounded-2xl bg-white shadow-md">
+          <div className="flex justify-center">
             <Image
               src="/images/material-offered.png"
               alt="Metal powder material samples"
-              fill
-              className="object-contain p-6"
+              width={675}
+              height={267}
+              className="h-auto w-full max-w-xl object-contain"
               sizes="(max-width:1024px) 100vw, 50vw"
             />
           </div>
@@ -163,21 +153,30 @@ export default function LmmPage() {
       {/* How Does LMM Technology Work? */}
       <section className="bg-surface py-20">
         <div className="container-az">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
-              How Does LMM Technology Work?
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted-soft">
-              A light source selectively cures the photoreactive binder within the feedstock, layer
-              by layer, embedding the metal powder to form the desired 3D structure. This stage
-              results in the creation of a so-called green part.
-            </p>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
+                How Does LMM Technology Work?
+              </h2>
+              <p className="mt-4 leading-relaxed text-muted-soft">
+                A light source selectively cures the photoreactive binder within the feedstock, layer
+                by layer, embedding the metal powder to form the desired 3D structure. This stage
+                results in the creation of a so-called green part.
+              </p>
+            </div>
+            <Image
+              src="/images/lmm-tech-image_edited-scaled-1.png"
+              alt="LMM process diagram — DLP engine, lens, light, feedstock, building platform, and green part"
+              width={480}
+              height={380}
+              className="mx-auto h-auto w-full max-w-md"
+            />
           </div>
-          <div className="mt-12 overflow-x-auto">
-            <div className="min-w-[760px] rounded-2xl bg-white p-8 shadow-sm ring-1 ring-hairline">
+          <div className="mt-14 overflow-x-auto">
+            <div className="min-w-[760px]">
               <Image
                 src="/images/effects.png"
-                alt="LMM process: design, print, green part, debinding, sintering, finished part"
+                alt="LMM process steps: design, print, green part, debinding, sintering, finished part"
                 width={1320}
                 height={100}
                 className="h-auto w-full"
@@ -203,16 +202,27 @@ export default function LmmPage() {
             <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
               Launching Your Production Application
             </h2>
-            <ul className="mt-6 space-y-4">
-              {production.map((p) => (
-                <li key={p.label} className="flex items-start gap-3">
-                  <Check />
-                  <span className="text-muted-soft">
-                    <span className="font-semibold text-ink">{p.label}:</span> {p.value}
-                  </span>
-                </li>
+            <div className="mt-6 space-y-5">
+              {production.map((group, i) => (
+                <div key={i}>
+                  <p className="font-bold text-ink">{group.heading}</p>
+                  {group.items.length > 0 && (
+                    <ul className="mt-2 space-y-2">
+                      {group.items.map((item) => (
+                        <li key={item} className="flex items-center gap-2.5 text-muted-soft">
+                          <span className="text-ink">
+                            <svg viewBox="0 0 10 10" className="h-2.5 w-2.5" aria-hidden>
+                              <path d="M2 1l5 4-5 4z" fill="currentColor" />
+                            </svg>
+                          </span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -243,14 +253,21 @@ export default function LmmPage() {
               <CircleArrow tone="onRed" />
             </Link>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-hairline">
-            <Image
-              src="/images/bolt-screw.png"
-              alt="LMM-printed precision metal parts"
-              fill
-              className="object-contain p-6"
-              sizes="(max-width:1024px) 100vw, 50vw"
-            />
+          <div className="grid grid-cols-2 gap-4">
+            {startImages.map((img) => (
+              <div
+                key={img.src}
+                className="group relative aspect-square overflow-hidden rounded-2xl bg-white ring-1 ring-hairline"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width:1024px) 50vw, 25vw"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

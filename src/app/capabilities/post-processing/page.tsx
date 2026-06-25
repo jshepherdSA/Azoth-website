@@ -95,13 +95,13 @@ export default function FinishingPage() {
 
       {/* Post Processing intro */}
       <section className="bg-white py-20">
-        <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-surface shadow-md ring-1 ring-hairline">
+        <div className="container-az grid items-center gap-12 lg:grid-cols-2 lg:items-stretch">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-surface shadow-md ring-1 ring-hairline lg:aspect-auto lg:h-full">
             <Image
               src="/images/post-processing-main-picture-v2-min.jpg"
               alt="Polished metal component"
               fill
-              className="object-cover"
+              className="object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
@@ -136,7 +136,7 @@ export default function FinishingPage() {
                 src={service.image}
                 alt={service.alt}
                 fill
-                className="object-contain p-8"
+                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>

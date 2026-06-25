@@ -17,10 +17,10 @@ export function PageBanner({
         alt=""
         fill
         priority
-        className="-z-10 object-cover object-center opacity-40"
+        className="-z-10 object-cover object-center opacity-70"
         sizes="100vw"
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/80 to-ink/50" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/80 via-ink/45 to-ink/20" />
       <div className="container-az py-16 sm:py-20">
         <h1 className="text-4xl font-extrabold text-white sm:text-5xl">{title}</h1>
         <nav aria-label="Breadcrumb" className="mt-4">

@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Eyebrow } from "@/components/eyebrow";
-import { Certifications } from "@/components/certifications";
+import { CertificationsCarousel } from "@/components/certifications-carousel";
 import { IndustriesSection } from "@/components/industries-section";
 import { FaqAccordion } from "@/components/faq-accordion";
+import { CircleArrow } from "@/components/circle-arrow";
 
 const capabilities = [
   { label: "Binder Jetting", icon: "/images/binder-jetting-icon.svg", href: "/capabilities/binder-jetting" },
@@ -12,26 +13,13 @@ const capabilities = [
   { label: "Finishing", icon: "/images/post-processing-icon.svg", href: "/capabilities/post-processing" },
 ];
 
-const newsPosts = [
-  {
-    title: "Azoth Finishes for Metal 3D Printed Parts",
-    href: "/azoth-blog/azoth-finishes-for-metal-3d-printed-parts",
-    image: "/images/image-scaled.png",
-    date: "June 2, 2026",
-  },
-  {
-    title: "Plastic 3D Printing: Technology Overview",
-    href: "/azoth-blog/plastic-3d-printing-technology-overview",
-    image: "/images/ultimakers-1-1.jpg",
-    date: "April 1, 2024",
-  },
-  {
-    title: "Understanding Stainless Steels: 316-L and 17-4PH",
-    href: "/azoth-blog/understanding-stainless-steels-316-l-and-17-4ph",
-    image: "/images/single_part-scaled-1.jpg",
-    date: "March 20, 2024",
-  },
-];
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7" aria-hidden>
+      <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-.95 1.83-1.95 3.77-1.95C20.6 8.69 22 10.5 22 14v7h-4v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9V9Z" />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
@@ -43,10 +31,10 @@ export default function Home() {
           alt=""
           fill
           priority
-          className="-z-10 object-cover object-center opacity-50"
+          className="-z-10 object-cover object-center opacity-70"
           sizes="100vw"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/80 to-ink/30" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/85 via-ink/50 to-ink/15" />
         <div className="container-az flex min-h-[560px] flex-col justify-center py-24">
           <div className="max-w-2xl">
             <Eyebrow>Production Additive Manufacturing</Eyebrow>
@@ -60,16 +48,17 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-md bg-brand px-7 py-3.5 font-semibold text-white transition-colors hover:bg-brand-dark"
+              className="mt-8 inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-3.5 font-semibold text-white transition-colors hover:bg-brand-hover"
             >
               Talk to an Expert
+              <CircleArrow tone="onRed" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Certifications */}
-      <Certifications />
+      {/* Certifications carousel */}
+      <CertificationsCarousel />
 
       {/* Capabilities */}
       <section className="bg-surface py-16">
@@ -78,14 +67,24 @@ export default function Home() {
             <Link
               key={cap.label}
               href={cap.href}
-              className="group flex flex-col items-center gap-5 rounded-xl bg-white p-8 text-center shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-md"
+              className="group relative flex min-h-[128px] flex-col justify-between gap-6 overflow-hidden rounded-xl bg-gradient-to-t from-black to-brand-dark p-5 text-white shadow-md transition-all hover:-translate-y-1 hover:shadow-lg"
             >
-              <span className="flex h-20 w-20 items-center justify-center rounded-full bg-ink transition-colors group-hover:bg-brand">
-                <Image src={cap.icon} alt="" width={42} height={42} className="h-10 w-10" />
-              </span>
-              <span className="font-semibold text-ink transition-colors group-hover:text-brand">
-                {cap.label}
-              </span>
+              <div className="flex items-start justify-between">
+                <Image src={cap.icon} alt="" width={44} height={44} className="h-11 w-11" />
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/30 text-white transition-colors group-hover:bg-white group-hover:text-brand-dark">
+                  <svg viewBox="0 0 18 18" className="h-4 w-4" aria-hidden>
+                    <path
+                      d="M6.5 4 11.5 9 6.5 14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <span className="text-xl font-bold">{cap.label}</span>
             </Link>
           ))}
         </div>
@@ -124,44 +123,28 @@ export default function Home() {
 
       {/* News & Updates */}
       <section className="bg-white py-20">
-        <div className="container-az">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <Eyebrow>AZOTH Production Additive Manufacturing</Eyebrow>
-              <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">News &amp; Updates</h2>
-            </div>
-            <Link
-              href="/news"
-              className="rounded-md bg-brand px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
-            >
-              View More
-            </Link>
+        <div className="container-az text-center">
+          <Eyebrow>AZOTH Production Additive Manufacturing</Eyebrow>
+          <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">News &amp; Updates</h2>
+
+          <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center rounded-2xl border border-hairline bg-surface px-6 py-16">
+            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[#0A66C2] text-white">
+              <LinkedInIcon />
+            </span>
+            <p className="mt-5 text-xl font-bold text-ink">LinkedIn feed coming soon</p>
+            <p className="mt-2 text-muted-soft">
+              Our latest news, announcements, and updates from LinkedIn will appear here.
+            </p>
           </div>
 
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
-            {newsPosts.map((post) => (
-              <Link
-                key={post.href}
-                href={post.href}
-                className="group flex flex-col overflow-hidden rounded-2xl ring-1 ring-black/5 transition-shadow hover:shadow-lg"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden bg-surface">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col gap-3 p-6">
-                  <span className="text-sm text-muted">{post.date}</span>
-                  <h3 className="text-lg font-bold leading-snug text-ink transition-colors group-hover:text-brand">
-                    {post.title}
-                  </h3>
-                </div>
-              </Link>
-            ))}
+          <div className="mt-8">
+            <Link
+              href="/news"
+              className="inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-3.5 font-semibold text-white transition-colors hover:bg-brand-hover"
+            >
+              View More
+              <CircleArrow tone="onRed" />
+            </Link>
           </div>
         </div>
       </section>

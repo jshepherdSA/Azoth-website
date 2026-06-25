@@ -11,17 +11,49 @@ export const metadata: Metadata = {
     "Azoth's experts cover a wide array of plastic additive manufacturing technologies — FDM, SLS, SLA, DLP, HP Multi Jet Fusion, reinforcement fibers, and more.",
 };
 
-// The original displays these as compact cards (maroon value tile + title +
-// chevron) that link into the quote flow. Source descriptions are available.
+// Each polymer technology is a card (maroon value icon + title) that flips like a
+// flashcard on hover/focus to reveal its description. Icons + copy from the source.
 const technologies = [
-  { title: "Fused Deposition Modeling (FDM) Printing", icon: "/images/reduce-inventory-costs.svg" },
-  { title: "Full-Color FDM Printing Capabilities", icon: "/images/rapid-speed-of-service-production.svg" },
-  { title: "Bound Metal Deposition (BMD) Printing", icon: "/images/prototyping-production.svg" },
-  { title: "Selective Laser Sintering (SLS)", icon: "/images/superior-level-of-quality-control.svg" },
-  { title: "High-Quality Reinforcement Fibers", icon: "/images/endless-customization-possibilities.svg" },
-  { title: "Stereolithography (SLA) Printing", icon: "/images/complete-design-freedom-flexibility.svg" },
-  { title: "Digital Light Processing (DLP) 3D Printing", icon: "/images/complete-design-freedom-flexibility.svg" },
-  { title: "HP Multi-Jet Fusion 3D Printing", icon: "/images/complete-design-freedom-flexibility.svg" },
+  {
+    title: "Fused Deposition Modeling (FDM) Printing",
+    icon: "/images/reduce-inventory-costs.svg",
+    body: "Fused deposition modeling, or FDM 3D printing, is a method of additive manufacturing where layers of material are fused together in a pattern to create an object. The material is melted just past its glass transition temperature, then extruded next to or on top of previous extrusions, building an object layer by layer.",
+  },
+  {
+    title: "Full-Color FDM Printing Capabilities",
+    icon: "/images/rapid-speed-of-service-production.svg",
+    body: "Azoth is able to manufacture precision metal parts within 7-15 days. Binder jetting is much faster than other additive technologies and does not require tooling like traditional manufacturing. This enables speed to market to outpace machining, casting, and metal-injection-molding.",
+  },
+  {
+    title: "Bound Metal Deposition (BMD) Printing",
+    icon: "/images/prototyping-production.svg",
+    body: "Bound Metal Deposition (BMD) is an extrusion-based metal additive manufacturing process where metal components are constructed by extrusion of a powder-filled thermoplastic media. The Studio System leverages BMD to deliver an office-friendly metal 3D printing solution.",
+  },
+  {
+    title: "Selective Laser Sintering (SLS)",
+    icon: "/images/superior-level-of-quality-control.svg",
+    body: "SLS (Selective Laser Sintering) is an additive manufacturing method. It creates parts by sintering fine polymer powder particles to fuse them together locally. Your plastic part is created layer by layer, according to your 3D model.",
+  },
+  {
+    title: "High-Quality Reinforcement Fibers",
+    icon: "/images/endless-customization-possibilities.svg",
+    body: "Reinforcement fibers are either natural fibers (animal, mineral, or cellulose) or synthetic fibers such as glass, carbon, polymers, and kevlar—designed to increase rigidity, strength, and the part's impact resistance.",
+  },
+  {
+    title: "Stereolithography (SLA) Printing",
+    icon: "/images/complete-design-freedom-flexibility.svg",
+    body: "Stereolithography, or SLA printing, is a form of 3D printing used to create models, prototypes, patterns, and production parts layer by layer using a photochemical process in which light causes chemical monomers and oligomers to cross-link into polymers. Those polymers then make up the body of a three-dimensional solid.",
+  },
+  {
+    title: "Digital Light Processing (DLP) 3D Printing",
+    icon: "/images/complete-design-freedom-flexibility.svg",
+    body: "A DLP 3D printer is used in an additive manufacturing process where objects are created using a digital light projector (DLP) as the light source for curing photo-reactive polymers.",
+  },
+  {
+    title: "HP Multi-Jet Fusion 3D Printing",
+    icon: "/images/complete-design-freedom-flexibility.svg",
+    body: "Unlike other 3D printing technologies, HP Multi Jet Fusion prints each layer of new material and agents on top of a previous layer that is still molten—so both layers fuse completely, delivering strong, detailed, and functional 3D-printed parts.",
+  },
 ];
 
 export default function PolymerPrintingPage() {
@@ -82,27 +114,41 @@ export default function PolymerPrintingPage() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <p className="mt-8 text-sm font-medium text-muted">
+            Hover over a card to learn more.
+          </p>
+          <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {technologies.map((tech) => (
-              <Link
+              <div
                 key={tech.title}
-                href="/quote"
-                className="group relative flex items-center gap-5 rounded-2xl border border-hairline bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                tabIndex={0}
+                className="group h-80 rounded-2xl [perspective:1200px] focus:outline-none"
               >
-                <Image src={tech.icon} alt="" width={70} height={70} className="h-14 w-14 shrink-0" />
-                <h3 className="font-bold leading-snug text-ink">{tech.title}</h3>
-                <span className="ml-auto shrink-0 text-muted transition-colors group-hover:text-brand">
-                  <svg viewBox="0 0 16 16" fill="none" className="h-5 w-5" aria-hidden>
-                    <path
-                      d="M6 4l4 4-4 4"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-              </Link>
+                <div className="relative h-full w-full rounded-2xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)]">
+                  {/* Front */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-2xl border border-hairline bg-white px-6 text-center shadow-sm [backface-visibility:hidden]">
+                    <Image src={tech.icon} alt="" width={70} height={70} className="h-16 w-16" />
+                    <h3 className="text-lg font-bold leading-snug text-ink">{tech.title}</h3>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+                      Learn More
+                      <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden>
+                        <path
+                          d="M6 4l4 4-4 4"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  {/* Back */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-br from-brand-dark to-black px-6 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                    <h3 className="text-base font-bold leading-snug">{tech.title}</h3>
+                    <p className="text-sm leading-relaxed text-white/85">{tech.body}</p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>

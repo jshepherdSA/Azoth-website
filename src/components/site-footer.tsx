@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { contactInfo } from "@/lib/nav";
+import { CircleArrow } from "./circle-arrow";
 
 const quickLinks = [
   { label: "Capabilities", href: "/capabilities" },
@@ -32,7 +33,7 @@ export function SiteFooter() {
           src="/images/chatgpt-image-may-22-2026-01_11_15-pm-2.png"
           alt=""
           fill
-          className="object-cover opacity-30"
+          className="object-cover opacity-55"
           sizes="100vw"
         />
         <div className="container-az relative flex flex-col items-center gap-6 py-20 text-center text-white">
@@ -46,9 +47,10 @@ export function SiteFooter() {
           </p>
           <Link
             href="/quote"
-            className="rounded-md bg-brand px-7 py-3 font-semibold text-white transition-colors hover:bg-brand-dark"
+            className="inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-3 font-semibold text-white transition-colors hover:bg-brand-hover"
           >
             Request A Quote
+            <CircleArrow tone="onRed" />
           </Link>
         </div>
       </section>

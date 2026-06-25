@@ -6,7 +6,7 @@ export type AccordionItem = { title: string; body: React.ReactNode };
 
 export function Accordion({
   items,
-  defaultOpen = 0,
+  defaultOpen = -1,
 }: {
   items: AccordionItem[];
   defaultOpen?: number;

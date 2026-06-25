@@ -91,7 +91,7 @@ export default function CapabilitiesPage() {
               <Link
                 key={cap.href}
                 href={cap.href}
-                className="group relative aspect-[16/10] overflow-hidden rounded-2xl bg-ink"
+                className="group relative aspect-[5/2] overflow-hidden rounded-2xl bg-ink"
               >
                 <Image
                   src={cap.image}
@@ -142,10 +142,10 @@ export default function CapabilitiesPage() {
           src="/images/production-part-banner.png"
           alt=""
           fill
-          className="-z-10 object-cover object-center opacity-40"
+          className="-z-10 object-cover object-center opacity-65"
           sizes="100vw"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black via-black/80 to-black/40" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/50 to-black/20" />
         <div className="container-az flex flex-col items-start gap-6 py-20 text-white">
           <h2 className="max-w-3xl text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
             Production parts in as fast as{" "}

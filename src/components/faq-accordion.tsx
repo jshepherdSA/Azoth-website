@@ -28,7 +28,8 @@ const faqs: Faq[] = [
 ];
 
 export function FaqAccordion() {
-  const [open, setOpen] = useState(0);
+  // All items start collapsed (-1 = none open).
+  const [open, setOpen] = useState(-1);
 
   return (
     <div className="divide-y divide-black/10 border-y border-black/10">

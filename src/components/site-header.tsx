@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { mainNav, contactInfo, type NavItem } from "@/lib/nav";
+import { CircleArrow } from "./circle-arrow";
 
 function Chevron({ className = "" }: { className?: string }) {
   return (
@@ -25,77 +26,118 @@ function LinkedInIcon({ className = "" }: { className?: string }) {
   );
 }
 
+function PhoneIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="h-5 w-5" aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5.5C3 14 10 21 18.5 21a2 2 0 0 0 2-1.7l.3-2a1.5 1.5 0 0 0-1-1.6l-2.6-.9a1.5 1.5 0 0 0-1.6.4l-.8.9a12 12 0 0 1-4.7-4.7l.9-.8a1.5 1.5 0 0 0 .4-1.6l-.9-2.6a1.5 1.5 0 0 0-1.6-1l-2 .3A2 2 0 0 0 3 5.5Z" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="h-5 w-5" aria-hidden>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  );
+}
+
+function SearchIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.8} className={`h-4 w-4 ${className}`} aria-hidden>
+      <circle cx="9" cy="9" r="6" />
+      <path strokeLinecap="round" d="m18 18-4.5-4.5" />
+    </svg>
+  );
+}
+
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Utility bar — signature black→red brand gradient */}
-      <div className="bg-grad-brand hidden text-white/80 lg:block">
-        <div className="container-az flex items-center justify-between py-2 text-sm">
-          <div className="flex items-center gap-6">
-            <a href={contactInfo.phoneHref} className="flex items-center gap-2 transition-colors hover:text-white">
-              <span className="text-brand">●</span> {contactInfo.phone}
+      {/* Top banner — black→red gradient, logo + contact (180% the bottom height) */}
+      <div className="bg-gradient-to-r from-black to-brand text-white">
+        <div className="container-az flex h-20 items-center justify-between lg:h-[130px]">
+          <Link href="/" aria-label="Azoth home">
+            <Image
+              src="/images/Azoth-Red-PNG-Logo-1-White.png"
+              alt="Azoth"
+              width={70}
+              height={70}
+              className="h-14 w-auto lg:h-16"
+              priority
+            />
+          </Link>
+
+          <div className="hidden items-center gap-8 text-lg font-bold lg:flex">
+            <a href={contactInfo.phoneHref} className="flex items-center gap-2.5 transition-opacity hover:opacity-80">
+              <PhoneIcon /> {contactInfo.phone}
             </a>
-            <a href={contactInfo.emailHref} className="transition-colors hover:text-white">
-              {contactInfo.email}
+            <a href={contactInfo.emailHref} className="flex items-center gap-2.5 transition-opacity hover:opacity-80">
+              <MailIcon /> {contactInfo.email}
             </a>
-          </div>
-          <div className="flex items-center gap-3">
-            <span>Follow Us :</span>
-            <a
-              href={contactInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-brand hover:text-white"
-            >
-              <LinkedInIcon />
-            </a>
+            <div className="flex items-center gap-3">
+              <span>Follow Us :</span>
+              <a
+                href={contactInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/15 transition-colors hover:bg-white hover:text-brand"
+              >
+                <LinkedInIcon className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Main bar */}
-      <div className="bg-ink text-white">
-        <div className="container-az flex items-center justify-between gap-6 py-4">
-          <Link href="/" className="flex items-center gap-2" aria-label="Azoth 3D home">
-            <Image
-              src="/images/Azoth-Red-PNG-Logo-1-White.png"
-              alt="Azoth 3D"
-              width={48}
-              height={49}
-              className="h-11 w-auto"
-              priority
-            />
-            <span className="text-xl font-extrabold tracking-tight">AZOTH</span>
-          </Link>
+      {/* Bottom banner — white nav (keeps current height) */}
+      <div className="border-b border-hairline bg-white">
+        <div className="container-az flex h-[72px] items-center gap-6">
+          <button
+            type="button"
+            onClick={() => setMobileOpen(true)}
+            className="text-ink xl:hidden"
+            aria-label="Open menu"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-7 w-7">
+              <path strokeLinecap="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-1 xl:flex">
+          <nav className="hidden items-center gap-0.5 xl:flex">
             {mainNav.map((item) => (
               <DesktopNavItem key={item.label} item={item} />
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="ml-auto flex items-center gap-3">
+            {/* Search bar */}
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="hidden items-center gap-2 rounded-md border border-hairline bg-surface px-3 py-2 md:flex"
+            >
+              <SearchIcon className="text-muted" />
+              <input
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                className="w-28 bg-transparent text-sm text-ink-soft outline-none placeholder:text-muted"
+              />
+            </form>
+
             <Link
               href="/quote"
-              className="hidden rounded-md bg-brand px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-dark sm:inline-block"
+              className="inline-flex items-center gap-2 rounded-md bg-brand px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-hover"
             >
               Request a Quote
+              <CircleArrow tone="onRed" />
             </Link>
-            <button
-              type="button"
-              onClick={() => setMobileOpen(true)}
-              className="xl:hidden"
-              aria-label="Open menu"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-7 w-7">
-                <path strokeLinecap="round" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
           </div>
         </div>
       </div>
@@ -164,9 +206,10 @@ export function SiteHeader() {
               <Link
                 href="/quote"
                 onClick={() => setMobileOpen(false)}
-                className="mt-5 block rounded-md bg-brand px-5 py-3 text-center font-semibold"
+                className="mt-5 flex items-center justify-center gap-2 rounded-md bg-brand px-5 py-3 font-semibold"
               >
                 Request a Quote
+                <CircleArrow tone="onRed" />
               </Link>
             </nav>
           </div>
@@ -181,7 +224,7 @@ function DesktopNavItem({ item }: { item: NavItem }) {
     return (
       <Link
         href={item.href ?? "#"}
-        className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-brand"
+        className="rounded-md px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-brand"
       >
         {item.label}
       </Link>
@@ -192,7 +235,7 @@ function DesktopNavItem({ item }: { item: NavItem }) {
     <div className="group relative">
       <button
         type="button"
-        className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors group-hover:text-brand"
+        className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-ink-soft transition-colors group-hover:text-brand"
       >
         {item.label}
         <Chevron className="transition-transform group-hover:rotate-180" />
