@@ -50,9 +50,11 @@ export function ShowcaseGrid() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
-              <span className="absolute left-4 top-4 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">
-                {item.category}
-              </span>
+              {item.category && (
+                <span className="absolute left-4 top-4 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">
+                  {item.category}
+                </span>
+              )}
             </div>
             <div className="p-5">
               <h3 className="text-lg font-bold text-ink transition-colors group-hover:text-brand">

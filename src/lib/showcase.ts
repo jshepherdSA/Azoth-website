@@ -1,15 +1,18 @@
-// Auto-generated from the WordPress showcase CPT (34 published items).
+// Generated from the WordPress showcase CPT (34 published items).
+// Categories use the original site's showcase_category taxonomy (Automotive,
+// Medical, Defense, Consumer Electronics). Items the original left untagged have
+// an empty category and appear only under the "All" tab.
 export type ShowcaseItem = { slug: string; title: string; image: string; category: string; industry: string; material: string; desc: string };
 
-export const showcaseCategories = ["All", "Automotive", "Medical", "Defense", "Consumer Electronics", "Luxury Goods", "Industrial"];
+export const showcaseCategories = ["All", "Automotive", "Medical", "Defense", "Consumer Electronics"];
 
 export const showcaseItems: ShowcaseItem[] = [
   {
     "slug": "watch-components",
     "title": "Watch Components",
     "image": "/images/untitled-design-23-1-1-scaled.png",
-    "category": "Luxury Goods",
-    "industry": "Luxury Goods",
+    "category": "",
+    "industry": "",
     "material": "316L Stainless Steel",
     "desc": "High polish finish with high precision, unique aesthetic custom textures and embosses"
   },
@@ -44,8 +47,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "physical-nft-token",
     "title": "Physical NFT Token",
     "image": "/images/cgphoto-azoth-luxury-goods-49-scaled-1.jpg",
-    "category": "Luxury Goods",
-    "industry": "Luxury Goods",
+    "category": "",
+    "industry": "",
     "material": "316L Stainless Steel",
     "desc": "High polish finish with high precision, unique aesthetic custom textures and embosses"
   },
@@ -62,8 +65,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "headrest-seat-emblem",
     "title": "Headrest seat emblem",
     "image": "/images/azoth2_0009_bezel-photo_500x500px.png",
-    "category": "Automotive",
-    "industry": "Automotive",
+    "category": "",
+    "industry": "",
     "material": "316L Stainless Steel",
     "desc": "Showing details in custom car audio system"
   },
@@ -71,8 +74,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "heat-exchanging-pieces",
     "title": "Heat Exchanging pieces",
     "image": "/images/azoth2_0004_jjj_3847_500x500px.png",
-    "category": "Industrial",
-    "industry": "Industrial",
+    "category": "",
+    "industry": "",
     "material": "Copper",
     "desc": ""
   },
@@ -98,8 +101,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "shifter-cufflink",
     "title": "Shifter Cufflink",
     "image": "/images/shifter-cuff-link.jpg",
-    "category": "Luxury Goods",
-    "industry": "Luxury Goods",
+    "category": "",
+    "industry": "",
     "material": "17-4PH Stainless Steel",
     "desc": "Cufflinks for Cadillac CT4 and CT5 Blackwing launch teams"
   },
@@ -125,8 +128,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "medical-implant-cup",
     "title": "Medical implant cup",
     "image": "/images/medical-new-1.png",
-    "category": "Medical",
-    "industry": "Medical",
+    "category": "",
+    "industry": "",
     "material": "Titanium",
     "desc": "Additive texture printed into the component"
   },
@@ -134,8 +137,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "jogged-mount",
     "title": "Jogged Mount",
     "image": "/images/medical-new-5.png",
-    "category": "Industrial",
-    "industry": "Industrial",
+    "category": "",
+    "industry": "",
     "material": "17-4PH",
     "desc": "Gear features printed without added cost"
   },
@@ -152,8 +155,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "slide-lock-device",
     "title": "Slide Lock Device",
     "image": "/images/defense-new-13.png",
-    "category": "Defense",
-    "industry": "Defense",
+    "category": "",
+    "industry": "",
     "material": "17-4PH",
     "desc": "Extended slide lock for pistol"
   },
@@ -161,8 +164,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "optics-mount-plate",
     "title": "Optics Mount Plate",
     "image": "/images/azoth2_0001_sight-optic-mount_500x500px.png",
-    "category": "Defense",
-    "industry": "Defense",
+    "category": "",
+    "industry": "",
     "material": "17-4PH",
     "desc": "Adapter plate used to mount optics to new slide"
   },
@@ -179,17 +182,17 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "baffle",
     "title": "Baffle",
     "image": "/images/defense-7.png",
-    "category": "Industrial",
-    "industry": "Industrial",
+    "category": "",
+    "industry": "",
     "material": "17-4PH Stainless Steel",
-    "desc": "MATERIAL : 17-4 PH Stainless Steel"
+    "desc": ""
   },
   {
     "slug": "robotics-mount-bracket",
     "title": "Robotics mount bracket",
     "image": "/images/defense-new-6.png",
-    "category": "Defense",
-    "industry": "Defense",
+    "category": "",
+    "industry": "",
     "material": "17-4PH",
     "desc": "Generative design and lattice used for mass reduction"
   },
@@ -197,8 +200,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "custom-lattice-watch-case",
     "title": "Custom Lattice Watch Case",
     "image": "/images/watch-1.png",
-    "category": "Luxury Goods",
-    "industry": "Luxury Goods",
+    "category": "",
+    "industry": "",
     "material": "316L Stainless Steel",
     "desc": "Only 3 machined surfaces with custom design that can't be machined traditionally"
   },
@@ -206,8 +209,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "miniature-engine-cylinder",
     "title": "Miniature Engine Cylinder",
     "image": "/images/defense-new-8.png",
-    "category": "Industrial",
-    "industry": "Industrial",
+    "category": "",
+    "industry": "",
     "material": "17-4PH Stainless Steel",
     "desc": "Hoppy RC nitro cylinder showing fine detail and tolerance control"
   },
@@ -215,8 +218,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "freeflowing-tube-design",
     "title": "Free-Flowing Tube Design",
     "image": "/images/screenshot-2026-06-01-at-11.54.04-am.png",
-    "category": "Industrial",
-    "industry": "Industrial",
+    "category": "",
+    "industry": "",
     "material": "316L Stainless Steel",
     "desc": "Zero internal support needed. Printed from a single piece"
   },
@@ -224,8 +227,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "cantilever-mounting-bracket",
     "title": "Cantilever Mounting Bracket",
     "image": "/images/cgphoto-azoth-aerospace-7-1.jpg",
-    "category": "Industrial",
-    "industry": "Industrial",
+    "category": "",
+    "industry": "",
     "material": "17-4PH Stainless Steel",
     "desc": "Custom part holding"
   },
@@ -233,17 +236,17 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "sectioned-filter",
     "title": "Sectioned Filter",
     "image": "/images/sectioned-filter-scaled.jpg",
-    "category": "Industrial",
-    "industry": "Industrial",
+    "category": "",
+    "industry": "",
     "material": "316L Stainless Steel",
-    "desc": "Material filter\n\nINDUSTRY : Industrial\n\nMATERIAL : 316-L Stainless Steel"
+    "desc": "Material filter"
   },
   {
     "slug": "liquid-swirler",
     "title": "Liquid Swirler",
     "image": "/images/cgphoto-azoth-aerospace-35-1.jpg",
-    "category": "Defense",
-    "industry": "Defense",
+    "category": "",
+    "industry": "",
     "material": "316L Stainless Steel",
     "desc": ""
   },
@@ -251,8 +254,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "custom-swirl-watch-case",
     "title": "Custom \"Swirl\" Watch Case",
     "image": "/images/watch-6.png",
-    "category": "Luxury Goods",
-    "industry": "Luxury Goods",
+    "category": "",
+    "industry": "",
     "material": "316L Stainless Steel",
     "desc": "Only 3 machined surfaces with custom design that can't be machined traditionally"
   },
@@ -278,8 +281,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "jewelry-charm",
     "title": "Jewelry Charm",
     "image": "/images/cgphoto-azoth-luxury-goods-14-1.jpg",
-    "category": "Luxury Goods",
-    "industry": "Luxury Goods",
+    "category": "",
+    "industry": "",
     "material": "316L Stainless Steel",
     "desc": "Custom pieces"
   },
@@ -287,8 +290,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "flordal-watch-band",
     "title": "Floral Watch Band",
     "image": "/images/watch-5.png",
-    "category": "Luxury Goods",
-    "industry": "Luxury Goods",
+    "category": "",
+    "industry": "",
     "material": "316L Stainless Steel",
     "desc": "Single printed piece"
   },
@@ -296,8 +299,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "jewelry-charm-2",
     "title": "Jewelry Charm",
     "image": "/images/cgphoto-azoth-luxury-goods-26-1.jpg",
-    "category": "Luxury Goods",
-    "industry": "Luxury Goods",
+    "category": "",
+    "industry": "",
     "material": "316L Stainless Steel",
     "desc": "Custom pieces"
   },
@@ -305,8 +308,8 @@ export const showcaseItems: ShowcaseItem[] = [
     "slug": "jewelry-charm-3",
     "title": "Jewelry Charm",
     "image": "/images/cgphoto-azoth-luxury-goods-2-1.jpg",
-    "category": "Luxury Goods",
-    "industry": "Luxury Goods",
+    "category": "",
+    "industry": "",
     "material": "316L Stainless Steel",
     "desc": "Custom pieces"
   }

@@ -94,9 +94,11 @@ export default async function ShowcaseItemPage({ params }: { params: Promise<Par
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <span className="absolute left-5 top-5 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">
-              {item.category}
-            </span>
+            {item.category && (
+              <span className="absolute left-5 top-5 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">
+                {item.category}
+              </span>
+            )}
           </div>
 
           {/* Details */}
@@ -166,9 +168,11 @@ export default async function ShowcaseItemPage({ params }: { params: Promise<Par
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, 25vw"
                     />
-                    <span className="absolute left-3 top-3 rounded-full bg-brand px-2.5 py-1 text-[11px] font-semibold text-white">
-                      {rel.category}
-                    </span>
+                    {rel.category && (
+                      <span className="absolute left-3 top-3 rounded-full bg-brand px-2.5 py-1 text-[11px] font-semibold text-white">
+                        {rel.category}
+                      </span>
+                    )}
                   </div>
                   <div className="p-4">
                     <h3 className="font-bold leading-snug text-ink transition-colors group-hover:text-brand">

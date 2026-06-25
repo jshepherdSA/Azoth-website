@@ -6,7 +6,7 @@ import { ShowcaseGrid } from "@/components/showcase-grid";
 export const metadata: Metadata = {
   title: "Azoth Showcase",
   description:
-    "A showcase of production parts Azoth has manufactured across automotive, medical, defense, luxury goods, and industrial applications using metal additive manufacturing.",
+    "A showcase of production parts Azoth has manufactured across automotive, medical, defense, and consumer electronics applications using metal additive manufacturing.",
 };
 
 export default function ShowcasePage() {
@@ -26,7 +26,7 @@ export default function ShowcasePage() {
             </h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
               A sampling of the small, complex, end-use components Azoth produces—filter by industry
-              to explore parts in automotive, medical, defense, luxury goods, and more.
+              to explore parts in automotive, medical, defense, and consumer electronics.
             </p>
           </div>
 
