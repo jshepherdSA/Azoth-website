@@ -50,7 +50,14 @@ export const mainNav: NavItem[] = [
       { label: "Careers", href: "/about/careers" },
     ],
   },
-  { label: "Contact Us", href: "/contact" },
+  {
+    label: "Contact Us",
+    children: [
+      { label: "Contact", href: "/contact" },
+      { label: "Careers", href: "/about/careers" },
+      { label: "Request a Quote", href: "/quote" },
+    ],
+  },
 ];
 
 export const contactInfo = {

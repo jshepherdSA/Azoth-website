@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
-import { JotformContact } from "@/components/jotform-contact";
+import { JotformEmbed } from "@/components/jotform-embed";
 import { contactInfo } from "@/lib/nav";
 
 export const metadata: Metadata = {
@@ -66,7 +66,7 @@ export default function ContactPage() {
             </p>
           </div>
           <div className="mt-10">
-            <JotformContact />
+            <JotformEmbed formId="261764600000039" title="Contact Azoth" />
           </div>
         </div>
       </section>
