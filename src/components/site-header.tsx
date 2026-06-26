@@ -67,7 +67,7 @@ export function SiteHeader() {
               alt="Azoth"
               width={70}
               height={70}
-              className="h-14 w-auto lg:h-16"
+              className="h-16 w-auto lg:h-20"
               priority
             />
           </Link>
@@ -224,7 +224,7 @@ function DesktopNavItem({ item }: { item: NavItem }) {
     return (
       <Link
         href={item.href ?? "#"}
-        className="rounded-md px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-brand"
+        className="rounded-md px-3 py-2 text-base font-medium text-ink-soft transition-colors hover:text-brand"
       >
         {item.label}
       </Link>
@@ -235,7 +235,7 @@ function DesktopNavItem({ item }: { item: NavItem }) {
     <div className="group relative">
       <button
         type="button"
-        className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-ink-soft transition-colors group-hover:text-brand"
+        className="flex items-center gap-1 rounded-md px-3 py-2 text-base font-medium text-ink-soft transition-colors group-hover:text-brand"
       >
         {item.label}
         <Chevron className="transition-transform group-hover:rotate-180" />

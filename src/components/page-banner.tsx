@@ -11,15 +11,20 @@ export function PageBanner({
   breadcrumbs: Crumb[];
 }) {
   return (
-    <section className="relative isolate overflow-hidden bg-ink">
-      <Image
-        src="/images/breadcrumb-banner-new.png"
-        alt=""
-        fill
-        priority
-        className="-z-10 object-cover object-center opacity-70"
-        sizes="100vw"
-      />
+    <section className="relative isolate overflow-hidden bg-white">
+      {/* Banner image — shown at full height (never cropped top/bottom), centered.
+          When the viewport is wider than the image, white shows on the sides. */}
+      <div className="absolute inset-0 -z-10 flex justify-center">
+        <Image
+          src="/images/breadcrumb-banner-new.png"
+          alt=""
+          width={1440}
+          height={300}
+          priority
+          className="h-full w-auto max-w-none opacity-70"
+        />
+      </div>
+      {/* Dark overlay spans the full width so the white sides are tinted consistently. */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/80 via-ink/45 to-ink/20" />
       <div className="container-az py-16 sm:py-20">
         <h1 className="text-4xl font-extrabold text-white sm:text-5xl">{title}</h1>

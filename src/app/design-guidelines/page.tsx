@@ -156,6 +156,18 @@ const sections = [
   },
 ];
 
+// Natural dimensions of each diagram (wide, not square) so they render undistorted.
+const imgDims: Record<string, { w: number; h: number }> = {
+  "/images/dg1.png": { w: 860, h: 183 },
+  "/images/dg3.png": { w: 900, h: 130 },
+  "/images/dg4.png": { w: 450, h: 208 },
+  "/images/dg5.png": { w: 450, h: 208 },
+  "/images/dg6.png": { w: 450, h: 208 },
+  "/images/dg7.png": { w: 450, h: 208 },
+  "/images/dg8.png": { w: 450, h: 208 },
+  "/images/dg9.png": { w: 450, h: 208 },
+};
+
 export default function DesignGuidelinesPage() {
   return (
     <>
@@ -166,18 +178,7 @@ export default function DesignGuidelinesPage() {
 
       <section className="bg-white py-20">
         <div className="container-az">
-          {/* Coming soon callout */}
-          <div className="rounded-2xl border border-hairline bg-surface p-6 text-center sm:p-8">
-            <h2 className="text-xl font-extrabold text-ink sm:text-2xl">
-              Coming Soon — Our Comprehensive Guide
-            </h2>
-            <p className="mt-2 text-muted-soft">
-              A preview of Azoth&apos;s design-for-additive-manufacturing guidelines. Use the basics
-              below to prepare your parts for production.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-12 lg:grid-cols-[220px_1fr]">
+          <div className="grid gap-12 lg:grid-cols-[220px_1fr]">
             {/* TOC */}
             <aside className="lg:sticky lg:top-28 lg:self-start">
               <p className="text-sm font-semibold uppercase tracking-wider text-brand">On this page</p>
@@ -200,28 +201,28 @@ export default function DesignGuidelinesPage() {
 
             {/* Sections */}
             <div className="space-y-16">
-              {sections.map((section, i) => (
-                <article key={section.id} id={section.id} className="scroll-mt-28">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-bold text-white">
-                      {i + 1}
-                    </span>
-                    <h3 className="text-2xl font-extrabold text-ink">{section.title}</h3>
-                  </div>
-                  <div className="mt-6 grid items-start gap-8 md:grid-cols-[1fr_300px]">
-                    <div className="leading-relaxed text-muted-soft">{section.body}</div>
-                    <div className="relative aspect-square overflow-hidden rounded-2xl bg-surface ring-1 ring-hairline">
-                      <Image
-                        src={section.image}
-                        alt={`${section.title} diagram`}
-                        fill
-                        className="object-contain p-4"
-                        sizes="300px"
-                      />
+              {sections.map((section, i) => {
+                const dim = imgDims[section.image] ?? { w: 900, h: 320 };
+                return (
+                  <article key={section.id} id={section.id} className="scroll-mt-28">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-bold text-white">
+                        {i + 1}
+                      </span>
+                      <h3 className="text-2xl font-extrabold text-ink">{section.title}</h3>
                     </div>
-                  </div>
-                </article>
-              ))}
+                    <div className="mt-6 leading-relaxed text-muted-soft">{section.body}</div>
+                    <Image
+                      src={section.image}
+                      alt={`${section.title} diagram`}
+                      width={dim.w}
+                      height={dim.h}
+                      className="mt-8 h-auto w-full max-w-2xl"
+                      sizes="(max-width: 768px) 100vw, 672px"
+                    />
+                  </article>
+                );
+              })}
 
               {/* CTA */}
               <div className="rounded-2xl bg-ink p-8 text-center text-white sm:p-10">

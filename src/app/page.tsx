@@ -5,6 +5,7 @@ import { CertificationsCarousel } from "@/components/certifications-carousel";
 import { IndustriesSection } from "@/components/industries-section";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { CircleArrow } from "@/components/circle-arrow";
+import { NewsList } from "@/components/news-feed";
 
 const capabilities = [
   { label: "Binder Jetting", icon: "/images/binder-jetting-icon.svg", href: "/capabilities/binder-jetting" },
@@ -12,14 +13,6 @@ const capabilities = [
   { label: "Polymer Printing", icon: "/images/polymer-printing-icon.svg", href: "/capabilities/polymer-printing" },
   { label: "Finishing", icon: "/images/post-processing-icon.svg", href: "/capabilities/post-processing" },
 ];
-
-function LinkedInIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7" aria-hidden>
-      <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-.95 1.83-1.95 3.77-1.95C20.6 8.69 22 10.5 22 14v7h-4v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9V9Z" />
-    </svg>
-  );
-}
 
 export default function Home() {
   return (
@@ -129,14 +122,8 @@ export default function Home() {
           <Eyebrow>AZOTH Production Additive Manufacturing</Eyebrow>
           <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">News &amp; Updates</h2>
 
-          <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center rounded-2xl border border-hairline bg-surface px-6 py-16">
-            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[#0A66C2] text-white">
-              <LinkedInIcon />
-            </span>
-            <p className="mt-5 text-xl font-bold text-ink">LinkedIn feed coming soon</p>
-            <p className="mt-2 text-muted-soft">
-              Our latest news, announcements, and updates from LinkedIn will appear here.
-            </p>
+          <div className="mt-10">
+            <NewsList limit={3} />
           </div>
 
           <div className="mt-8">

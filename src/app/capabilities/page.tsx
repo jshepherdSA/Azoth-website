@@ -16,25 +16,25 @@ const capabilities = [
   {
     title: "Binder Jetting",
     href: "/capabilities/binder-jetting",
-    image: "/images/binder-jetting.jpg",
+    image: "/images/binder-jetting-industrial-automation-machining-close-up.png",
     blurb: "High-throughput metal AM for small, complex, production-volume parts.",
   },
   {
     title: "Lithography Metal Manufacturing",
     href: "/capabilities/lithography-metal-manufacturing",
-    image: "/images/llm-slide-one.png",
+    image: "/images/holding-chip-incus.png",
     blurb: "Ultra-fine feature detail and surface finish in dense metal components.",
   },
   {
     title: "Polymer Printing",
     href: "/capabilities/polymer-printing",
-    image: "/images/azoth-air-nozzle.jpg",
+    image: "/images/azoth-part-nest-fixture-1024x677-new.png",
     blurb: "5 of 7 core polymer technologies in-house, prototyping to production.",
   },
   {
     title: "Finishing",
     href: "/capabilities/post-processing",
-    image: "/images/post-processing-main-picture-v2-min.jpg",
+    image: "/images/post-processing.png",
     blurb: "In-house post-processing for production-ready surface and tolerance.",
   },
 ];

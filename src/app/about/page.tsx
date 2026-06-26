@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
-import { Certifications } from "@/components/certifications";
+import { CertificationsCarousel } from "@/components/certifications-carousel";
 import { IndustriesSection } from "@/components/industries-section";
 
 export const metadata: Metadata = {
@@ -14,25 +14,18 @@ export const metadata: Metadata = {
 const story = [
   {
     heading: "Our Mission",
-    body: "Azoth exists to eliminate downtime and inventory waste by producing production-quality parts on demand. Using advanced metal additive manufacturing and digital inventory solutions, we enable manufacturers to access the right parts exactly when and where they need them.",
+    body: "Advance critical industries and strengthen national security by delivering small, complex, mission-critical metal components at production scale—leveraging advanced additive manufacturing to enable resilient, on-demand supply chains across defense, medical, and consumer electronics.",
   },
   {
     heading: "Our Story",
     body: "Founded in 2018, Azoth was created to transform supply chains with speed, flexibility, and precision. By combining cutting-edge metal additive manufacturing, high-end finishing, and program management, we help manufacturers shift from costly inventory systems to agile, digital ones. Our solutions empower companies to adopt a just-in-time production model, reducing waste, lowering costs, and minimizing downtime. With a focus on innovation and quality, Azoth bridges the gap between traditional manufacturing and the digital future. We don't just deliver parts—we deliver transformation.",
   },
-  {
-    heading: "Our Vision",
-    body: "Advance critical industries and strengthen national security by delivering small, complex, mission-critical metal components at production scale—leveraging advanced additive manufacturing to enable resilient, on-demand supply chains across defense, medical, and consumer electronics.",
-  },
 ];
 
-// NOTE: the source Bricks "counter" widgets were disabled globally on the live
-// site, so real figures were never in the export. "2018" is verified from the
-// company story; the other three are placeholders pending real numbers.
 const stats = [
   { value: "2018", label: "Founded" },
-  { value: "15+", label: "Customers Served" },
-  { value: "50+", label: "Parts Shipped" },
+  { value: "500+", label: "Customers Served" },
+  { value: "20M+", label: "Parts Shipped" },
   { value: "5 Days", label: "Fastest Lead Time" },
 ];
 
@@ -41,17 +34,6 @@ const team = [
   { name: "Cody Cochran", title: "General Manager & Co-Founder", image: "/images/cody-cochran.png" },
   { name: "Jay Mullick", title: "Chairman", image: "/images/jay-mullick.png" },
 ];
-
-const teamContactHref = "mailto:info@azoth3d.com?subject=Hello!";
-
-function MailIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4" aria-hidden>
-      <rect x="3" y="5" width="18" height="14" rx="2" />
-      <path d="m3 7 9 6 9-6" />
-    </svg>
-  );
-}
 
 export default function AboutPage() {
   return (
@@ -131,18 +113,9 @@ export default function AboutPage() {
                     sizes="(max-width: 640px) 100vw, 33vw"
                   />
                 </div>
-                <div className="flex items-center justify-between gap-3 p-5">
-                  <div>
-                    <h3 className="font-bold text-ink">{member.name}</h3>
-                    <p className="text-sm text-muted">{member.title}</p>
-                  </div>
-                  <a
-                    href={teamContactHref}
-                    aria-label={`Email ${member.name}`}
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-surface text-ink transition-colors hover:bg-brand hover:text-white"
-                  >
-                    <MailIcon />
-                  </a>
+                <div className="p-5">
+                  <h3 className="font-bold text-ink">{member.name}</h3>
+                  <p className="text-sm text-muted">{member.title}</p>
                 </div>
               </div>
             ))}
@@ -150,7 +123,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Certifications />
+      <CertificationsCarousel />
 
       <IndustriesSection />
     </>

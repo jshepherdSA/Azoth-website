@@ -99,14 +99,7 @@ export default function ContactPage() {
       <section className="bg-white py-20">
         <div className="container-az">
           <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Made In The USA</Eyebrow>
-            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-              Shipping Production Parts Nationwide
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted-soft">
-              From our facility in Ann Arbor, Michigan, Azoth delivers production parts to customers
-              across the country.
-            </p>
+            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Made in the USA</h2>
           </div>
           <div className="relative mx-auto mt-10 aspect-[4/3] max-w-4xl">
             <Image

@@ -38,7 +38,7 @@ export const mainNav: NavItem[] = [
       { label: "TOMO®", href: "/tomo" },
       { label: "FAQs", href: "/faqs" },
       { label: "Blogs", href: "/azoth-blog" },
-      { label: "Design Guideline", href: "/design-guidelines" },
+      { label: "Design Guidelines", href: "/design-guidelines" },
       { label: "White Papers", href: "/white-paper" },
     ],
   },
