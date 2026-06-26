@@ -67,7 +67,7 @@ export function IndustryTabs() {
             key={industry.key}
             type="button"
             onClick={() => setActive(industry.key)}
-            className={`-mb-px border-b-2 px-5 py-3 text-sm font-semibold capitalize transition-colors ${
+            className={`-mb-px border-b-2 px-6 py-4 text-lg font-semibold capitalize transition-colors sm:text-xl ${
               active === industry.key
                 ? "border-brand text-brand"
                 : "border-transparent text-muted hover:text-ink-soft"
@@ -81,7 +81,7 @@ export function IndustryTabs() {
       {/* Panel — image shown in full; the text box flexes to fit */}
       <div className="mt-10 flex flex-col items-start gap-10 lg:flex-row lg:items-center">
         <div className="lg:flex-1">
-          <h3 className="text-2xl font-bold capitalize text-ink">{current.label}</h3>
+          <h3 className="text-3xl font-extrabold capitalize text-ink sm:text-4xl">{current.label}</h3>
           <p className="mt-4 leading-relaxed text-muted-soft">{current.body}</p>
           <Link
             href={current.href}
@@ -98,8 +98,8 @@ export function IndustryTabs() {
             alt={current.label}
             width={current.width}
             height={current.height}
-            className="mx-auto h-auto max-h-[340px] w-auto max-w-full rounded-2xl shadow-sm lg:max-w-[460px]"
-            sizes="(max-width: 1024px) 100vw, 460px"
+            className="mx-auto h-auto max-h-[460px] w-auto max-w-full rounded-2xl shadow-sm lg:max-w-[580px]"
+            sizes="(max-width: 1024px) 100vw, 580px"
           />
         </div>
       </div>

@@ -37,7 +37,9 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/85 via-ink/50 to-ink/15" />
         <div className="container-az flex min-h-[560px] flex-col justify-center py-24">
           <div className="max-w-2xl">
-            <Eyebrow>Production Additive Manufacturing</Eyebrow>
+            <span className="text-base font-bold uppercase tracking-wider text-brand">
+              Production Additive Manufacturing
+            </span>
             <h1 className="mt-4 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
               Scalable. Precise. Production-Ready.
             </h1>

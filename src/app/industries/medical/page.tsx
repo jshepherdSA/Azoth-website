@@ -58,13 +58,6 @@ const specsLeft: Spec[] = [
   { title: "Materials", items: ["Ti64", "316L Stainless", "17-4PH Stainless"] },
   { title: "Performance", items: ["7–15 day lead times", "+/- 0.5% or .005″ tolerances", "2–4 µm Ra surface finish"] },
 ];
-const specsRight: Spec[] = [
-  {
-    title: "Post-Processing & Finishing",
-    items: ["Coatings", "Heat Treatment", "Machining (3 & 5-axis, EDM)", "Electropolishing", "Tumbling"],
-  },
-  { title: "Engineering Support", items: ["DfAM", "PPAP", "In-house metallurgy", "Advanced inspection systems"] },
-];
 
 /** Renders copy with **bold** phrases as emphasized spans. */
 function Rich({ text }: { text: string }) {
@@ -273,25 +266,6 @@ export default function MedicalPage() {
               <SpecBlock key={s.title} spec={s} />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Specs — Post-Processing & Finishing / Engineering Support */}
-      <section className="bg-white py-20">
-        <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <div className="space-y-10 lg:order-2">
-            {specsRight.map((s) => (
-              <SpecBlock key={s.title} spec={s} />
-            ))}
-          </div>
-          <Image
-            src="/images/ppap-scaled.png"
-            alt="Finished, inspected production medical components"
-            width={2560}
-            height={2304}
-            className="h-auto w-full lg:order-1"
-            sizes="(max-width:1024px) 100vw, 50vw"
-          />
         </div>
       </section>
     </>

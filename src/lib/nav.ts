@@ -36,7 +36,6 @@ export const mainNav: NavItem[] = [
     children: [
       { label: "Materials", href: "/materials" },
       { label: "TOMO®", href: "/tomo" },
-      { label: "Video Library", href: "/video" },
       { label: "FAQs", href: "/faqs" },
       { label: "Blogs", href: "/azoth-blog" },
       { label: "Design Guideline", href: "/design-guidelines" },

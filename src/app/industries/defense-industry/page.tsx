@@ -67,27 +67,6 @@ const specsLeft: Spec[] = [
     ],
   },
 ];
-const specsRight: Spec[] = [
-  {
-    title: "Post-Processing & Finishing",
-    items: [
-      "Coatings (Cerakote, PVD, plating)",
-      "Heat Treatment (HIP, H900, full MAR schedules)",
-      "CNC Machining (3 & 5-axis, EDM)",
-      "Electropolishing",
-      "Tumbling",
-    ],
-  },
-  {
-    title: "Engineering & Qualification",
-    items: [
-      "Design for Additive Manufacturing (DfAM)",
-      "PPAP and process qualification",
-      "In-house metallurgy expertise",
-      "Advanced inspection and validation systems",
-    ],
-  },
-];
 
 /** Renders copy with **bold** phrases as emphasized spans. */
 function Rich({ text }: { text: string }) {
@@ -202,7 +181,7 @@ export default function DefensePage() {
             <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
               Key Capabilities for Defense Manufacturing
             </h2>
-            <ul className="mt-8 space-y-4">
+            <ul className="mt-8 space-y-6">
               {capabilities.map((c) => (
                 <li key={c} className="flex gap-3 leading-relaxed text-muted-soft">
                   <TriBullet />
@@ -237,7 +216,7 @@ export default function DefensePage() {
           />
           <div className="lg:order-2">
             <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Applications in Defense</h2>
-            <ul className="mt-8 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+            <ul className="mt-8 grid gap-x-8 gap-y-4 sm:grid-cols-2">
               {applications.map((a) => (
                 <li key={a} className="flex gap-3 leading-relaxed text-muted-soft">
                   <TriBullet />
@@ -260,7 +239,7 @@ export default function DefensePage() {
               Azoth supports precision manufacturing for consumer defense applications, delivering
               high-performance firearm components with advanced customization.
             </p>
-            <ul className="mt-6 space-y-3">
+            <ul className="mt-6 space-y-4">
               {consumerItems.map((c) => (
                 <li key={c} className="flex gap-3 leading-relaxed text-muted-soft">
                   <TriBullet />
@@ -299,25 +278,6 @@ export default function DefensePage() {
               <SpecBlock key={s.title} spec={s} />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Specs — Post-Processing & Finishing / Engineering & Qualification */}
-      <section className="bg-white py-20">
-        <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <div className="space-y-10 lg:order-2">
-            {specsRight.map((s) => (
-              <SpecBlock key={s.title} spec={s} />
-            ))}
-          </div>
-          <Image
-            src="/images/ppap-scaled.png"
-            alt="Finished, inspected production defense components"
-            width={2560}
-            height={2304}
-            className="h-auto w-full lg:order-1"
-            sizes="(max-width:1024px) 100vw, 50vw"
-          />
         </div>
       </section>
     </>

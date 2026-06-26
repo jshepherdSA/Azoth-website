@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
 import { CertificationsCarousel } from "@/components/certifications-carousel";
 import { Accordion, type AccordionItem } from "@/components/accordion";
@@ -73,13 +72,15 @@ export default function QualityPage() {
             />
           </div>
           <div>
-            <Eyebrow>Certified Quality</Eyebrow>
-            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">Quality</h2>
+            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Quality</h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
               Azoth provides production-capable additive (3D) manufacturing that adheres to the
-              strictest quality standards in each of the industries it serves. Azoth is ISO 9001 &amp;
-              ISO 13485:2015 certified, and manufactured parts are accompanied by a certificate of
-              inspection verifying that parts have been produced based upon expectations.
+              strictest quality standards in each of the industries it serves.{" "}
+              <span className="font-bold text-brand">
+                Azoth is ISO 9001 &amp; ISO 13485:2015 certified
+              </span>
+              , and manufactured parts are accompanied by a certificate of inspection verifying that
+              parts have been produced based upon expectations.
             </p>
           </div>
         </div>

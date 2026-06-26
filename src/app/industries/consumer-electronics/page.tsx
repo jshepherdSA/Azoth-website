@@ -54,12 +54,36 @@ const cnc = [
 ];
 
 const applications = [
-  { title: "Rapid Prototyping & Design Iteration", icon: "/images/reduce-inventory-costs.svg" },
-  { title: "Enclosures, Housings & Structural Components", icon: "/images/rapid-speed-of-service-production.svg" },
-  { title: "Precision Components for Consumer Devices", icon: "/images/prototyping-production.svg" },
-  { title: "Thermal Components & Heat Management", icon: "/images/zero-inventory-obsolescence.svg" },
-  { title: "Jigs, Fixtures & Manufacturing Tooling", icon: "/images/superior-level-of-quality-control.svg" },
-  { title: "Bridge & Low-Volume Production", icon: "/images/world-class-3d-manufacturing-experts.svg" },
+  {
+    title: "Rapid Prototyping & Design Iteration",
+    icon: "/images/reduce-inventory-costs.svg",
+    body: "Move from concept to functional metal part in days—iterating designs without tooling so you can validate and refine ahead of production.",
+  },
+  {
+    title: "Enclosures, Housings & Structural Components",
+    icon: "/images/rapid-speed-of-service-production.svg",
+    body: "Complex, lightweight housings and structural parts with integrated features, consolidating assemblies into single durable printed components.",
+  },
+  {
+    title: "Precision Components for Consumer Devices",
+    icon: "/images/prototyping-production.svg",
+    body: "Small, intricate metal parts with fine features and tight tolerances for wearables, mobile hardware, and connected devices.",
+  },
+  {
+    title: "Thermal Components & Heat Management",
+    icon: "/images/zero-inventory-obsolescence.svg",
+    body: "Integrated heat sinks, thermal spreaders, and conformal cooling channels that optimize heat dissipation in compact form factors.",
+  },
+  {
+    title: "Jigs, Fixtures & Manufacturing Tooling",
+    icon: "/images/superior-level-of-quality-control.svg",
+    body: "Custom production aids, jigs, and fixtures produced on demand to support assembly, inspection, and manufacturing lines.",
+  },
+  {
+    title: "Bridge & Low-Volume Production",
+    icon: "/images/world-class-3d-manufacturing-experts.svg",
+    body: "Cost-effective bridge and low-volume runs that span the gap between prototype and full-scale production—no hard tooling required.",
+  },
 ];
 
 /** Renders copy with **bold** phrases as emphasized spans. */
@@ -210,25 +234,40 @@ export default function ConsumerElectronicsPage() {
               Azoth delivers across the full product development and production lifecycle:
             </p>
           </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <p className="mt-2 text-center text-sm font-medium text-muted">
+            Hover over a card to learn more.
+          </p>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {applications.map((app) => (
               <div
                 key={app.title}
-                className="group relative flex flex-col items-center gap-5 rounded-2xl border border-hairline bg-white px-8 py-10 text-center shadow-sm transition-shadow hover:shadow-md"
+                tabIndex={0}
+                className="group h-60 rounded-2xl [perspective:1200px] focus:outline-none"
               >
-                <Image src={app.icon} alt="" width={70} height={70} className="h-14 w-14" />
-                <h3 className="text-sm font-bold uppercase tracking-wide text-ink">{app.title}</h3>
-                <span className="absolute right-5 top-1/2 -translate-y-1/2 text-muted transition-colors group-hover:text-brand">
-                  <svg viewBox="0 0 16 16" fill="none" className="h-5 w-5" aria-hidden>
-                    <path
-                      d="M6 4l4 4-4 4"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
+                <div className="relative h-full w-full rounded-2xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)]">
+                  {/* Front */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-2xl border border-hairline bg-white px-6 text-center shadow-sm [backface-visibility:hidden]">
+                    <Image src={app.icon} alt="" width={70} height={70} className="h-14 w-14" />
+                    <h3 className="text-sm font-bold uppercase tracking-wide text-ink">{app.title}</h3>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+                      Learn More
+                      <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden>
+                        <path
+                          d="M6 4l4 4-4 4"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  {/* Back */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-br from-brand-dark to-black px-6 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                    <h3 className="text-sm font-bold uppercase tracking-wide">{app.title}</h3>
+                    <p className="text-sm leading-relaxed text-white/85">{app.body}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

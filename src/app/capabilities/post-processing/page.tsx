@@ -39,7 +39,7 @@ const services: Service[] = [
       <>
         <p className="mt-4 leading-relaxed text-muted-soft">Heat treatments include:</p>
         <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-          {["H800", "H900", "H1075", "H1150", "Many more, alloy-dependent"].map((h) => (
+          {["H900", "H1075", "H1150", "Many more, alloy-dependent"].map((h) => (
             <li key={h} className="flex items-center gap-2 font-medium text-ink-soft">
               <span className="h-2 w-2 rounded-full bg-brand" />
               {h}
@@ -78,8 +78,6 @@ const services: Service[] = [
     ),
   },
 ];
-
-const polishingChips = ["REM Isotropic Finishing", "Vibratory Finishing", "Hand Finishing"];
 
 export default function FinishingPage() {
   return (
@@ -147,33 +145,6 @@ export default function FinishingPage() {
           </div>
         </section>
       ))}
-
-      {/* Polishing */}
-      <section className="bg-white py-20">
-        <div className="container-az">
-          <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow>Polishing</Eyebrow>
-            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-              Quality & Specification, Every Time
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted-soft">
-              Azoth utilizes the latest in metal finishing technology to ensure our customers get
-              their desired parts to quality and specifications. Polishing capabilities include REM
-              Isotropic finishing, vibratory finishing, and hand finishing if and when needed.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              {polishingChips.map((chip) => (
-                <span
-                  key={chip}
-                  className="rounded-full border border-hairline bg-surface px-5 py-2 text-sm font-semibold text-ink-soft"
-                >
-                  {chip}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

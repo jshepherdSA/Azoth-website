@@ -133,12 +133,15 @@ export default function BinderJettingPage() {
           </div>
         </div>
         <div className="container-az mt-12">
-          <p className="max-w-4xl leading-relaxed text-muted-soft">
+          <p className="leading-relaxed text-muted-soft">
             Binder jetting is the ideal metal 3D printing process for manufacturing very detailed,
             small, complex metal components. Binder jetting utilizes a binding agent which is
             selectively deposited in the shape of the part at each layer of printing. The parts then
             undergo an operation called sintering which creates a fully dense metal component ready
-            for its end-use application or further post-processing.
+            for its end-use application or further post-processing. Azoth&apos;s production binder
+            jetting platform delivers repeatable, high-volume output with the design freedom of
+            additive manufacturing—skipping the tooling costs and long lead times of traditional
+            processes while holding tight tolerances and superior surface quality across every part.
           </p>
         </div>
       </section>

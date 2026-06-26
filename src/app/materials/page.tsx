@@ -71,9 +71,7 @@ export default function MaterialsPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <Eyebrow>Metals</Eyebrow>
-              <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-                Traditional & Experimental Metals
-              </h2>
+              <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">Metals</h2>
               <p className="mt-4 leading-relaxed text-muted-soft">
                 Azoth has the ability to work with many traditional and experimental materials used
                 in the manufacturing of small, complex parts. Our team of metallurgical experts has

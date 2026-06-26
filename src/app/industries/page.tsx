@@ -12,12 +12,9 @@ export const metadata: Metadata = {
     "Azoth's on-demand additive manufacturing serves automotive, medical, defense, and consumer electronics — small, complex, high-quality parts produced without high inventory.",
 };
 
-// NOTE: the source intro had two "counter" stat cards (Parts Shipped, Clients
-// Served) whose Bricks counter widget was disabled, so no real values exist in
-// the export. These are placeholders — replace with real figures.
 const stats = [
-  { value: "50+", label: "Parts Shipped" },
-  { value: "15+", label: "Clients Served" },
+  { value: "20M+", label: "Parts Shipped" },
+  { value: "500+", label: "Clients Served" },
 ];
 
 const collage = [
@@ -33,8 +30,6 @@ const capabilities = [
   { label: "Polymer Printing", image: "/images/polymer-printing.png", href: "/capabilities/polymer-printing" },
   { label: "Finishing", image: "/images/past-processing.png", href: "/capabilities/post-processing" },
   { label: "Quality", image: "/images/azoth-quality.png", href: "/capabilities/quality" },
-  { label: "Nano-Particle Jetting", image: "/images/nano-particle-jetting.png", href: "/capabilities" },
-  { label: "Azoth Engineering", image: "/images/azoth-engineering.png", href: "/capabilities" },
 ];
 
 export default function IndustriesPage() {
