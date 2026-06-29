@@ -23,7 +23,7 @@ const slides: Slide[] = [
 
 function Cell({ img, className = "" }: { img: Img; className?: string }) {
   return (
-    <div className={`relative overflow-hidden rounded-2xl bg-surface ring-1 ring-hairline ${className}`}>
+    <div className={`relative overflow-hidden rounded-2xl bg-white ring-1 ring-hairline ${className}`}>
       <Image src={img.src} alt={img.alt} fill className="object-contain p-4" sizes="(max-width:640px) 100vw, 33vw" />
     </div>
   );

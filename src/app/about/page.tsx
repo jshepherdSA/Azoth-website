@@ -43,7 +43,7 @@ export default function AboutPage() {
       {/* Mission / Story / Vision */}
       <section className="bg-white py-20">
         <div className="container-az grid items-start gap-12 lg:grid-cols-2">
-          <div className="relative aspect-[5/6] overflow-hidden rounded-2xl bg-surface lg:sticky lg:top-28">
+          <div className="relative aspect-[5/6] overflow-hidden rounded-2xl bg-surface ring-1 ring-hairline lg:sticky lg:top-28">
             <Image
               src="/images/our-mission-story-scaled.png"
               alt="Azoth additive manufacturing components and facility"

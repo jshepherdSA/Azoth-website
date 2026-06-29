@@ -91,7 +91,7 @@ export default function CapabilitiesPage() {
               <Link
                 key={cap.href}
                 href={cap.href}
-                className="group relative aspect-[5/2] overflow-hidden rounded-2xl bg-ink"
+                className="group relative aspect-[5/2] overflow-hidden rounded-2xl bg-ink ring-1 ring-hairline"
               >
                 <Image
                   src={cap.image}

@@ -83,7 +83,7 @@ export default function LmmPage() {
       </section>
 
       {/* Materials Offered */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <div>
             <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Materials Offered</h2>
@@ -112,7 +112,7 @@ export default function LmmPage() {
       {/* Why LMM Printing? */}
       <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative aspect-square overflow-hidden rounded-2xl bg-surface shadow-md">
+          <div className="relative aspect-square overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-hairline">
             <Image
               src="/images/azoth-image-web-remove-logo.jpg"
               alt="Azoth lithography metal manufacturing printer"
@@ -151,7 +151,7 @@ export default function LmmPage() {
       </section>
 
       {/* How Does LMM Technology Work? */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
@@ -189,12 +189,13 @@ export default function LmmPage() {
       {/* Launching Your Production Application */}
       <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-surface shadow-md">
+          <div className="flex justify-center">
             <Image
               src="/images/launching-production.png"
               alt="LMM production parts"
-              fill
-              className="object-contain p-6"
+              width={564}
+              height={425}
+              className="h-auto w-full max-w-md object-contain"
               sizes="(max-width:1024px) 100vw, 50vw"
             />
           </div>

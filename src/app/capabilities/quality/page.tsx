@@ -60,7 +60,7 @@ export default function QualityPage() {
       <CertificationsCarousel />
 
       {/* Quality intro */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <div className="flex justify-center">
             <Image

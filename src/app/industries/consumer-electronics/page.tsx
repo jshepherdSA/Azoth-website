@@ -149,7 +149,7 @@ export default function ConsumerElectronicsPage() {
       </section>
 
       {/* Advanced Additive Manufacturing for Consumer Electronics Innovation */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az">
           <h2 className="mx-auto max-w-4xl text-center text-3xl font-extrabold text-ink sm:text-4xl">
             Advanced Additive Manufacturing for Consumer Electronics Innovation
@@ -203,7 +203,7 @@ export default function ConsumerElectronicsPage() {
       </section>
 
       {/* A Compelling Alternative to CNC Machining */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az grid items-start gap-12 lg:grid-cols-2">
           <Image
             src="/images/watch-3.png"

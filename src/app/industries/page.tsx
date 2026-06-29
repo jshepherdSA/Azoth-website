@@ -100,7 +100,7 @@ export default function IndustriesPage() {
               <Link
                 key={cap.label}
                 href={cap.href}
-                className="group relative aspect-[16/10] overflow-hidden rounded-2xl bg-ink"
+                className="group relative aspect-[16/10] overflow-hidden rounded-2xl bg-ink ring-1 ring-hairline"
               >
                 <Image
                   src={cap.image}

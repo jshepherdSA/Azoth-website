@@ -133,7 +133,7 @@ export default function MedicalPage() {
       </section>
 
       {/* Advanced Additive Manufacturing for Medical Innovation */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az">
           <h2 className="mx-auto max-w-3xl text-center text-3xl font-extrabold text-ink sm:text-4xl">
             Advanced Additive Manufacturing for Medical Innovation
@@ -195,7 +195,7 @@ export default function MedicalPage() {
       </section>
 
       {/* Applications in Medical Manufacturing */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <Image
             src="/images/medical-new-1.png"
@@ -251,7 +251,7 @@ export default function MedicalPage() {
       </section>
 
       {/* Specs — Materials / Performance */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <Image
             src="/images/medical-new-5.png"

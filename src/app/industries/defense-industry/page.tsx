@@ -142,7 +142,7 @@ export default function DefensePage() {
       </section>
 
       {/* Advanced Additive Manufacturing for Defense Applications */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az">
           <h2 className="mx-auto max-w-3xl text-center text-3xl font-extrabold text-ink sm:text-4xl">
             Advanced Additive Manufacturing for Defense Applications
@@ -204,7 +204,7 @@ export default function DefensePage() {
       </section>
 
       {/* Applications in Defense */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <Image
             src="/images/defense-new-3.png"
@@ -263,7 +263,7 @@ export default function DefensePage() {
       </section>
 
       {/* Specs — Materials / Performance */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <Image
             src="/images/defense-new-7.png"

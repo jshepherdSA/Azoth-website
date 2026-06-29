@@ -20,3 +20,18 @@ sit on its own, with no `bg-surface` / `bg-white shadow-md ring-1` wrapper aroun
   dropped into a grey box.
 - Alternating full-width section backgrounds (`bg-white` / `bg-surface`) are fine; this rule
   is about wrapping *individual* elements in their own floating box.
+
+## Images on grey vs white
+
+**Assume every product/diagram image has a white background** (white pixels at its edges).
+A white-edged image must never sit on grey — its edges would show as a hard box.
+
+- **Floating images** — anything shown at natural size or with `object-contain` (the whole
+  image is visible) — must sit on a **white** (`bg-white`) section. If the surrounding
+  section is `bg-surface`, switch that section to `bg-white`; never float a `object-contain`/
+  natural-size image on grey.
+- **Cropped images** — anything with `object-cover` (the image is cropped to fill a box) —
+  must have an **outline** (`ring-1 ring-hairline`) so the crop edge reads as deliberate.
+  These may live on any section background.
+- Full-bleed decorative **section backgrounds** (`fill … -z-10 opacity-*` hero/banner images)
+  are neither floating tiles nor framed images — leave them as-is (no outline).

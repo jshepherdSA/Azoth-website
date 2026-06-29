@@ -130,7 +130,7 @@ export default function AutomotivePage() {
       </section>
 
       {/* Safety Critical and Functional */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <Image
             src="/images/safety-critical-img-new.png"
@@ -174,7 +174,7 @@ export default function AutomotivePage() {
       </section>
 
       {/* Tooling and Prototyping */}
-      <section className="bg-surface py-20">
+      <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <Image
             src="/images/tool-and-prototyping-1-scaled.png"

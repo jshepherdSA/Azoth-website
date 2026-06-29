@@ -86,12 +86,13 @@ export default function MaterialsPage() {
                 <CircleArrow tone="onRed" />
               </Link>
             </div>
-            <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-surface shadow-md ring-1 ring-hairline">
+            <div className="flex justify-center">
               <Image
                 src="/images/materials-for-metal-3d-printing-.png"
                 alt="Metal 3D-printed parts"
-                fill
-                className="object-contain p-6"
+                width={1243}
+                height={562}
+                className="h-auto w-full object-contain"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>

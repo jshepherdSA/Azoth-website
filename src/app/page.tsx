@@ -100,7 +100,7 @@ export default function Home() {
               Here are some of the most common questions we receive from our current and prospective
               clients.
             </p>
-            <div className="relative mt-8 hidden aspect-[3/2] overflow-hidden rounded-2xl lg:block">
+            <div className="relative mt-8 hidden aspect-[3/2] overflow-hidden rounded-2xl ring-1 ring-hairline lg:block">
               <Image
                 src="/images/faq.jpg"
                 alt="Azoth additive manufacturing facility"
