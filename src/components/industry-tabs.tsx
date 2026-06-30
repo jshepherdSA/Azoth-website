@@ -11,8 +11,9 @@ type Industry = {
   body: string;
   href: string;
   image: string;
-  width: number;
-  height: number;
+  // "cover" = photographic image, cropped to fill (gets a ring outline);
+  // "contain" = white-background product shot, floats on the white section.
+  fit: "cover" | "contain";
 };
 
 const industries: Industry[] = [
@@ -22,8 +23,7 @@ const industries: Industry[] = [
     body: "Azoth is seamlessly incorporated with over 15 Tier-One Automotive Suppliers and Original Equipment Manufacturers (OEMs), boasting a portfolio of over 50 distinctive components currently in serial production, each accompanied by robust levels three and four Production Part Approval Process (PPAP) documentation.",
     href: "/industries/automotive",
     image: "/images/cadillac-celestiq-new.png",
-    width: 500,
-    height: 500,
+    fit: "cover",
   },
   {
     key: "medical",
@@ -31,8 +31,7 @@ const industries: Industry[] = [
     body: "Azoth supports leading medical device manufacturers with production-scale metal additive manufacturing, delivering precision-engineered components backed by ISO 13485-certified quality systems, validated materials, and full traceability from prototyping through serial production.",
     href: "/industries/medical",
     image: "/images/medical-27.png",
-    width: 2000,
-    height: 1200,
+    fit: "cover",
   },
   {
     key: "defense",
@@ -40,8 +39,7 @@ const industries: Industry[] = [
     body: "Azoth partners with defense and national security manufacturers to produce mission-critical components through secure, U.S.-based additive manufacturing, combining ITAR-compliant processes, advanced materials, and rapid production capabilities for demanding applications.",
     href: "/industries/defense-industry",
     image: "/images/defense-new-1.png",
-    width: 500,
-    height: 500,
+    fit: "contain",
   },
   {
     key: "consumer-electronics",
@@ -49,8 +47,7 @@ const industries: Industry[] = [
     body: "Azoth enables consumer electronics companies to accelerate product development and production through advanced metal additive manufacturing, delivering complex, miniaturized components with high precision, rapid iteration, and scalable manufacturing flexibility.",
     href: "/industries/consumer-electronics",
     image: "/images/industries-tab-consumer-electronics-new.png",
-    width: 500,
-    height: 500,
+    fit: "cover",
   },
 ];
 
@@ -78,9 +75,9 @@ export function IndustryTabs() {
         ))}
       </div>
 
-      {/* Panel — image shown in full; the text box flexes to fit */}
-      <div className="mt-10 flex flex-col items-start gap-10 lg:flex-row lg:items-center">
-        <div className="lg:flex-1">
+      {/* Panel — text fills the left half, the photo fills the right half */}
+      <div className="mt-10 grid items-center gap-10 lg:grid-cols-2">
+        <div>
           <h3 className="text-3xl font-extrabold capitalize text-ink sm:text-4xl">{current.label}</h3>
           <p className="mt-4 leading-relaxed text-muted-soft">{current.body}</p>
           <Link
@@ -91,15 +88,18 @@ export function IndustryTabs() {
             <CircleArrow tone="onRed" />
           </Link>
         </div>
-        <div className="w-full lg:w-auto lg:shrink-0">
+        <div
+          className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl ${
+            current.fit === "cover" ? "ring-1 ring-hairline" : ""
+          }`}
+        >
           <Image
             key={current.key}
             src={current.image}
             alt={current.label}
-            width={current.width}
-            height={current.height}
-            className="mx-auto h-auto max-h-[460px] w-auto max-w-full rounded-2xl shadow-sm lg:max-w-[580px]"
-            sizes="(max-width: 1024px) 100vw, 580px"
+            fill
+            className={current.fit === "cover" ? "object-cover" : "object-contain"}
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
       </div>

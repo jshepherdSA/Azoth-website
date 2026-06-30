@@ -68,7 +68,7 @@ export default function QualityPage() {
               alt="ISO 9001:2015 Certified Company"
               width={648}
               height={280}
-              className="h-auto w-full max-w-md object-contain"
+              className="h-auto w-full max-w-xl object-contain"
             />
           </div>
           <div>

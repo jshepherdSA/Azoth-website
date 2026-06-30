@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
 
@@ -13,12 +12,28 @@ export const metadata: Metadata = {
 
 type Service = {
   title: string;
+  subtitle?: string;
   image: string;
   alt: string;
   body: React.ReactNode;
+  cta?: boolean;
 };
 
 const services: Service[] = [
+  {
+    title: "Post Processing",
+    subtitle: "Finished End-Use Parts, On Demand",
+    image: "/images/post-processing-main-picture-v2-min.jpg",
+    alt: "Polished metal component",
+    cta: true,
+    body: (
+      <p className="mt-4 leading-relaxed text-muted-soft">
+        From cradle to grave, Azoth is vertically integrated and can deliver finished end-use
+        parts on demand. Azoth offers in-house heat treatment, light machining work, and mass
+        polishing and finishing.
+      </p>
+    ),
+  },
   {
     title: "Machining",
     image: "/images/untitled-design-8.png",
@@ -91,56 +106,37 @@ export default function FinishingPage() {
         ]}
       />
 
-      {/* Post Processing intro */}
-      <section className="bg-white py-20">
-        <div className="container-az grid items-center gap-12 lg:grid-cols-2 lg:items-stretch">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-surface shadow-md ring-1 ring-hairline lg:aspect-auto lg:h-full">
-            <Image
-              src="/images/post-processing-main-picture-v2-min.jpg"
-              alt="Polished metal component"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              priority
-            />
-          </div>
-          <div>
-            <Eyebrow>Post Processing</Eyebrow>
-            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-              Finished End-Use Parts, On Demand
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted-soft">
-              From cradle to grave, Azoth is vertically integrated and can deliver finished end-use
-              parts on demand. Azoth offers in-house heat treatment, light machining work, and mass
-              polishing and finishing.
-            </p>
-            <Link
-              href="/quote"
-              className="mt-6 inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-3.5 font-semibold text-white transition-colors hover:bg-brand-hover"
-            >
-              Request A Quote
-              <CircleArrow tone="onRed" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Service detail sections (alternating) */}
+      {/* Service sections — content left, photo right, alternating backgrounds */}
       {services.map((service, i) => (
-        <section key={service.title} className={i % 2 === 0 ? "bg-surface py-20" : "bg-white py-20"}>
+        <section key={service.title} className={i % 2 === 0 ? "bg-white py-20" : "bg-surface py-20"}>
           <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-            <div className={`relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-hairline ${i % 2 === 0 ? "" : "lg:order-2"}`}>
+            <div>
+              <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">{service.title}</h2>
+              {service.subtitle && (
+                <p className="mt-2 text-xl font-semibold text-muted-soft sm:text-2xl">
+                  {service.subtitle}
+                </p>
+              )}
+              {service.body}
+              {service.cta && (
+                <Link
+                  href="/quote"
+                  className="mt-6 inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-3.5 font-semibold text-white transition-colors hover:bg-brand-hover"
+                >
+                  Request A Quote
+                  <CircleArrow tone="onRed" />
+                </Link>
+              )}
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-hairline">
               <Image
                 src={service.image}
                 alt={service.alt}
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                priority={i === 0}
               />
-            </div>
-            <div className={i % 2 === 0 ? "" : "lg:order-1"}>
-              <h2 className="text-2xl font-extrabold text-ink sm:text-3xl">{service.title}</h2>
-              {service.body}
             </div>
           </div>
         </section>

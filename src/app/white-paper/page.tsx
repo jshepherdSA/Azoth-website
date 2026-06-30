@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
-import { SubscribeForm } from "@/components/subscribe-form";
+import { JotformEmbed } from "@/components/jotform-embed";
 
 export const metadata: Metadata = {
   title: "White Papers",
@@ -114,17 +114,19 @@ export default function WhitePaperPage() {
         </div>
       </section>
 
-      {/* Subscribe */}
-      <section className="bg-surface py-16">
+      {/* Newsletter signup */}
+      <section className="bg-white py-16">
         <div className="container-az">
-          <div className="bg-grad-brand flex flex-col items-start justify-between gap-6 rounded-3xl p-8 text-white sm:p-12 lg:flex-row lg:items-center">
-            <div>
-              <h2 className="text-2xl font-extrabold sm:text-3xl">Interested in More White Papers?</h2>
-              <p className="mt-2 text-white/80">Subscribe to get new research and case studies in your inbox.</p>
-            </div>
-            <div className="w-full lg:w-auto">
-              <SubscribeForm />
-            </div>
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
+              Interested in More White Papers?
+            </h2>
+            <p className="mt-3 leading-relaxed text-muted-soft">
+              Subscribe to get new research, case studies, and Azoth updates in your inbox.
+            </p>
+          </div>
+          <div className="mx-auto mt-8 max-w-xl">
+            <JotformEmbed formId="261804661258056" title="Newsletter signup" />
           </div>
         </div>
       </section>

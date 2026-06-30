@@ -149,15 +149,6 @@ export default function BinderJettingPage() {
       {/* Spec block */}
       <section className="bg-surface py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-hairline">
-            <Image
-              src="/images/binder-jetting.jpg"
-              alt="Binder jetting metal parts"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </div>
           <div>
             <h2 className="text-2xl font-extrabold text-ink sm:text-3xl">Process & Specifications</h2>
             <p className="mt-3 text-muted-soft">
@@ -166,6 +157,15 @@ export default function BinderJettingPage() {
             <div className="mt-6">
               <Accordion items={specs} />
             </div>
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-hairline">
+            <Image
+              src="/images/binder-jetting.jpg"
+              alt="Binder jetting metal parts"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>

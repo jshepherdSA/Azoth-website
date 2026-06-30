@@ -5,6 +5,7 @@ import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
 import { IndustriesSection } from "@/components/industries-section";
+import { GatedDownload } from "@/components/gated-download";
 
 export const metadata: Metadata = {
   title: "Materials",
@@ -52,13 +53,14 @@ const polymers = [
   "Aramid Fiber (Kevlar®)", "Precise PLA", "CPE", "PP", "sPro6 FR", "sProTPU", "Black Resin", "High Temp (Orange)",
 ];
 
-function DownloadIcon() {
-  return (
-    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.8} className="h-4 w-4" aria-hidden>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M10 3v9m0 0 3.5-3.5M10 12 6.5 8.5M4 15.5h12" />
-    </svg>
-  );
-}
+// The polymer list is grouped into four columns (matching the original layout):
+// 9, 9, 8, 8 items left-to-right.
+const polymerColumns = [
+  polymers.slice(0, 9),
+  polymers.slice(9, 18),
+  polymers.slice(18, 26),
+  polymers.slice(26),
+];
 
 export default function MaterialsPage() {
   return (
@@ -107,14 +109,7 @@ export default function MaterialsPage() {
               >
                 <span className="font-bold text-ink">{metal.name}</span>
                 {metal.pdf ? (
-                  <a
-                    href={metal.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-brand transition-colors hover:text-brand-hover"
-                  >
-                    <DownloadIcon /> Data Sheet
-                  </a>
+                  <GatedDownload href={metal.pdf} title={`${metal.name} Data Sheet`} />
                 ) : (
                   <span className="shrink-0 text-sm text-muted">On request</span>
                 )}
@@ -144,45 +139,46 @@ export default function MaterialsPage() {
       {/* Polymers */}
       <section className="bg-surface py-20">
         <div className="container-az">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div className="relative aspect-[3/2] overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-hairline lg:order-2">
-              <Image
-                src="/images/azoth-part-nest-fixture-edited.png"
-                alt="Polymer 3D-printed parts nest"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            <div className="lg:order-1">
-              <Eyebrow>Polymers</Eyebrow>
-              <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">40+ Polymers In-House</h2>
-              <p className="mt-4 leading-relaxed text-muted-soft">
-                Azoth is a vendor-neutral supplier with five of the seven core polymer additive (3D)
-                printing technologies in-house, offering more than 40 different polymers. We utilize:
-              </p>
-              <ul className="mt-4 space-y-2">
-                {polymerTech.map((tech) => (
-                  <li key={tech} className="flex items-center gap-2 font-medium text-ink-soft">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          {/* Floating part image, then full-width intro */}
+          <Image
+            src="/images/azoth-part-nest-fixture-edited.png"
+            alt="Polymer 3D-printed part nest fixture"
+            width={2500}
+            height={1653}
+            className="h-auto w-full max-w-[260px] object-contain"
+            sizes="260px"
+          />
+          <p className="mt-8 max-w-3xl leading-relaxed text-muted-soft">
+            Azoth is a vendor-neutral supplier with five of the seven core polymer additive (3D)
+            printing technologies in-house. Azoth can offer more than 40 different polymers that can
+            be used in manufacturing. We utilize:
+          </p>
+          <ul className="mt-4 space-y-2">
+            {polymerTech.map((tech) => (
+              <li key={tech} className="flex items-center gap-2 font-medium text-ink-soft">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                {tech}
+              </li>
+            ))}
+          </ul>
 
-          {/* Materials We Use */}
+          {/* Materials We Use — four bordered columns */}
           <div className="mt-14">
             <h3 className="text-2xl font-extrabold text-ink">Materials We Use</h3>
-            <ul className="mt-6 columns-2 gap-x-8 sm:columns-3 lg:columns-4 [&>li]:break-inside-avoid">
-              {polymers.map((p) => (
-                <li key={p} className="mb-3 flex items-center gap-2 text-muted-soft">
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                  {p}
-                </li>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {polymerColumns.map((col, i) => (
+                <div key={i} className="rounded-2xl border border-hairline bg-white p-6">
+                  <ul className="space-y-3">
+                    {col.map((p) => (
+                      <li key={p} className="flex items-center gap-2 text-muted-soft">
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </section>

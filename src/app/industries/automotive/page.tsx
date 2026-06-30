@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
-import { IndustryGallery, type GalleryPhoto } from "@/components/industry-gallery";
+import { type GalleryPhoto } from "@/components/industry-gallery";
 
 export const metadata: Metadata = {
   title: "Automotive",
@@ -123,8 +123,22 @@ export default function AutomotivePage() {
           <p className="mx-auto max-w-4xl text-center text-lg leading-relaxed text-muted-soft">
             {intro}
           </p>
-          <div className="mt-10">
-            <IndustryGallery photos={galleryPhotos} />
+          {/* Six product photos in a single row */}
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {galleryPhotos.map((p) => (
+              <div
+                key={p.src}
+                className="relative aspect-square overflow-hidden rounded-2xl bg-surface ring-1 ring-hairline"
+              >
+                <Image
+                  src={p.src}
+                  alt={p.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -132,13 +146,23 @@ export default function AutomotivePage() {
       {/* Safety Critical and Functional */}
       <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <Image
-            src="/images/safety-critical-img-new.png"
-            alt="Safety-critical automotive components"
-            width={564}
-            height={425}
-            className="h-auto w-full rounded-2xl"
-          />
+          <div className="relative">
+            <Image
+              src="/images/safety-critical-img-new.png"
+              alt="Safety-critical automotive components"
+              width={564}
+              height={425}
+              className="h-auto w-full rounded-2xl"
+            />
+            {/* Seat belt pillar adjustable guide loop, overlapping the corner */}
+            <Image
+              src="/images/azoth2_0008_d-ring-photo_500x500px.png"
+              alt="Seat belt pillar adjustable guide loop"
+              width={500}
+              height={500}
+              className="absolute bottom-3 right-3 w-[38%] max-w-[190px] rounded-2xl border-4 border-white bg-white shadow-xl ring-1 ring-hairline"
+            />
+          </div>
           <div>
             <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
               Safety Critical and Functional

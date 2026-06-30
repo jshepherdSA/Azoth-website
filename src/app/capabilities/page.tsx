@@ -64,6 +64,27 @@ function CardArrow() {
   );
 }
 
+function StopwatchIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <circle cx="12" cy="14" r="8" />
+      <path d="M12 14V9.3" />
+      <path d="M9 2.5h6" />
+      <path d="M12 2.5V6" />
+      <path d="m18.6 7.4 1.6-1.6" />
+    </svg>
+  );
+}
+
 export default function CapabilitiesPage() {
   return (
     <>
@@ -149,7 +170,10 @@ export default function CapabilitiesPage() {
         <div className="container-az flex flex-col items-start gap-6 py-20 text-white">
           <h2 className="max-w-3xl text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
             Production parts in as fast as{" "}
-            <span className="whitespace-nowrap text-brand">5 days</span>
+            <span className="whitespace-nowrap text-brand">
+              <StopwatchIcon className="mr-2 inline-block h-[0.82em] w-[0.82em] align-[-0.05em]" />
+              5 days
+            </span>
           </h2>
           <Link
             href="/quote"

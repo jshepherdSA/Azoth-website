@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
-import { IndustryGallery, type GalleryPhoto } from "@/components/industry-gallery";
+import { type GalleryPhoto } from "@/components/industry-gallery";
 
 export const metadata: Metadata = {
   title: "Medical",
@@ -126,8 +126,22 @@ export default function MedicalPage() {
           <p className="mx-auto max-w-4xl text-center text-lg leading-relaxed text-muted-soft">
             {intro}
           </p>
-          <div className="mt-10">
-            <IndustryGallery photos={galleryPhotos} />
+          {/* Six product photos in a single row */}
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {galleryPhotos.map((p) => (
+              <div
+                key={p.src}
+                className="relative aspect-square overflow-hidden rounded-2xl bg-surface ring-1 ring-hairline"
+              >
+                <Image
+                  src={p.src}
+                  alt={p.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -135,7 +149,7 @@ export default function MedicalPage() {
       {/* Advanced Additive Manufacturing for Medical Innovation */}
       <section className="bg-white py-20">
         <div className="container-az">
-          <h2 className="mx-auto max-w-3xl text-center text-3xl font-extrabold text-ink sm:text-4xl">
+          <h2 className="mx-auto max-w-4xl text-center text-4xl font-extrabold text-ink sm:text-5xl lg:text-6xl">
             Advanced Additive Manufacturing for Medical Innovation
           </h2>
           <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
@@ -183,28 +197,30 @@ export default function MedicalPage() {
               ))}
             </ul>
           </div>
-          <Image
-            src="/images/medical-new-3.png"
-            alt="Surgical instrument produced with metal additive manufacturing"
-            width={500}
-            height={500}
-            className="mx-auto h-auto w-full max-w-md"
-            sizes="(max-width:1024px) 100vw, 50vw"
-          />
+          <div className="relative mx-auto aspect-square w-full max-w-md">
+            <Image
+              src="/images/medical-new-3.png"
+              alt="Surgical instrument produced with metal additive manufacturing"
+              fill
+              className="object-contain"
+              sizes="(max-width:1024px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </section>
 
       {/* Applications in Medical Manufacturing */}
       <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <Image
-            src="/images/medical-new-1.png"
-            alt="Spinal implant component"
-            width={500}
-            height={500}
-            className="mx-auto h-auto w-full max-w-md lg:order-1"
-            sizes="(max-width:1024px) 100vw, 50vw"
-          />
+          <div className="relative mx-auto aspect-square w-full max-w-md lg:order-1">
+            <Image
+              src="/images/medical-new-2.png"
+              alt="Medical device component"
+              fill
+              className="object-contain"
+              sizes="(max-width:1024px) 100vw, 50vw"
+            />
+          </div>
           <div className="lg:order-2">
             <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
               Applications in Medical Manufacturing
@@ -239,28 +255,30 @@ export default function MedicalPage() {
               compliance.
             </p>
           </div>
-          <Image
-            src="/images/medical-new-2.png"
-            alt="Medical device component"
-            width={500}
-            height={500}
-            className="mx-auto h-auto w-full max-w-md"
-            sizes="(max-width:1024px) 100vw, 50vw"
-          />
+          <div className="relative mx-auto aspect-square w-full max-w-md">
+            <Image
+              src="/images/medical-new-1.png"
+              alt="Spinal implant component"
+              fill
+              className="object-contain"
+              sizes="(max-width:1024px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </section>
 
       {/* Specs — Materials / Performance */}
       <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <Image
-            src="/images/medical-new-5.png"
-            alt="Orthopedic metal component"
-            width={500}
-            height={500}
-            className="mx-auto h-auto w-full max-w-md"
-            sizes="(max-width:1024px) 100vw, 50vw"
-          />
+          <div className="relative mx-auto aspect-square w-full max-w-md">
+            <Image
+              src="/images/medical-new-5.png"
+              alt="Orthopedic metal component"
+              fill
+              className="object-contain"
+              sizes="(max-width:1024px) 100vw, 50vw"
+            />
+          </div>
           <div className="space-y-10">
             {specsLeft.map((s) => (
               <SpecBlock key={s.title} spec={s} />

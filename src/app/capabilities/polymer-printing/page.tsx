@@ -106,7 +106,7 @@ export default function PolymerPrintingPage() {
           <div className="max-w-3xl">
             <Eyebrow>Our Polymer Technologies</Eyebrow>
             <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-              5 of 7 Core Polymer Technologies In-House
+              Core Polymer Technologies In-House
             </h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
               From prototyping to production, Azoth selects the optimal polymer process for your

@@ -46,13 +46,21 @@ export function SiteFooter() {
             help you make it happen—faster, smarter, and with precision. Let&apos;s bring your ideas
             to life.
           </p>
-          <Link
-            href="/quote"
-            className="inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-3 font-semibold text-white transition-colors hover:bg-brand-hover"
-          >
-            Request A Quote
-            <CircleArrow tone="onRed" />
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/quote"
+              className="inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-3 font-semibold text-white transition-colors hover:bg-brand-hover"
+            >
+              Request A Quote
+              <CircleArrow tone="onRed" />
+            </Link>
+            <Link
+              href="/newsletter"
+              className="inline-flex items-center rounded-md border border-white/30 px-7 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Newsletter Signup
+            </Link>
+          </div>
         </div>
       </section>
 

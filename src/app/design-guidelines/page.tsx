@@ -10,13 +10,31 @@ export const metadata: Metadata = {
     "Design for additive manufacturing guidelines from Azoth — file prep, ideal part size, wall thickness, hole sizes, aspect ratios, text, and exit holes for metal binder jetting.",
 };
 
-const sections = [
+type DGSection = {
+  id: string;
+  title: string;
+  image: string | null;
+  imageMaxW?: string;
+  body: React.ReactNode;
+};
+
+const sections: DGSection[] = [
   {
     id: "preparing-your-file",
     title: "Preparing Your File",
-    image: "/images/dg1.png",
+    image: null,
     body: (
-      <div className="space-y-4">
+      <div className="space-y-6">
+        {/* File types — the exception: grey background so the white file icons read */}
+        <div className="rounded-2xl bg-surface px-6 py-8">
+          <Image
+            src="/images/dg1.png"
+            alt="Accepted file types: .sldprt, .f3d, .step, .stp, .stl"
+            width={860}
+            height={183}
+            className="mx-auto h-auto w-full max-w-2xl"
+          />
+        </div>
         <p>
           All of Azoth&apos;s manufacturing processes start with a digital model. Native files from
           SolidWorks (.SLDPRT) and Autodesk Fusion 360 (.F3D) are best so that no details get lost in
@@ -29,6 +47,14 @@ const sections = [
           will look faceted and jagged; too high won&apos;t increase quality and makes the file size
           unwieldy.
         </p>
+        {/* STL resolution comparison — smooth (good) vs faceted (bad) */}
+        <Image
+          src="/images/dg2.png"
+          alt="STL resolution comparison — a smooth high-resolution sphere versus a faceted low-resolution sphere"
+          width={450}
+          height={208}
+          className="mx-auto h-auto w-full max-w-md"
+        />
       </div>
     ),
   },
@@ -36,6 +62,7 @@ const sections = [
     id: "ideal-part-size",
     title: "Ideal Part Size",
     image: "/images/dg3.png",
+    imageMaxW: "max-w-4xl",
     body: (
       <p>
         Small and complex parts are Azoth&apos;s specialty. As a rule of thumb,{" "}
@@ -94,7 +121,7 @@ const sections = [
           is versus another, the larger the aspect ratio. The maximum recommended ratio depends on
           the feature type:
         </p>
-        <ul className="space-y-2">
+        <ul className="max-w-md space-y-2">
           {[
             ["Height-to-Wall Thickness", "≤ 8:1"],
             ["Slot Depth-to-Width (< 2mm width)", "≤ 4:1"],
@@ -202,7 +229,9 @@ export default function DesignGuidelinesPage() {
             {/* Sections */}
             <div className="space-y-16">
               {sections.map((section, i) => {
-                const dim = imgDims[section.image] ?? { w: 900, h: 320 };
+                const dim = section.image
+                  ? imgDims[section.image] ?? { w: 900, h: 320 }
+                  : null;
                 return (
                   <article key={section.id} id={section.id} className="scroll-mt-28">
                     <div className="flex items-center gap-3">
@@ -212,22 +241,24 @@ export default function DesignGuidelinesPage() {
                       <h3 className="text-2xl font-extrabold text-ink">{section.title}</h3>
                     </div>
                     <div className="mt-6 leading-relaxed text-muted-soft">{section.body}</div>
-                    <Image
-                      src={section.image}
-                      alt={`${section.title} diagram`}
-                      width={dim.w}
-                      height={dim.h}
-                      className="mt-8 h-auto w-full max-w-2xl"
-                      sizes="(max-width: 768px) 100vw, 672px"
-                    />
+                    {section.image && dim && (
+                      <Image
+                        src={section.image}
+                        alt={`${section.title} diagram`}
+                        width={dim.w}
+                        height={dim.h}
+                        className={`mt-8 h-auto w-full ${section.imageMaxW ?? "max-w-2xl"}`}
+                        sizes="(max-width: 768px) 100vw, 672px"
+                      />
+                    )}
                   </article>
                 );
               })}
 
               {/* CTA */}
-              <div className="rounded-2xl bg-ink p-8 text-center text-white sm:p-10">
-                <h3 className="text-2xl font-extrabold">Still Have Questions?</h3>
-                <p className="mx-auto mt-2 max-w-xl text-white/80">
+              <div className="rounded-2xl bg-surface p-8 text-center sm:p-10">
+                <h3 className="text-2xl font-extrabold text-ink">Still Have Questions?</h3>
+                <p className="mx-auto mt-2 max-w-xl text-muted-soft">
                   Contact us today and our Applications Engineering team will get back to you as soon
                   as possible.
                 </p>
@@ -241,7 +272,7 @@ export default function DesignGuidelinesPage() {
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center rounded-md border border-white/30 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-white/10"
+                    className="inline-flex items-center rounded-md border border-hairline px-7 py-3.5 font-semibold text-ink transition-colors hover:border-brand hover:text-brand"
                   >
                     Contact Us
                   </Link>

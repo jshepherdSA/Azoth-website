@@ -5,6 +5,8 @@ import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
 import { IndustriesSection } from "@/components/industries-section";
+import { IndustriesCarousel } from "@/components/industries-carousel";
+import { CountUp } from "@/components/count-up";
 
 export const metadata: Metadata = {
   title: "Industries",
@@ -13,11 +15,11 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "20M+", label: "Parts Shipped" },
-  { value: "500+", label: "Clients Served" },
+  { target: 20, suffix: "M+", label: "Parts Shipped" },
+  { target: 500, suffix: "+", label: "Clients Served" },
 ];
 
-const collage = [
+const heroSlides = [
   { src: "/images/cadillac-celestiq-new.png", alt: "Automotive component" },
   { src: "/images/medical-27.png", alt: "Medical component" },
   { src: "/images/industries-tab-consumer-electronics-new.png", alt: "Consumer electronics component" },
@@ -52,11 +54,18 @@ export default function IndustriesPage() {
               high-quality, lightweight, customizable parts on demand—without the need to carry high
               levels of inventory.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-10 grid grid-cols-2 gap-5">
               {stats.map((stat) => (
-                <div key={stat.label} className="rounded-xl border border-hairline bg-surface px-6 py-4 text-center">
-                  <div className="text-3xl font-extrabold text-brand">{stat.value}</div>
-                  <div className="mt-1 text-sm font-semibold uppercase tracking-wide text-ink-soft">
+                <div
+                  key={stat.label}
+                  className="rounded-2xl border border-hairline bg-surface px-6 py-8 text-center sm:py-10"
+                >
+                  <CountUp
+                    target={stat.target}
+                    suffix={stat.suffix}
+                    className="block text-5xl font-extrabold leading-none text-brand sm:text-6xl lg:text-7xl"
+                  />
+                  <div className="mt-3 text-sm font-semibold uppercase tracking-wide text-ink-soft sm:text-base">
                     {stat.label}
                   </div>
                 </div>
@@ -70,16 +79,7 @@ export default function IndustriesPage() {
               <CircleArrow tone="onRed" />
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            {collage.map((item) => (
-              <div
-                key={item.src}
-                className="relative aspect-square overflow-hidden rounded-2xl bg-surface ring-1 ring-hairline"
-              >
-                <Image src={item.src} alt={item.alt} fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
-              </div>
-            ))}
-          </div>
+          <IndustriesCarousel slides={heroSlides} />
         </div>
       </section>
 

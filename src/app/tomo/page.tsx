@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
-import { CircleArrow } from "@/components/circle-arrow";
 import { YouTubeEmbed } from "@/components/youtube-embed";
 import { IndustriesSection } from "@/components/industries-section";
 
@@ -12,29 +9,6 @@ export const metadata: Metadata = {
   description:
     "TOMO® — Take One, Make One. Eliminate supply chain disruptions by converting physical inventory into digital inventory manufactured on demand.",
 };
-
-const steps = [
-  {
-    title: "Evaluation",
-    detail:
-      "Azoth engineers inspect and evaluate your existing inventory to determine which components can be produced through additive manufacturing. Our examination process combines algorithms with onsite inventory review.",
-  },
-  {
-    title: "Reverse Engineering",
-    detail:
-      "Azoth uses state-of-the-art 3D scanning to scan a physical part and create a digital twin. Whether you have a part with no blueprint or an old part that needs modifying, our scanning technology creates a new CAD file and inspects complex geometry.",
-  },
-  {
-    title: "Design & Validation",
-    detail:
-      "After careful analysis, Azoth designs identified parts for additive manufacturing and creates a digital twin of the inventory—with a robust quality validation examination to ensure each part is ready and meets all quality requirements.",
-  },
-  {
-    title: "On-Demand Manufacturing",
-    detail:
-      "Once a digital twin of your part is created, we manufacture on demand—as needed at our competency center in Ann Arbor, Michigan, or produced on-site for clients implementing their own additive manufacturing systems.",
-  },
-];
 
 const benefits = [
   {
@@ -74,65 +48,40 @@ export default function TomoPage() {
     <>
       <PageBanner title="TOMO®" breadcrumbs={[{ label: "Home", href: "/" }, { label: "TOMO®" }]} />
 
-      {/* Hero — framed TOMO card (replicates the source's outlined box) */}
+      {/* Hero — bordered TOMO card on the left, intro copy on the right */}
       <section className="bg-white py-20">
-        <div className="container-az">
-          <div className="mx-auto max-w-4xl rounded-3xl border border-hairline bg-surface/50 px-8 py-14 text-center shadow-sm sm:px-16">
-            <Eyebrow>Digital Inventory</Eyebrow>
-            <h2 className="mt-4 text-5xl font-extrabold tracking-tight text-ink sm:text-6xl">
+        <div className="container-az grid items-center gap-12 lg:grid-cols-2">
+          <div className="rounded-3xl border border-hairline px-8 py-16 text-center sm:px-12">
+            <h2 className="text-5xl font-extrabold tracking-tight text-ink sm:text-6xl">
               TOMO<span className="align-super text-2xl text-brand">®</span>
             </h2>
-            <p className="mt-3 text-xl font-bold text-brand">Take One, Make One</p>
-            <p className="mx-auto mt-6 max-w-2xl text-lg font-semibold text-ink-soft">
+            <p className="mt-4 text-xl font-bold text-ink sm:text-2xl">Take One, Make One</p>
+          </div>
+          <div className="space-y-5 leading-relaxed text-muted-soft">
+            <p>
               Eliminate supply chain disruptions by converting physical inventory into digital
               inventory manufactured on demand.
             </p>
-            <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-muted-soft">
+            <p>
               Digital inventory is a comprehensive supply chain management solution that ensures the
               highest standards of quality, while significantly reducing the costs, stress, and
               uncertainty commonly found in traditional manufacturing.
             </p>
-            <Link
-              href="/quote"
-              className="mt-8 inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-3.5 font-semibold text-white transition-colors hover:bg-brand-hover"
-            >
-              Request A Quote
-              <CircleArrow tone="onRed" />
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* How TOMO Works */}
-      <section className="bg-surface py-20">
+      {/* TOMO video */}
+      <section className="bg-white pb-20">
         <div className="container-az">
-          <div className="max-w-2xl">
-            <Eyebrow>The Process</Eyebrow>
-            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">How TOMO Works</h2>
-          </div>
-          <div className="mt-10 grid items-start gap-12 lg:grid-cols-2">
-            <ol className="space-y-6">
-              {steps.map((step, i) => (
-                <li key={step.title} className="flex gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-lg font-bold text-white">
-                    {i + 1}
-                  </span>
-                  <div>
-                    <h3 className="font-bold text-ink">{step.title}</h3>
-                    <p className="mt-1 leading-relaxed text-muted-soft">{step.detail}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <div className="lg:sticky lg:top-28">
-              <YouTubeEmbed id="fkiMJUXJjfA" title="TOMO — Take One, Make One" />
-            </div>
+          <div className="mx-auto max-w-4xl">
+            <YouTubeEmbed id="fkiMJUXJjfA" title="TOMO — Take One, Make One" />
           </div>
         </div>
       </section>
 
       {/* Benefits */}
-      <section className="bg-white py-20">
+      <section className="bg-surface py-20">
         <div className="container-az">
           <h2 className="text-center text-3xl font-extrabold text-ink sm:text-4xl">
             Benefits Of TOMO®
@@ -151,7 +100,9 @@ export default function TomoPage() {
                   {/* Front */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-2xl border border-hairline bg-white px-6 text-center shadow-sm [backface-visibility:hidden]">
                     <Image src={benefit.icon} alt="" width={70} height={70} className="h-16 w-16" />
-                    <h3 className="text-lg font-bold leading-snug text-ink">{benefit.title}</h3>
+                    <h3 className="text-base font-bold uppercase leading-snug tracking-wide text-ink">
+                      {benefit.title}
+                    </h3>
                     <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
                       Learn More
                       <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden>
