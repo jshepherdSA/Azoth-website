@@ -11,6 +11,38 @@ export const metadata: Metadata = {
     "Get in touch with Azoth — production additive manufacturing in Ann Arbor, Michigan. Call 734-669-3797, email info@azoth3d.com, or send us a message.",
 };
 
+function UsFlag({ className = "" }: { className?: string }) {
+  const stripe = 40 / 13;
+  return (
+    <svg viewBox="0 0 60 40" className={className} role="img" aria-label="American flag">
+      <defs>
+        <clipPath id="usFlagRound">
+          <rect width="60" height="40" rx="4" />
+        </clipPath>
+      </defs>
+      <g clipPath="url(#usFlagRound)">
+        {Array.from({ length: 13 }).map((_, i) => (
+          <rect
+            key={i}
+            x="0"
+            y={stripe * i}
+            width="60"
+            height={stripe}
+            fill={i % 2 === 0 ? "#B22234" : "#ffffff"}
+          />
+        ))}
+        <rect x="0" y="0" width="26" height={stripe * 7} fill="#3C3B6E" />
+        {Array.from({ length: 5 }).map((_, r) =>
+          Array.from({ length: 5 }).map((_, c) => (
+            <circle key={`${r}-${c}`} cx={3.5 + c * 4.8} cy={3 + r * 3.9} r="0.85" fill="#ffffff" />
+          )),
+        )}
+      </g>
+      <rect x="0.5" y="0.5" width="59" height="39" rx="4" fill="none" stroke="rgba(0,0,0,0.1)" />
+    </svg>
+  );
+}
+
 function PhoneIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="h-5 w-5" aria-hidden>
@@ -98,8 +130,13 @@ export default function ContactPage() {
       {/* Shipping map */}
       <section className="bg-white py-20">
         <div className="container-az">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Made in the USA</h2>
+          <div className="mx-auto flex max-w-3xl items-center justify-center gap-4 text-center">
+            <UsFlag className="h-9 w-auto shrink-0 drop-shadow-sm sm:h-12" />
+            <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+              <span className="bg-gradient-to-r from-ink via-brand-dark to-brand bg-clip-text text-transparent">
+                Made in the USA
+              </span>
+            </h2>
           </div>
           <div className="relative mx-auto mt-10 aspect-[4/3] max-w-4xl">
             <Image

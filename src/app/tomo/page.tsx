@@ -51,11 +51,11 @@ export default function TomoPage() {
       {/* Hero — bordered TOMO card on the left, intro copy on the right */}
       <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <div className="rounded-3xl border border-hairline px-8 py-16 text-center sm:px-12">
-            <h2 className="text-5xl font-extrabold tracking-tight text-ink sm:text-6xl">
-              TOMO<span className="align-super text-2xl text-brand">®</span>
+          <div className="text-center">
+            <h2 className="text-6xl font-extrabold tracking-tight text-ink sm:text-7xl lg:text-8xl">
+              TOMO<span className="align-super text-3xl text-brand sm:text-4xl">®</span>
             </h2>
-            <p className="mt-4 text-xl font-bold text-ink sm:text-2xl">Take One, Make One</p>
+            <p className="mt-4 text-2xl font-bold text-ink sm:text-3xl">Take One, Make One</p>
           </div>
           <div className="space-y-5 leading-relaxed text-muted-soft">
             <p>

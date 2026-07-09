@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
 import { IndustriesSection } from "@/components/industries-section";
@@ -16,24 +15,26 @@ export const metadata: Metadata = {
 const metals = [
   { name: "316L Stainless Steel", pdf: "/docs/azoth-data-sheet-316l.pdf" },
   { name: "17-4PH Stainless Steel", pdf: "/docs/azoth_material-data-sheet_17-4ph.pdf" },
-  { name: "Copper", pdf: null },
+  { name: "Titanium (Ti-6Al-4V)", pdf: "/docs/azoth_material-data-sheet_ti64.pdf" },
   { name: "Mar M247", pdf: "/docs/azoth_material-data-sheet_mar247.pdf" },
   { name: "D2 Tool Steel", pdf: null },
-  { name: "Titanium (Ti-6Al-4V)", pdf: "/docs/azoth_material-data-sheet_ti64.pdf" },
+  { name: "Copper", pdf: null },
 ];
 
-const platforms = [
-  { name: "Desktop Metal Platform", items: ["316L Stainless Steel", "17-4PH Stainless Steel"] },
-  { name: "XJET Platform", items: ["316L Stainless Steel"] },
+const processes = [
   {
-    name: "Digital Metal Platform",
+    name: "LMM",
+    items: ["316L Stainless Steel", "17-4PH Stainless Steel", "Ti-6Al-4V", "Pure Copper"],
+  },
+  {
+    name: "Binder Jetting",
     items: [
       "316L Stainless Steel",
       "17-4PH Stainless Steel",
       "Copper",
       "Mar M247",
       "D2 Tool Steel",
-      "Titanium (limited campaigns)",
+      "Titanium (Ti-6Al-4V)",
     ],
   },
 ];
@@ -72,8 +73,7 @@ export default function MaterialsPage() {
         <div className="container-az">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <Eyebrow>Metals</Eyebrow>
-              <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">Metals</h2>
+              <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Metals</h2>
               <p className="mt-4 leading-relaxed text-muted-soft">
                 Azoth has the ability to work with many traditional and experimental materials used
                 in the manufacturing of small, complex parts. Our team of metallurgical experts has
@@ -117,13 +117,13 @@ export default function MaterialsPage() {
             ))}
           </div>
 
-          {/* Platform availability */}
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {platforms.map((platform) => (
-              <div key={platform.name} className="rounded-2xl bg-surface p-6 ring-1 ring-hairline">
-                <h3 className="font-bold text-ink">{platform.name}</h3>
+          {/* Materials by process */}
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {processes.map((proc) => (
+              <div key={proc.name} className="rounded-2xl bg-surface p-6 ring-1 ring-hairline">
+                <h3 className="font-bold text-ink">{proc.name}</h3>
                 <ul className="mt-4 space-y-2">
-                  {platform.items.map((item) => (
+                  {proc.items.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-muted-soft">
                       <span className="h-1.5 w-1.5 rounded-full bg-brand" />
                       {item}
@@ -139,28 +139,34 @@ export default function MaterialsPage() {
       {/* Polymers */}
       <section className="bg-surface py-20">
         <div className="container-az">
-          {/* Floating part image, then full-width intro */}
-          <Image
-            src="/images/azoth-part-nest-fixture-edited.png"
-            alt="Polymer 3D-printed part nest fixture"
-            width={2500}
-            height={1653}
-            className="h-auto w-full max-w-[260px] object-contain"
-            sizes="260px"
-          />
-          <p className="mt-8 max-w-3xl leading-relaxed text-muted-soft">
-            Azoth is a vendor-neutral supplier with five of the seven core polymer additive (3D)
-            printing technologies in-house. Azoth can offer more than 40 different polymers that can
-            be used in manufacturing. We utilize:
-          </p>
-          <ul className="mt-4 space-y-2">
-            {polymerTech.map((tech) => (
-              <li key={tech} className="flex items-center gap-2 font-medium text-ink-soft">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                {tech}
-              </li>
-            ))}
-          </ul>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Polymers</h2>
+              <p className="mt-4 leading-relaxed text-muted-soft">
+                Azoth is a vendor-neutral supplier with five of the seven core polymer additive (3D)
+                printing technologies in-house. Azoth can offer more than 40 different polymers that
+                can be used in manufacturing. We utilize:
+              </p>
+              <ul className="mt-4 space-y-2">
+                {polymerTech.map((tech) => (
+                  <li key={tech} className="flex items-center gap-2 font-medium text-ink-soft">
+                    <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex justify-center">
+              <Image
+                src="/images/azoth-part-nest-fixture-edited.png"
+                alt="Polymer 3D-printed part nest fixture"
+                width={2500}
+                height={1653}
+                className="h-auto w-full object-contain"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
 
           {/* Materials We Use — four bordered columns */}
           <div className="mt-14">

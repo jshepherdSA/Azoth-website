@@ -17,6 +17,7 @@ type Service = {
   alt: string;
   body: React.ReactNode;
   cta?: boolean;
+  imageLeft?: boolean;
 };
 
 const services: Service[] = [
@@ -38,6 +39,7 @@ const services: Service[] = [
     title: "Machining",
     image: "/images/untitled-design-8.png",
     alt: "Five-axis machined metal component",
+    imageLeft: true,
     body: (
       <p className="mt-4 leading-relaxed text-muted-soft">
         Azoth provides in-house complex five-axis machining capabilities, allowing us to deliver
@@ -68,6 +70,7 @@ const services: Service[] = [
     title: "Coatings & Plating",
     image: "/images/untitled-design-9.png",
     alt: "Coated and plated metal parts",
+    imageLeft: true,
     body: (
       <>
         <p className="mt-4 leading-relaxed text-muted-soft">
@@ -110,7 +113,7 @@ export default function FinishingPage() {
       {services.map((service, i) => (
         <section key={service.title} className={i % 2 === 0 ? "bg-white py-20" : "bg-surface py-20"}>
           <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-            <div>
+            <div className={service.imageLeft ? "lg:order-2" : ""}>
               <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">{service.title}</h2>
               {service.subtitle && (
                 <p className="mt-2 text-xl font-semibold text-muted-soft sm:text-2xl">
@@ -128,7 +131,11 @@ export default function FinishingPage() {
                 </Link>
               )}
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-hairline">
+            <div
+              className={`relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-hairline ${
+                service.imageLeft ? "lg:order-1" : ""
+              }`}
+            >
               <Image
                 src={service.image}
                 alt={service.alt}

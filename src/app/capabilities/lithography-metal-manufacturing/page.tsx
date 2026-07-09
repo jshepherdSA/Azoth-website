@@ -6,6 +6,7 @@ import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
 import { IndustriesSection } from "@/components/industries-section";
 import { LmmGallery } from "@/components/lmm-gallery";
+import { CountUp } from "@/components/count-up";
 
 export const metadata: Metadata = {
   title: "Lithography Metal Manufacturing",
@@ -190,14 +191,27 @@ export default function LmmPage() {
       <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <div className="flex justify-center">
-            <Image
-              src="/images/launching-production.png"
-              alt="LMM production parts"
-              width={564}
-              height={425}
-              className="h-auto w-full max-w-md object-contain"
-              sizes="(max-width:1024px) 100vw, 50vw"
-            />
+            <div className="relative w-full max-w-xl">
+              <Image
+                src="/images/launching-production.png"
+                alt="LMM production parts"
+                width={564}
+                height={425}
+                className="h-auto w-full object-contain"
+                sizes="(max-width:1024px) 100vw, 50vw"
+              />
+              {/* Parts-per-day counter — animates 0 → 1000+ when scrolled into view */}
+              <div className="absolute bottom-4 left-4 rounded-2xl bg-ink/90 px-6 py-4 text-center shadow-xl backdrop-blur sm:bottom-6 sm:left-6">
+                <CountUp
+                  target={1000}
+                  suffix="+"
+                  className="block text-3xl font-extrabold leading-none text-brand sm:text-4xl"
+                />
+                <div className="mt-1.5 text-xs font-semibold uppercase tracking-wide text-white/85">
+                  Parts Per Day
+                </div>
+              </div>
+            </div>
           </div>
           <div>
             <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">

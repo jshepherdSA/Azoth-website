@@ -13,22 +13,248 @@ export const metadata: Metadata = {
 
 const openings: Opening[] = [
   {
-    title: "3D Printed Metal Polisher",
-    summary:
-      "We seek an individual who is excited about making parts SHINE and who wants to be part of a winning team. This role is focused around polishing parts. People that find satisfaction in making that perfect mirror finish are the people we are looking for. We work with small, detailed stainless steel parts which don't ship out the door without your meticulous attention to detail and craftsman touch.",
-    pdf: "/docs/azoth-additive-manufacturing_polishing-technician-compressed.pdf",
-  },
-  {
     title: "Additive Manufacturing Technician",
-    summary:
-      "The additive manufacturing technician role is focused on sinter-based metal 3D printing technologies. The Lab Technician will be primarily responsible for operating the 3D printing and related process equipment, inspection of the printed parts and overall process quality assurance, and support of Research and Development activities. Azoth is seeking an ambitious individual eager to be a part of a growing team. The potential to take on roles in engineering, design, and production exist with time.",
+    meta: ["Full Time", "Ann Arbor, MI 48108", "Production", "Reports to: Colin Lilley, Production Manager"],
     pdf: "/docs/azoth-additive-manufacturing_-additive-techncian-compressed.pdf",
+    blocks: [
+      { kind: "h", text: "About Azoth" },
+      {
+        kind: "p",
+        text: "Azoth is building the future of metal manufacturing — using metal 3D printing to produce small, complex metal parts that were previously impossible or impractical to make. Our customers span automotive, defense, luxury goods, and medical industries, and they come to us because we can do things no one else can.",
+      },
+      {
+        kind: "p",
+        text: "We’re a small, ambitious team in Ann Arbor, MI — and we’re growing fast. If you want to work somewhere your contributions matter on day one, where the technology is genuinely cutting-edge, and where the ceiling is high for people who want to grow — this is the place.",
+      },
+      { kind: "h", text: "Role Summary" },
+      {
+        kind: "p",
+        text: "The Additive Manufacturing Technician is primarily responsible for loading jobs into 3D printers, post-processing parts, and ensuring parts are manufactured to customer specifications and shipped on time. This role spans both metal and polymer 3D printing and plays a crucial role in ensuring customers get the right part at the right time.",
+      },
+      { kind: "h", text: "Responsibilities & Duties" },
+      { kind: "sub", text: "Printing & Production" },
+      {
+        kind: "ul",
+        items: [
+          "Load jobs into 3D printers and keep equipment operational",
+          "Clean printers and maintain production readiness",
+          "De-powder parts in the binder jetting process",
+          "Mix powders for the printing process",
+          "Utilize slicing software to create programs for 3D printed parts",
+          "Operate auxiliary equipment and perform machine maintenance",
+          "Unload and load compressed gas utilizing forklift",
+        ],
+      },
+      { kind: "sub", text: "Post-Processing & Quality" },
+      {
+        kind: "ul",
+        items: [
+          "Post-process parts: shot-blasting, polishing, depowdering, sintering prep, machining, thread inserts, tapping, dyeing, and assembly",
+          "Operate quality control and metrology equipment to verify parts meet specifications",
+          "Print work orders and manage parts through final shipment",
+          "Ensure shop and equipment cleanliness",
+        ],
+      },
+      { kind: "h", text: "Qualifications" },
+      { kind: "sub", text: "Required" },
+      {
+        kind: "ul",
+        items: [
+          "Ability to work with hands and think mechanically",
+          "Attention to detail",
+          "Willingness to learn and manage time independently",
+          "Able to be on feet most of the day",
+          "Authorized to work in the U.S. (ITAR/EAR applies)",
+        ],
+      },
+      { kind: "sub", text: "Preferred" },
+      {
+        kind: "ul",
+        items: [
+          "Prior manufacturing experience",
+          "3D printing experience",
+          "CAD experience",
+          "Eagerness to develop a career in additive manufacturing",
+        ],
+      },
+      { kind: "h", text: "What Success Looks Like" },
+      {
+        kind: "ul",
+        items: [
+          "Parts are produced to spec and shipped on time, every time.",
+          "Equipment is kept clean, operational, and ready for production.",
+          "Work orders are tracked accurately from job start to customer shipment.",
+          "You are actively learning and expanding your capabilities across technologies.",
+        ],
+      },
+      { kind: "h", text: "Why Azoth?" },
+      {
+        kind: "ul",
+        items: [
+          "Healthcare & retirement savings",
+          "Competitive compensation",
+          "Health, Dental, Vision & Wellness",
+          "Training on industry-leading 3D printing equipment",
+          "Career growth into engineering, design & production roles",
+          "Collaborative, high-energy team culture",
+        ],
+      },
+      { kind: "h", text: "Growth Path" },
+      {
+        kind: "p",
+        text: "Over time, the technician is expected to develop competency across all 3D printers, post-processing technologies, and metrology equipment. Opportunities to advance into engineering, design, and production management exist for driven team members.",
+      },
+      { kind: "h", text: "Team" },
+      {
+        kind: "ul",
+        items: [
+          "Reports to: Colin Lilley (Production Manager)",
+          "Works closely with Applications Engineer",
+          "Works closely with Production Manager",
+        ],
+      },
+    ],
   },
   {
     title: "Quality Engineer",
-    summary:
-      "We seek an individual who is excited about manufacturing, wants to be part of a winning team, and takes pride in their work. The Quality Engineer is responsible for leading and implementing the ISO 13485 Quality Management system, maintenance of ISO 9001:2015 accreditation, adhering to IATF 16949 procedures, and Quality Engineering Changes at the Ann Arbor, MI facility. Other responsibilities include managing Azoth's inspection lab, new product introduction, continuous improvement, process metrics assessments, and supplier development and qualification. This is a core role for Azoth's growth which provides ample opportunity for advancement.",
+    meta: ["Full Time", "Ann Arbor, MI 48108", "Quality Engineering", "Reports to: General Manager"],
     pdf: "/docs/azoth-additive-manufacturing-quality-engineerrev2-compressed.pdf",
+    blocks: [
+      { kind: "h", text: "About Azoth" },
+      {
+        kind: "p",
+        text: "Metal parts are everywhere. Most people don’t think about how they’re made. We’re changing that.",
+      },
+      {
+        kind: "p",
+        text: "Azoth is building the future of metal manufacturing — using sinter-based additive manufacturing to produce small, complex metal parts that were previously impossible or impractical to make. Our customers span automotive, defense, luxury goods, and medical industries.",
+      },
+      {
+        kind: "p",
+        text: "We’re a small, ambitious team in Ann Arbor, MI — growing fast. If you want work that matters on day one, technology that’s genuinely cutting-edge, and a ceiling as high as your ambition — this is the place.",
+      },
+      { kind: "h", text: "Role Summary" },
+      {
+        kind: "p",
+        text: "This is a core quality role with real ownership — not a checkbox function. You will lead implementation and maintenance of Azoth’s ISO 13485 and ISO 9001 quality systems, own the inspection lab, drive IQ/OQ/PQ validation processes, and build the quality infrastructure that enables Azoth to serve medical device, defense, and automotive customers at the highest level. You’ll work across every department and report directly to the General Manager.",
+      },
+      { kind: "h", text: "Core Responsibilities" },
+      { kind: "sub", text: "Quality Systems" },
+      {
+        kind: "ul",
+        items: [
+          "Lead implementation and maintenance of ISO 13485 for medical device manufacturing",
+          "Maintain ISO 9001:2015 accreditation",
+          "Own document control system (EtQ) — specs, SOPs, process flows",
+          "Lead internal process audits and support external audits",
+          "Ensure all process and product changes are fully documented and compliant",
+        ],
+      },
+      { kind: "sub", text: "Validation (IQ / OQ / PQ)" },
+      {
+        kind: "ul",
+        items: [
+          "Plan and execute Installation, Operational, and Performance Qualification protocols for new equipment and processes",
+          "Prepare and maintain validation documentation, test reports, and compliance records",
+          "Review OEM specifications and lead validations with cross-functional teams",
+          "Ensure re-validation is triggered and executed on process changes",
+        ],
+      },
+      { kind: "sub", text: "Inspection & Metrology" },
+      {
+        kind: "ul",
+        items: [
+          "Manage Azoth’s inspection lab and train team members on measurement strategy",
+          "Perform MSA including precision studies and gage R&R",
+          "Support in-process and final inspection of metal AM parts",
+          "Interpret GD&T, engineering drawings, and customer specifications",
+          "Apply SPC methods to monitor and control process quality",
+        ],
+      },
+      { kind: "sub", text: "NPI & Continuous Improvement" },
+      {
+        kind: "ul",
+        items: [
+          "Lead APQP/PPAP for new product introduction",
+          "Drive root cause analysis and corrective/preventive actions (CAPA)",
+          "Facilitate cross-functional teams to resolve quality escapes and customer concerns",
+          "Apply lean tools (5S, Kaizen) to continuously improve quality systems",
+          "Support supplier qualification and incoming material quality",
+        ],
+      },
+      { kind: "h", text: "Qualifications" },
+      { kind: "sub", text: "Required" },
+      {
+        kind: "ul",
+        items: [
+          "Bachelor’s in Mechanical, Industrial, Materials Engineering, or equivalent",
+          "2–5 years managing ISO 13485 or IATF 16949 quality systems",
+          "Hands-on IQ/OQ/PQ validation experience",
+          "Medical device manufacturing experience",
+          "Strong GD&T and measurement system knowledge",
+          "Authorized to work in the U.S. (ITAR/EAR applies)",
+        ],
+      },
+      { kind: "sub", text: "Preferred" },
+      {
+        kind: "ul",
+        items: [
+          "IATF 16949 or ISO 13485 certified auditor",
+          "Experience in additive manufacturing or sinter-based processes",
+          "Six Sigma Green or Black Belt",
+          "Familiarity with AS9100 (aerospace/defense)",
+          "Experience with NDT methods",
+          "Proficiency with SAP, EtQ, or equivalent QMS software",
+        ],
+      },
+      { kind: "h", text: "What Success Looks Like" },
+      {
+        kind: "ul",
+        items: [
+          "ISO 13485 is implemented, maintained, and audit-ready at all times.",
+          "IQ/OQ/PQ protocols are executed on schedule with zero compliance gaps.",
+          "The inspection lab runs efficiently and the team is trained and confident.",
+          "Quality issues are caught early, root-caused fast, and closed for good.",
+          "Customers in medical, defense, and automotive trust Azoth’s quality — because you built the system behind it.",
+        ],
+      },
+      { kind: "h", text: "Why Azoth?" },
+      {
+        kind: "ul",
+        items: [
+          "Healthcare & retirement savings",
+          "Competitive compensation",
+          "Health, Dental, Vision & Wellness",
+          "Lead-role in a growing quality system with real ownership",
+          "Work at the frontier of additive manufacturing + medical/defense",
+          "Collaborative, high-energy team culture",
+        ],
+      },
+      { kind: "h", text: "Key Standards" },
+      {
+        kind: "ul",
+        items: [
+          "ISO 13485 (Medical Device QMS)",
+          "ISO 9001:2015",
+          "IATF 16949",
+          "AS9100",
+          "IQ / OQ / PQ Validation",
+          "APQP / PPAP",
+          "GD&T / MSA / SPC",
+        ],
+      },
+      { kind: "h", text: "Key Metrics" },
+      {
+        kind: "ul",
+        items: [
+          "Zero lapsed audits or certifications",
+          "Corrective actions closed on time",
+          "First article inspection pass rate",
+          "Customer escapes — target zero",
+          "Inspection lab uptime and calibration compliance",
+        ],
+      },
+    ],
   },
 ];
 

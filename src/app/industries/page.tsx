@@ -26,10 +26,10 @@ const heroSlides = [
   { src: "/images/defense-new-1.png", alt: "Defense component" },
 ];
 
-const capabilities = [
-  { label: "Binder Jetting", image: "/images/bindder-jetting.png", href: "/capabilities/binder-jetting" },
+const capabilities: { label: string; image: string; href: string; placeholder?: boolean }[] = [
+  { label: "Binder Jetting", image: "/images/bindder-jetting.png", href: "/capabilities/binder-jetting", placeholder: true },
   { label: "LMM", image: "/images/capabilities-lmm-scaled-e1779467021505.jpg", href: "/capabilities/lithography-metal-manufacturing" },
-  { label: "Polymer Printing", image: "/images/polymer-printing.png", href: "/capabilities/polymer-printing" },
+  { label: "Polymer Printing", image: "/images/polymer-printing.png", href: "/capabilities/polymer-printing", placeholder: true },
   { label: "Finishing", image: "/images/past-processing.png", href: "/capabilities/post-processing" },
   { label: "Quality", image: "/images/azoth-quality.png", href: "/capabilities/quality" },
 ];
@@ -95,20 +95,24 @@ export default function IndustriesPage() {
               One Partner, End-to-End
             </h2>
           </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 flex flex-wrap justify-center gap-6">
             {capabilities.map((cap) => (
               <Link
                 key={cap.label}
                 href={cap.href}
-                className="group relative aspect-[16/10] overflow-hidden rounded-2xl bg-ink ring-1 ring-hairline"
+                className="group relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-ink ring-1 ring-hairline sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
               >
-                <Image
-                  src={cap.image}
-                  alt={cap.label}
-                  fill
-                  className="object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                />
+                {cap.placeholder ? (
+                  <div className="absolute inset-0 bg-neutral-300" />
+                ) : (
+                  <Image
+                    src={cap.image}
+                    alt={cap.label}
+                    fill
+                    className="object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-4 p-6">
                   <h3 className="text-xl font-bold text-white">{cap.label}</h3>

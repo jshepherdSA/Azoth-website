@@ -95,9 +95,18 @@ export default async function ShowcaseItemPage({ params }: { params: Promise<Par
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
             {item.category && (
-              <span className="absolute left-5 top-5 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">
+              <span
+                className={`absolute left-5 top-5 rounded-full px-3 py-1 text-xs font-semibold text-white ${
+                  item.category === "Other" ? "bg-blue-600" : "bg-brand"
+                }`}
+              >
                 {item.category}
               </span>
+            )}
+            {item.award && (
+              <div className="absolute -right-12 top-5 w-44 rotate-45 bg-gradient-to-r from-amber-300 to-yellow-500 py-1.5 text-center text-xs font-bold uppercase tracking-wider text-amber-950 shadow-md">
+                Award Winning
+              </div>
             )}
           </div>
 
@@ -169,9 +178,18 @@ export default async function ShowcaseItemPage({ params }: { params: Promise<Par
                       sizes="(max-width: 640px) 100vw, 25vw"
                     />
                     {rel.category && (
-                      <span className="absolute left-3 top-3 rounded-full bg-brand px-2.5 py-1 text-[11px] font-semibold text-white">
+                      <span
+                        className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-semibold text-white ${
+                          rel.category === "Other" ? "bg-blue-600" : "bg-brand"
+                        }`}
+                      >
                         {rel.category}
                       </span>
+                    )}
+                    {rel.award && (
+                      <div className="absolute -right-10 top-3 w-36 rotate-45 bg-gradient-to-r from-amber-300 to-yellow-500 py-0.5 text-center text-[9px] font-bold uppercase tracking-wider text-amber-950 shadow">
+                        Award Winning
+                      </div>
                     )}
                   </div>
                   <div className="p-4">

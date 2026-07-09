@@ -174,7 +174,7 @@ export function SiteHeader() {
                             <Link
                               href={item.href}
                               onClick={() => setMobileOpen(false)}
-                              className="block py-2 pl-3 text-sm text-white/70 hover:text-brand"
+                              className="block py-2 pl-3 text-sm font-bold text-white/70 hover:text-brand"
                             >
                               Overview
                             </Link>
@@ -244,7 +244,7 @@ function DesktopNavItem({ item }: { item: NavItem }) {
         {item.href && (
           <Link
             href={item.href}
-            className="block rounded-md px-3 py-2 text-sm font-semibold text-ink-soft hover:bg-surface hover:text-brand"
+            className="block rounded-md px-3 py-2 text-sm font-bold text-ink-soft hover:bg-surface hover:text-brand"
           >
             {item.label} Overview
           </Link>

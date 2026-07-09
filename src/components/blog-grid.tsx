@@ -60,14 +60,14 @@ export function BlogGrid() {
         </label>
       </div>
 
-      {/* Category tabs */}
-      <div className="mt-6 flex flex-wrap gap-1 border-b border-hairline sm:gap-2">
+      {/* Category tabs — centered, spanning the full width */}
+      <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-1 border-b border-hairline sm:justify-between">
         {blogCategories.map((category) => (
           <button
             key={category}
             type="button"
             onClick={() => setActive(category)}
-            className={`-mb-px border-b-2 px-4 py-3 text-sm font-semibold transition-colors ${
+            className={`-mb-px border-b-2 px-1 py-4 text-base font-semibold transition-colors sm:text-lg ${
               active === category
                 ? "border-brand text-brand"
                 : "border-transparent text-muted hover:text-ink-soft"

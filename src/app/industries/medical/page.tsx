@@ -56,7 +56,7 @@ const quality = [
 type Spec = { title: string; items: string[] };
 const specsLeft: Spec[] = [
   { title: "Materials", items: ["Ti64", "316L Stainless", "17-4PH Stainless"] },
-  { title: "Performance", items: ["7–15 day lead times", "+/- 0.5% or .005″ tolerances", "2–4 µm Ra surface finish"] },
+  { title: "Performance", items: ["4–15 day lead times", "+/- 0.5% or .005″ tolerances", "2–4 µm Ra surface finish"] },
 ];
 
 /** Renders copy with **bold** phrases as emphasized spans. */
@@ -149,8 +149,10 @@ export default function MedicalPage() {
       {/* Advanced Additive Manufacturing for Medical Innovation */}
       <section className="bg-white py-20">
         <div className="container-az">
-          <h2 className="mx-auto max-w-4xl text-center text-4xl font-extrabold text-ink sm:text-5xl lg:text-6xl">
-            Advanced Additive Manufacturing for Medical Innovation
+          <h2 className="mx-auto max-w-6xl text-balance text-center text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+            <span className="bg-gradient-to-r from-ink via-brand-dark to-brand bg-clip-text text-transparent">
+              Advanced Additive Manufacturing for Medical Innovation
+            </span>
           </h2>
           <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
             <Image

@@ -51,9 +51,18 @@ export function ShowcaseGrid() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
               {item.category && (
-                <span className="absolute left-4 top-4 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">
+                <span
+                  className={`absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-white ${
+                    item.category === "Other" ? "bg-blue-600" : "bg-brand"
+                  }`}
+                >
                   {item.category}
                 </span>
+              )}
+              {item.award && (
+                <div className="absolute -right-11 top-4 w-40 rotate-45 bg-gradient-to-r from-amber-300 to-yellow-500 py-1 text-center text-[10px] font-bold uppercase tracking-wider text-amber-950 shadow-md">
+                  Award Winning
+                </div>
               )}
             </div>
             <div className="p-5">

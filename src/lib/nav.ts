@@ -14,10 +14,10 @@ export const mainNav: NavItem[] = [
     href: "/capabilities",
     children: [
       { label: "Binder Jetting", href: "/capabilities/binder-jetting" },
+      { label: "LMM", href: "/capabilities/lithography-metal-manufacturing" },
       { label: "Polymer Printing", href: "/capabilities/polymer-printing" },
       { label: "Finishing", href: "/capabilities/post-processing" },
       { label: "Quality", href: "/capabilities/quality" },
-      { label: "LMM", href: "/capabilities/lithography-metal-manufacturing" },
     ],
   },
   { label: "Azoth Showcase", href: "/azoth-showcase" },
@@ -38,8 +38,8 @@ export const mainNav: NavItem[] = [
       { label: "TOMO®", href: "/tomo" },
       { label: "FAQs", href: "/faqs" },
       { label: "Blogs", href: "/azoth-blog" },
-      { label: "Design Guidelines", href: "/design-guidelines" },
       { label: "White Papers", href: "/white-paper" },
+      { label: "Design Guidelines", href: "/design-guidelines" },
     ],
   },
   {
