@@ -62,25 +62,32 @@ export default function QualityPage() {
       {/* Quality intro */}
       <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <div className="flex justify-center">
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
             <Image
-              src="/images/capabilities-quality.png"
+              src="/images/iso-9001.png"
               alt="ISO 9001:2015 Certified Company"
-              width={648}
+              width={280}
               height={280}
-              className="h-auto w-full max-w-xl object-contain"
+              className="h-auto w-40 object-contain sm:w-56"
+            />
+            <Image
+              src="/images/iso-13485.png"
+              alt="ISO 13485:2016 Certified Company"
+              width={280}
+              height={280}
+              className="h-auto w-40 object-contain sm:w-56"
             />
           </div>
           <div>
             <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Quality</h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
-              Azoth provides production-capable additive (3D) manufacturing that adheres to the
-              strictest quality standards in each of the industries it serves.{" "}
+              Azoth provides production-capable additive manufacturing backed by robust quality
+              systems and disciplined process controls. Our{" "}
               <span className="font-bold text-brand">
-                Azoth is ISO 9001 &amp; ISO 13485:2015 certified
-              </span>
-              , and manufactured parts are accompanied by a certificate of inspection verifying that
-              parts have been produced based upon expectations.
+                ISO 9001 and ISO 13485:2016 certifications
+              </span>{" "}
+              reflect our commitment to repeatable manufacturing, traceability, and continuous
+              improvement.
             </p>
           </div>
         </div>

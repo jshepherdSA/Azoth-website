@@ -42,7 +42,6 @@ const capabilities = [
 const quality = {
   title: "Quality",
   href: "/capabilities/quality",
-  image: "/images/capabilities-quality.png",
   blurb:
     "ISO 9001:2015 and ISO 13485:2016 certified quality systems, with full traceability and PPAP documentation.",
 };
@@ -145,13 +144,22 @@ export default function CapabilitiesPage() {
                   <CircleArrow tone="solid" />
                 </span>
               </div>
-              <Image
-                src={quality.image}
-                alt="ISO 9001:2015 Certified Company"
-                width={648}
-                height={280}
-                className="h-28 w-auto shrink-0 object-contain"
-              />
+              <div className="flex shrink-0 items-center gap-4">
+                <Image
+                  src="/images/iso-9001.png"
+                  alt="ISO 9001:2015 Certified Company"
+                  width={280}
+                  height={280}
+                  className="h-24 w-auto object-contain sm:h-28"
+                />
+                <Image
+                  src="/images/iso-13485.png"
+                  alt="ISO 13485:2016 Certified Company"
+                  width={280}
+                  height={280}
+                  className="h-24 w-auto object-contain sm:h-28"
+                />
+              </div>
             </Link>
           </div>
         </div>

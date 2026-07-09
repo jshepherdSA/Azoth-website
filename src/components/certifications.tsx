@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const certifications = [
   { src: "/images/mpif.svg", alt: "MPIF", w: 64, h: 67 },
-  { src: "/images/new-iso-9001-logo.webp", alt: "ISO 9001", w: 188, h: 188 },
-  { src: "/images/new-iso-13485-logo.webp", alt: "ISO 13485", w: 188, h: 184 },
+  { src: "/images/iso-9001.png", alt: "ISO 9001", w: 200, h: 200 },
+  { src: "/images/iso-13485.png", alt: "ISO 13485", w: 200, h: 200 },
   { src: "/images/aiag.svg", alt: "AIAG", w: 150, h: 40 },
   { src: "/images/made-in-usa.svg", alt: "Made in USA", w: 77, h: 59 },
   { src: "/images/itar.svg", alt: "ITAR Registered", w: 138, h: 57 },

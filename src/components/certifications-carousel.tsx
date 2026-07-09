@@ -5,8 +5,8 @@ import Image from "next/image";
 
 const certifications = [
   { src: "/images/mpif.svg", alt: "MPIF", w: 64, h: 67 },
-  { src: "/images/new-iso-9001-logo.webp", alt: "ISO 9001", w: 188, h: 188 },
-  { src: "/images/new-iso-13485-logo.webp", alt: "ISO 13485", w: 188, h: 184 },
+  { src: "/images/iso-9001.png", alt: "ISO 9001", w: 200, h: 200 },
+  { src: "/images/iso-13485.png", alt: "ISO 13485", w: 200, h: 200 },
   { src: "/images/aiag.svg", alt: "AIAG", w: 150, h: 40 },
   { src: "/images/made-in-usa.svg", alt: "Made in USA", w: 77, h: 59 },
   { src: "/images/itar.svg", alt: "ITAR Registered", w: 138, h: 57 },
@@ -58,16 +58,16 @@ export function CertificationsCarousel() {
           {slides.map((cert, i) => (
             <div
               key={i}
-              className="flex shrink-0 items-center justify-center px-6"
+              className="flex shrink-0 items-center justify-center px-3"
               style={{ width: `${100 / slides.length}%` }}
             >
-              <div className="flex h-16 w-full items-center justify-center">
+              <div className="flex h-20 w-full items-center justify-center">
                 <Image
                   src={cert.src}
                   alt={cert.alt}
                   width={cert.w}
                   height={cert.h}
-                  className="max-h-14 w-auto max-w-[140px] object-contain"
+                  className="max-h-20 w-auto max-w-[180px] object-contain"
                 />
               </div>
             </div>

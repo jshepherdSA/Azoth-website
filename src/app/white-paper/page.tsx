@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
-import { JotformEmbed } from "@/components/jotform-embed";
 
 export const metadata: Metadata = {
   title: "White Papers",
@@ -110,23 +109,6 @@ export default function WhitePaperPage() {
               Upload Your Parts
               <CircleArrow tone="onRed" />
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter signup */}
-      <section className="bg-white py-16">
-        <div className="container-az">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
-              Interested in More White Papers?
-            </h2>
-            <p className="mt-3 leading-relaxed text-muted-soft">
-              Subscribe to get new research, case studies, and Azoth updates in your inbox.
-            </p>
-          </div>
-          <div className="mx-auto mt-8 max-w-xl">
-            <JotformEmbed formId="261804661258056" title="Newsletter signup" />
           </div>
         </div>
       </section>
