@@ -22,7 +22,7 @@ const industries: Industry[] = [
     label: "Automotive",
     body: "Azoth is seamlessly incorporated with over 15 Tier-One Automotive Suppliers and Original Equipment Manufacturers (OEMs), boasting a portfolio of over 50 distinctive components currently in serial production, each accompanied by robust levels three and four Production Part Approval Process (PPAP) documentation.",
     href: "/industries/automotive",
-    image: "/images/cadillac-celestiq-new.png",
+    image: "/images/automotive-feature.jpg",
     fit: "cover",
   },
   {

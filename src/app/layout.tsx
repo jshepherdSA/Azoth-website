@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { TradeDeskPixel } from "@/components/tradedesk-pixel";
+import { CookieConsent } from "@/components/cookie-consent";
 
 const GTM_ID = "GTM-PK3GHFV";
 
@@ -31,6 +33,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${manrope.variable} h-full`}>
+      {/* Discovery reference for the site's llms.txt (served at /llms.txt). */}
+      <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
       <body className="flex min-h-full flex-col bg-white text-ink-soft">
         {/* Google Tag Manager (noscript) */}
         <noscript>
@@ -50,9 +54,12 @@ export default function RootLayout({
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`,
           }}
         />
+        {/* The Trade Desk Universal Pixel */}
+        <TradeDeskPixel />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <CookieConsent />
       </body>
     </html>
   );

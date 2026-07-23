@@ -14,7 +14,9 @@ const quickLinks = [
 
 const securityLinks = [
   { label: "Accessibility Policy", href: "/accessibility-policy" },
+  { label: "Accessibility", href: "/accessibility" },
   { label: "Privacy policy", href: "/privacy-policy" },
+  { label: "Cookie Policy", href: "/cookie-policy" },
 ];
 
 function LinkedInIcon() {

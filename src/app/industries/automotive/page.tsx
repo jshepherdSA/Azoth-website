@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
-import { type GalleryPhoto } from "@/components/industry-gallery";
+import { IndustryGallery, type GalleryPhoto } from "@/components/industry-gallery";
 
 export const metadata: Metadata = {
   title: "Automotive",
@@ -15,12 +15,11 @@ const intro =
   "We serve a diverse range of industries where precision, performance, and speed matter most. From automotive and aerospace to medical, defense, and energy—we deliver tailored additive manufacturing solutions that meet industry-specific standards and accelerate time to market.";
 
 const galleryPhotos: GalleryPhoto[] = [
-  { src: "/images/automotive-3.png", alt: "Checkered patterned metal automotive component" },
-  { src: "/images/automotive-4.jpg", alt: "American Made commemorative medallion" },
-  { src: "/images/automotive-5.png", alt: "Jurassic Park collectible coin" },
-  { src: "/images/automotive-new-1.png", alt: "Jeep Wrangler" },
-  { src: "/images/automotive-6.png", alt: "Vintage pickup truck model" },
-  { src: "/images/automotive-new-2.png", alt: "Vintage pickup truck" },
+  { src: "/images/automotive-showcase-1.jpg", alt: "Custom automotive leather interior" },
+  { src: "/images/automotive-showcase-2.jpg", alt: "Custom rat-rod pickup truck" },
+  { src: "/images/automotive-showcase-3.jpg", alt: "Carbon-fiber steering wheel and gauge cluster" },
+  { src: "/images/automotive-showcase-4.png", alt: "Machined automotive shift-knob medallion" },
+  { src: "/images/automotive-showcase-5.jpg", alt: "Carbon-fiber steering wheel" },
 ];
 
 // Bold phrases are marked with **double asterisks** in the source copy.
@@ -123,22 +122,8 @@ export default function AutomotivePage() {
           <p className="mx-auto max-w-4xl text-center text-lg leading-relaxed text-muted-soft">
             {intro}
           </p>
-          {/* Six product photos in a single row */}
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {galleryPhotos.map((p) => (
-              <div
-                key={p.src}
-                className="relative aspect-square overflow-hidden rounded-2xl bg-surface ring-1 ring-hairline"
-              >
-                <Image
-                  src={p.src}
-                  alt={p.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
-                />
-              </div>
-            ))}
+          <div className="mt-10">
+            <IndustryGallery photos={galleryPhotos} />
           </div>
         </div>
       </section>

@@ -1,0 +1,41 @@
+# Azoth 3D
+
+> Azoth is a U.S.-based production additive manufacturing company that delivers small, complex, mission-critical metal and polymer parts on demand — from rapid prototyping through serial production — with in-house finishing and ISO-certified quality.
+
+Azoth (azoth3d.com) was founded in 2018 and is headquartered in Ann Arbor, Michigan. Its core technologies are metal binder jetting, Lithography Metal Manufacturing (LMM), and polymer printing, backed by vertically integrated, in-house finishing and PPAP-proven quality systems (ISO 9001 and ISO 13485). Azoth's TOMO® ("Take One, Make One") model converts physical inventory into digital inventory manufactured on demand, helping manufacturers move to just-in-time production without carrying costly inventory. It serves the automotive, medical, defense, and consumer electronics industries, with 20M+ parts shipped, 500+ customers, and lead times as fast as 5 days.
+
+## Capabilities
+
+- [Capabilities](https://azoth3d.com/capabilities): Overview of Azoth's end-to-end metal and polymer additive manufacturing at production scale, backed by ISO-certified quality.
+- [Binder Jetting](https://azoth3d.com/capabilities/binder-jetting): Metal binder jetting for production-volume, high-detail complex parts in 17-4PH, 316L, copper, Mar M247, and D2 tool steel.
+- [Lithography Metal Manufacturing (LMM)](https://azoth3d.com/capabilities/lithography-metal-manufacturing): High-precision small and micro metal components with surface finish to Ra 2 μm and tolerances to ±0.05 mm in 316L, 17-4PH, Ti-6Al-4V, and copper.
+- [Polymer Printing](https://azoth3d.com/capabilities/polymer-printing): Plastic additive manufacturing across FDM, SLS, SLA, DLP, and HP Multi Jet Fusion, including reinforcement fibers, from prototyping to production.
+- [Finishing](https://azoth3d.com/capabilities/post-processing): Vertically integrated in-house post-processing — machining, heat treatment, polishing, coatings, and plating — for finished, end-use parts on demand.
+- [Quality](https://azoth3d.com/capabilities/quality): Production-capable manufacturing to strict standards — ISO 9001 and ISO 13485 certified, PPAP-proven, with a certificate of inspection on every part.
+
+## Materials & Design
+
+- [Materials](https://azoth3d.com/materials): Traditional and experimental metals (316L, 17-4PH, copper, Mar M247, D2 tool steel, titanium) plus 40+ polymers across FDM, SLS, SLA/DLP, and HP Multi Jet Fusion.
+- [TOMO®](https://azoth3d.com/tomo): Azoth's digital inventory model — Take One, Make One — that converts physical inventory into parts manufactured on demand to eliminate supply-chain disruptions.
+- [Design Guidelines](https://azoth3d.com/design-guidelines): Design-for-additive-manufacturing guidance covering file prep, part size, wall thickness, hole sizes, aspect ratios, text, and exit holes for metal binder jetting.
+
+## Industries
+
+- [Industries](https://azoth3d.com/industries): How Azoth's on-demand additive manufacturing serves industries that need small, complex, high-quality parts without high inventory.
+- [Automotive](https://azoth3d.com/industries/automotive): Safety-critical, cosmetic, tooling, and prototyping parts for 15+ Tier-One automotive suppliers and OEMs, with full PPAP documentation.
+- [Medical](https://azoth3d.com/industries/medical): Production-scale metal additive manufacturing for medical device makers, backed by ISO 13485 quality systems, validated materials, and full traceability.
+- [Defense](https://azoth3d.com/industries/defense-industry): Mission-critical components produced through secure, U.S.-based, ITAR-compliant additive manufacturing for defense and national security.
+- [Consumer Electronics](https://azoth3d.com/industries/consumer-electronics): Complex, miniaturized metal components enabling rapid iteration and scalable production for consumer electronics.
+
+## Resources
+
+- [Azoth Showcase](https://azoth3d.com/azoth-showcase): A gallery of production parts Azoth has manufactured across automotive, medical, defense, and consumer electronics applications.
+- [White Papers](https://azoth3d.com/white-paper): Downloadable white papers and case studies on metal binder jetting, material jetting, laser powder bed fusion, and production additive manufacturing.
+- [Azoth Blog](https://azoth3d.com/azoth-blog): Technical guides, insights, and updates on metal additive manufacturing, materials, design for AM, and digital inventory.
+- [FAQs](https://azoth3d.com/faqs): Answers to common questions about Azoth's additive manufacturing — technologies, materials, lead times, quality systems, quoting, and confidentiality.
+
+## Company
+
+- [About Us](https://azoth3d.com/about): Azoth's mission and story (founded 2018, Ann Arbor, MI), leadership team, and record of 500+ customers and 20M+ parts shipped.
+- [Contact](https://azoth3d.com/contact): Reach Azoth in Ann Arbor, Michigan — phone 734-669-3797, email info@azoth3d.com, or send a message.
+- [Request a Quote](https://azoth3d.com/quote): Upload CAD files and project details for a quote; Azoth typically responds within 24 hours.
