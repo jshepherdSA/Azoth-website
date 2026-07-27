@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { showcaseItems, showcaseCategories } from "@/lib/showcase";
+import { AwardRibbon } from "@/components/award-ribbon";
 
 export function ShowcaseGrid() {
   const [active, setActive] = useState("All");
@@ -59,11 +60,7 @@ export function ShowcaseGrid() {
                   {item.category}
                 </span>
               )}
-              {item.award && (
-                <div className="absolute -right-11 top-4 w-40 rotate-45 bg-gradient-to-r from-amber-300 to-yellow-500 py-1 text-center text-[10px] font-bold uppercase tracking-wider text-amber-950 shadow-md">
-                  Award Winning
-                </div>
-              )}
+              {item.award && <AwardRibbon />}
             </div>
             <div className="p-5">
               <h3 className="text-lg font-bold text-ink transition-colors group-hover:text-brand">

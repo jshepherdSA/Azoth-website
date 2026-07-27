@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CircleArrow } from "@/components/circle-arrow";
+import { AwardRibbon } from "@/components/award-ribbon";
 import { showcaseItems } from "@/lib/showcase";
 
 type Params = { slug: string };
@@ -103,11 +104,7 @@ export default async function ShowcaseItemPage({ params }: { params: Promise<Par
                 {item.category}
               </span>
             )}
-            {item.award && (
-              <div className="absolute -right-12 top-5 w-44 rotate-45 bg-gradient-to-r from-amber-300 to-yellow-500 py-1.5 text-center text-xs font-bold uppercase tracking-wider text-amber-950 shadow-md">
-                Award Winning
-              </div>
-            )}
+            {item.award && <AwardRibbon />}
           </div>
 
           {/* Details */}
@@ -186,11 +183,7 @@ export default async function ShowcaseItemPage({ params }: { params: Promise<Par
                         {rel.category}
                       </span>
                     )}
-                    {rel.award && (
-                      <div className="absolute -right-10 top-3 w-36 rotate-45 bg-gradient-to-r from-amber-300 to-yellow-500 py-0.5 text-center text-[9px] font-bold uppercase tracking-wider text-amber-950 shadow">
-                        Award Winning
-                      </div>
-                    )}
+                    {rel.award && <AwardRibbon size="sm" />}
                   </div>
                   <div className="p-4">
                     <h3 className="font-bold leading-snug text-ink transition-colors group-hover:text-brand">
