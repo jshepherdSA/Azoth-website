@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
+import { GatedDownload } from "@/components/gated-download";
 
 export const metadata: Metadata = {
   title: "White Papers",
@@ -41,14 +42,6 @@ const whitePapers = [
       "The metal binder jetting process is a two-step process where the components are printed and densified in separate steps…",
   },
 ];
-
-function DownloadIcon() {
-  return (
-    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.8} className="h-4 w-4" aria-hidden>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M10 3v9m0 0 3.5-3.5M10 12 6.5 8.5M4 15.5h12" />
-    </svg>
-  );
-}
 
 export default function WhitePaperPage() {
   return (
@@ -88,14 +81,9 @@ export default function WhitePaperPage() {
                 <div className="flex flex-1 flex-col gap-3 p-5">
                   <h3 className="text-base font-bold leading-snug text-ink">{paper.title}</h3>
                   <p className="line-clamp-3 text-sm leading-relaxed text-muted-soft">{paper.excerpt}</p>
-                  <a
-                    href={paper.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-brand transition-colors hover:text-brand-hover"
-                  >
-                    <DownloadIcon /> Download
-                  </a>
+                  <div className="mt-auto pt-2">
+                    <GatedDownload href={paper.pdf} title={paper.title} label="Download" />
+                  </div>
                 </div>
               </article>
             ))}

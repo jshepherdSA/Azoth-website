@@ -1,15 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { JotformEmbed } from "@/components/jotform-embed";
 
-const INDUSTRIES = [
-  "Automotive",
-  "Medical",
-  "Defense",
-  "Consumer Electronics",
-  "Aerospace",
-  "Other",
-];
+// JotForm used for gated downloads. Submissions (and any download delivery /
+// notifications) are handled by JotForm itself.
+const FORM_ID = "262165085294057";
 
 function DownloadIcon() {
   return (
@@ -19,16 +15,15 @@ function DownloadIcon() {
   );
 }
 
-// A data-sheet / white-paper download that is gated behind a short lead form.
-// Clicking the trigger opens a modal asking for name, email, company, and
-// industry; submitting starts the download. The collected fields are available
-// in `onLead` if/when this is wired to a backend (JotForm, email, CRM, etc.).
+// A data-sheet / white-paper download gated behind a form. Clicking the trigger
+// opens a modal that embeds the JotForm above; JotForm collects the lead.
+// `href` is kept for the call sites but is not auto-triggered — delivery is
+// handled by the JotForm (thank-you page / email).
 export function GatedDownload({
-  href,
   label = "Data Sheet",
   title,
 }: {
-  href: string;
+  href?: string;
   label?: string;
   title?: string;
 }) {
@@ -47,14 +42,6 @@ export function GatedDownload({
     };
   }, [open]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Lead fields are captured here; wire to a backend to deliver them.
-    // const data = Object.fromEntries(new FormData(e.currentTarget));
-    window.open(href, "_blank", "noopener,noreferrer");
-    setOpen(false);
-  };
-
   return (
     <>
       <button
@@ -67,7 +54,7 @@ export function GatedDownload({
 
       {open && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto p-4 sm:p-6"
           role="dialog"
           aria-modal="true"
           aria-label={title ?? "Download form"}
@@ -75,76 +62,29 @@ export function GatedDownload({
           <button
             type="button"
             aria-label="Close"
-            className="absolute inset-0 bg-ink/60"
+            className="fixed inset-0 bg-ink/60"
             onClick={() => setOpen(false)}
           />
-          <div className="relative w-full max-w-md rounded-2xl bg-white p-7 shadow-xl">
+          <div className="relative my-auto w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl sm:p-7">
             <button
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Close"
-              className="absolute right-4 top-4 text-muted transition-colors hover:text-ink"
+              className="absolute right-4 top-4 z-10 text-muted transition-colors hover:text-ink"
             >
               <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5" aria-hidden>
                 <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
               </svg>
             </button>
 
-            <h3 className="text-xl font-extrabold text-ink">Download {title ?? "Data Sheet"}</h3>
+            <h3 className="pr-8 text-xl font-extrabold text-ink">Download {title ?? "Data Sheet"}</h3>
             <p className="mt-1 text-sm text-muted-soft">
-              Tell us a bit about you and we&apos;ll start your download.
+              Complete the short form and we&apos;ll get your download to you.
             </p>
 
-            <form onSubmit={handleSubmit} className="mt-5 space-y-4">
-              {[
-                { name: "name", label: "Name", type: "text", autoComplete: "name" },
-                { name: "email", label: "Email", type: "email", autoComplete: "email" },
-                { name: "company", label: "Company", type: "text", autoComplete: "organization" },
-              ].map((f) => (
-                <div key={f.name}>
-                  <label htmlFor={`gd-${f.name}`} className="mb-1.5 block text-sm font-semibold text-ink">
-                    {f.label}
-                  </label>
-                  <input
-                    id={`gd-${f.name}`}
-                    name={f.name}
-                    type={f.type}
-                    autoComplete={f.autoComplete}
-                    required
-                    className="w-full rounded-md border border-hairline px-3.5 py-2.5 text-ink outline-none focus:border-brand focus:ring-1 focus:ring-brand"
-                  />
-                </div>
-              ))}
-
-              <div>
-                <label htmlFor="gd-industry" className="mb-1.5 block text-sm font-semibold text-ink">
-                  Industry
-                </label>
-                <select
-                  id="gd-industry"
-                  name="industry"
-                  required
-                  defaultValue=""
-                  className="w-full rounded-md border border-hairline bg-white px-3.5 py-2.5 text-ink outline-none focus:border-brand focus:ring-1 focus:ring-brand"
-                >
-                  <option value="" disabled>
-                    Select your industry…
-                  </option>
-                  {INDUSTRIES.map((i) => (
-                    <option key={i} value={i}>
-                      {i}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <button
-                type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-brand px-7 py-3 font-semibold text-white transition-colors hover:bg-brand-hover"
-              >
-                <DownloadIcon /> Download
-              </button>
-            </form>
+            <div className="mt-4">
+              <JotformEmbed formId={FORM_ID} title={`Download form — ${title ?? label}`} />
+            </div>
           </div>
         </div>
       )}
