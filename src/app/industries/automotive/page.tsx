@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
 import { IndustryGallery, type GalleryPhoto } from "@/components/industry-gallery";
+import { showcaseItems } from "@/lib/showcase";
 
 export const metadata: Metadata = {
   title: "Automotive",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 const intro =
   "We serve a diverse range of industries where precision, performance, and speed matter most. From automotive and aerospace to medical, defense, and energy—we deliver tailored additive manufacturing solutions that meet industry-specific standards and accelerate time to market.";
 
-const galleryPhotos: GalleryPhoto[] = [
+const curatedPhotos: GalleryPhoto[] = [
   { src: "/images/automotive-showcase-1.jpg", alt: "Custom automotive leather interior" },
   { src: "/images/automotive-showcase-2.jpg", alt: "Custom rat-rod pickup truck" },
   { src: "/images/automotive-showcase-3.jpg", alt: "Carbon-fiber steering wheel and gauge cluster" },
@@ -25,6 +26,18 @@ const galleryPhotos: GalleryPhoto[] = [
   { src: "/images/automotive-ig3.png", alt: "Aston Martin tan leather seats" },
   { src: "/images/automotive-ig4.png", alt: "Aston Martin embossed leather headrest" },
 ];
+
+// Also surface every Automotive-categorized Showcase part in the carousel,
+// pulled straight from the Showcase data (which is not modified). Any image
+// already shown above is skipped so there are no duplicates.
+const galleryPhotos: GalleryPhoto[] = [...curatedPhotos];
+const shownSrcs = new Set(galleryPhotos.map((p) => p.src));
+for (const item of showcaseItems) {
+  if (item.category === "Automotive" && !shownSrcs.has(item.image)) {
+    shownSrcs.add(item.image);
+    galleryPhotos.push({ src: item.image, alt: item.title });
+  }
+}
 
 // Bold phrases are marked with **double asterisks** in the source copy.
 const safety = [
