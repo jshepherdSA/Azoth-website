@@ -20,6 +20,10 @@ const galleryPhotos: GalleryPhoto[] = [
   { src: "/images/automotive-showcase-3.jpg", alt: "Carbon-fiber steering wheel and gauge cluster" },
   { src: "/images/automotive-showcase-4.png", alt: "Machined automotive shift-knob medallion" },
   { src: "/images/automotive-showcase-5.jpg", alt: "Carbon-fiber steering wheel" },
+  { src: "/images/automotive-ig1.png", alt: "Rolls-Royce burl wood dashboard and key" },
+  { src: "/images/automotive-ig2.png", alt: "Polished trim and steering wheel in a custom interior" },
+  { src: "/images/automotive-ig3.png", alt: "Aston Martin tan leather seats" },
+  { src: "/images/automotive-ig4.png", alt: "Aston Martin embossed leather headrest" },
 ];
 
 // Bold phrases are marked with **double asterisks** in the source copy.
