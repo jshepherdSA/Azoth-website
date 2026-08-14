@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { contactInfo } from "@/lib/nav";
 import { CircleArrow } from "./circle-arrow";
+import { CookieSettingsLink } from "./cookie-settings-link";
 
 const quickLinks = [
   { label: "Capabilities", href: "/capabilities" },
@@ -90,7 +91,21 @@ export function SiteFooter() {
           </div>
 
           <FooterColumn title="Quick Links" links={quickLinks} />
-          <FooterColumn title="Security" links={securityLinks} />
+          <div className="space-y-3">
+            <h3 className="font-semibold text-white">Security</h3>
+            <ul className="space-y-2">
+              {securityLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-sm transition-colors hover:text-brand">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <CookieSettingsLink />
+              </li>
+            </ul>
+          </div>
 
           <div className="space-y-3">
             <h3 className="font-semibold text-white">Contact</h3>
