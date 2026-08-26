@@ -46,7 +46,24 @@ export function CertificationsCarousel() {
 
   return (
     <section className="border-y border-black/5 bg-white py-10">
-      <div className="container-az overflow-hidden">
+      {/* Mobile: static, wrapped logos (the sliding track overlaps on narrow
+          viewports, so below md we just lay them out in a centered grid). */}
+      <div className="container-az flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:hidden">
+        {certifications.map((cert) => (
+          <div key={cert.src} className="flex h-16 items-center justify-center">
+            <Image
+              src={cert.src}
+              alt={cert.alt}
+              width={cert.w}
+              height={cert.h}
+              className="max-h-16 w-auto max-w-[130px] object-contain"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* md+: rotating carousel */}
+      <div className="container-az hidden overflow-hidden md:block">
         <div
           className="flex"
           style={{

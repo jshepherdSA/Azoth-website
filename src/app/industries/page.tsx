@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { target: 20, suffix: "M+", label: "Parts Shipped" },
+  { target: 1, suffix: "M+", label: "Parts Shipped" },
   { target: 500, suffix: "+", label: "Clients Served" },
 ];
 

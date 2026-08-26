@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
 import { CertificationsCarousel } from "@/components/certifications-carousel";
 import { IndustriesSection } from "@/components/industries-section";
@@ -8,7 +7,7 @@ import { IndustriesSection } from "@/components/industries-section";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Founded in 2018, Azoth transforms supply chains with metal additive manufacturing, high-end finishing, and digital inventory—delivering production-quality parts on demand.",
+    "Founded in 2017, Azoth transforms supply chains with metal additive manufacturing, high-end finishing, and digital inventory—delivering production-quality parts on demand.",
 };
 
 const story = [
@@ -18,21 +17,15 @@ const story = [
   },
   {
     heading: "Our Story",
-    body: "Founded in 2018, Azoth was created to transform supply chains with speed, flexibility, and precision. By combining cutting-edge metal additive manufacturing, high-end finishing, and program management, we help manufacturers shift from costly inventory systems to agile, digital ones. Our solutions empower companies to adopt a just-in-time production model, reducing waste, lowering costs, and minimizing downtime. With a focus on innovation and quality, Azoth bridges the gap between traditional manufacturing and the digital future. We don't just deliver parts—we deliver transformation.",
+    body: "Founded in 2017, Azoth was created to transform supply chains with speed, flexibility, and precision. By combining cutting-edge metal additive manufacturing, high-end finishing, and program management, we help manufacturers shift from costly inventory systems to agile, digital ones. Our solutions empower companies to adopt a just-in-time production model, reducing waste, lowering costs, and minimizing downtime. With a focus on innovation and quality, Azoth bridges the gap between traditional manufacturing and the digital future. We don't just deliver parts—we deliver transformation.",
   },
 ];
 
 const stats = [
-  { value: "2018", label: "Founded" },
+  { value: "2017", label: "Founded" },
   { value: "500+", label: "Customers Served" },
-  { value: "20M+", label: "Parts Shipped" },
+  { value: "1M+", label: "Parts Shipped" },
   { value: "5 Days", label: "Fastest Lead Time" },
-];
-
-const team = [
-  { name: "Scott Burk", title: "Chief Executive Officer", image: "/images/scott-burk.png" },
-  { name: "Cody Cochran", title: "General Manager & Co-Founder", image: "/images/cody-cochran.png" },
-  { name: "Jay Mullick", title: "Chairman", image: "/images/jay-mullick.png" },
 ];
 
 export default function AboutPage() {
@@ -85,42 +78,6 @@ export default function AboutPage() {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Meet Our Team */}
-      <section className="bg-surface py-20">
-        <div className="container-az">
-          <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow>Leadership</Eyebrow>
-            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">Meet Our Team</h2>
-            <p className="mt-4 leading-relaxed text-muted-soft">
-              Azoth&apos;s team of experts in metallurgy, additive (3D), and production technology is
-              redefining traditional manufacturing with innovative materials and processes. Choosing
-              Azoth means choosing engineers dedicated to delivering the highest quality parts with
-              maximum efficiency.
-            </p>
-          </div>
-
-          <div className="mx-auto mt-12 grid max-w-4xl gap-8 sm:grid-cols-3">
-            {team.map((member) => (
-              <div key={member.name} className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
-                <div className="relative aspect-[4/5] overflow-hidden bg-surface">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-bold text-ink">{member.name}</h3>
-                  <p className="text-sm text-muted">{member.title}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
