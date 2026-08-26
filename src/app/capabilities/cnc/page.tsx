@@ -371,9 +371,6 @@ export default function CncPage() {
         </div>
       </section>
 
-      {/* Industries — shared section used across the site */}
-      <IndustriesSection />
-
       {/* Closing CTA */}
       <section className="bg-brand py-16 text-white">
         <div className="container-az flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
@@ -405,6 +402,9 @@ export default function CncPage() {
           </div>
         </div>
       </section>
+
+      {/* Industries — shared section used across the site */}
+      <IndustriesSection />
     </>
   );
 }
