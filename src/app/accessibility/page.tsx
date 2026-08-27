@@ -6,7 +6,7 @@ import { accessibilityStatementHtml } from "@/lib/legal/accessibility-statement"
 export const metadata: Metadata = {
   title: "Accessibility Statement",
   description:
-    "Azoth3D's commitment to digital accessibility — our accessibility practices, goal of substantial conformance with WCAG 2.2 Level AA, and how to request assistance or report a barrier.",
+    "Azoth3D's commitment to digital accessibility, our accessibility practices, goal of substantial conformance with WCAG 2.2 Level AA, and how to request assistance or report a barrier.",
 };
 
 export default function AccessibilityPage() {

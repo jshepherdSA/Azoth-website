@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const intro =
-  "We serve a diverse range of industries where precision, performance, and speed matter most. From automotive and aerospace to medical, defense, and energy—we deliver tailored additive manufacturing solutions that meet industry-specific standards and accelerate time to market.";
+  "We serve a diverse range of industries where precision, performance, and speed matter most. From automotive and aerospace to medical, defense, and energy, we deliver tailored additive manufacturing solutions that meet industry-specific standards and accelerate time to market.";
 
 const curatedPhotos: GalleryPhoto[] = [
   { src: "/images/automotive-showcase-1.jpg", alt: "Custom automotive leather interior" },
@@ -60,7 +60,7 @@ const tooling = [
 
 const ppapIntro = [
   "As a leading force in the industry, Azoth is your premier partner in delivering excellence to automotive. With a profound expertise in Production Part Approval Process (PPAP) and Advanced Product Quality Planning (APQP), we redefine reliability. Our professionals ensure that every product fulfills industry standards and meets your automotive needs.",
-  "For those unfamiliar with PPAP, rest assured—we will guide you through the process seamlessly. PPAP, a standardized quality assurance framework, encompasses documentation, inspection, and testing procedures. We develop PPAP packages compliant with customer requirements including, but not limited to:",
+  "For those unfamiliar with PPAP, rest assured, we will guide you through the process seamlessly. PPAP, a standardized quality assurance framework, encompasses documentation, inspection, and testing procedures. We develop PPAP packages compliant with customer requirements including, but not limited to:",
 ];
 
 const ppapItems = [
@@ -190,7 +190,7 @@ export default function AutomotivePage() {
           </div>
           <Image
             src="/images/automative-cosmetic.png"
-            alt="Cosmetic automotive components — shift knobs and interior trim"
+            alt="Cosmetic automotive components, shift knobs and interior trim"
             width={2385}
             height={2385}
             className="h-auto w-full"

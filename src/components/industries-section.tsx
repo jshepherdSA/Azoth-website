@@ -23,7 +23,7 @@ export function IndustriesSection() {
           </h2>
           <p className="mt-4 leading-relaxed text-muted-soft">
             We serve a diverse range of industries where precision, performance, and speed matter
-            most. From automotive and aerospace to medical, defense, and energy—we deliver tailored
+            most. From automotive and aerospace to medical, defense, and energy, we deliver tailored
             additive manufacturing solutions that meet industry-specific standards and accelerate
             time to market.
           </p>

@@ -39,7 +39,7 @@ export default function Home() {
             <p className="mt-6 text-lg leading-relaxed text-white/80">
               From rapid prototyping to high-volume part production, our additive manufacturing
               solutions deliver unmatched precision, repeatability, and speed. Whether it&apos;s
-              metal or polymer, we help you go from design to delivery—faster and smarter.
+              metal or polymer, we help you go from design to delivery, faster and smarter.
             </p>
             <Link
               href="/contact"

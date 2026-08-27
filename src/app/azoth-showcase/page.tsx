@@ -25,7 +25,7 @@ export default function ShowcasePage() {
               Production Parts Across Every Industry
             </h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
-              A sampling of the small, complex, end-use components Azoth produces—filter by industry
+              A sampling of the small, complex, end-use components Azoth produces, filter by industry
               to explore parts in automotive, medical, defense, and consumer electronics.
             </p>
           </div>

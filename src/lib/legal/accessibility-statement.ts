@@ -1,4 +1,4 @@
-// Accessibility Statement — verbatim content from
+// Accessibility Statement, verbatim content from
 // `public/ACCESSIBILITY STATEMENT_Azoth.docx` (Effective Date: July 1, 2026).
 // Text is reproduced exactly; only HTML structure (headings, paragraphs,
 // lists) is applied. Rendered via <LegalContent /> using the shared

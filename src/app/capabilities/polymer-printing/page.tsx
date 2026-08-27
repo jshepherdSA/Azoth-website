@@ -8,7 +8,7 @@ import { CircleArrow } from "@/components/circle-arrow";
 export const metadata: Metadata = {
   title: "Polymer Printing",
   description:
-    "Azoth's experts cover a wide array of plastic additive manufacturing technologies — FDM, SLS, SLA, DLP, HP Multi Jet Fusion, reinforcement fibers, and more.",
+    "Azoth's experts cover a wide array of plastic additive manufacturing technologies, FDM, SLS, SLA, DLP, HP Multi Jet Fusion, reinforcement fibers, and more.",
 };
 
 // Each polymer technology is a card (maroon value icon + title) that flips like a
@@ -37,7 +37,7 @@ const technologies = [
   {
     title: "High-Quality Reinforcement Fibers",
     icon: "/images/endless-customization-possibilities.svg",
-    body: "Reinforcement fibers are either natural fibers (animal, mineral, or cellulose) or synthetic fibers such as glass, carbon, polymers, and kevlar—designed to increase rigidity, strength, and the part's impact resistance.",
+    body: "Reinforcement fibers are either natural fibers (animal, mineral, or cellulose) or synthetic fibers such as glass, carbon, polymers, and kevlar, designed to increase rigidity, strength, and the part's impact resistance.",
   },
   {
     title: "Stereolithography (SLA) Printing",
@@ -52,7 +52,7 @@ const technologies = [
   {
     title: "HP Multi-Jet Fusion 3D Printing",
     icon: "/images/complete-design-freedom-flexibility.svg",
-    body: "Unlike other 3D printing technologies, HP Multi Jet Fusion prints each layer of new material and agents on top of a previous layer that is still molten—so both layers fuse completely, delivering strong, detailed, and functional 3D-printed parts.",
+    body: "Unlike other 3D printing technologies, HP Multi Jet Fusion prints each layer of new material and agents on top of a previous layer that is still molten, so both layers fuse completely, delivering strong, detailed, and functional 3D-printed parts.",
   },
 ];
 
@@ -110,7 +110,7 @@ export default function PolymerPrintingPage() {
             </h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
               From prototyping to production, Azoth selects the optimal polymer process for your
-              application—across extrusion, powder-bed, and resin technologies.
+              application, across extrusion, powder-bed, and resin technologies.
             </p>
           </div>
 

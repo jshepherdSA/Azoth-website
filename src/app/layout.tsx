@@ -33,7 +33,7 @@ export default function RootLayout({
       {/* Discovery reference for the site's llms.txt (served at /llms.txt). */}
       <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
       <body className="flex min-h-full flex-col bg-white text-ink-soft">
-        {/* Analytics & marketing tags (GTM, GA4, Trade Desk) — loaded only after
+        {/* Analytics & marketing tags (GTM, GA4, Trade Desk), loaded only after
             cookie consent is accepted. */}
         <AnalyticsGate />
         <SiteHeader />

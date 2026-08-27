@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Eyebrow } from "@/components/eyebrow";
 import { CircleArrow } from "@/components/circle-arrow";
@@ -7,9 +9,9 @@ import { IndustriesSection } from "@/components/industries-section";
 export const metadata: Metadata = {
   title: "CNC",
   description:
-    "In-house 5-axis CNC machining at Azoth — precise machining of complex, additively manufactured metal components into finished, production-ready parts.",
+    "In-house 5-axis CNC machining at Azoth, precise machining of complex, additively manufactured metal components into finished, production-ready parts.",
   // Unlisted page: reachable by direct URL only. Keep it out of search engines
-  // and off the sitemap / nav. (This is not access control — anyone with the URL
+  // and off the sitemap / nav. (This is not access control, anyone with the URL
   // can still view it.)
   robots: { index: false, follow: false },
 };
@@ -19,22 +21,27 @@ export const metadata: Metadata = {
 const benefits = [
   {
     title: "Fewer Setups",
-    body: "A 5-axis machine can access multiple sides of a component within a single setup — no repeatedly removing, rotating and repositioning it. Fewer setups mean fewer opportunities for positioning error.",
+    icon: "/images/prototyping-production.svg",
+    body: "A 5-axis machine can access multiple sides of a component within a single setup, no repeatedly removing, rotating and repositioning it. Fewer setups mean fewer opportunities for positioning error.",
   },
   {
     title: "Greater Precision",
+    icon: "/images/superior-level-of-quality-control.svg",
     body: "Minimizing the number of setups keeps consistent relationships between critical features and supports the tight tolerances demanding applications require.",
   },
   {
     title: "Machine Complex Features & Geometries",
-    body: "Approaching a component from multiple angles reaches features that are difficult to hit with conventional 3-axis machining — while preserving the advantages of additive design.",
+    icon: "/images/complete-design-freedom-flexibility.svg",
+    body: "Approaching a component from multiple angles reaches features that are difficult to hit with conventional 3-axis machining, while preserving the advantages of additive design.",
   },
   {
     title: "Improved Efficiency",
-    body: "Combining multiple operations into fewer setups shortens the path from printed component to finished part — a process built around speed, repeatability and production readiness.",
+    icon: "/images/rapid-speed-of-service-production.svg",
+    body: "Combining multiple operations into fewer setups shortens the path from printed component to finished part, a process built around speed, repeatability and production readiness.",
   },
   {
     title: "Consistency From Part to Part",
+    icon: "/images/world-class-3d-manufacturing-experts.svg",
     body: "Azoth is production-focused, not a prototyping shop. 5-axis machining creates a controlled, repeatable process for machining critical features across production quantities.",
   },
 ];
@@ -50,7 +57,7 @@ const geometries = [
 ];
 
 // Real Azoth certifications (shared across the site).
-const certs = ["ISO 9001", "ISO 13485", "ITAR Registered", "Made in USA", "AIAG Member"];
+const certs = ["ISO 9001", "ISO 13485", "ITAR Registered", "Made in USA", "CMMC Lvl 2"];
 
 // The vertically integrated path, straight from the source copy.
 const pillars = ["Additive Manufacturing", "Machining", "Heat Treatment", "Finishing", "Quality"];
@@ -59,6 +66,43 @@ const pillars = ["Additive Manufacturing", "Machining", "Heat Treatment", "Finis
 // red (last), so each segment's edge is the matching slice of one continuous
 // gradient across the whole ribbon.
 const edgeStops = ["#600004", "#78050a", "#900a10", "#a70f15", "#bf141b", "#d71921"];
+
+// Four-fact banner (from the 5-axis mockup). NOTE: these figures come from the
+// mockup, not the source copy, confirm they are accurate for Azoth before launch.
+const facts: { value: ReactNode; caption: string }[] = [
+  {
+    value: (
+      <>
+        <span className="text-brand">±</span>0.0005&quot;
+      </>
+    ),
+    caption: "Achievable tolerance on critical features",
+  },
+  {
+    value: (
+      <>
+        <span className="text-brand">1</span> Setup
+      </>
+    ),
+    caption: "Complex parts machined complete without re-fixturing",
+  },
+  {
+    value: (
+      <>
+        100<span className="text-brand">%</span>
+      </>
+    ),
+    caption: "In-house CMM & GD&T verification",
+  },
+  {
+    value: (
+      <>
+        Proto <span className="text-brand">→</span> Prod
+      </>
+    ),
+    caption: "From first article through validated production",
+  },
+];
 
 function CheckMark() {
   return (
@@ -74,13 +118,22 @@ function CheckMark() {
   );
 }
 
-// Dark-tone image placeholder for slots awaiting real graphics/photography.
-function PlaceholderGraphic({ className = "", label = "Placeholder graphic" }: { className?: string; label?: string }) {
+// Image placeholder for slots awaiting real graphics/photography. `dark` (default)
+// styles it for dark sections; pass dark={false} on light (bg-surface) sections.
+function PlaceholderGraphic({
+  className = "",
+  label = "Placeholder graphic",
+  dark = true,
+}: {
+  className?: string;
+  label?: string;
+  dark?: boolean;
+}) {
+  const box = dark ? "border-white/20 bg-white/5" : "border-ink/20 bg-ink/[0.04]";
+  const fg = dark ? "text-white/40" : "text-ink/40";
   return (
-    <div
-      className={`flex items-center justify-center rounded-xl border border-dashed border-white/20 bg-white/5 ${className}`}
-    >
-      <div className="flex flex-col items-center gap-2 text-white/40">
+    <div className={`flex items-center justify-center rounded-xl border border-dashed ${box} ${className}`}>
+      <div className={`flex flex-col items-center gap-2 ${fg}`}>
         <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8" aria-hidden>
           <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
           <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor" />
@@ -98,9 +151,52 @@ function PlaceholderGraphic({ className = "", label = "Placeholder graphic" }: {
   );
 }
 
-// Decorative 5-axis motion diagram for the hero. Original tripod + rotary table +
-// tool block, with the two rotary axes moved onto their linear axes: A rotates
-// about X, B about Y.
+// Hover/focus flip card matching the site's other flip tiles: header (icon +
+// title) on the front, content on the back.
+function BenefitCard({
+  icon,
+  title,
+  back,
+  className = "",
+}: {
+  icon: string;
+  title: string;
+  back: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div tabIndex={0} className={`group [perspective:1200px] focus:outline-none ${className}`}>
+      <div className="relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)]">
+        {/* Front (header) */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-2xl border border-hairline bg-white px-5 text-center shadow-md [backface-visibility:hidden]">
+          <Image src={icon} alt="" width={64} height={64} className="h-14 w-14" />
+          <h3 className="text-base font-bold leading-snug text-ink">{title}</h3>
+          <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+            Learn More
+            <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden>
+              <path
+                d="M6 4l4 4-4 4"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        </div>
+        {/* Back (content) */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-br from-brand-dark to-black px-5 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+          <h3 className="text-sm font-bold">{title}</h3>
+          {back}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Decorative 5-axis motion diagram for the hero. Tripod + rotary table + tool
+// block, in the standard A-C configuration: A rotates about X, C about the
+// vertical Z (the rotary table).
 function AxisDiagram() {
   return (
     <svg viewBox="0 0 440 360" fill="none" aria-hidden className="h-auto w-full max-w-md">
@@ -121,29 +217,74 @@ function AxisDiagram() {
       {/* tool block */}
       <rect x="200" y="96" width="30" height="22" rx="2" fill="#d71921" />
 
-      {/* A — rotation about the X axis (X points down-left, screen angle ~158.2°) */}
+      {/* A, rotation about the X axis (X points down-left, screen angle ~158.2°) */}
       <g transform="rotate(158.2 145 290)">
         <path d="M145 270 A 8 20 0 0 0 145 310" stroke="#d71921" strokeWidth="1.6" strokeDasharray="3 4" />
         <path d="M145 310 A 8 20 0 0 0 145 270" stroke="#d71921" strokeWidth="2" markerEnd="url(#ah-r)" />
       </g>
 
-      {/* B — rotation about the Y axis (Y points down-right, screen angle ~12.5°) */}
-      <g transform="rotate(12.5 305 284)">
-        <path d="M305 264 A 8 20 0 0 0 305 304" stroke="#d71921" strokeWidth="1.6" strokeDasharray="3 4" />
-        <path d="M305 304 A 8 20 0 0 0 305 264" stroke="#d71921" strokeWidth="2" markerEnd="url(#ah-r)" />
-      </g>
+      {/* C, rotation about the vertical Z axis (horizontal ring wrapping Z) */}
+      <path d="M185 150 A 30 9 0 0 0 245 150" stroke="#d71921" strokeWidth="1.6" strokeDasharray="3 4" />
+      <path d="M185 150 A 30 9 0 0 1 245 150" stroke="#d71921" strokeWidth="2" markerEnd="url(#ah-r)" />
 
       {/* labels */}
       <text x="226" y="84" fill="#fff" fontSize="16" fontWeight="700">Z</text>
       <text x="54" y="332" fill="#fff" fontSize="16" fontWeight="700">X</text>
       <text x="402" y="304" fill="#fff" fontSize="16" fontWeight="700">Y</text>
       <text x="118" y="306" fill="#d71921" fontSize="14" fontWeight="700">A</text>
-      <text x="322" y="302" fill="#d71921" fontSize="14" fontWeight="700">B</text>
+      <text x="252" y="146" fill="#d71921" fontSize="14" fontWeight="700">C</text>
+    </svg>
+  );
+}
+
+// Simple 3-axis diagram (linear X/Y/Z only, no rotary axes) for the 3-Axis tile.
+function AxisDiagramSimple() {
+  return (
+    <svg viewBox="0 0 440 360" fill="none" aria-hidden className="h-auto w-full max-w-md">
+      <defs>
+        <marker id="ah3-w" markerWidth="9" markerHeight="9" refX="5" refY="3" orient="auto">
+          <path d="M0 0 L6 3 L0 6 Z" fill="#ffffff" />
+        </marker>
+      </defs>
+      {/* linear axes from origin */}
+      <line x1="215" y1="264" x2="215" y2="86" stroke="#ffffff" strokeWidth="2" markerEnd="url(#ah3-w)" />
+      <line x1="215" y1="264" x2="70" y2="322" stroke="#ffffff" strokeWidth="2" markerEnd="url(#ah3-w)" />
+      <line x1="215" y1="264" x2="396" y2="304" stroke="#ffffff" strokeWidth="2" markerEnd="url(#ah3-w)" />
+      {/* tool block */}
+      <rect x="200" y="96" width="30" height="22" rx="2" fill="#d71921" />
+      {/* labels */}
+      <text x="226" y="84" fill="#fff" fontSize="16" fontWeight="700">Z</text>
+      <text x="54" y="332" fill="#fff" fontSize="16" fontWeight="700">X</text>
+      <text x="402" y="304" fill="#fff" fontSize="16" fontWeight="700">Y</text>
     </svg>
   );
 }
 
 export default function CncPage() {
+  // Flip tiles: the five benefits plus the geometry callout, each with a header
+  // (front) and content (back).
+  const tiles: { icon: string; title: string; back: ReactNode }[] = [
+    ...benefits.map((b) => ({
+      icon: b.icon,
+      title: b.title,
+      back: <p className="text-xs leading-snug text-white/85">{b.body}</p>,
+    })),
+    {
+      icon: "/images/endless-customization-possibilities.svg",
+      title: "Ideal for Parts With",
+      back: (
+        <ul className="space-y-1 text-left">
+          {geometries.map((g) => (
+            <li key={g} className="flex items-start gap-1.5 text-[11px] leading-snug text-white/85">
+              <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-white/70" />
+              <span>{g}</span>
+            </li>
+          ))}
+        </ul>
+      ),
+    },
+  ];
+
   return (
     <>
       {/* Hero */}
@@ -156,7 +297,7 @@ export default function CncPage() {
             </h1>
             <p className="mt-6 max-w-xl leading-relaxed text-white/70">
               Additive manufacturing makes it possible to produce complex geometries that traditional
-              manufacturing can&apos;t achieve alone — but creating the part is only the first step.
+              manufacturing can&apos;t achieve alone, but creating the part is only the first step.
               Azoth&apos;s in-house 5-axis CNC machining turns complex printed components into
               finished, production-ready parts.
             </p>
@@ -177,15 +318,7 @@ export default function CncPage() {
             </div>
           </div>
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md">
-              <span className="absolute right-0 top-0 text-xs italic text-white/40">
-                *placeholder image
-              </span>
-              <AxisDiagram />
-              <p className="mt-2 text-center text-xs font-medium uppercase tracking-wider text-white/40">
-                5-Axis Simultaneous Motion
-              </p>
-            </div>
+            <PlaceholderGraphic className="aspect-[4/3] w-full max-w-md" label="Placeholder image" />
           </div>
         </div>
       </section>
@@ -204,7 +337,7 @@ export default function CncPage() {
         </div>
       </section>
 
-      {/* What Is 5-Axis CNC Machining? — dual dark cards */}
+      {/* What Is 5-Axis CNC Machining?, dual dark cards */}
       <section className="bg-white py-20">
         <div className="container-az">
           <div className="max-w-3xl">
@@ -214,7 +347,7 @@ export default function CncPage() {
             </h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
               Traditional 3-axis machining moves a cutting tool along three linear directions. A
-              5-axis machine adds two rotational axes — the difference between reaching a few faces of
+              5-axis machine adds two rotational axes, the difference between reaching a few faces of
               a part and reaching nearly all of them in one setup.
             </p>
           </div>
@@ -222,7 +355,12 @@ export default function CncPage() {
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {/* 3-Axis */}
             <div className="rounded-2xl bg-ink p-8 text-white">
-              <PlaceholderGraphic className="mb-6 aspect-video w-full" label="Graphic" />
+              <div className="mx-auto mb-6 w-full max-w-sm">
+                <AxisDiagramSimple />
+                <p className="mt-1 text-center text-xs font-medium uppercase tracking-wider text-white/40">
+                  3-Axis Linear Motion
+                </p>
+              </div>
               <p className="text-xs font-semibold uppercase tracking-wider text-white/50">
                 The Baseline
               </p>
@@ -236,18 +374,23 @@ export default function CncPage() {
             </div>
             {/* 5-Axis */}
             <div className="rounded-2xl bg-gradient-to-br from-brand-dark to-black p-8 text-white ring-1 ring-brand/40">
-              <PlaceholderGraphic className="mb-6 aspect-video w-full" label="Graphic" />
+              <div className="mx-auto mb-6 w-full max-w-sm">
+                <AxisDiagram />
+                <p className="mt-1 text-center text-xs font-medium uppercase tracking-wider text-white/40">
+                  5-Axis Simultaneous Motion
+                </p>
+              </div>
               <p className="text-xs font-semibold uppercase tracking-wider text-brand">
                 Two More Axes
               </p>
               <h3 className="mt-2 text-2xl font-extrabold">5-Axis Machining</h3>
               <p className="mt-4 leading-relaxed text-white/80">
                 Adds two rotational axes, allowing the cutting tool and workpiece to move in multiple
-                directions — accessing more sides and angles of a component without repeatedly
+                directions, accessing more sides and angles of a component without repeatedly
                 removing, repositioning and resetting the part.
               </p>
               <div className="mt-6 inline-flex items-center gap-2 rounded-md bg-white/15 px-3 py-1.5 font-mono text-sm text-white">
-                X · Y · Z · A · B
+                X · Y · Z · A · C
               </div>
             </div>
           </div>
@@ -259,7 +402,19 @@ export default function CncPage() {
         </div>
       </section>
 
-      {/* Why 5-Axis Machining Matters — numbered capability grid */}
+      {/* Four-fact banner */}
+      <section className="bg-ink py-14 text-white">
+        <div className="container-az grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+          {facts.map((fact) => (
+            <div key={fact.caption}>
+              <div className="text-3xl font-extrabold sm:text-4xl">{fact.value}</div>
+              <p className="mt-2 max-w-[15rem] text-sm leading-snug text-white/60">{fact.caption}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why 5-Axis Machining Matters, flip cards floating around a central image */}
       <section className="bg-surface py-20">
         <div className="container-az">
           <div className="max-w-3xl">
@@ -275,39 +430,43 @@ export default function CncPage() {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((benefit, i) => (
-              <div
-                key={benefit.title}
-                className="rounded-xl border border-hairline bg-white p-4 shadow-sm"
-              >
-                <div className="flex items-baseline gap-2">
-                  <span className="text-xs font-extrabold text-brand">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="text-base font-bold leading-snug text-ink">{benefit.title}</h3>
-                </div>
-                <p className="mt-1.5 text-sm leading-snug text-muted-soft">{benefit.body}</p>
-              </div>
-            ))}
+          {/* Mobile / tablet: central image + stacked flip cards */}
+          <div className="mt-10 lg:hidden">
+            <PlaceholderGraphic
+              dark={false}
+              className="mx-auto aspect-video w-full max-w-sm"
+              label="Placeholder image"
+            />
+            <p className="mt-6 text-center text-sm font-medium text-muted">Hover a card to learn more.</p>
+            <div className="mt-4 grid gap-5 sm:grid-cols-2">
+              {tiles.map((t) => (
+                <BenefitCard key={t.title} icon={t.icon} title={t.title} back={t.back} className="h-44" />
+              ))}
+            </div>
+          </div>
 
-            {/* Geometry callout occupies the final grid cell */}
-            <div className="rounded-xl bg-ink p-4 text-white">
-              <h3 className="text-base font-bold">Ideal for parts with</h3>
-              <ul className="mt-2 space-y-1">
-                {geometries.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm leading-snug text-white/80">
-                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+          {/* Desktop: landscape flip cards floating around a central placeholder image */}
+          <div className="mt-14 hidden items-center justify-between lg:flex">
+            <div className="flex w-[28%] flex-col gap-7">
+              <BenefitCard {...tiles[0]} className="h-48 translate-x-3" />
+              <BenefitCard {...tiles[1]} className="mt-6 h-48 -translate-x-2" />
+              <BenefitCard {...tiles[2]} className="h-48 translate-x-2" />
+            </div>
+            <PlaceholderGraphic
+              dark={false}
+              className="aspect-[4/3] w-[40%] shrink-0 self-center"
+              label="Placeholder image"
+            />
+            <div className="flex w-[28%] flex-col gap-7">
+              <BenefitCard {...tiles[3]} className="mt-12 h-48 -translate-x-3" />
+              <BenefitCard {...tiles[4]} className="h-48 translate-x-2" />
+              <BenefitCard {...tiles[5]} className="mt-6 h-48 -translate-x-2" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Additive + Precision Machining Under One Roof — dark band */}
+      {/* Additive + Precision Machining Under One Roof, dark band */}
       <section className="bg-ink py-20 text-white">
         <div className="container-az">
           <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -320,7 +479,7 @@ export default function CncPage() {
                 <p>
                   The real advantage of Azoth&apos;s 5-axis capabilities goes beyond the machine
                   itself. Azoth brings additive manufacturing, machining, heat treatment, finishing
-                  and quality capabilities together within a vertically integrated operation — so
+                  and quality capabilities together within a vertically integrated operation, so
                   machining is part of the manufacturing strategy from the beginning, not an
                   afterthought.
                 </p>
@@ -337,7 +496,7 @@ export default function CncPage() {
             <PlaceholderGraphic className="aspect-[4/3] w-full" label="Placeholder image" />
           </div>
 
-          {/* Integrated process flow — a connected chevron ribbon: black segments
+          {/* Integrated process flow, a connected chevron ribbon: black segments
               with red chevron edges. Each segment is a red chevron (bg-brand) with
               a black chevron inset inside it (padding = the red edge); segments
               overlap so the shared edge reads as one red divider. */}
@@ -403,7 +562,7 @@ export default function CncPage() {
         </div>
       </section>
 
-      {/* Industries — shared section used across the site */}
+      {/* Industries, shared section used across the site */}
       <IndustriesSection />
     </>
   );

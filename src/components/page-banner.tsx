@@ -12,7 +12,7 @@ export function PageBanner({
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-white">
-      {/* Banner image — shown at full height (never cropped top/bottom), centered.
+      {/* Banner image, shown at full height (never cropped top/bottom), centered.
           When the viewport is wider than the image, white shows on the sides. */}
       <div className="absolute inset-0 -z-10 flex justify-center">
         <Image

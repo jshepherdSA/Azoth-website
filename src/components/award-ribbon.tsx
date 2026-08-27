@@ -1,8 +1,8 @@
 // Diagonal "Award Winning" corner ribbon.
 //
 // The rotated band lives inside a FIXED-SIZE corner clip box (not the card
-// itself), so the ribbon's geometry — and therefore the full visibility of the
-// text — is independent of the card's width. That keeps the label from being
+// itself), so the ribbon's geometry, and therefore the full visibility of the
+// text, is independent of the card's width. That keeps the label from being
 // clipped at any breakpoint. The band is sized so its centered text sits well
 // inside the corner triangle while its tails run past the edges and get hidden.
 export function AwardRibbon({ size = "md" }: { size?: "sm" | "md" }) {

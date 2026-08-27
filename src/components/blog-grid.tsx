@@ -60,7 +60,7 @@ export function BlogGrid() {
         </label>
       </div>
 
-      {/* Category tabs — centered, spanning the full width */}
+      {/* Category tabs, centered, spanning the full width */}
       <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-1 border-b border-hairline sm:justify-between">
         {blogCategories.map((category) => (
           <button

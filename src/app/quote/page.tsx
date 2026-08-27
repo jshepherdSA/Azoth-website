@@ -26,7 +26,7 @@ export default function QuotePage() {
               Upload your CAD and any supporting documents, choose your preferred process, material,
               and quantities, and add any extra notes. If you&apos;d like Azoth to recommend the best
               material or process, use the form below. Azoth typically provides quotes{" "}
-              <strong className="text-ink">within 24 hours</strong>—the more project details you
+              <strong className="text-ink">within 24 hours</strong>, the more project details you
               share, the better.
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function QuotePage() {
             </div>
           </div>
 
-          {/* Quote form (RFQ embed) — centered single-column, adaptive width/height */}
+          {/* Quote form (RFQ embed), centered single-column, adaptive width/height */}
           <div className="mx-auto mt-10 w-full max-w-2xl">
             <iframe
               src="https://rfq.digital-quote.com/rfq/index.html?supplier_id=830357ef-57dc-4f70-a097-10c63d4b36ec"

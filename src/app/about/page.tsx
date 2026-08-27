@@ -7,17 +7,17 @@ import { IndustriesSection } from "@/components/industries-section";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Founded in 2017, Azoth transforms supply chains with metal additive manufacturing, high-end finishing, and digital inventory—delivering production-quality parts on demand.",
+    "Founded in 2017, Azoth transforms supply chains with metal additive manufacturing, high-end finishing, and digital inventory, delivering production-quality parts on demand.",
 };
 
 const story = [
   {
     heading: "Our Mission",
-    body: "Advance critical industries and strengthen national security by delivering small, complex, mission-critical metal components at production scale—leveraging advanced additive manufacturing to enable resilient, on-demand supply chains across defense, medical, and consumer electronics.",
+    body: "Advance critical industries and strengthen national security by delivering small, complex, mission-critical metal components at production scale, leveraging advanced additive manufacturing to enable resilient, on-demand supply chains across defense, medical, and consumer electronics.",
   },
   {
     heading: "Our Story",
-    body: "Founded in 2017, Azoth was created to transform supply chains with speed, flexibility, and precision. By combining cutting-edge metal additive manufacturing, high-end finishing, and program management, we help manufacturers shift from costly inventory systems to agile, digital ones. Our solutions empower companies to adopt a just-in-time production model, reducing waste, lowering costs, and minimizing downtime. With a focus on innovation and quality, Azoth bridges the gap between traditional manufacturing and the digital future. We don't just deliver parts—we deliver transformation.",
+    body: "Founded in 2017, Azoth was created to transform supply chains with speed, flexibility, and precision. By combining cutting-edge metal additive manufacturing, high-end finishing, and program management, we help manufacturers shift from costly inventory systems to agile, digital ones. Our solutions empower companies to adopt a just-in-time production model, reducing waste, lowering costs, and minimizing downtime. With a focus on innovation and quality, Azoth bridges the gap between traditional manufacturing and the digital future. We don't just deliver parts, we deliver transformation.",
   },
 ];
 

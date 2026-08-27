@@ -11,7 +11,7 @@ import { IndustriesSection } from "@/components/industries-section";
 export const metadata: Metadata = {
   title: "Binder Jetting",
   description:
-    "Azoth is one of the first companies to offer metal binder jetting for production — high-quality, complex metal parts in 17-4PH, 316L, copper, Mar M247, and D2 tool steel.",
+    "Azoth is one of the first companies to offer metal binder jetting for production, high-quality, complex metal parts in 17-4PH, 316L, copper, Mar M247, and D2 tool steel.",
 };
 
 const materials = [
@@ -62,13 +62,13 @@ const specs: AccordionItem[] = [
   },
 ];
 
-// "Why Azoth Binder Jetting?" — six benefit tiles (maroon value icon + title) that
+// "Why Azoth Binder Jetting?", six benefit tiles (maroon value icon + title) that
 // flip like a flashcard on hover/focus to reveal the supporting paragraph.
 const whyCards = [
   {
     title: "Reduce Inventory Costs",
     icon: "/images/reduce-inventory-costs.svg",
-    body: "Don't predict market demand and then order inventory which may become obsolete. With Azoth, you are able to make on-demand, allowing you to order when needed and change designs when needed—without carrying hundreds of thousands of dollars in part inventory.",
+    body: "Don't predict market demand and then order inventory which may become obsolete. With Azoth, you are able to make on-demand, allowing you to order when needed and change designs when needed, without carrying hundreds of thousands of dollars in part inventory.",
   },
   {
     title: "Rapid Speed of Service & Production",
@@ -93,7 +93,7 @@ const whyCards = [
   {
     title: "World Class 3D Manufacturing Experts",
     icon: "/images/world-class-3d-manufacturing-experts.svg",
-    body: "No longer do you have to worry about typical design issues from subtractive or traditional manufacturing—such as draft angles for molds, tooling life, machinability, or whether parts can be reached during production. Azoth can assist in lightweighting your structures and suggest alternative materials and designs for your small, complex parts.",
+    body: "No longer do you have to worry about typical design issues from subtractive or traditional manufacturing, such as draft angles for molds, tooling life, machinability, or whether parts can be reached during production. Azoth can assist in lightweighting your structures and suggest alternative materials and designs for your small, complex parts.",
   },
 ];
 
@@ -112,7 +112,7 @@ export default function BinderJettingPage() {
       {/* Intro */}
       <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <YouTubeEmbed id="K53Aeq1czQM" title="Azoth — Production 3D Printing Is Here" />
+          <YouTubeEmbed id="K53Aeq1czQM" title="Azoth, Production 3D Printing Is Here" />
           <div>
             <Eyebrow>Metal Binder Jetting</Eyebrow>
             <p className="mt-3 text-xl font-bold leading-snug text-ink sm:text-2xl">
@@ -140,7 +140,7 @@ export default function BinderJettingPage() {
             undergo an operation called sintering which creates a fully dense metal component ready
             for its end-use application or further post-processing. Azoth&apos;s production binder
             jetting platform delivers repeatable, high-volume output with the design freedom of
-            additive manufacturing—skipping the tooling costs and long lead times of traditional
+            additive manufacturing, skipping the tooling costs and long lead times of traditional
             processes while holding tight tolerances and superior surface quality across every part.
           </p>
         </div>

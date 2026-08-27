@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { JotformEmbed } from "@/components/jotform-embed";
 
 // JotForm used for gated downloads. On a completed submission JotForm posts a
-// message to the parent window — `{action:"submission-completed", formID:...}` —
+// message to the parent window, `{action:"submission-completed", formID:...}`, 
 // which we listen for to auto-start the specific document's download.
 const FORM_ID = "262165085294057";
 
@@ -120,7 +120,7 @@ export function GatedDownload({
             </p>
 
             <div className="mt-4">
-              <JotformEmbed formId={FORM_ID} title={`Download form — ${title ?? label}`} />
+              <JotformEmbed formId={FORM_ID} title={`Download form, ${title ?? label}`} />
             </div>
 
             {submitted && href && (

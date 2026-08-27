@@ -8,7 +8,7 @@ import { JotformEmbed } from "@/components/jotform-embed";
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Join Azoth — a growing team of creative, technically proficient professionals revolutionizing manufacturing through metal additive manufacturing.",
+    "Join Azoth, a growing team of creative, technically proficient professionals revolutionizing manufacturing through metal additive manufacturing.",
 };
 
 const openings: Opening[] = [
@@ -20,11 +20,11 @@ const openings: Opening[] = [
       { kind: "h", text: "About Azoth" },
       {
         kind: "p",
-        text: "Azoth is building the future of metal manufacturing — using metal 3D printing to produce small, complex metal parts that were previously impossible or impractical to make. Our customers span automotive, defense, luxury goods, and medical industries, and they come to us because we can do things no one else can.",
+        text: "Azoth is building the future of metal manufacturing, using metal 3D printing to produce small, complex metal parts that were previously impossible or impractical to make. Our customers span automotive, defense, luxury goods, and medical industries, and they come to us because we can do things no one else can.",
       },
       {
         kind: "p",
-        text: "We’re a small, ambitious team in Ann Arbor, MI — and we’re growing fast. If you want to work somewhere your contributions matter on day one, where the technology is genuinely cutting-edge, and where the ceiling is high for people who want to grow — this is the place.",
+        text: "We’re a small, ambitious team in Ann Arbor, MI, and we’re growing fast. If you want to work somewhere your contributions matter on day one, where the technology is genuinely cutting-edge, and where the ceiling is high for people who want to grow, this is the place.",
       },
       { kind: "h", text: "Role Summary" },
       {
@@ -127,16 +127,16 @@ const openings: Opening[] = [
       },
       {
         kind: "p",
-        text: "Azoth is building the future of metal manufacturing — using sinter-based additive manufacturing to produce small, complex metal parts that were previously impossible or impractical to make. Our customers span automotive, defense, luxury goods, and medical industries.",
+        text: "Azoth is building the future of metal manufacturing, using sinter-based additive manufacturing to produce small, complex metal parts that were previously impossible or impractical to make. Our customers span automotive, defense, luxury goods, and medical industries.",
       },
       {
         kind: "p",
-        text: "We’re a small, ambitious team in Ann Arbor, MI — growing fast. If you want work that matters on day one, technology that’s genuinely cutting-edge, and a ceiling as high as your ambition — this is the place.",
+        text: "We’re a small, ambitious team in Ann Arbor, MI, growing fast. If you want work that matters on day one, technology that’s genuinely cutting-edge, and a ceiling as high as your ambition, this is the place.",
       },
       { kind: "h", text: "Role Summary" },
       {
         kind: "p",
-        text: "This is a core quality role with real ownership — not a checkbox function. You will lead implementation and maintenance of Azoth’s ISO 13485 and ISO 9001 quality systems, own the inspection lab, drive IQ/OQ/PQ validation processes, and build the quality infrastructure that enables Azoth to serve medical device, defense, and automotive customers at the highest level. You’ll work across every department and report directly to the General Manager.",
+        text: "This is a core quality role with real ownership, not a checkbox function. You will lead implementation and maintenance of Azoth’s ISO 13485 and ISO 9001 quality systems, own the inspection lab, drive IQ/OQ/PQ validation processes, and build the quality infrastructure that enables Azoth to serve medical device, defense, and automotive customers at the highest level. You’ll work across every department and report directly to the General Manager.",
       },
       { kind: "h", text: "Core Responsibilities" },
       { kind: "sub", text: "Quality Systems" },
@@ -145,7 +145,7 @@ const openings: Opening[] = [
         items: [
           "Lead implementation and maintenance of ISO 13485 for medical device manufacturing",
           "Maintain ISO 9001:2015 accreditation",
-          "Own document control system (EtQ) — specs, SOPs, process flows",
+          "Own document control system (EtQ), specs, SOPs, process flows",
           "Lead internal process audits and support external audits",
           "Ensure all process and product changes are fully documented and compliant",
         ],
@@ -215,7 +215,7 @@ const openings: Opening[] = [
           "IQ/OQ/PQ protocols are executed on schedule with zero compliance gaps.",
           "The inspection lab runs efficiently and the team is trained and confident.",
           "Quality issues are caught early, root-caused fast, and closed for good.",
-          "Customers in medical, defense, and automotive trust Azoth’s quality — because you built the system behind it.",
+          "Customers in medical, defense, and automotive trust Azoth’s quality, because you built the system behind it.",
         ],
       },
       { kind: "h", text: "Why Azoth?" },
@@ -250,7 +250,7 @@ const openings: Opening[] = [
           "Zero lapsed audits or certifications",
           "Corrective actions closed on time",
           "First article inspection pass rate",
-          "Customer escapes — target zero",
+          "Customer escapes, target zero",
           "Inspection lab uptime and calibration compliance",
         ],
       },

@@ -58,7 +58,7 @@ export default function WhitePaperPage() {
             <Eyebrow>Research & Insights</Eyebrow>
             <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">White Papers</h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
-              In-depth technical papers and case studies on metal additive manufacturing—download and
+              In-depth technical papers and case studies on metal additive manufacturing, download and
               explore.
             </p>
           </div>

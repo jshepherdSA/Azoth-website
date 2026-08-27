@@ -11,7 +11,7 @@ import { CountUp } from "@/components/count-up";
 export const metadata: Metadata = {
   title: "Industries",
   description:
-    "Azoth's on-demand additive manufacturing serves automotive, medical, defense, and consumer electronics — small, complex, high-quality parts produced without high inventory.",
+    "Azoth's on-demand additive manufacturing serves automotive, medical, defense, and consumer electronics, small, complex, high-quality parts produced without high inventory.",
 };
 
 const stats = [
@@ -51,7 +51,7 @@ export default function IndustriesPage() {
               Azoth&apos;s disruptive on-demand additive (3D) manufacturing technology has been
               utilized in a wide range of industries that desire small, complex, and quality parts.
               Our technology gives manufacturers the design freedom to produce innovative,
-              high-quality, lightweight, customizable parts on demand—without the need to carry high
+              high-quality, lightweight, customizable parts on demand, without the need to carry high
               levels of inventory.
             </p>
             <div className="mt-10 grid grid-cols-2 gap-5">

@@ -21,8 +21,8 @@ export async function generateMetadata({
   const item = showcaseItems.find((i) => i.slug === slug);
   if (!item) return {};
   return {
-    title: `${item.title} — Showcase`,
-    description: item.desc || `${item.title} — a production part by Azoth in ${item.material}.`,
+    title: `${item.title}, Showcase`,
+    description: item.desc || `${item.title}, a production part by Azoth in ${item.material}.`,
     openGraph: { images: [item.image] },
   };
 }

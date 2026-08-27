@@ -1,4 +1,4 @@
-// Single source of truth for News & Updates — LinkedIn post embeds, newest first.
+// Single source of truth for News & Updates, LinkedIn post embeds, newest first.
 // Both the /news page and the homepage News section read from here: the homepage
 // shows the most recent few (via a limit) and /news shows them all. They render as
 // uniform-sized tiles. When this list is empty, both show a "coming soon" state.

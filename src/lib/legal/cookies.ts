@@ -1,4 +1,4 @@
-// Cookie Policy — verbatim content from `public/Cookie Policy Azoth.docx`
+// Cookie Policy, verbatim content from `public/Cookie Policy Azoth.docx`
 // (Last Updated: July 1, 2026). Text is reproduced exactly; only HTML
 // structure (headings, paragraphs, lists) is applied. Rendered via
 // <LegalContent /> using the shared `.legal-content` styles in globals.css.

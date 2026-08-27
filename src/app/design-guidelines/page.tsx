@@ -7,7 +7,7 @@ import { CircleArrow } from "@/components/circle-arrow";
 export const metadata: Metadata = {
   title: "Design Guidelines",
   description:
-    "Design for additive manufacturing guidelines from Azoth — file prep, ideal part size, wall thickness, hole sizes, aspect ratios, text, and exit holes for metal binder jetting.",
+    "Design for additive manufacturing guidelines from Azoth, file prep, ideal part size, wall thickness, hole sizes, aspect ratios, text, and exit holes for metal binder jetting.",
 };
 
 type DGSection = {
@@ -25,7 +25,7 @@ const sections: DGSection[] = [
     image: null,
     body: (
       <div className="space-y-6">
-        {/* File types — the exception: grey background so the white file icons read */}
+        {/* File types, the exception: grey background so the white file icons read */}
         <div className="rounded-2xl bg-surface px-6 py-8">
           <Image
             src="/images/dg1.png"
@@ -47,10 +47,10 @@ const sections: DGSection[] = [
           will look faceted and jagged; too high won&apos;t increase quality and makes the file size
           unwieldy.
         </p>
-        {/* STL resolution comparison — smooth (good) vs faceted (bad) */}
+        {/* STL resolution comparison, smooth (good) vs faceted (bad) */}
         <Image
           src="/images/dg2.png"
-          alt="STL resolution comparison — a smooth high-resolution sphere versus a faceted low-resolution sphere"
+          alt="STL resolution comparison, a smooth high-resolution sphere versus a faceted low-resolution sphere"
           width={450}
           height={208}
           className="mx-auto h-auto w-full max-w-md"
@@ -68,7 +68,7 @@ const sections: DGSection[] = [
         Small and complex parts are Azoth&apos;s specialty. As a rule of thumb,{" "}
         <strong className="text-ink">5mm to 75mm</strong> is optimal (about the size of your fist or
         smaller). We recommend not exceeding <strong className="text-ink">150mm</strong> in the
-        longest dimension—though larger components are considered case by case.
+        longest dimension, though larger components are considered case by case.
       </p>
     ),
   },
@@ -117,7 +117,7 @@ const sections: DGSection[] = [
     body: (
       <div className="space-y-4">
         <p>
-          An aspect ratio is the proportion of a feature&apos;s dimensions—the larger one dimension
+          An aspect ratio is the proportion of a feature&apos;s dimensions, the larger one dimension
           is versus another, the larger the aspect ratio. The maximum recommended ratio depends on
           the feature type:
         </p>
@@ -136,7 +136,7 @@ const sections: DGSection[] = [
           ))}
         </ul>
         <p>
-          Features exceeding the recommended ratio are likely to fail—more prone to fracture, hard to
+          Features exceeding the recommended ratio are likely to fail, more prone to fracture, hard to
           depowder, and susceptible to warping during sintering. Enclosed walls, supports, gussets,
           and ribs can minimize risk.
         </p>
@@ -176,7 +176,7 @@ const sections: DGSection[] = [
     body: (
       <p>
         Exit holes provide an opening for excess powder to escape during depowdering. Without them,
-        interior channels can only reach so deep before powder removal becomes challenging—risking
+        interior channels can only reach so deep before powder removal becomes challenging, risking
         craters on walls, eroded threads, and rounded corners.
       </p>
     ),

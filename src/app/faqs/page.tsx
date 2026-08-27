@@ -6,7 +6,7 @@ import { PageBanner } from "@/components/page-banner";
 export const metadata: Metadata = {
   title: "FAQs",
   description:
-    "Answers to common questions about Azoth's production additive manufacturing — technologies, materials, lead times, quality systems, quoting, and confidentiality.",
+    "Answers to common questions about Azoth's production additive manufacturing, technologies, materials, lead times, quality systems, quoting, and confidentiality.",
 };
 
 const faqs = [
@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     q: "Can you match or beat machined part performance?",
-    a: "In many cases, yes—while reducing part count and total system cost.",
+    a: "In many cases, yes, while reducing part count and total system cost.",
   },
   {
     q: "How do you ensure dimensional accuracy?",
@@ -68,7 +68,7 @@ const faqs = [
   },
   {
     q: "Why choose Azoth?",
-    a: "We focus on production manufacturing with deep expertise across the full process chain—not just prototyping.",
+    a: "We focus on production manufacturing with deep expertise across the full process chain, not just prototyping.",
   },
   {
     q: "How do you ensure supply chain stability?",
@@ -142,7 +142,7 @@ export default function FaqsPage() {
           <div className="mt-12 rounded-2xl bg-surface p-8 text-center">
             <h3 className="text-xl font-bold text-ink">Still have questions?</h3>
             <p className="mt-2 text-muted-soft">
-              Our team is happy to help—reach out and we&apos;ll get back to you quickly.
+              Our team is happy to help, reach out and we&apos;ll get back to you quickly.
             </p>
             <Link
               href="/contact"

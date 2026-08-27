@@ -7,7 +7,7 @@ import { CircleArrow } from "@/components/circle-arrow";
 export const metadata: Metadata = {
   title: "Finishing",
   description:
-    "From cradle to grave, Azoth is vertically integrated and delivers finished end-use parts on demand — in-house machining, heat treatment, polishing, coatings, and plating.",
+    "From cradle to grave, Azoth is vertically integrated and delivers finished end-use parts on demand, in-house machining, heat treatment, polishing, coatings, and plating.",
 };
 
 type Service = {
@@ -109,7 +109,7 @@ export default function FinishingPage() {
         ]}
       />
 
-      {/* Service sections — content left, photo right, alternating backgrounds */}
+      {/* Service sections, content left, photo right, alternating backgrounds */}
       {services.map((service, i) => (
         <section key={service.title} className={i % 2 === 0 ? "bg-white py-20" : "bg-surface py-20"}>
           <div className="container-az grid items-center gap-12 lg:grid-cols-2">

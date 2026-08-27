@@ -8,7 +8,7 @@ import { contactInfo } from "@/lib/nav";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Azoth — production additive manufacturing in Ann Arbor, Michigan. Call 734-669-3797, email info@azoth3d.com, or send us a message.",
+    "Get in touch with Azoth, production additive manufacturing in Ann Arbor, Michigan. Call 734-669-3797, email info@azoth3d.com, or send us a message.",
 };
 
 function UsFlag({ className = "" }: { className?: string }) {
@@ -93,7 +93,7 @@ export default function ContactPage() {
             <Eyebrow>Get In Touch</Eyebrow>
             <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">Contact Us</h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
-              We&apos;re here to help—share your thoughts or inquiries with us, and we&apos;ll get
+              We&apos;re here to help, share your thoughts or inquiries with us, and we&apos;ll get
               back to you soon!
             </p>
           </div>

@@ -58,7 +58,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Top banner — black→red gradient, logo + contact (180% the bottom height) */}
+      {/* Top banner, black→red gradient, logo + contact (180% the bottom height) */}
       <div className="bg-gradient-to-r from-black to-brand text-white">
         <div className="container-az flex h-20 items-center justify-between lg:h-[130px]">
           <Link href="/" aria-label="Azoth home">
@@ -95,7 +95,7 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Bottom banner — white nav (keeps current height) */}
+      {/* Bottom banner, white nav (keeps current height) */}
       <div className="border-b border-hairline bg-white">
         <div className="container-az flex h-[72px] items-center gap-6">
           <button

@@ -7,7 +7,7 @@ export type ConsentChoice = "accepted" | "declined";
 const STORAGE_KEY = "azoth-cookie-consent";
 const listeners = new Set<() => void>();
 
-// Transient "reopen the banner" flag (not persisted) — driven by the footer's
+// Transient "reopen the banner" flag (not persisted), driven by the footer's
 // "Cookie settings" link so a user can change a decision they've already made.
 let forceOpen = false;
 
@@ -33,7 +33,7 @@ export function getConsent(): ConsentChoice | null {
     const v = localStorage.getItem(STORAGE_KEY);
     return v === "accepted" || v === "declined" ? v : null;
   } catch {
-    return null; // storage blocked (e.g. private mode) — treat as no choice
+    return null; // storage blocked (e.g. private mode), treat as no choice
   }
 }
 

@@ -8,8 +8,8 @@ import { subscribeConsent, getConsent, getServerConsentNull } from "@/lib/consen
 const GTM_ID = "GTM-PK3GHFV";
 const GA_ID = "G-47EPDXSS7P";
 
-// Loads all analytics/marketing tags — Google Tag Manager, Google Analytics 4,
-// and the Trade Desk Universal Pixel — but ONLY after the visitor has accepted
+// Loads all analytics/marketing tags, Google Tag Manager, Google Analytics 4,
+// and the Trade Desk Universal Pixel, but ONLY after the visitor has accepted
 // cookies. Until then (and on decline) nothing here renders, so no tag script,
 // cookie, or network call fires. Consent is read reactively, so accepting in the
 // banner mounts these immediately without a reload.

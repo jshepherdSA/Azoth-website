@@ -13,7 +13,7 @@ import {
 
 // First-visit cookie consent bar. The choice drives whether analytics/marketing
 // tags load (see AnalyticsGate) and is persisted to localStorage so the banner
-// stays hidden once a choice is made — unless the user reopens it via the footer
+// stays hidden once a choice is made, unless the user reopens it via the footer
 // "Cookie settings" link, which sets the transient force-open flag.
 export function CookieConsent() {
   const choice = useSyncExternalStore(subscribeConsent, getConsent, getServerConsentAccepted);

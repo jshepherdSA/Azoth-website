@@ -75,7 +75,7 @@ export function IndustryTabs() {
         ))}
       </div>
 
-      {/* Panel — text fills the left half, the photo fills the right half */}
+      {/* Panel, text fills the left half, the photo fills the right half */}
       <div className="mt-10 grid items-center gap-10 lg:grid-cols-2">
         <div>
           <h3 className="text-3xl font-extrabold capitalize text-ink sm:text-4xl">{current.label}</h3>

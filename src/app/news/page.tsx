@@ -7,7 +7,7 @@ import { contactInfo } from "@/lib/nav";
 export const metadata: Metadata = {
   title: "News & Updates",
   description:
-    "The latest news, announcements, webinars, and milestones from Azoth — production additive manufacturing.",
+    "The latest news, announcements, webinars, and milestones from Azoth, production additive manufacturing.",
 };
 
 function LinkedInIcon() {

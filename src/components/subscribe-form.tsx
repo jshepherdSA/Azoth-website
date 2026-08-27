@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-// No backend yet — captures the email client-side and confirms. Wire to a
+// No backend yet, captures the email client-side and confirms. Wire to a
 // route handler / email service when ready.
 export function SubscribeForm() {
   const [done, setDone] = useState(false);
@@ -10,7 +10,7 @@ export function SubscribeForm() {
   if (done) {
     return (
       <p className="text-sm font-semibold text-white">
-        Thanks for subscribing — we&apos;ll be in touch with new white papers.
+        Thanks for subscribing, we&apos;ll be in touch with new white papers.
       </p>
     );
   }

@@ -11,7 +11,7 @@ import { CountUp } from "@/components/count-up";
 export const metadata: Metadata = {
   title: "Lithography Metal Manufacturing",
   description:
-    "LMM enables high-precision small and micro metal components with an Ra of 2 μm and tolerances to ±0.05 mm — in 316L, 17-4PH, Ti-6Al-4V, and copper.",
+    "LMM enables high-precision small and micro metal components with an Ra of 2 μm and tolerances to ±0.05 mm, in 316L, 17-4PH, Ti-6Al-4V, and copper.",
 };
 
 const materials = ["316L Stainless Steel", "17-4PH Stainless Steel", "Ti-6Al-4V", "Pure Copper"];
@@ -167,7 +167,7 @@ export default function LmmPage() {
             </div>
             <Image
               src="/images/lmm-tech-image_edited-scaled-1.png"
-              alt="LMM process diagram — DLP engine, lens, light, feedstock, building platform, and green part"
+              alt="LMM process diagram, DLP engine, lens, light, feedstock, building platform, and green part"
               width={480}
               height={380}
               className="mx-auto h-auto w-full max-w-md"
@@ -200,7 +200,7 @@ export default function LmmPage() {
                 className="h-auto w-full object-contain"
                 sizes="(max-width:1024px) 100vw, 50vw"
               />
-              {/* Parts-per-day counter — animates 0 → 1000+ when scrolled into view */}
+              {/* Parts-per-day counter, animates 0 → 1000+ when scrolled into view */}
               <div className="absolute bottom-4 left-4 rounded-2xl bg-ink/90 px-6 py-4 text-center shadow-xl backdrop-blur sm:bottom-6 sm:left-6">
                 <CountUp
                   target={1000}

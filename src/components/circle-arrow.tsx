@@ -1,6 +1,6 @@
 // Azoth's signature CTA element: a small circular arrow.
-// `onRed`  — sits inside a scarlet button (translucent white circle, white chevron).
-// `solid`  — standalone scarlet circle with white chevron (on light/photo surfaces).
+// `onRed`, sits inside a scarlet button (translucent white circle, white chevron).
+// `solid`, standalone scarlet circle with white chevron (on light/photo surfaces).
 
 export function CircleArrow({
   tone = "onRed",

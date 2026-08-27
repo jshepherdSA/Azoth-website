@@ -8,7 +8,7 @@ import { YouTubeEmbed } from "@/components/youtube-embed";
 export const metadata: Metadata = {
   title: "Quality",
   description:
-    "Azoth delivers production-capable additive manufacturing to the strictest standards — ISO 9001 & ISO 13485 certified, PPAP-proven, with a certificate of inspection on every part.",
+    "Azoth delivers production-capable additive manufacturing to the strictest standards, ISO 9001 & ISO 13485 certified, PPAP-proven, with a certificate of inspection on every part.",
 };
 
 const specialties: AccordionItem[] = [
@@ -102,7 +102,7 @@ export default function QualityPage() {
               <Accordion items={specialties} />
             </div>
           </div>
-          <YouTubeEmbed id="RHeOculI9wE" title="Azoth — Quality & Certifications" />
+          <YouTubeEmbed id="RHeOculI9wE" title="Azoth, Quality & Certifications" />
         </div>
       </section>
     </>

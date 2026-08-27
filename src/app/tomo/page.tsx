@@ -7,14 +7,14 @@ import { IndustriesSection } from "@/components/industries-section";
 export const metadata: Metadata = {
   title: "TOMO®",
   description:
-    "TOMO® — Take One, Make One. Eliminate supply chain disruptions by converting physical inventory into digital inventory manufactured on demand.",
+    "TOMO®, Take One, Make One. Eliminate supply chain disruptions by converting physical inventory into digital inventory manufactured on demand.",
 };
 
 const benefits = [
   {
     title: "Reduce Inventory Costs",
     icon: "/images/reduce-inventory-costs.svg",
-    body: "Don't predict market demand and then order inventory which may become obsolete. With Azoth, you are able to make on-demand, allowing you to order when needed and change designs when needed—without carrying hundreds of thousands of dollars in part inventory.",
+    body: "Don't predict market demand and then order inventory which may become obsolete. With Azoth, you are able to make on-demand, allowing you to order when needed and change designs when needed, without carrying hundreds of thousands of dollars in part inventory.",
   },
   {
     title: "Rapid Speed Of Service & Production",
@@ -39,7 +39,7 @@ const benefits = [
   {
     title: "World Class 3D Manufacturing Experts",
     icon: "/images/world-class-3d-manufacturing-experts.svg",
-    body: "No longer do you have to worry about typical design issues from subtractive or traditional manufacturing—such as draft angles for molds, tooling life, machinability, or whether parts can be reached during production. Azoth can assist in lightweighting your structures and suggest alternative materials and designs for your small, complex parts.",
+    body: "No longer do you have to worry about typical design issues from subtractive or traditional manufacturing, such as draft angles for molds, tooling life, machinability, or whether parts can be reached during production. Azoth can assist in lightweighting your structures and suggest alternative materials and designs for your small, complex parts.",
   },
 ];
 
@@ -48,7 +48,7 @@ export default function TomoPage() {
     <>
       <PageBanner title="TOMO®" breadcrumbs={[{ label: "Home", href: "/" }, { label: "TOMO®" }]} />
 
-      {/* Hero — bordered TOMO card on the left, intro copy on the right */}
+      {/* Hero, bordered TOMO card on the left, intro copy on the right */}
       <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <div className="text-center">
@@ -75,7 +75,7 @@ export default function TomoPage() {
       <section className="bg-white pb-20">
         <div className="container-az">
           <div className="mx-auto max-w-4xl">
-            <YouTubeEmbed id="fkiMJUXJjfA" title="TOMO — Take One, Make One" />
+            <YouTubeEmbed id="fkiMJUXJjfA" title="TOMO, Take One, Make One" />
           </div>
         </div>
       </section>

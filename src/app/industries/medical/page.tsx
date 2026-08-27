@@ -8,11 +8,11 @@ import { type GalleryPhoto } from "@/components/industry-gallery";
 export const metadata: Metadata = {
   title: "Medical",
   description:
-    "Production-scale metal additive manufacturing for medical — ISO 13485-certified processes, fully qualified materials, and vertically integrated capabilities, all delivered in the USA.",
+    "Production-scale metal additive manufacturing for medical, ISO 13485-certified processes, fully qualified materials, and vertically integrated capabilities, all delivered in the USA.",
 };
 
 const intro =
-  "We serve a diverse range of industries where precision, performance, and speed matter most. From automotive and aerospace to medical, defense, and energy—we deliver tailored additive manufacturing solutions that meet industry-specific standards and accelerate time to market.";
+  "We serve a diverse range of industries where precision, performance, and speed matter most. From automotive and aerospace to medical, defense, and energy, we deliver tailored additive manufacturing solutions that meet industry-specific standards and accelerate time to market.";
 
 const galleryPhotos: GalleryPhoto[] = [
   { src: "/images/medical-new-1.png", alt: "Spinal implant component" },
@@ -25,17 +25,17 @@ const galleryPhotos: GalleryPhoto[] = [
 
 const advanced = [
   "The medical industry demands precision, reliability, and full regulatory compliance. From surgical tools to implants and complex device components, manufacturers must deliver high-performance parts while accelerating development timelines.",
-  "Azoth is a production-scale metal additive manufacturing partner, providing fully qualified materials, ISO 13485-certified processes, and vertically integrated capabilities—all delivered in the USA.",
+  "Azoth is a production-scale metal additive manufacturing partner, providing fully qualified materials, ISO 13485-certified processes, and vertically integrated capabilities, all delivered in the USA.",
 ];
 
 // Bold phrases are marked with **double asterisks** in the source copy.
 const capabilities = [
   "**Surgical Precision & Tight Tolerances** - Azoth manufactures components with exceptional accuracy and repeatability, meeting the stringent tolerances required for medical devices and surgical applications.",
-  "**Superior Surface Finish** - Unlike many additive technologies, Azoth delivers parts with market-ready surface finishes and minimal post-processing—reducing time, cost, and variability.",
-  "**Micro-Scale & Complex Geometries** - NPJ technology enables production of extremely small, intricate parts with resolutions of +/- 25 microns—ideal for surgical tools, dental components, and micro devices.",
-  "**Scalable from Prototype to Production** - From early-stage prototyping to high-volume production, Azoth uses consistent equipment and validated processes—eliminating the need for requalification as programs scale.",
-  "**End-to-End Manufacturing Integration** - Beyond printing, Azoth provides post-processing, finishing, machining, and inspection—delivering fully finished, end-use components.",
-  "**Full Lifecycle Partnership** - From Design for Additive Manufacturing (DfAM) through production, Azoth acts as a strategic partner—supporting innovation, optimization, and long-term manufacturing success.",
+  "**Superior Surface Finish** - Unlike many additive technologies, Azoth delivers parts with market-ready surface finishes and minimal post-processing, reducing time, cost, and variability.",
+  "**Micro-Scale & Complex Geometries** - NPJ technology enables production of extremely small, intricate parts with resolutions of +/- 25 microns, ideal for surgical tools, dental components, and micro devices.",
+  "**Scalable from Prototype to Production** - From early-stage prototyping to high-volume production, Azoth uses consistent equipment and validated processes, eliminating the need for requalification as programs scale.",
+  "**End-to-End Manufacturing Integration** - Beyond printing, Azoth provides post-processing, finishing, machining, and inspection, delivering fully finished, end-use components.",
+  "**Full Lifecycle Partnership** - From Design for Additive Manufacturing (DfAM) through production, Azoth acts as a strategic partner, supporting innovation, optimization, and long-term manufacturing success.",
 ];
 
 const applications = [
@@ -269,7 +269,7 @@ export default function MedicalPage() {
         </div>
       </section>
 
-      {/* Specs — Materials / Performance */}
+      {/* Specs, Materials / Performance */}
       <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <div className="relative mx-auto aspect-square w-full max-w-md">

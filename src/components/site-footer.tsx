@@ -46,7 +46,7 @@ export function SiteFooter() {
           </h2>
           <p className="max-w-2xl text-white/80">
             Whether you&apos;re prototyping or scaling up for full production, our team is here to
-            help you make it happen—faster, smarter, and with precision. Let&apos;s bring your ideas
+            help you make it happen, faster, smarter, and with precision. Let&apos;s bring your ideas
             to life.
           </p>
           <Link

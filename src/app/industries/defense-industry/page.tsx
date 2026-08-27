@@ -8,11 +8,11 @@ import { IndustryGallery, type GalleryPhoto } from "@/components/industry-galler
 export const metadata: Metadata = {
   title: "Defense",
   description:
-    "U.S.-based, ITAR-registered production-scale metal additive manufacturing for defense — mission-critical components, fully qualified materials, and end-to-end integration under one roof.",
+    "U.S.-based, ITAR-registered production-scale metal additive manufacturing for defense, mission-critical components, fully qualified materials, and end-to-end integration under one roof.",
 };
 
 const intro =
-  "We serve a diverse range of industries where precision, performance, and speed matter most. From automotive and aerospace to medical, defense, and energy—we deliver tailored additive manufacturing solutions that meet industry-specific standards and accelerate time to market.";
+  "We serve a diverse range of industries where precision, performance, and speed matter most. From automotive and aerospace to medical, defense, and energy, we deliver tailored additive manufacturing solutions that meet industry-specific standards and accelerate time to market.";
 
 const galleryPhotos: GalleryPhoto[] = Array.from({ length: 13 }, (_, i) => ({
   src: `/images/defense-new-${i + 1}.png`,
@@ -28,9 +28,9 @@ const advanced = [
 const capabilities = [
   "**Mission-Critical Precision** - High-performance components with tight tolerances and repeatable quality for demanding defense applications.",
   "**Complex Geometry & Lightweighting** - Enable advanced internal structures, part consolidation, and weight reduction not possible with traditional manufacturing.",
-  "**Rapid Development to Production** - Accelerate timelines with digital manufacturing—moving seamlessly from prototype to production without tooling delays.",
-  "**Secure, U.S.-Based Manufacturing** - ITAR-compliant production with fully domestic manufacturing—ensuring supply chain control and security.",
-  "**End-to-End Integration** - Additive manufacturing, MIM, CNC machining, finishing, and inspection—all under one roof.",
+  "**Rapid Development to Production** - Accelerate timelines with digital manufacturing, moving seamlessly from prototype to production without tooling delays.",
+  "**Secure, U.S.-Based Manufacturing** - ITAR-compliant production with fully domestic manufacturing, ensuring supply chain control and security.",
+  "**End-to-End Integration** - Additive manufacturing, MIM, CNC machining, finishing, and inspection, all under one roof.",
 ];
 
 const applications = [
@@ -262,7 +262,7 @@ export default function DefensePage() {
         </div>
       </section>
 
-      {/* Specs — Materials / Performance */}
+      {/* Specs, Materials / Performance */}
       <section className="bg-white py-20">
         <div className="container-az grid items-center gap-12 lg:grid-cols-2">
           <Image

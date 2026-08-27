@@ -9,7 +9,7 @@ import { GatedDownload } from "@/components/gated-download";
 export const metadata: Metadata = {
   title: "Materials",
   description:
-    "Azoth works with traditional and experimental metals — 316L, 17-4PH, copper, Mar M247, D2 tool steel, titanium — plus 40+ polymers across FDM, SLS, SLA/DLP, and HP Multi Jet Fusion.",
+    "Azoth works with traditional and experimental metals, 316L, 17-4PH, copper, Mar M247, D2 tool steel, titanium, plus 40+ polymers across FDM, SLS, SLA/DLP, and HP Multi Jet Fusion.",
 };
 
 const metals = [
@@ -168,7 +168,7 @@ export default function MaterialsPage() {
             </div>
           </div>
 
-          {/* Materials We Use — four bordered columns */}
+          {/* Materials We Use, four bordered columns */}
           <div className="mt-14">
             <h3 className="text-2xl font-extrabold text-ink">Materials We Use</h3>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

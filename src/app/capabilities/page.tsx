@@ -9,7 +9,7 @@ import { IndustriesSection } from "@/components/industries-section";
 export const metadata: Metadata = {
   title: "Capabilities",
   description:
-    "Metal and polymer additive manufacturing at production scale — binder jetting, lithography metal manufacturing, polymer printing, finishing, and ISO-certified quality.",
+    "Metal and polymer additive manufacturing at production scale, binder jetting, lithography metal manufacturing, polymer printing, finishing, and ISO-certified quality.",
 };
 
 const capabilities = [
@@ -101,7 +101,7 @@ export default function CapabilitiesPage() {
               End-to-End Additive Manufacturing
             </h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
-              From metal binder jetting to polymer printing and finishing—Azoth delivers
+              From metal binder jetting to polymer printing and finishing, Azoth delivers
               production-grade parts under one roof, backed by certified quality systems.
             </p>
           </div>
@@ -131,7 +131,7 @@ export default function CapabilitiesPage() {
               </Link>
             ))}
 
-            {/* Quality — light card variant (ISO seal) */}
+            {/* Quality, light card variant (ISO seal) */}
             <Link
               href={quality.href}
               className="group relative flex flex-col items-start justify-between gap-6 overflow-hidden rounded-2xl border border-hairline bg-white p-8 transition-shadow hover:shadow-lg sm:flex-row sm:items-center lg:col-span-2"
@@ -165,7 +165,7 @@ export default function CapabilitiesPage() {
         </div>
       </section>
 
-      {/* Proof band — "5 days" */}
+      {/* Proof band, "5 days" */}
       <section className="relative isolate overflow-hidden bg-ink">
         <Image
           src="/images/production-part-banner.png"

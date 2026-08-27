@@ -8,11 +8,11 @@ import { IndustryGallery, type GalleryPhoto } from "@/components/industry-galler
 export const metadata: Metadata = {
   title: "Consumer Electronics",
   description:
-    "Azoth is a digital manufacturing partner for consumer electronics — miniaturized, complex metal components with fine features, tight tolerances, and rapid iteration to production.",
+    "Azoth is a digital manufacturing partner for consumer electronics, miniaturized, complex metal components with fine features, tight tolerances, and rapid iteration to production.",
 };
 
 const intro =
-  "We serve a diverse range of industries where precision, performance, and speed matter most. From automotive and aerospace to medical, defense, and energy—we deliver tailored additive manufacturing solutions that meet industry-specific standards and accelerate time to market.";
+  "We serve a diverse range of industries where precision, performance, and speed matter most. From automotive and aerospace to medical, defense, and energy, we deliver tailored additive manufacturing solutions that meet industry-specific standards and accelerate time to market.";
 
 const galleryPhotos: GalleryPhoto[] = [
   { src: "/images/watch-6.png", alt: "Exploded view of a smartwatch assembly" },
@@ -24,40 +24,40 @@ const galleryPhotos: GalleryPhoto[] = [
 ];
 
 const advanced = [
-  "The consumer electronics industry demands constant innovation—driven by shorter product lifecycles, evolving user expectations, and increasing pressure to deliver smaller, smarter, and more integrated devices.",
+  "The consumer electronics industry demands constant innovation, driven by shorter product lifecycles, evolving user expectations, and increasing pressure to deliver smaller, smarter, and more integrated devices.",
   "From wearable technology and smart home devices to mobile hardware and semiconductor-adjacent components, manufacturers must balance speed, precision, and scalability at every stage of development.",
-  "Azoth partners with consumer electronics companies as a digital manufacturing partner, enabling rapid iteration, complex part production, and flexible manufacturing strategies—helping teams accelerate development timelines, reduce costs, and bring differentiated products to market faster.",
+  "Azoth partners with consumer electronics companies as a digital manufacturing partner, enabling rapid iteration, complex part production, and flexible manufacturing strategies, helping teams accelerate development timelines, reduce costs, and bring differentiated products to market faster.",
 ];
 
 const capabilitiesIntro =
-  "Using technologies like binder jetting and lithography-based metal additive manufacturing, Azoth produces precision metal parts with fine features, tight tolerances, and high repeatability—ideal for compact, performance-critical devices.";
+  "Using technologies like binder jetting and lithography-based metal additive manufacturing, Azoth produces precision metal parts with fine features, tight tolerances, and high repeatability, ideal for compact, performance-critical devices.";
 
 // Bold lead phrase marked with **double asterisks**.
 const capabilities = [
-  "**Miniaturized, Complex Components** - Azoth specializes in geometries that are difficult or impossible to machine or mold—such as internal channels, lattice structures, and intricate housings. These are essential for wearables, connectors, thermal components, and micro-mechanisms where space is limited and performance is critical.",
-  "**Rapid Iteration to Production** - Electronics companies operate on aggressive product development cycles. Azoth enables fast design iteration and validation, then seamlessly transitions those same designs into serial production—eliminating the need to retool or redesign for manufacturability.",
-  "**Thermal and Structural Performance** - Metal additive manufacturing allows for optimized heat dissipation—integrated heat sinks, thermal spreaders—and high-strength parts in compact form factors, key for smartphones, AR/VR systems, and power electronics.",
+  "**Miniaturized, Complex Components** - Azoth specializes in geometries that are difficult or impossible to machine or mold, such as internal channels, lattice structures, and intricate housings. These are essential for wearables, connectors, thermal components, and micro-mechanisms where space is limited and performance is critical.",
+  "**Rapid Iteration to Production** - Electronics companies operate on aggressive product development cycles. Azoth enables fast design iteration and validation, then seamlessly transitions those same designs into serial production, eliminating the need to retool or redesign for manufacturability.",
+  "**Thermal and Structural Performance** - Metal additive manufacturing allows for optimized heat dissipation, integrated heat sinks, thermal spreaders, and high-strength parts in compact form factors, key for smartphones, AR/VR systems, and power electronics.",
   "**Supply Chain Flexibility & Digital Inventory** - Azoth's model supports on-demand manufacturing and localized production, reducing reliance on overseas tooling and long lead times. Especially valuable for product launches, service parts, and managing demand variability.",
-  "**Production-Grade Quality Systems** - With experience across automotive, medical, and defense sectors, Azoth brings rigorous quality control, traceability, and process validation—helping electronics OEMs confidently deploy additively manufactured metal parts in end-use applications.",
+  "**Production-Grade Quality Systems** - With experience across automotive, medical, and defense sectors, Azoth brings rigorous quality control, traceability, and process validation, helping electronics OEMs confidently deploy additively manufactured metal parts in end-use applications.",
   "**Addressing Key Manufacturing Challenges** - Azoth directly addresses the core pressures of consumer electronics manufacturing: accelerating time to market, enabling design complexity and miniaturization, reducing tooling costs for low-volume production, and increasing supply chain agility through domestic, on-demand manufacturing.",
 ];
 
 const cncIntro =
-  "For many consumer electronics components—particularly where complexity, scale, and cost intersect—Azoth's additive approach outperforms traditional CNC machining:";
+  "For many consumer electronics components, particularly where complexity, scale, and cost intersect, Azoth's additive approach outperforms traditional CNC machining:";
 
 const cnc = [
-  "**Complexity without cost penalty:** Internal geometries, undercuts, and fine lattice structures are produced in a single build—eliminating multi-axis machining setups, custom fixturing, and secondary operations.",
-  "**Reduced material waste:** Unlike subtractive machining that removes material from billet, Azoth's processes use only the material needed—improving efficiency, especially for high-cost alloys.",
+  "**Complexity without cost penalty:** Internal geometries, undercuts, and fine lattice structures are produced in a single build, eliminating multi-axis machining setups, custom fixturing, and secondary operations.",
+  "**Reduced material waste:** Unlike subtractive machining that removes material from billet, Azoth's processes use only the material needed, improving efficiency, especially for high-cost alloys.",
   "**Scalable economics at volume:** For small, intricate parts, additive manufacturing can outperform machining on cost by eliminating setup time, tool wear, and cycle-time constraints.",
   "**Part consolidation:** Multiple machined components can often be combined into a single printed part, reducing assembly, tolerance stack-up, and supply chain complexity.",
-  "**Faster time to production:** No tooling or complex process development required—programs move directly from design to production, critical in fast-moving electronics markets.",
+  "**Faster time to production:** No tooling or complex process development required, programs move directly from design to production, critical in fast-moving electronics markets.",
 ];
 
 const applications = [
   {
     title: "Rapid Prototyping & Design Iteration",
     icon: "/images/reduce-inventory-costs.svg",
-    body: "Move from concept to functional metal part in days—iterating designs without tooling so you can validate and refine ahead of production.",
+    body: "Move from concept to functional metal part in days, iterating designs without tooling so you can validate and refine ahead of production.",
   },
   {
     title: "Enclosures, Housings & Structural Components",
@@ -82,7 +82,7 @@ const applications = [
   {
     title: "Bridge & Low-Volume Production",
     icon: "/images/world-class-3d-manufacturing-experts.svg",
-    body: "Cost-effective bridge and low-volume runs that span the gap between prototype and full-scale production—no hard tooling required.",
+    body: "Cost-effective bridge and low-volume runs that span the gap between prototype and full-scale production, no hard tooling required.",
   },
 ];
 
