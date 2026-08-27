@@ -530,14 +530,14 @@ export default function CncPage() {
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section className="bg-brand py-16 text-white">
-        <div className="container-az flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+      {/* Closing CTA banner */}
+      <section className="bg-brand py-10 text-white">
+        <div className="container-az flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-extrabold sm:text-4xl">
+            <h2 className="text-xl font-extrabold sm:text-2xl">
               Bring Us the Parts Others Say Are Too Complex
             </h2>
-            <p className="mt-4 leading-relaxed text-white/85">
+            <p className="mt-2 text-sm leading-relaxed text-white/85">
               When your application requires complex geometry, tight-tolerance features and a
               production process built for repeatability, Azoth can help determine the right
               combination of additive manufacturing and 5-axis CNC machining. Ready to manufacture
@@ -547,14 +547,14 @@ export default function CncPage() {
           <div className="flex shrink-0 flex-col gap-4 sm:flex-row">
             <Link
               href="/quote"
-              className="inline-flex items-center justify-center gap-2.5 rounded-md bg-white px-7 py-3.5 font-semibold text-ink transition-colors hover:bg-white/90"
+              className="inline-flex items-center justify-center gap-2.5 rounded-md bg-white px-6 py-3 font-semibold text-ink transition-colors hover:bg-white/90"
             >
               Request A Quote
               <CircleArrow tone="solid" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2.5 rounded-md border border-white/40 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-white/10"
+              className="inline-flex items-center justify-center gap-2.5 rounded-md border border-white/40 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
             >
               Talk to an Expert
             </Link>
