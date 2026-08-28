@@ -332,13 +332,13 @@ export default function CncPage() {
               </Link>
             </div>
           </div>
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:-mr-12 lg:justify-end xl:-mr-24">
             <Image
               src="/images/white-rotary-outline.png"
               alt="5-axis rotary machining motion outline"
               width={1774}
               height={887}
-              className="h-auto w-full max-w-md"
+              className="h-auto w-full max-w-xl lg:max-w-none"
               priority
             />
           </div>
