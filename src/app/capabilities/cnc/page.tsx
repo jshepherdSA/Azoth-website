@@ -59,13 +59,13 @@ const geometries = [
 // Real Azoth certifications (shared across the site).
 const certs = ["ISO 9001", "ISO 13485", "ITAR Registered", "Made in USA", "CMMC Lvl 2"];
 
-// The vertically integrated path, straight from the source copy.
-const pillars = ["Additive Manufacturing", "Machining", "Heat Treatment", "Finishing", "Quality"];
+// The vertically integrated path (machining through quality).
+const pillars = ["Machining", "Heat Treatment", "Finishing", "Quality"];
 
-// Chevron-ribbon edge gradient: 6 stops from deep maroon (first segment) to brand
-// red (last), so each segment's edge is the matching slice of one continuous
-// gradient across the whole ribbon.
-const edgeStops = ["#600004", "#78050a", "#900a10", "#a70f15", "#bf141b", "#d71921"];
+// Chevron-ribbon edge gradient: one stop per segment boundary (deep maroon on the
+// first segment to brand red on the last), so each segment's edge is the matching
+// slice of one continuous gradient across the whole ribbon.
+const edgeStops = ["#600004", "#7e060b", "#9c0d13", "#b9131a", "#d71921"];
 
 // Four-fact banner (from the 5-axis mockup). NOTE: these figures come from the
 // mockup, not the source copy, confirm they are accurate for Azoth before launch.
@@ -318,7 +318,14 @@ export default function CncPage() {
             </div>
           </div>
           <div className="flex justify-center lg:justify-end">
-            <PlaceholderGraphic className="aspect-[4/3] w-full max-w-md" label="Placeholder image" />
+            <Image
+              src="/images/white-rotary-outline.png"
+              alt="5-axis rotary machining motion outline"
+              width={1774}
+              height={887}
+              className="h-auto w-full max-w-md"
+              priority
+            />
           </div>
         </div>
       </section>
@@ -334,71 +341,6 @@ export default function CncPage() {
               <span className="text-sm font-semibold text-white/80">{cert}</span>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* What Is 5-Axis CNC Machining?, dual dark cards */}
-      <section className="bg-white py-20">
-        <div className="container-az">
-          <div className="max-w-3xl">
-            <Eyebrow>The Technology</Eyebrow>
-            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-              What Is 5-Axis CNC Machining?
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted-soft">
-              Traditional 3-axis machining moves a cutting tool along three linear directions. A
-              5-axis machine adds two rotational axes, the difference between reaching a few faces of
-              a part and reaching nearly all of them in one setup.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {/* 3-Axis */}
-            <div className="rounded-2xl bg-ink p-8 text-white">
-              <div className="mx-auto mb-6 w-full max-w-sm">
-                <AxisDiagramSimple />
-                <p className="mt-1 text-center text-xs font-medium uppercase tracking-wider text-white/40">
-                  3-Axis Linear Motion
-                </p>
-              </div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-white/50">
-                The Baseline
-              </p>
-              <h3 className="mt-2 text-2xl font-extrabold">3-Axis Machining</h3>
-              <p className="mt-4 leading-relaxed text-white/70">
-                Moves a cutting tool along three linear directions: X, Y and Z.
-              </p>
-              <div className="mt-6 inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1.5 font-mono text-sm text-white/80">
-                X · Y · Z
-              </div>
-            </div>
-            {/* 5-Axis */}
-            <div className="rounded-2xl bg-gradient-to-br from-brand-dark to-black p-8 text-white ring-1 ring-brand/40">
-              <div className="mx-auto mb-6 w-full max-w-sm">
-                <AxisDiagram />
-                <p className="mt-1 text-center text-xs font-medium uppercase tracking-wider text-white/40">
-                  5-Axis Simultaneous Motion
-                </p>
-              </div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-brand">
-                Two More Axes
-              </p>
-              <h3 className="mt-2 text-2xl font-extrabold">5-Axis Machining</h3>
-              <p className="mt-4 leading-relaxed text-white/80">
-                Adds two rotational axes, allowing the cutting tool and workpiece to move in multiple
-                directions, accessing more sides and angles of a component without repeatedly
-                removing, repositioning and resetting the part.
-              </p>
-              <div className="mt-6 inline-flex items-center gap-2 rounded-md bg-white/15 px-3 py-1.5 font-mono text-sm text-white">
-                X · Y · Z · A · C
-              </div>
-            </div>
-          </div>
-
-          <p className="mt-8 max-w-3xl leading-relaxed text-muted-soft">
-            For complex components, that added flexibility can make a significant difference in how
-            efficiently and accurately a finished part can be produced.
-          </p>
         </div>
       </section>
 
@@ -527,6 +469,71 @@ export default function CncPage() {
               })}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* What Is 5-Axis CNC Machining?, dual dark cards */}
+      <section className="bg-white py-20">
+        <div className="container-az">
+          <div className="max-w-3xl">
+            <Eyebrow>The Technology</Eyebrow>
+            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
+              What Is 5-Axis CNC Machining?
+            </h2>
+            <p className="mt-4 leading-relaxed text-muted-soft">
+              Traditional 3-axis machining moves a cutting tool along three linear directions. A
+              5-axis machine adds two rotational axes, the difference between reaching a few faces of
+              a part and reaching nearly all of them in one setup.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            {/* 3-Axis */}
+            <div className="rounded-2xl bg-ink p-8 text-white">
+              <div className="mx-auto mb-6 w-full max-w-sm">
+                <AxisDiagramSimple />
+                <p className="mt-1 text-center text-xs font-medium uppercase tracking-wider text-white/40">
+                  3-Axis Linear Motion
+                </p>
+              </div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-white/50">
+                The Baseline
+              </p>
+              <h3 className="mt-2 text-2xl font-extrabold">3-Axis Machining</h3>
+              <p className="mt-4 leading-relaxed text-white/70">
+                Moves a cutting tool along three linear directions: X, Y and Z.
+              </p>
+              <div className="mt-6 inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1.5 font-mono text-sm text-white/80">
+                X · Y · Z
+              </div>
+            </div>
+            {/* 5-Axis */}
+            <div className="rounded-2xl bg-gradient-to-br from-brand-dark to-black p-8 text-white ring-1 ring-brand/40">
+              <div className="mx-auto mb-6 w-full max-w-sm">
+                <AxisDiagram />
+                <p className="mt-1 text-center text-xs font-medium uppercase tracking-wider text-white/40">
+                  5-Axis Simultaneous Motion
+                </p>
+              </div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-brand">
+                Two More Axes
+              </p>
+              <h3 className="mt-2 text-2xl font-extrabold">5-Axis Machining</h3>
+              <p className="mt-4 leading-relaxed text-white/80">
+                Adds two rotational axes, allowing the cutting tool and workpiece to move in multiple
+                directions, accessing more sides and angles of a component without repeatedly
+                removing, repositioning and resetting the part.
+              </p>
+              <div className="mt-6 inline-flex items-center gap-2 rounded-md bg-white/15 px-3 py-1.5 font-mono text-sm text-white">
+                X · Y · Z · A · C
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-8 max-w-3xl leading-relaxed text-muted-soft">
+            For complex components, that added flexibility can make a significant difference in how
+            efficiently and accurately a finished part can be produced.
+          </p>
         </div>
       </section>
 
