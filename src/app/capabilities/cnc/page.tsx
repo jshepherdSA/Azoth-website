@@ -62,6 +62,21 @@ const certs = ["ISO 9001", "ISO 13485", "ITAR Registered", "Made in USA", "CMMC 
 // The vertically integrated path (machining through quality).
 const pillars = ["Machining", "Heat Treatment", "Finishing", "Quality"];
 
+// Placeholder application bullets — replace with real copy.
+const medicalPoints = [
+  "Surgical instruments and end-effectors",
+  "Small, feature-dense implantable components",
+  "Tight-tolerance interfaces and mating features",
+  "Fully documented, repeatable production runs",
+];
+
+const consumerPoints = [
+  "Miniaturized housings, frames and enclosures",
+  "Fine cosmetic surfaces and multi-finish detailing",
+  "Precision hinges, mounts and interface features",
+  "High-volume production with part-to-part consistency",
+];
+
 // Chevron-ribbon edge gradient: one stop per segment boundary (deep maroon on the
 // first segment to brand red on the last), so each segment's edge is the matching
 // slice of one continuous gradient across the whole ribbon.
@@ -344,6 +359,68 @@ export default function CncPage() {
         </div>
       </section>
 
+      {/* Medical applications */}
+      <section className="relative bg-white py-12">
+        <div className="container-az relative z-10 grid items-center gap-12 lg:min-h-[30rem] lg:grid-cols-2 lg:content-center">
+          <div className="lg:ml-auto lg:max-w-md">
+            <Eyebrow>Medical</Eyebrow>
+            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
+              Medical Applications
+            </h2>
+            <ul className="mt-6 space-y-4">
+              {medicalPoints.map((point) => (
+                <li
+                  key={point}
+                  className="flex items-start gap-3 leading-relaxed text-muted-soft"
+                >
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        {/* da Vinci render entering from the top-right (top-right corner clipped) */}
+        <Image
+          src="/images/davinci1nobackground.png"
+          alt="da Vinci surgical system"
+          width={1455}
+          height={1386}
+          className="pointer-events-none absolute top-0 right-0 z-20 hidden w-[46.7%] lg:block"
+          priority
+        />
+      </section>
+
+      {/* Consumer electronics applications */}
+      <section className="relative bg-surface py-8">
+        <div className="container-az grid items-center gap-12 lg:grid-cols-2">
+          <div className="relative z-20">
+            <Image
+              src="/images/rayban1-background-removed.png"
+              alt="Clear-frame Ray-Ban Meta smart glasses"
+              width={1600}
+              height={1200}
+              className="h-auto w-full drop-shadow-2xl lg:my-[-6rem] lg:-ml-[30%] lg:w-[130%] lg:max-w-none"
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            />
+          </div>
+          <div>
+            <Eyebrow>Consumer Electronics</Eyebrow>
+            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
+              Consumer Electronics Applications
+            </h2>
+            <ul className="mt-6 space-y-4">
+              {consumerPoints.map((point) => (
+                <li key={point} className="flex items-start gap-3 leading-relaxed text-muted-soft">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Four-fact banner */}
       <section className="bg-ink py-14 text-white">
         <div className="container-az grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
@@ -435,7 +512,15 @@ export default function CncPage() {
               </div>
             </div>
 
-            <PlaceholderGraphic className="aspect-[4/3] w-full" label="Placeholder image" />
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg ring-1 ring-white/10">
+              <Image
+                src="/images/five-axis-machining.png"
+                alt="5-axis CNC machine cutting a metal part on a rotary table"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
 
           {/* Integrated process flow, a connected chevron ribbon: black segments
