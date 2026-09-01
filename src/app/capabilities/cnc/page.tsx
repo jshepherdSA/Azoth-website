@@ -169,42 +169,20 @@ function PlaceholderGraphic({
 // Hover/focus flip card matching the site's other flip tiles: header (icon +
 // title) on the front, content on the back.
 function BenefitCard({
-  icon,
   title,
   back,
   className = "",
 }: {
-  icon: string;
   title: string;
   back: ReactNode;
   className?: string;
 }) {
   return (
-    <div tabIndex={0} className={`group [perspective:1200px] focus:outline-none ${className}`}>
-      <div className="relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)]">
-        {/* Front (header) */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-2xl border border-hairline bg-white px-5 text-center shadow-md [backface-visibility:hidden]">
-          <Image src={icon} alt="" width={64} height={64} className="h-14 w-14" />
-          <h3 className="text-base font-bold leading-snug text-ink">{title}</h3>
-          <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
-            Learn More
-            <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden>
-              <path
-                d="M6 4l4 4-4 4"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-        </div>
-        {/* Back (content) */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-br from-brand-dark to-black px-5 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
-          <h3 className="text-sm font-bold">{title}</h3>
-          {back}
-        </div>
-      </div>
+    <div
+      className={`flex flex-col items-center justify-center gap-3 rounded-2xl border border-hairline bg-white px-5 py-6 text-center shadow-md ${className}`}
+    >
+      <h3 className="text-base font-bold leading-snug text-ink">{title}</h3>
+      {back}
     </div>
   );
 }
@@ -282,7 +260,7 @@ export default function CncPage() {
     ...benefits.map((b) => ({
       icon: b.icon,
       title: b.title,
-      back: <p className="text-xs leading-snug text-white/85">{b.body}</p>,
+      back: <p className="text-xs leading-snug text-muted-soft">{b.body}</p>,
     })),
     {
       icon: "/images/endless-customization-possibilities.svg",
@@ -290,8 +268,8 @@ export default function CncPage() {
       back: (
         <ul className="space-y-1 text-left">
           {geometries.map((g) => (
-            <li key={g} className="flex items-start gap-1.5 text-[11px] leading-snug text-white/85">
-              <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-white/70" />
+            <li key={g} className="flex items-start gap-1.5 text-[11px] leading-snug text-muted-soft">
+              <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-brand" />
               <span>{g}</span>
             </li>
           ))}
@@ -456,10 +434,9 @@ export default function CncPage() {
               className="mx-auto aspect-video w-full max-w-sm"
               label="Placeholder image"
             />
-            <p className="mt-6 text-center text-sm font-medium text-muted">Hover a card to learn more.</p>
-            <div className="mt-4 grid gap-5 sm:grid-cols-2">
+            <div className="mt-6 grid gap-5 sm:grid-cols-2">
               {tiles.map((t) => (
-                <BenefitCard key={t.title} icon={t.icon} title={t.title} back={t.back} className="h-44" />
+                <BenefitCard key={t.title} title={t.title} back={t.back} className="h-full" />
               ))}
             </div>
           </div>
@@ -467,9 +444,9 @@ export default function CncPage() {
           {/* Desktop: landscape flip cards floating around a central placeholder image */}
           <div className="mt-14 hidden items-center justify-between lg:flex">
             <div className="flex w-[28%] flex-col gap-7">
-              <BenefitCard {...tiles[0]} className="h-48 translate-x-3" />
-              <BenefitCard {...tiles[1]} className="mt-6 h-48 -translate-x-2" />
-              <BenefitCard {...tiles[2]} className="h-48 translate-x-2" />
+              <BenefitCard {...tiles[0]} className="translate-x-3" />
+              <BenefitCard {...tiles[1]} className="-translate-x-2" />
+              <BenefitCard {...tiles[2]} className="translate-x-2" />
             </div>
             <PlaceholderGraphic
               dark={false}
@@ -477,9 +454,9 @@ export default function CncPage() {
               label="Placeholder image"
             />
             <div className="flex w-[28%] flex-col gap-7">
-              <BenefitCard {...tiles[3]} className="mt-12 h-48 -translate-x-3" />
-              <BenefitCard {...tiles[4]} className="h-48 translate-x-2" />
-              <BenefitCard {...tiles[5]} className="mt-6 h-48 -translate-x-2" />
+              <BenefitCard {...tiles[3]} className="-translate-x-3" />
+              <BenefitCard {...tiles[4]} className="translate-x-2" />
+              <BenefitCard {...tiles[5]} className="-translate-x-2" />
             </div>
           </div>
         </div>
@@ -588,6 +565,18 @@ export default function CncPage() {
               <p className="mt-4 leading-relaxed text-white/70">
                 Moves a cutting tool along three linear directions: X, Y and Z.
               </p>
+              <ul className="mt-5 space-y-3">
+                {[
+                  "Larger parts due to bigger work envelopes",
+                  "Reduce complexity, get parts faster",
+                  "Quicker lead times",
+                ].map((point) => (
+                  <li key={point} className="flex items-start gap-3 leading-relaxed text-white/70">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
               <div className="mt-6 inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1.5 font-mono text-sm text-white/80">
                 X · Y · Z
               </div>
