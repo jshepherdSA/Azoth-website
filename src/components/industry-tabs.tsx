@@ -31,7 +31,7 @@ const industries: Industry[] = [
     body: "Azoth supports leading medical device manufacturers with production-scale metal additive manufacturing, delivering precision-engineered components backed by ISO 13485-certified quality systems, validated materials, and full traceability from prototyping through serial production.",
     href: "/industries/medical",
     image: "/images/medical-27.png",
-    fit: "cover",
+    fit: "contain",
   },
   {
     key: "defense",

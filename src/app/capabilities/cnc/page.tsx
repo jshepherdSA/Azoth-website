@@ -70,6 +70,13 @@ const medicalPoints = [
   "Fully documented, repeatable production runs",
 ];
 
+const defensePoints = [
+  "Mission-critical components and assemblies",
+  "ITAR-compliant, U.S.-based production",
+  "Complex geometries in high-strength alloys",
+  "Full traceability and inspection documentation",
+];
+
 const consumerPoints = [
   "Miniaturized housings, frames and enclosures",
   "Fine cosmetic surfaces and multi-finish detailing",
@@ -337,20 +344,22 @@ export default function CncPage() {
         </div>
       </section>
 
-      {/* Medical applications */}
-      <section className="relative bg-white py-12">
-        <div className="container-az relative z-10 grid items-center gap-12 lg:min-h-[30rem] lg:grid-cols-2 lg:content-center">
-          <div className="lg:ml-auto lg:max-w-md">
-            <Eyebrow>Medical</Eyebrow>
+      {/* Defense applications */}
+      <section className="bg-white py-14">
+        <div className="container-az grid items-center gap-12 lg:grid-cols-2">
+          <PlaceholderGraphic
+            dark={false}
+            className="aspect-[4/3] w-full"
+            label="Placeholder image"
+          />
+          <div>
+            <Eyebrow>Defense</Eyebrow>
             <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-              Medical Applications
+              Defense Applications
             </h2>
             <ul className="mt-6 space-y-4">
-              {medicalPoints.map((point) => (
-                <li
-                  key={point}
-                  className="flex items-start gap-3 leading-relaxed text-muted-soft"
-                >
+              {defensePoints.map((point) => (
+                <li key={point} className="flex items-start gap-3 leading-relaxed text-muted-soft">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
                   <span>{point}</span>
                 </li>
@@ -358,15 +367,38 @@ export default function CncPage() {
             </ul>
           </div>
         </div>
-        {/* da Vinci render entering from the top-right (top-right corner clipped) */}
-        <Image
-          src="/images/davinci1nobackground.png"
-          alt="da Vinci surgical system"
-          width={1455}
-          height={1386}
-          className="pointer-events-none absolute top-0 right-0 z-20 hidden w-[46.7%] lg:block"
-          priority
-        />
+      </section>
+
+      {/* Medical applications */}
+      <section className="bg-white pb-32 pt-14">
+        <div className="container-az">
+          <div className="relative rounded-3xl bg-[#26262e] px-8 py-10 text-white sm:px-12 sm:py-12 lg:min-h-[24rem] lg:px-16 lg:py-16">
+            <div className="relative z-10 max-w-md">
+              <Eyebrow>Medical</Eyebrow>
+              <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Medical Applications</h2>
+              <ul className="mt-6 space-y-4">
+                {medicalPoints.map((point) => (
+                  <li key={point} className="flex items-start gap-3 leading-relaxed text-white/70">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* da Vinci render anchored to the box's top-right corner. Its own
+                top-right radius matches the box so that corner stays cropped to
+                the box, while the extra height spills past the bottom edge only. */}
+            <Image
+              src="/images/davinci1nobackground.png"
+              alt="da Vinci surgical system"
+              width={1455}
+              height={1386}
+              className="pointer-events-none absolute right-0 top-0 hidden h-auto w-[46%] max-w-[31rem] rounded-tr-3xl lg:block"
+              sizes="(max-width: 1024px) 0px, 31rem"
+              priority
+            />
+          </div>
+        </div>
       </section>
 
       {/* Consumer electronics applications */}
