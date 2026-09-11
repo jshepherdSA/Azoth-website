@@ -11,50 +11,64 @@ export const metadata: Metadata = {
     "Azoth's experts cover a wide array of plastic additive manufacturing technologies, FDM, SLS, SLA, DLP, HP Multi Jet Fusion, reinforcement fibers, and more.",
 };
 
-// Each polymer technology is a card (maroon value icon + title) that flips like a
-// flashcard on hover/focus to reveal its description. Icons + copy from the source.
-const technologies = [
+// Static photo cards, one per technology family. Each `entries` item keeps its
+// original technology name as a subheading and its original description; an
+// entry with no body renders as a plain capability line.
+// Photos are placeholder picks pending client confirmation.
+// To add the pending 4th card, append one entry here: the desktop row switches
+// from 3 across to 4 across on its own (see `lgColsClass` below).
+const technologies: {
+  title: string;
+  image: string;
+  entries: { label: string; body?: string }[];
+}[] = [
   {
-    title: "Fused Deposition Modeling (FDM) Printing",
-    icon: "/images/reduce-inventory-costs.svg",
-    body: "Fused deposition modeling, or FDM 3D printing, is a method of additive manufacturing where layers of material are fused together in a pattern to create an object. The material is melted just past its glass transition temperature, then extruded next to or on top of previous extrusions, building an object layer by layer.",
+    title: "FDM",
+    image: "/images/polymer-fdm-part-nest-fixture.jpg",
+    entries: [
+      {
+        label: "Fused Deposition Modeling (FDM) Printing",
+        body: "Fused deposition modeling, or FDM 3D printing, is a method of additive manufacturing where layers of material are fused together in a pattern to create an object. The material is melted just past its glass transition temperature, then extruded next to or on top of previous extrusions, building an object layer by layer.",
+      },
+      {
+        label: "High-Quality Reinforcement Fibers",
+        body: "Reinforcement fibers are either natural fibers (animal, mineral, or cellulose) or synthetic fibers such as glass, carbon, polymers, and kevlar, designed to increase rigidity, strength, and the part's impact resistance.",
+      },
+      { label: "Full-color FDM" },
+    ],
   },
   {
-    title: "Full-Color FDM Printing Capabilities",
-    icon: "/images/rapid-speed-of-service-production.svg",
-    body: "Azoth is able to manufacture precision metal parts within 7-15 days. Binder jetting is much faster than other additive technologies and does not require tooling like traditional manufacturing. This enables speed to market to outpace machining, casting, and metal-injection-molding.",
+    title: "SLA / DLP",
+    image: "/images/polymer-sla-medical-robotic-housing.jpg",
+    entries: [
+      {
+        label: "Stereolithography (SLA) Printing",
+        body: "Stereolithography, or SLA printing, is a form of 3D printing used to create models, prototypes, patterns, and production parts layer by layer using a photochemical process in which light causes chemical monomers and oligomers to cross-link into polymers. Those polymers then make up the body of a three-dimensional solid.",
+      },
+      {
+        label: "Digital Light Processing (DLP) 3D Printing",
+        body: "A DLP 3D printer is used in an additive manufacturing process where objects are created using a digital light projector (DLP) as the light source for curing photo-reactive polymers.",
+      },
+    ],
   },
   {
-    title: "Bound Metal Deposition (BMD) Printing",
-    icon: "/images/prototyping-production.svg",
-    body: "Bound Metal Deposition (BMD) is an extrusion-based metal additive manufacturing process where metal components are constructed by extrusion of a powder-filled thermoplastic media. The Studio System leverages BMD to deliver an office-friendly metal 3D printing solution.",
-  },
-  {
-    title: "Selective Laser Sintering (SLS)",
-    icon: "/images/superior-level-of-quality-control.svg",
-    body: "SLS (Selective Laser Sintering) is an additive manufacturing method. It creates parts by sintering fine polymer powder particles to fuse them together locally. Your plastic part is created layer by layer, according to your 3D model.",
-  },
-  {
-    title: "High-Quality Reinforcement Fibers",
-    icon: "/images/endless-customization-possibilities.svg",
-    body: "Reinforcement fibers are either natural fibers (animal, mineral, or cellulose) or synthetic fibers such as glass, carbon, polymers, and kevlar, designed to increase rigidity, strength, and the part's impact resistance.",
-  },
-  {
-    title: "Stereolithography (SLA) Printing",
-    icon: "/images/complete-design-freedom-flexibility.svg",
-    body: "Stereolithography, or SLA printing, is a form of 3D printing used to create models, prototypes, patterns, and production parts layer by layer using a photochemical process in which light causes chemical monomers and oligomers to cross-link into polymers. Those polymers then make up the body of a three-dimensional solid.",
-  },
-  {
-    title: "Digital Light Processing (DLP) 3D Printing",
-    icon: "/images/complete-design-freedom-flexibility.svg",
-    body: "A DLP 3D printer is used in an additive manufacturing process where objects are created using a digital light projector (DLP) as the light source for curing photo-reactive polymers.",
-  },
-  {
-    title: "HP Multi-Jet Fusion 3D Printing",
-    icon: "/images/complete-design-freedom-flexibility.svg",
-    body: "Unlike other 3D printing technologies, HP Multi Jet Fusion prints each layer of new material and agents on top of a previous layer that is still molten, so both layers fuse completely, delivering strong, detailed, and functional 3D-printed parts.",
+    title: "SLS / HP Multi Jet Fusion",
+    image: "/images/polymer-generative-support-bracket.jpg",
+    entries: [
+      {
+        label: "Selective Laser Sintering (SLS)",
+        body: "SLS (Selective Laser Sintering) is an additive manufacturing method. It creates parts by sintering fine polymer powder particles to fuse them together locally. Your plastic part is created layer by layer, according to your 3D model.",
+      },
+      {
+        label: "HP Multi-Jet Fusion 3D Printing",
+        body: "Unlike other 3D printing technologies, HP Multi Jet Fusion prints each layer of new material and agents on top of a previous layer that is still molten, so both layers fuse completely, delivering strong, detailed, and functional 3D-printed parts.",
+      },
+    ],
   },
 ];
+
+// Complete, fixed class names (never interpolated) so Tailwind always emits them.
+const lgColsClass = technologies.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3";
 
 export default function PolymerPrintingPage() {
   return (
@@ -68,19 +82,42 @@ export default function PolymerPrintingPage() {
         ]}
       />
 
-      {/* Intro */}
-      <section className="bg-white py-20">
-        <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-surface shadow-md ring-1 ring-hairline">
-            <Image
-              src="/images/azoth-air-nozzle.jpg"
-              alt="Polymer 3D-printed air nozzle"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </div>
-          <div>
+      {/* Intro: photo fills the left half, content sits on white at the right,
+          with a slightly diagonal divider between them. */}
+      <section className="relative bg-white">
+        {/* Phone / tablet: photo stacks above the content */}
+        <div className="relative h-72 w-full lg:hidden">
+          <Image
+            src="/images/azoth-air-nozzle.jpg"
+            alt="Polymer 3D-printed air nozzle"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+
+        {/* Desktop: photo bleeds to the left edge, its right side cut on a slight
+            diagonal so the divider leans rather than sitting perfectly vertical. */}
+        <div
+          className="absolute inset-y-0 left-0 hidden w-1/2 lg:block"
+          style={{ clipPath: "polygon(0 0, 100% 0, 92% 100%, 0 100%)" }}
+        >
+          <Image
+            src="/images/azoth-air-nozzle.jpg"
+            alt="Polymer 3D-printed air nozzle"
+            fill
+            className="object-cover"
+            sizes="50vw"
+          />
+        </div>
+
+        {/* On landscape/desktop the hero fills the rest of the first screen
+            (447px = the sticky header + page banner above it, constant from
+            1024px up), so the next band never peeks above the fold. Both bands
+            use the same height so the diagonal keeps one angle across the
+            horizontal divider. min-h is a floor for short screens. */}
+        <div className="container-az relative flex items-center py-16 lg:h-[calc(100vh-447px)] lg:min-h-[26rem] lg:py-24">
+          <div className="lg:ml-auto lg:w-1/2 lg:pl-12">
             <Eyebrow>Plastic Additive Manufacturing</Eyebrow>
             <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">Polymer Printing</h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
@@ -100,10 +137,28 @@ export default function PolymerPrintingPage() {
         </div>
       </section>
 
-      {/* Technologies */}
-      <section className="bg-surface py-20">
-        <div className="container-az">
-          <div className="max-w-3xl">
+      {/* Second band: mirrors the hero so the two together read as four
+          quadrants, split by the continuing diagonal and the horizontal rule
+          below the hero. Content left, photo right. */}
+      <section className="relative border-t border-hairline bg-white">
+        {/* Desktop: photo bleeds to the right edge. Its left edge picks up where
+            the hero's diagonal ended (46% of the viewport) and carries on at the
+            same angle down to 42%. */}
+        <div
+          className="absolute inset-y-0 right-0 hidden w-[58%] lg:block"
+          style={{ clipPath: "polygon(7% 0, 100% 0, 100% 100%, 0 100%)" }}
+        >
+          <Image
+            src="/images/polymer-printing.png"
+            alt="Azoth polymer printers"
+            fill
+            className="object-cover"
+            sizes="58vw"
+          />
+        </div>
+
+        <div className="container-az relative flex items-center py-16 lg:h-[calc(100vh-447px)] lg:min-h-[26rem] lg:py-24">
+          <div className="lg:w-1/2 lg:max-w-sm">
             <Eyebrow>Our Polymer Technologies</Eyebrow>
             <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
               Core Polymer Technologies In-House
@@ -113,39 +168,56 @@ export default function PolymerPrintingPage() {
               application, across extrusion, powder-bed, and resin technologies.
             </p>
           </div>
+        </div>
 
-          <p className="mt-8 text-sm font-medium text-muted">
-            Hover over a card to learn more.
-          </p>
-          <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Phone / tablet: photo drops below the heading */}
+        <div className="relative h-72 w-full lg:hidden">
+          <Image
+            src="/images/polymer-printing.png"
+            alt="Azoth polymer printers"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+      </section>
+
+      {/* Technology cards */}
+      <section className="bg-surface py-20">
+        <div className="container-az">
+          <div className={`grid items-stretch gap-6 sm:grid-cols-2 ${lgColsClass}`}>
             {technologies.map((tech) => (
               <div
                 key={tech.title}
-                tabIndex={0}
-                className="group h-80 rounded-2xl [perspective:1200px] focus:outline-none"
+                className="flex h-full flex-col overflow-hidden rounded-2xl border border-hairline bg-white shadow-sm"
               >
-                <div className="relative h-full w-full rounded-2xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)]">
-                  {/* Front */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-2xl border border-hairline bg-white px-6 text-center shadow-sm [backface-visibility:hidden]">
-                    <Image src={tech.icon} alt="" width={70} height={70} className="h-16 w-16" />
-                    <h3 className="text-lg font-bold leading-snug text-ink">{tech.title}</h3>
-                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
-                      Learn More
-                      <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden>
-                        <path
-                          d="M6 4l4 4-4 4"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  {/* Back */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-br from-brand-dark to-black px-6 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                    <h3 className="text-base font-bold leading-snug">{tech.title}</h3>
-                    <p className="text-sm leading-relaxed text-white/85">{tech.body}</p>
+                {/* Fixed-height photo area keeps the photos and titles level across
+                    the row; the parts are shown whole rather than cropped. */}
+                <div className="flex h-56 items-center justify-center bg-white p-5">
+                  <Image
+                    src={tech.image}
+                    alt={tech.title}
+                    width={1200}
+                    height={800}
+                    className="h-full w-auto max-w-full object-contain"
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 25vw"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col border-t border-hairline p-6">
+                  <h3 className="text-lg font-bold leading-snug text-ink">{tech.title}</h3>
+                  <div className="mt-4 space-y-4">
+                    {tech.entries.map((entry) => (
+                      <div key={entry.label}>
+                        <h4 className="text-xs font-semibold uppercase tracking-wider text-brand">
+                          {entry.label}
+                        </h4>
+                        {entry.body ? (
+                          <p className="mt-1.5 text-sm leading-relaxed text-muted-soft">
+                            {entry.body}
+                          </p>
+                        ) : null}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

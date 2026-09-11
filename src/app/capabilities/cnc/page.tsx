@@ -16,33 +16,39 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// Production benefits of 5-axis machining, shown as a numbered capability grid
-// (condensed from the source copy).
+// Production benefits of 5-axis machining, shown as short-bullet capability cards.
 const benefits = [
   {
-    title: "Fewer Setups",
+    title: "Fewer Setups, Improved Efficiency",
     icon: "/images/prototyping-production.svg",
-    body: "A 5-axis machine can access multiple sides of a component within a single setup, no repeatedly removing, rotating and repositioning it. Fewer setups mean fewer opportunities for positioning error.",
+    points: [
+      "Multiple sides machined in a single setup",
+      "Fewer setups, fewer positioning errors",
+    ],
+  },
+  {
+    title: "Machining for Additive Manufacturing",
+    icon: "/images/world-class-3d-manufacturing-experts.svg",
+    points: [
+      "We machine the parts we print, in house",
+      "Printed components finished to print tolerance",
+    ],
   },
   {
     title: "Greater Precision",
     icon: "/images/superior-level-of-quality-control.svg",
-    body: "Minimizing the number of setups keeps consistent relationships between critical features and supports the tight tolerances demanding applications require.",
+    points: [
+      "Consistent relationships between critical features",
+      "Holds the tight tolerances demanding parts require",
+    ],
   },
   {
     title: "Machine Complex Features & Geometries",
     icon: "/images/complete-design-freedom-flexibility.svg",
-    body: "Approaching a component from multiple angles reaches features that are difficult to hit with conventional 3-axis machining, while preserving the advantages of additive design.",
-  },
-  {
-    title: "Improved Efficiency",
-    icon: "/images/rapid-speed-of-service-production.svg",
-    body: "Combining multiple operations into fewer setups shortens the path from printed component to finished part, a process built around speed, repeatability and production readiness.",
-  },
-  {
-    title: "Consistency From Part to Part",
-    icon: "/images/world-class-3d-manufacturing-experts.svg",
-    body: "Azoth is production-focused, not a prototyping shop. 5-axis machining creates a controlled, repeatable process for machining critical features across production quantities.",
+    points: [
+      "Multi-angle access to hard-to-reach features",
+      "Preserves the advantages of additive design",
+    ],
   },
 ];
 
@@ -56,13 +62,43 @@ const geometries = [
   "Geometries hard to reach with 3-axis machining",
 ];
 
+// Pentagon vertices for the five machining tiles, centred on the image and
+// rotated so one point lands at bottom centre. Angles 126/54/198/342/270 deg,
+// with left = 50% + cos(a)*36 and top = 50% - sin(a)*37.5 (a wider-than-tall
+// ellipse so the points fit the container). Order: upper-left, upper-right,
+// lower-left, lower-right, bottom.
+const pentagonPoints = [
+  { left: "28.8%", top: "19.7%" },
+  { left: "71.2%", top: "19.7%" },
+  { left: "15.8%", top: "61.6%" },
+  { left: "84.2%", top: "61.6%" },
+  { left: "50%", top: "87.5%" },
+];
+
 // Real Azoth certifications (shared across the site).
 const certs = ["ISO 9001", "ISO 13485", "ITAR Registered", "Made in USA", "CMMC Lvl 2"];
 
 // The vertically integrated path (machining through quality).
 const pillars = ["Machining", "Heat Treatment", "Finishing", "Quality"];
 
-// Placeholder application bullets — replace with real copy.
+const integrationPoints = [
+  "The biggest advantage of Azoth's capabilities is our vertical integration",
+  "Get your parts manufactured, machined, treated, and coated in one place",
+  "No more dealing with shipping your parts from facility to facility",
+  "Any part. Any need. One order.",
+];
+
+// A sample of common in-house options. The full materials list lives on /materials.
+const optionColumns = ["Materials", "Heat treatments", "Finishing"];
+const optionRows = [
+  ["Stainless steels", "Solutioning", "Cerakote"],
+  ["Alloy steels", "Annealing", "Powder coat"],
+  ["Titaniums", "HIP (hot isostatic pressing)", "PVD (thin metal coating)"],
+  ["Nickel-based alloys", "and more", "Polish"],
+  ["Composites", "", "Plating"],
+];
+
+// Placeholder application bullets, replace with real copy.
 const medicalPoints = [
   "Surgical instruments and end-effectors",
   "Small, feature-dense implantable components",
@@ -119,7 +155,7 @@ const facts: { value: ReactNode; caption: string }[] = [
   {
     value: (
       <>
-        Proto <span className="text-brand">→</span> Prod
+        Prototype <span className="text-brand">→</span> Production
       </>
     ),
     caption: "From first article through validated production",
@@ -261,13 +297,22 @@ function AxisDiagramSimple() {
 }
 
 export default function CncPage() {
-  // Flip tiles: the five benefits plus the geometry callout, each with a header
-  // (front) and content (back).
+  // Capability tiles: the four benefits plus the geometry callout, each a title
+  // over one or two short bullets.
   const tiles: { icon: string; title: string; back: ReactNode }[] = [
     ...benefits.map((b) => ({
       icon: b.icon,
       title: b.title,
-      back: <p className="text-xs leading-snug text-muted-soft">{b.body}</p>,
+      back: (
+        <ul className="space-y-1 text-left">
+          {b.points.map((p) => (
+            <li key={p} className="flex items-start gap-1.5 text-xs leading-snug text-muted-soft">
+              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand" />
+              <span>{p}</span>
+            </li>
+          ))}
+        </ul>
+      ),
     })),
     {
       icon: "/images/endless-customization-possibilities.svg",
@@ -344,35 +389,30 @@ export default function CncPage() {
         </div>
       </section>
 
-      {/* Defense applications */}
-      <section className="bg-white py-14">
-        <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <PlaceholderGraphic
-            dark={false}
-            className="aspect-[4/3] w-full"
-            label="Placeholder image"
-          />
-          <div>
-            <Eyebrow>Defense</Eyebrow>
-            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-              Defense Applications
-            </h2>
-            <ul className="mt-6 space-y-4">
-              {defensePoints.map((point) => (
-                <li key={point} className="flex items-start gap-3 leading-relaxed text-muted-soft">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
+      {/* Applications: three dark boxes floating on white, spaced apart */}
+      <section className="bg-white pb-28 pt-16">
+        <div className="container-az space-y-28">
+          {/* Defense */}
+          <div className="relative rounded-3xl bg-[#26262e] px-8 py-10 text-white sm:px-12 sm:py-12 lg:px-16 lg:py-14">
+            <div className="grid items-center gap-10 lg:grid-cols-2">
+              <PlaceholderGraphic className="aspect-[4/3] w-full" label="Placeholder image" />
+              <div>
+                <Eyebrow>Defense</Eyebrow>
+                <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Defense Applications</h2>
+                <ul className="mt-6 space-y-4">
+                  {defensePoints.map((point) => (
+                    <li key={point} className="flex items-start gap-3 leading-relaxed text-white/70">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Medical applications */}
-      <section className="bg-white pb-32 pt-14">
-        <div className="container-az">
-          <div className="relative rounded-3xl bg-[#26262e] px-8 py-10 text-white sm:px-12 sm:py-12 lg:min-h-[24rem] lg:px-16 lg:py-16">
+          {/* Medical */}
+          <div className="relative rounded-3xl bg-[#26262e] px-8 py-10 text-white sm:px-12 sm:py-12 lg:min-h-[28rem] lg:px-16 lg:py-16">
             <div className="relative z-10 max-w-md">
               <Eyebrow>Medical</Eyebrow>
               <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Medical Applications</h2>
@@ -385,48 +425,46 @@ export default function CncPage() {
                 ))}
               </ul>
             </div>
-            {/* da Vinci render anchored to the box's top-right corner. Its own
-                top-right radius matches the box so that corner stays cropped to
-                the box, while the extra height spills past the bottom edge only. */}
+            {/* da Vinci anchored to the box's top-right corner, its own top-right
+                radius matching the box so that corner stays cropped, with the
+                extra height spilling past the bottom edge only. */}
             <Image
               src="/images/davinci1nobackground.png"
               alt="da Vinci surgical system"
               width={1455}
               height={1386}
-              className="pointer-events-none absolute right-0 top-0 hidden h-auto w-[46%] max-w-[31rem] rounded-tr-3xl lg:block"
-              sizes="(max-width: 1024px) 0px, 31rem"
+              className="pointer-events-none absolute right-0 top-0 hidden h-auto w-[46%] max-w-[34rem] rounded-tr-3xl lg:block"
+              sizes="(max-width: 1024px) 0px, 34rem"
               priority
             />
           </div>
-        </div>
-      </section>
 
-      {/* Consumer electronics applications */}
-      <section className="relative bg-surface py-8">
-        <div className="container-az grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative z-20">
+          {/* Consumer electronics */}
+          <div className="relative rounded-3xl bg-[#26262e] px-8 py-10 text-white sm:px-12 sm:py-12 lg:px-16 lg:py-9">
+            <div className="relative z-10 lg:ml-auto lg:max-w-md">
+              <Eyebrow>Consumer Electronics</Eyebrow>
+              <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
+                Consumer Electronics Applications
+              </h2>
+              <ul className="mt-6 space-y-4">
+                {consumerPoints.map((point) => (
+                  <li key={point} className="flex items-start gap-3 leading-relaxed text-white/70">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Glasses sit on top of the box, sized off the box height so they
+                just clear its top and bottom edges at any breakpoint. */}
             <Image
-              src="/images/rayban1-background-removed.png"
-              alt="Clear-frame Ray-Ban Meta smart glasses"
-              width={1600}
-              height={1200}
-              className="h-auto w-full drop-shadow-2xl lg:my-[-6rem] lg:-ml-[30%] lg:w-[130%] lg:max-w-none"
-              sizes="(max-width: 1024px) 100vw, 60vw"
+              src="/images/Ray-Ban_Stories.png"
+              alt="Ray-Ban Stories smart glasses"
+              width={1672}
+              height={941}
+              className="pointer-events-none absolute left-12 top-1/2 hidden h-full w-auto max-w-none -translate-y-[38%] -rotate-[20deg] object-contain drop-shadow-2xl lg:block"
+              sizes="(max-width: 1024px) 0px, 45vw"
             />
-          </div>
-          <div>
-            <Eyebrow>Consumer Electronics</Eyebrow>
-            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-              Consumer Electronics Applications
-            </h2>
-            <ul className="mt-6 space-y-4">
-              {consumerPoints.map((point) => (
-                <li key={point} className="flex items-start gap-3 leading-relaxed text-muted-soft">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
@@ -449,7 +487,7 @@ export default function CncPage() {
           <div className="max-w-3xl">
             <Eyebrow>Machining Capability</Eyebrow>
             <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-              Why 5-Axis Machining Matters for Additive Manufacturing
+              5-Axis Manufacturing with Azoth
             </h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
               Azoth specializes in producing small, complex, end-use components where precision,
@@ -459,12 +497,15 @@ export default function CncPage() {
             </p>
           </div>
 
-          {/* Mobile / tablet: central image + stacked flip cards */}
+          {/* Mobile / tablet: central image + stacked cards */}
           <div className="mt-10 lg:hidden">
-            <PlaceholderGraphic
-              dark={false}
-              className="mx-auto aspect-video w-full max-w-sm"
-              label="Placeholder image"
+            <Image
+              src="/images/single-part-cutout.png"
+              alt="Additively manufactured metal bracket with lattice infill"
+              width={1337}
+              height={1014}
+              className="mx-auto h-auto w-full max-w-md"
+              sizes="(max-width: 1024px) 90vw, 28rem"
             />
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
               {tiles.map((t) => (
@@ -473,23 +514,26 @@ export default function CncPage() {
             </div>
           </div>
 
-          {/* Desktop: landscape flip cards floating around a central placeholder image */}
-          <div className="mt-14 hidden items-center justify-between lg:flex">
-            <div className="flex w-[28%] flex-col gap-7">
-              <BenefitCard {...tiles[0]} className="translate-x-3" />
-              <BenefitCard {...tiles[1]} className="-translate-x-2" />
-              <BenefitCard {...tiles[2]} className="translate-x-2" />
-            </div>
-            <PlaceholderGraphic
-              dark={false}
-              className="aspect-[4/3] w-[40%] shrink-0 self-center"
-              label="Placeholder image"
+          {/* Desktop: the five tiles sit on the points of a pentagon centred on
+              the image, rotated so one vertex lands at bottom centre. */}
+          <div className="relative mt-14 hidden h-[900px] lg:block">
+            <Image
+              src="/images/single-part-cutout.png"
+              alt="Additively manufactured metal bracket with lattice infill"
+              width={1337}
+              height={1014}
+              className="absolute left-1/2 top-1/2 h-auto w-[38%] max-w-none -translate-x-1/2 -translate-y-1/2"
+              sizes="(max-width: 1024px) 100vw, 38vw"
             />
-            <div className="flex w-[28%] flex-col gap-7">
-              <BenefitCard {...tiles[3]} className="-translate-x-3" />
-              <BenefitCard {...tiles[4]} className="translate-x-2" />
-              <BenefitCard {...tiles[5]} className="-translate-x-2" />
-            </div>
+            {tiles.map((tile, i) => (
+              <div
+                key={tile.title}
+                className="absolute w-[22%] -translate-x-1/2 -translate-y-1/2"
+                style={pentagonPoints[i]}
+              >
+                <BenefitCard title={tile.title} back={tile.back} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -503,28 +547,20 @@ export default function CncPage() {
               <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
                 Additive Manufacturing + Precision Machining Under One Roof
               </h2>
-              <div className="mt-5 space-y-4 leading-relaxed text-white/70">
-                <p>
-                  The real advantage of Azoth&apos;s 5-axis capabilities goes beyond the machine
-                  itself. Azoth brings additive manufacturing, machining, heat treatment, finishing
-                  and quality capabilities together within a vertically integrated operation, so
-                  machining is part of the manufacturing strategy from the beginning, not an
-                  afterthought.
-                </p>
-                <p>
-                  The result is a streamlined path from digital design to additively manufactured
-                  component to finished, inspected, production-ready part. For automotive, medical,
-                  defense and other demanding applications, that combination delivers the complexity
-                  of additive manufacturing with the precision and process control real-world
-                  production requires.
-                </p>
-              </div>
+              <ul className="mt-5 space-y-4">
+                {integrationPoints.map((point) => (
+                  <li key={point} className="flex items-start gap-3 leading-relaxed text-white/70">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg ring-1 ring-white/10">
               <Image
-                src="/images/five-axis-machining.png"
-                alt="5-axis CNC machine cutting a metal part on a rotary table"
+                src="/images/azoth-cnc-machine1.png"
+                alt="Azoth 5-axis CNC machine cutting a metal part on a tilting rotary table"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -562,6 +598,51 @@ export default function CncPage() {
                 );
               })}
             </div>
+          </div>
+
+          {/* Common options table. The full materials list stays on /materials. */}
+          <div className="mt-14">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[640px] border-collapse text-left">
+                <thead>
+                  <tr>
+                    {optionColumns.map((col) => (
+                      <th
+                        key={col}
+                        scope="col"
+                        className="border-b border-white/20 pb-3 pr-6 text-sm font-bold uppercase tracking-wider text-white"
+                      >
+                        {col}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {optionRows.map((row) => (
+                    <tr key={row.join("|")}>
+                      {row.map((cell, i) => (
+                        <td
+                          key={optionColumns[i]}
+                          className="border-b border-white/10 py-3 pr-6 leading-relaxed text-white/70"
+                        >
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-sm text-white/50">
+              A sample of common options. See the{" "}
+              <Link
+                href="/materials"
+                className="font-semibold text-brand underline underline-offset-2 transition-colors hover:text-brand-hover"
+              >
+                full materials list
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>

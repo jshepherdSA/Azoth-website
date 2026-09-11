@@ -39,6 +39,17 @@ const processes = [
   },
 ];
 
+// CNC metal groupings. These lists are awaiting client confirmation, and one
+// more composite still needs to be added to the Composites card.
+const cncMetals = [
+  {
+    name: "Non-Ferrous",
+    items: ["Aluminums", "Brass", "Coppers", "Titaniums", "Nickel-based alloys"],
+  },
+  { name: "Ferrous", items: ["Stainless steels", "Alloy steels"] },
+  { name: "Composites", items: ["Hydlar"] },
+];
+
 const polymerTech = [
   "Plastic Fused Deposition Modeling (FDM)",
   "Selective Laser Sintering",
@@ -68,12 +79,12 @@ export default function MaterialsPage() {
     <>
       <PageBanner title="Materials" breadcrumbs={[{ label: "Home", href: "/" }, { label: "Materials" }]} />
 
-      {/* Metals */}
+      {/* Printed Metals */}
       <section className="bg-white py-20">
         <div className="container-az">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Metals</h2>
+              <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Printed Metals</h2>
               <p className="mt-4 leading-relaxed text-muted-soft">
                 Azoth has the ability to work with many traditional and experimental materials used
                 in the manufacturing of small, complex parts. Our team of metallurgical experts has
@@ -136,8 +147,31 @@ export default function MaterialsPage() {
         </div>
       </section>
 
-      {/* Polymers */}
+      {/* CNC Metals. White cards on the gray section so they stand out the same
+          way the LMM / Binder Jetting cards do on the white section above. */}
       <section className="bg-surface py-20">
+        <div className="container-az">
+          <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">CNC Metals</h2>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {cncMetals.map((group) => (
+              <div key={group.name} className="rounded-2xl bg-white p-6 ring-1 ring-hairline">
+                <h3 className="font-bold text-ink">{group.name}</h3>
+                <ul className="mt-4 space-y-2">
+                  {group.items.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-muted-soft">
+                      <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Polymers */}
+      <section className="bg-white py-20">
         <div className="container-az">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
@@ -173,7 +207,7 @@ export default function MaterialsPage() {
             <h3 className="text-2xl font-extrabold text-ink">Materials We Use</h3>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {polymerColumns.map((col, i) => (
-                <div key={i} className="rounded-2xl border border-hairline bg-white p-6">
+                <div key={i} className="rounded-2xl bg-surface p-6 ring-1 ring-hairline">
                   <ul className="space-y-3">
                     {col.map((p) => (
                       <li key={p} className="flex items-center gap-2 text-muted-soft">

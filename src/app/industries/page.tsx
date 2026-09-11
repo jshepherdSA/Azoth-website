@@ -27,12 +27,20 @@ const heroSlides = [
 ];
 
 const capabilities: { label: string; image: string; href: string }[] = [
-  { label: "Binder Jetting", image: "/images/capabilities-binder-jetting.png", href: "/capabilities/binder-jetting" },
-  { label: "LMM", image: "/images/capabilities-lmm-scaled-e1779467021505.jpg", href: "/capabilities/lithography-metal-manufacturing" },
-  { label: "Polymer Printing", image: "/images/capabilities-polymer-printing.jpg", href: "/capabilities/polymer-printing" },
-  { label: "Finishing", image: "/images/past-processing.png", href: "/capabilities/post-processing" },
-  { label: "Quality", image: "/images/azoth-quality.png", href: "/capabilities/quality" },
+  { label: "Binder Jetting", image: "/images/binder-jetting-industrial-automation-machining-close-up.png", href: "/capabilities/binder-jetting" },
+  { label: "LMM", image: "/images/holding-chip-incus.png", href: "/capabilities/lithography-metal-manufacturing" },
+  { label: "Polymer Printing", image: "/images/polymer-printing.png", href: "/capabilities/polymer-printing" },
+  { label: "Finishing", image: "/images/post-processing.png", href: "/capabilities/post-processing" },
 ];
+
+// Quality is shown as the light ISO-seal card (matching the Capabilities page)
+// rather than a photo card.
+const quality = {
+  title: "Quality",
+  href: "/capabilities/quality",
+  blurb:
+    "ISO 9001:2015 and ISO 13485:2016 certified quality systems, with full traceability and PPAP documentation.",
+};
 
 export default function IndustriesPage() {
   return (
@@ -100,7 +108,7 @@ export default function IndustriesPage() {
               <Link
                 key={cap.label}
                 href={cap.href}
-                className="group relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-ink ring-1 ring-hairline sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
+                className="group relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-ink ring-1 ring-hairline sm:w-[calc(50%-0.75rem)]"
               >
                 <Image
                   src={cap.image}
@@ -127,6 +135,37 @@ export default function IndustriesPage() {
                 </div>
               </Link>
             ))}
+
+            {/* Quality, light card variant (ISO seal), matching the Capabilities page */}
+            <Link
+              href={quality.href}
+              className="group relative flex w-full flex-col items-start justify-between gap-6 overflow-hidden rounded-2xl border border-hairline bg-white p-8 transition-shadow hover:shadow-lg sm:flex-row sm:items-center"
+            >
+              <div className="max-w-xl">
+                <h3 className="text-xl font-bold text-ink sm:text-2xl">{quality.title}</h3>
+                <p className="mt-2 leading-relaxed text-muted-soft">{quality.blurb}</p>
+                <span className="mt-4 inline-flex items-center gap-2 font-semibold text-brand">
+                  Learn More
+                  <CircleArrow tone="solid" />
+                </span>
+              </div>
+              <div className="flex shrink-0 items-center gap-4">
+                <Image
+                  src="/images/iso-9001.png"
+                  alt="ISO 9001:2015 Certified Company"
+                  width={280}
+                  height={280}
+                  className="h-24 w-auto object-contain sm:h-28"
+                />
+                <Image
+                  src="/images/iso-13485.png"
+                  alt="ISO 13485:2016 Certified Company"
+                  width={280}
+                  height={280}
+                  className="h-24 w-auto object-contain sm:h-28"
+                />
+              </div>
+            </Link>
           </div>
         </div>
       </section>

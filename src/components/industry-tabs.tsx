@@ -46,8 +46,8 @@ const industries: Industry[] = [
     label: "Consumer Electronics",
     body: "Azoth enables consumer electronics companies to accelerate product development and production through advanced metal additive manufacturing, delivering complex, miniaturized components with high precision, rapid iteration, and scalable manufacturing flexibility.",
     href: "/industries/consumer-electronics",
-    image: "/images/industries-tab-consumer-electronics-new.png",
-    fit: "cover",
+    image: "/images/Ray-Ban_Stories.png",
+    fit: "contain",
   },
 ];
 

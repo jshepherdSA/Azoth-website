@@ -28,7 +28,7 @@ const capabilities = [
   {
     title: "Polymer Printing",
     href: "/capabilities/polymer-printing",
-    image: "/images/azoth-part-nest-fixture-1024x677-new.png",
+    image: "/images/polymer-printing.png",
     blurb: "5 of 7 core polymer technologies in-house, prototyping to production.",
   },
   {
