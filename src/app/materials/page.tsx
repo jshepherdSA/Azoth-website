@@ -58,20 +58,35 @@ const polymerTech = [
   "Material Jetting",
 ];
 
-const polymers = [
-  "Onyx™", "HSHT Fiberglass", "Tough PLA", "PLA", "ABS", "sPro11B", "mProPP", "Clear", "Pro-Resin (Grey)",
-  "Smooth TPU 95A", "Fiberglass", "PETG", "TPU 95A", "sPro6 MF", "sPro11 CF", "mProTPU", "Draft (Grey)", "Rigid 10k (White)",
-  "Carbon Fiber", "Nylon", "PVA", "PC", "sPro6 NE", "sPro12W (Nylon 12 White)", "Biomed (Amber/Clear)", "Durable (Cloudy Clear)",
-  "Aramid Fiber (Kevlar®)", "Precise PLA", "CPE", "PP", "sPro6 FR", "sProTPU", "Black Resin", "High Temp (Orange)",
-];
-
-// The polymer list is grouped into four columns (matching the original layout):
-// 9, 9, 8, 8 items left-to-right.
-const polymerColumns = [
-  polymers.slice(0, 9),
-  polymers.slice(9, 18),
-  polymers.slice(18, 26),
-  polymers.slice(26),
+// The 34 polymers grouped by printing process, using the same card titles as the
+// Polymer Printing page. The grouping is awaiting client confirmation, in
+// particular PP and Nylon under FDM and Pro-Resin under SLA / DLP.
+// `twoCol` flows the longer FDM list into two columns on wider screens so the
+// three cards come out close in height.
+const polymerGroups: { name: string; items: string[]; twoCol?: boolean }[] = [
+  {
+    name: "FDM",
+    twoCol: true,
+    items: [
+      "Onyx™", "Carbon Fiber", "Fiberglass", "HSHT Fiberglass", "Aramid Fiber (Kevlar®)",
+      "Smooth TPU 95A", "Precise PLA", "PLA", "Tough PLA", "ABS", "PETG", "CPE", "PC", "PP",
+      "Nylon", "PVA", "TPU 95A",
+    ],
+  },
+  {
+    name: "SLA / DLP",
+    items: [
+      "Clear", "Draft (Grey)", "Rigid 10k (White)", "Biomed (Amber/Clear)",
+      "Durable (Cloudy Clear)", "Black Resin", "High Temp (Orange)", "Pro-Resin (Grey)",
+    ],
+  },
+  {
+    name: "SLS / HP Multi Jet Fusion",
+    items: [
+      "sPro6 MF", "sPro6 NE", "sPro6 FR", "sPro11B", "sPro11 CF", "sPro12W (Nylon 12 White)",
+      "sProTPU", "mProPP", "mProTPU",
+    ],
+  },
 ];
 
 export default function MaterialsPage() {
@@ -202,15 +217,19 @@ export default function MaterialsPage() {
             </div>
           </div>
 
-          {/* Materials We Use, four bordered columns */}
+          {/* Materials We Use, grouped by printing process */}
           <div className="mt-14">
             <h3 className="text-2xl font-extrabold text-ink">Materials We Use</h3>
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {polymerColumns.map((col, i) => (
-                <div key={i} className="rounded-2xl bg-surface p-6 ring-1 ring-hairline">
-                  <ul className="space-y-3">
-                    {col.map((p) => (
-                      <li key={p} className="flex items-center gap-2 text-muted-soft">
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {polymerGroups.map((group) => (
+                <div key={group.name} className="rounded-2xl bg-surface p-6 ring-1 ring-hairline">
+                  <h4 className="font-bold text-ink">{group.name}</h4>
+                  <ul className={`mt-4 ${group.twoCol ? "lg:columns-2 lg:gap-x-6" : ""}`}>
+                    {group.items.map((p) => (
+                      <li
+                        key={p}
+                        className="mb-2 flex break-inside-avoid items-center gap-2 text-sm text-muted-soft"
+                      >
                         <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
                         {p}
                       </li>

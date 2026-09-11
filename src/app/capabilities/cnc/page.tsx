@@ -64,15 +64,16 @@ const geometries = [
 
 // Pentagon vertices for the five machining tiles, centred on the image and
 // rotated so one point lands at bottom centre. Angles 126/54/198/342/270 deg,
-// with left = 50% + cos(a)*36 and top = 50% - sin(a)*37.5 (a wider-than-tall
-// ellipse so the points fit the container). Order: upper-left, upper-right,
-// lower-left, lower-right, bottom.
+// with left = 50% + cos(a)*32 and top = 45% - sin(a)*39.5 (a wider-than-tall
+// ellipse, and a centre above the midline so there is no dead band above the
+// top two tiles). Order: upper-left, upper-right, lower-left, lower-right,
+// bottom.
 const pentagonPoints = [
-  { left: "28.8%", top: "19.7%" },
-  { left: "71.2%", top: "19.7%" },
-  { left: "15.8%", top: "61.6%" },
-  { left: "84.2%", top: "61.6%" },
-  { left: "50%", top: "87.5%" },
+  { left: "31.2%", top: "13%" },
+  { left: "68.8%", top: "13%" },
+  { left: "19.6%", top: "57.2%" },
+  { left: "80.4%", top: "57.2%" },
+  { left: "50%", top: "84.5%" },
 ];
 
 // Real Azoth certifications (shared across the site).
@@ -516,14 +517,14 @@ export default function CncPage() {
 
           {/* Desktop: the five tiles sit on the points of a pentagon centred on
               the image, rotated so one vertex lands at bottom centre. */}
-          <div className="relative mt-14 hidden h-[900px] lg:block">
+          <div className="relative mt-8 hidden h-[740px] lg:block">
             <Image
               src="/images/single-part-cutout.png"
               alt="Additively manufactured metal bracket with lattice infill"
               width={1337}
               height={1014}
-              className="absolute left-1/2 top-1/2 h-auto w-[38%] max-w-none -translate-x-1/2 -translate-y-1/2"
-              sizes="(max-width: 1024px) 100vw, 38vw"
+              className="absolute left-1/2 top-[45%] h-auto w-[30%] max-w-none -translate-x-1/2 -translate-y-1/2"
+              sizes="(max-width: 1024px) 100vw, 30vw"
             />
             {tiles.map((tile, i) => (
               <div
