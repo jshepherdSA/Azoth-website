@@ -149,8 +149,8 @@ export default function PolymerPrintingPage() {
           style={{ clipPath: "polygon(7% 0, 100% 0, 100% 100%, 0 100%)" }}
         >
           <Image
-            src="/images/polymer-printing.png"
-            alt="Azoth polymer printers"
+            src="/images/polymer-generative-support-bracket-2.jpg"
+            alt="Polymer 3D-printed generative support bracket"
             fill
             className="object-cover"
             sizes="58vw"
@@ -173,8 +173,8 @@ export default function PolymerPrintingPage() {
         {/* Phone / tablet: photo drops below the heading */}
         <div className="relative h-72 w-full lg:hidden">
           <Image
-            src="/images/polymer-printing.png"
-            alt="Azoth polymer printers"
+            src="/images/polymer-generative-support-bracket-2.jpg"
+            alt="Polymer 3D-printed generative support bracket"
             fill
             className="object-cover"
             sizes="100vw"

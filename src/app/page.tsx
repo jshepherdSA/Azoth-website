@@ -8,8 +8,8 @@ import { CircleArrow } from "@/components/circle-arrow";
 import { NewsList } from "@/components/news-feed";
 
 const capabilities = [
-  { label: "Binder Jetting", icon: "/images/binder-jetting-icon.svg", href: "/capabilities/binder-jetting" },
-  { label: "LMM", icon: "/images/nano-particle-jetting-icon.svg", href: "/capabilities/lithography-metal-manufacturing" },
+  { label: "Binder Jetting", icon: "/images/BJetting.png", href: "/capabilities/binder-jetting" },
+  { label: "LMM", icon: "/images/LMM.png", href: "/capabilities/lithography-metal-manufacturing" },
   { label: "Polymer Printing", icon: "/images/polymer-printing-icon.svg", href: "/capabilities/polymer-printing" },
   { label: "Finishing", icon: "/images/post-processing-icon.svg", href: "/capabilities/post-processing" },
 ];
