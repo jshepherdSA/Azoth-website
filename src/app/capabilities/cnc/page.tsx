@@ -396,7 +396,25 @@ export default function CncPage() {
           {/* Defense */}
           <div className="relative rounded-3xl bg-[#26262e] px-8 py-8 text-white sm:px-12 sm:py-10 lg:px-14 lg:py-8">
             <div className="grid items-center gap-10 lg:grid-cols-2">
-              <PlaceholderGraphic className="h-52 w-full" label="Placeholder image" />
+              <div className="relative h-52 w-full">
+                <Image
+                  src="/images/defense-heat-exchanger.png"
+                  alt="Copper heat exchanger cores with internal lattice structures"
+                  width={893}
+                  height={338}
+                  className="absolute -bottom-6 -left-28 h-[80%] w-auto max-w-none rotate-[20deg] object-contain"
+                  sizes="(max-width: 1024px) 90vw, 40vw"
+                />
+                {/* Blisk in front, lower right, both spilling slightly past the box. */}
+                <Image
+                  src="/images/defense-blisk.png"
+                  alt="Machined Inconel 718 blisk"
+                  width={679}
+                  height={574}
+                  className="absolute right-14 -top-12 h-[115%] w-auto max-w-none object-contain drop-shadow-2xl"
+                  sizes="(max-width: 1024px) 45vw, 22vw"
+                />
+              </div>
               <div>
                 <Eyebrow>Defense</Eyebrow>
                 <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Defense Applications</h2>
