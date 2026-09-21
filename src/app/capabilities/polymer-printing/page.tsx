@@ -122,9 +122,8 @@ export default function PolymerPrintingPage() {
             <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">Polymer Printing</h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
               Azoth&apos;s team of experts can assist with a wide array of plastic additive (3D)
-              manufacturing technologies. Whether it is producing at your plant or at our technology
-              center in Ann Arbor, Michigan, Azoth will work with your engineers to employ the latest
-              in plastic additive technology.
+              manufacturing technologies. Producing parts in Ann Arbor, Michigan, Azoth will work with
+              your engineers to employ the latest in plastic additive technology.
             </p>
             <Link
               href="/materials"

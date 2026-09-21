@@ -391,12 +391,12 @@ export default function CncPage() {
       </section>
 
       {/* Applications: three dark boxes floating on white, spaced apart */}
-      <section className="bg-white pb-28 pt-16">
-        <div className="container-az space-y-28">
+      <section className="bg-white pb-20 pt-12">
+        <div className="container-az space-y-12">
           {/* Defense */}
-          <div className="relative rounded-3xl bg-[#26262e] px-8 py-10 text-white sm:px-12 sm:py-12 lg:px-16 lg:py-14">
+          <div className="relative rounded-3xl bg-[#26262e] px-8 py-8 text-white sm:px-12 sm:py-10 lg:px-14 lg:py-8">
             <div className="grid items-center gap-10 lg:grid-cols-2">
-              <PlaceholderGraphic className="aspect-[4/3] w-full" label="Placeholder image" />
+              <PlaceholderGraphic className="h-52 w-full" label="Placeholder image" />
               <div>
                 <Eyebrow>Defense</Eyebrow>
                 <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Defense Applications</h2>
@@ -413,8 +413,8 @@ export default function CncPage() {
           </div>
 
           {/* Medical */}
-          <div className="relative rounded-3xl bg-[#26262e] px-8 py-10 text-white sm:px-12 sm:py-12 lg:min-h-[28rem] lg:px-16 lg:py-16">
-            <div className="relative z-10 max-w-md">
+          <div className="relative rounded-3xl bg-[#26262e] px-8 py-8 text-white sm:px-12 sm:py-10 lg:min-h-[20rem] lg:px-14 lg:py-8">
+            <div className="relative z-10 max-w-md lg:ml-[98px]">
               <Eyebrow>Medical</Eyebrow>
               <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Medical Applications</h2>
               <ul className="mt-6 space-y-4">
@@ -434,14 +434,14 @@ export default function CncPage() {
               alt="da Vinci surgical system"
               width={1455}
               height={1386}
-              className="pointer-events-none absolute right-0 top-0 hidden h-auto w-[46%] max-w-[34rem] rounded-tr-3xl lg:block"
-              sizes="(max-width: 1024px) 0px, 34rem"
+              className="pointer-events-none absolute right-0 top-0 hidden h-auto w-[40%] max-w-[24rem] rounded-tr-3xl lg:block"
+              sizes="(max-width: 1024px) 0px, 24rem"
               priority
             />
           </div>
 
           {/* Consumer electronics */}
-          <div className="relative rounded-3xl bg-[#26262e] px-8 py-10 text-white sm:px-12 sm:py-12 lg:px-16 lg:py-9">
+          <div className="relative rounded-3xl bg-[#26262e] px-8 py-8 text-white sm:px-12 sm:py-10 lg:px-14 lg:py-6">
             <div className="relative z-10 lg:ml-auto lg:max-w-md">
               <Eyebrow>Consumer Electronics</Eyebrow>
               <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
@@ -463,7 +463,7 @@ export default function CncPage() {
               alt="Ray-Ban Stories smart glasses"
               width={1672}
               height={941}
-              className="pointer-events-none absolute left-12 top-1/2 hidden h-full w-auto max-w-none -translate-y-[38%] -rotate-[20deg] object-contain drop-shadow-2xl lg:block"
+              className="pointer-events-none absolute left-10 top-1/2 hidden h-[92%] w-auto max-w-none -translate-y-[38%] -rotate-[20deg] object-contain drop-shadow-2xl lg:block"
               sizes="(max-width: 1024px) 0px, 45vw"
             />
           </div>
@@ -560,8 +560,8 @@ export default function CncPage() {
 
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg ring-1 ring-white/10">
               <Image
-                src="/images/azoth-cnc-machine1.png"
-                alt="Azoth 5-axis CNC machine cutting a metal part on a tilting rotary table"
+                src="/images/cnc-stock.png"
+                alt="5-axis CNC machine cutting a metal part under flood coolant"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
