@@ -19,11 +19,13 @@ const stats = [
   { target: 500, suffix: "+", label: "Clients Served" },
 ];
 
-const heroSlides = [
-  { src: "/images/cadillac-celestiq-new.png", alt: "Automotive component" },
-  { src: "/images/medical-27.png", alt: "Medical component" },
-  { src: "/images/industries-tab-consumer-electronics-new.png", alt: "Consumer electronics component" },
-  { src: "/images/defense-new-1.png", alt: "Defense component" },
+// The blisk is a cutout on a transparent background, so it is shown whole
+// (`fit: "contain"`) instead of cropped to fill the square like the photos.
+const heroSlides: { src: string; alt: string; fit?: "contain" }[] = [
+  { src: "/images/automotive-ig1.png", alt: "Rolls-Royce burl wood dashboard and key" },
+  { src: "/images/design2.jpg", alt: "Sectioned metal 3D-printed parts with internal channels" },
+  { src: "/images/watch-6.png", alt: "Watch with a custom 3D-printed metal case" },
+  { src: "/images/defense-blisk.png", alt: "Machined metal blisk", fit: "contain" },
 ];
 
 const capabilities: { label: string; image: string; href: string }[] = [
@@ -144,7 +146,7 @@ export default function IndustriesPage() {
               <div className="max-w-xl">
                 <h3 className="text-xl font-bold text-ink sm:text-2xl">{quality.title}</h3>
                 <p className="mt-2 leading-relaxed text-muted-soft">{quality.blurb}</p>
-                <span className="mt-4 inline-flex items-center gap-2 font-semibold text-brand">
+                <span className="link-az mt-4 inline-flex items-center gap-2">
                   Learn More
                   <CircleArrow tone="solid" />
                 </span>

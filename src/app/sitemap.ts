@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next";
 import { showcaseItems } from "@/lib/showcase";
 import { blogPostsFull } from "@/lib/blog-posts";
+import { publishedTabs, tabHref } from "@/lib/design-guidelines";
 
 const BASE_URL = "https://azoth3d.com";
 
 // Concrete (non-dynamic) routes, mirroring the app/ page tree. Dynamic detail
-// pages (/azoth-blog/[slug], /azoth-showcase/[slug]) are appended below from the
-// same data that drives their generateStaticParams, so the sitemap can't drift
-// from what actually renders.
+// pages (/azoth-blog/[slug], /azoth-showcase/[slug], /design-guidelines/[slug])
+// are appended below from the same data that drives their generateStaticParams,
+// so the sitemap can't drift from what actually renders.
 const staticRoutes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
   { path: "/", priority: 1.0, changeFrequency: "weekly" },
   { path: "/about", priority: 0.7, changeFrequency: "monthly" },
@@ -63,5 +64,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...showcaseEntries, ...blogEntries];
+  // Published design guidelines tabs only; unpublished tabs are noindex.
+  const guidelineEntries: MetadataRoute.Sitemap = publishedTabs.map((tab) => ({
+    url: `${BASE_URL}${tabHref(tab)}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...guidelineEntries, ...showcaseEntries, ...blogEntries];
 }

@@ -12,7 +12,14 @@ export const metadata: Metadata = {
     "Metal and polymer additive manufacturing at production scale, binder jetting, lithography metal manufacturing, polymer printing, finishing, and ISO-certified quality.",
 };
 
-const capabilities = [
+// `imageClass` is for photos that need a different crop than dead centre.
+const capabilities: {
+  title: string;
+  href: string;
+  image: string;
+  blurb: string;
+  imageClass?: string;
+}[] = [
   {
     title: "Binder Jetting",
     href: "/capabilities/binder-jetting",
@@ -30,6 +37,14 @@ const capabilities = [
     href: "/capabilities/polymer-printing",
     image: "/images/polymer-printing.png",
     blurb: "5 of 7 core polymer technologies in-house, prototyping to production.",
+  },
+  {
+    title: "CNC Machining",
+    href: "/capabilities/cnc",
+    image: "/images/cnc-stock.png",
+    // The photo is portrait, so this keeps the cutting tool inside the wide crop.
+    imageClass: "object-[center_52%]",
+    blurb: "Precision 5-axis machining for small, complex, tight-tolerance parts.",
   },
   {
     title: "Finishing",
@@ -117,7 +132,7 @@ export default function CapabilitiesPage() {
                   src={cap.image}
                   alt={cap.title}
                   fill
-                  className="object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
+                  className={`object-cover opacity-90 transition-transform duration-500 group-hover:scale-105 ${cap.imageClass ?? ""}`}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
@@ -131,34 +146,38 @@ export default function CapabilitiesPage() {
               </Link>
             ))}
 
-            {/* Quality, light card variant (ISO seal) */}
+            {/* Quality: a light tile the same size as the photo tiles, with the
+                ISO seals in place of a photo and the same title, blurb and arrow.
+                On phones the tile is too short for the blurb, so the seals carry
+                it: they sit above the title and the blurb is hidden. */}
             <Link
               href={quality.href}
-              className="group relative flex flex-col items-start justify-between gap-6 overflow-hidden rounded-2xl border border-hairline bg-white p-8 transition-shadow hover:shadow-lg sm:flex-row sm:items-center lg:col-span-2"
+              className="group relative aspect-[5/2] overflow-hidden rounded-2xl border border-hairline bg-white transition-shadow hover:shadow-lg"
             >
-              <div className="max-w-xl">
-                <h3 className="text-xl font-bold text-ink sm:text-2xl">{quality.title}</h3>
-                <p className="mt-2 leading-relaxed text-muted-soft">{quality.blurb}</p>
-                <span className="mt-4 inline-flex items-center gap-2 font-semibold text-brand">
-                  Learn More
-                  <CircleArrow tone="solid" />
-                </span>
-              </div>
-              <div className="flex shrink-0 items-center gap-4">
+              <div className="absolute left-5 top-5 flex items-center gap-2 sm:left-auto sm:right-6 sm:top-6 sm:gap-3">
                 <Image
                   src="/images/iso-9001.png"
                   alt="ISO 9001:2015 Certified Company"
                   width={280}
                   height={280}
-                  className="h-24 w-auto object-contain sm:h-28"
+                  className="h-11 w-auto object-contain sm:h-24 lg:h-16 xl:h-24"
                 />
                 <Image
                   src="/images/iso-13485.png"
                   alt="ISO 13485:2016 Certified Company"
                   width={280}
                   height={280}
-                  className="h-24 w-auto object-contain sm:h-28"
+                  className="h-11 w-auto object-contain sm:h-24 lg:h-16 xl:h-24"
                 />
+              </div>
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 sm:p-6">
+                <div>
+                  <h3 className="text-xl font-bold text-ink sm:text-2xl">{quality.title}</h3>
+                  <p className="mt-1 hidden max-w-md text-sm text-muted-soft sm:block">
+                    {quality.blurb}
+                  </p>
+                </div>
+                <CardArrow />
               </div>
             </Link>
           </div>

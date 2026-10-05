@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
+import { GuidelinesLinks } from "@/components/guidelines-links";
 
 export const metadata: Metadata = {
   title: "Polymer Printing",
@@ -125,6 +126,8 @@ export default function PolymerPrintingPage() {
               manufacturing technologies. Producing parts in Ann Arbor, Michigan, Azoth will work with
               your engineers to employ the latest in plastic additive technology.
             </p>
+            {/* Renders nothing until the Polymer Printing guidelines tab is published. */}
+            <GuidelinesLinks slugs={["polymer-printing"]} className="mt-4 text-muted-soft" />
             <Link
               href="/materials"
               className="mt-6 inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-3.5 font-semibold text-white transition-colors hover:bg-brand-hover"

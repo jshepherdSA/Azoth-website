@@ -53,7 +53,7 @@ export default function QuotePage() {
               </p>
               <Link
                 href="/tomo"
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors hover:text-brand-hover"
+                className="link-az mt-4 inline-flex items-center gap-1.5 text-sm"
               >
                 Read More
                 <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden>

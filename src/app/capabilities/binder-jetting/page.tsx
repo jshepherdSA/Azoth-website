@@ -7,6 +7,7 @@ import { CircleArrow } from "@/components/circle-arrow";
 import { YouTubeEmbed } from "@/components/youtube-embed";
 import { Accordion, type AccordionItem } from "@/components/accordion";
 import { IndustriesSection } from "@/components/industries-section";
+import { GuidelinesLinks } from "@/components/guidelines-links";
 
 export const metadata: Metadata = {
   title: "Binder Jetting",
@@ -154,6 +155,7 @@ export default function BinderJettingPage() {
             <p className="mt-3 text-muted-soft">
               Materials, platforms, and workflow for production-grade metal binder jetting.
             </p>
+            <GuidelinesLinks slugs={["binder-jetting"]} className="mt-3 text-muted-soft" />
             <div className="mt-6">
               <Accordion items={specs} />
             </div>
@@ -208,7 +210,7 @@ export default function BinderJettingPage() {
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-2xl border border-hairline bg-white px-6 text-center shadow-sm [backface-visibility:hidden]">
                     <Image src={card.icon} alt="" width={70} height={70} className="h-16 w-16" />
                     <h3 className="text-lg font-bold text-ink">{card.title}</h3>
-                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+                    <span className="link-az inline-flex items-center gap-1.5 text-sm">
                       Learn More
                       <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden>
                         <path

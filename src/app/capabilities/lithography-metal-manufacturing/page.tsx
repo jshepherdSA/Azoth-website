@@ -7,6 +7,7 @@ import { CircleArrow } from "@/components/circle-arrow";
 import { IndustriesSection } from "@/components/industries-section";
 import { LmmGallery } from "@/components/lmm-gallery";
 import { CountUp } from "@/components/count-up";
+import { GuidelinesLinks } from "@/components/guidelines-links";
 
 export const metadata: Metadata = {
   title: "Lithography Metal Manufacturing",
@@ -147,6 +148,7 @@ export default function LmmPage() {
                 </li>
               ))}
             </ul>
+            <GuidelinesLinks slugs={["lmm"]} className="mt-6 text-muted-soft" />
           </div>
         </div>
       </section>

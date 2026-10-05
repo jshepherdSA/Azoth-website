@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
+import { GuidelinesLinks } from "@/components/guidelines-links";
 
 export const metadata: Metadata = {
   title: "Finishing",
@@ -18,6 +19,9 @@ type Service = {
   body: React.ReactNode;
   cta?: boolean;
   imageLeft?: boolean;
+  // Design guidelines tabs (slugs) linked under this service. Unpublished tabs
+  // are skipped by <GuidelinesLinks>.
+  guidelines?: string[];
 };
 
 const services: Service[] = [
@@ -27,6 +31,7 @@ const services: Service[] = [
     image: "/images/post-processing-main-picture-v2-min.jpg",
     alt: "Polished metal component",
     cta: true,
+    guidelines: ["cnc-machining", "heat-treatment", "polishing"],
     body: (
       <p className="mt-4 leading-relaxed text-muted-soft">
         From cradle to grave, Azoth is vertically integrated and can deliver finished end-use
@@ -40,6 +45,7 @@ const services: Service[] = [
     image: "/images/untitled-design-8.png",
     alt: "Five-axis machined metal component",
     imageLeft: true,
+    guidelines: ["cnc-machining"],
     body: (
       <p className="mt-4 leading-relaxed text-muted-soft">
         Azoth provides in-house complex five-axis machining capabilities, allowing us to deliver
@@ -52,6 +58,7 @@ const services: Service[] = [
     title: "Heat Treatment",
     image: "/images/untitled-design-10.png",
     alt: "Heat-treated metal parts",
+    guidelines: ["heat-treatment"],
     body: (
       <>
         <p className="mt-4 leading-relaxed text-muted-soft">Heat treatments include:</p>
@@ -71,6 +78,7 @@ const services: Service[] = [
     image: "/images/untitled-design-9.png",
     alt: "Coated and plated metal parts",
     imageLeft: true,
+    guidelines: ["powder-coating-cerakote", "plating", "pvd-coatings", "passivation"],
     body: (
       <>
         <p className="mt-4 leading-relaxed text-muted-soft">
@@ -121,6 +129,9 @@ export default function FinishingPage() {
                 </p>
               )}
               {service.body}
+              {service.guidelines && (
+                <GuidelinesLinks slugs={service.guidelines} className="mt-4 text-muted-soft" />
+              )}
               {service.cta && (
                 <Link
                   href="/quote"

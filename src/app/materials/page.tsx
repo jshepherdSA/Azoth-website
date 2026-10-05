@@ -5,6 +5,7 @@ import { PageBanner } from "@/components/page-banner";
 import { CircleArrow } from "@/components/circle-arrow";
 import { IndustriesSection } from "@/components/industries-section";
 import { GatedDownload } from "@/components/gated-download";
+import { cncMetals } from "@/lib/materials";
 
 export const metadata: Metadata = {
   title: "Materials",
@@ -37,17 +38,6 @@ const processes = [
       "Titanium (Ti-6Al-4V)",
     ],
   },
-];
-
-// CNC metal groupings. These lists are awaiting client confirmation, and one
-// more composite still needs to be added to the Composites card.
-const cncMetals = [
-  {
-    name: "Non-Ferrous",
-    items: ["Aluminums", "Brass", "Coppers", "Titaniums", "Nickel-based alloys"],
-  },
-  { name: "Ferrous", items: ["Stainless steels", "Alloy steels"] },
-  { name: "Composites", items: ["Hydlar"] },
 ];
 
 const polymerTech = [

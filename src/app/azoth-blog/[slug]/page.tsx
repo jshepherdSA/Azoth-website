@@ -111,7 +111,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           <div className="mt-12 border-t border-hairline pt-8">
             <Link
               href="/azoth-blog"
-              className="inline-flex items-center gap-1.5 font-semibold text-brand transition-colors hover:text-brand-hover"
+              className="link-az inline-flex items-center gap-1.5"
             >
               <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4 rotate-180" aria-hidden>
                 <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -153,7 +153,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
                   <h3 className="text-lg font-bold leading-snug text-ink transition-colors group-hover:text-brand">
                     {item.title}
                   </h3>
-                  <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-brand">
+                  <span className="link-az mt-auto inline-flex items-center gap-1.5 pt-2 text-sm">
                     Read More
                     <Chevron />
                   </span>

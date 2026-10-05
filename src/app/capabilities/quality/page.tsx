@@ -4,6 +4,7 @@ import { PageBanner } from "@/components/page-banner";
 import { CertificationsCarousel } from "@/components/certifications-carousel";
 import { Accordion, type AccordionItem } from "@/components/accordion";
 import { YouTubeEmbed } from "@/components/youtube-embed";
+import { GuidelinesLinks } from "@/components/guidelines-links";
 
 export const metadata: Metadata = {
   title: "Quality",
@@ -89,6 +90,7 @@ export default function QualityPage() {
               reflect our commitment to repeatable manufacturing, traceability, and continuous
               improvement.
             </p>
+            <GuidelinesLinks slugs={["quality-inspection"]} className="mt-4 text-muted-soft" />
           </div>
         </div>
       </section>

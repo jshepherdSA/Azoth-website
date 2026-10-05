@@ -103,7 +103,7 @@ export default function TomoPage() {
                     <h3 className="text-base font-bold uppercase leading-snug tracking-wide text-ink">
                       {benefit.title}
                     </h3>
-                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+                    <span className="link-az inline-flex items-center gap-1.5 text-sm">
                       Learn More
                       <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden>
                         <path

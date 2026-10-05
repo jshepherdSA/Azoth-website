@@ -39,6 +39,36 @@ body {
   padding-inline: 1.25rem;
 }
 
+/* Site-wide text link: red, italic, no underline; darkens on hover. Use it on
+   any inline or standalone text link that is not on a red background.
+   Navigation, buttons and cards keep their own styles. */
+.link-az {
+  color: var(--color-brand);
+  font-style: italic;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.link-az:hover {
+  color: var(--color-brand-hover);
+}
+
+/* Graph paper behind the Design Guidelines banner: a fine 16px grid with a
+   heavier line every 80px, in brand red on white. */
+.bg-blueprint-grid {
+  background-color: #fff;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-brand) 16%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-brand) 16%, transparent) 1px, transparent 1px),
+    linear-gradient(to right, color-mix(in srgb, var(--color-brand) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-brand) 7%, transparent) 1px, transparent 1px);
+  background-size:
+    80px 80px,
+    80px 80px,
+    16px 16px,
+    16px 16px;
+}
+
 /* Signature black→red brand gradient (header utility bar, dark CTA bands) */
 .bg-grad-brand {
   background: linear-gradient(90deg, #000 0%, #2a0002 45%, #600004 100%);
@@ -75,9 +105,9 @@ body {
 }
 .legal-content a {
   color: var(--color-brand);
+  font-style: italic;
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  text-decoration: none;
 }
 .legal-content a:hover {
   color: var(--color-brand-hover);
@@ -137,9 +167,9 @@ body {
 }
 .blog-content a {
   color: var(--color-brand);
+  font-style: italic;
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  text-decoration: none;
 }
 .blog-content a:hover {
   color: var(--color-brand-hover);
@@ -195,6 +225,7 @@ body {
   border: 2px solid var(--color-brand);
   border-radius: 6px;
   padding: 0.75rem 1.5rem;
+  font-style: normal;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;

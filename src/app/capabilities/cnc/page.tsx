@@ -5,121 +5,112 @@ import Link from "next/link";
 import { Eyebrow } from "@/components/eyebrow";
 import { CircleArrow } from "@/components/circle-arrow";
 import { IndustriesSection } from "@/components/industries-section";
+import { GuidelinesLinks } from "@/components/guidelines-links";
+
+const description =
+  "U.S. precision CNC machining services for complex production parts. Additive + 5-axis CNC, finishing and inspection under one roof for medical and defense OEMs.";
 
 export const metadata: Metadata = {
-  title: "CNC",
-  description:
-    "In-house 5-axis CNC machining at Azoth, precise machining of complex, additively manufactured metal components into finished, production-ready parts.",
+  title: "Precision CNC Machining Services for Complex Parts",
+  description,
   // Unlisted page: reachable by direct URL only. Keep it out of search engines
   // and off the sitemap / nav. (This is not access control, anyone with the URL
   // can still view it.)
   robots: { index: false, follow: false },
 };
 
-// Production benefits of 5-axis machining, shown as short-bullet capability cards.
+// Structured data for search engines: what the service is, who provides it and
+// where, and that it is sold to businesses rather than individuals. Update `url`
+// if the page's address ever changes.
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Precision 5-Axis CNC Machining Services",
+  serviceType: "Precision CNC machining",
+  description,
+  url: "https://azoth3d.com/capabilities/cnc",
+  provider: {
+    "@type": "Organization",
+    name: "Azoth",
+    url: "https://azoth3d.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Ann Arbor",
+      addressRegion: "MI",
+      addressCountry: "US",
+    },
+  },
+  areaServed: { "@type": "Country", name: "United States" },
+  audience: {
+    "@type": "BusinessAudience",
+    name: "Medical, defense and consumer electronics manufacturers",
+  },
+};
+
+// The four machining capability tiles (title only, two each side of the image).
 const benefits = [
-  {
-    title: "Fewer Setups, Improved Efficiency",
-    icon: "/images/prototyping-production.svg",
-    points: [
-      "Multiple sides machined in a single setup",
-      "Fewer setups, fewer positioning errors",
-    ],
-  },
-  {
-    title: "Machining for Additive Manufacturing",
-    icon: "/images/world-class-3d-manufacturing-experts.svg",
-    points: [
-      "We machine the parts we print, in house",
-      "Printed components finished to print tolerance",
-    ],
-  },
-  {
-    title: "Greater Precision",
-    icon: "/images/superior-level-of-quality-control.svg",
-    points: [
-      "Consistent relationships between critical features",
-      "Holds the tight tolerances demanding parts require",
-    ],
-  },
-  {
-    title: "Machine Complex Features & Geometries",
-    icon: "/images/complete-design-freedom-flexibility.svg",
-    points: [
-      "Multi-angle access to hard-to-reach features",
-      "Preserves the advantages of additive design",
-    ],
-  },
+  { title: "Fewer Setups and Improved Efficiency" },
+  { title: "Multiple Sides Machined in One Setup" },
+  { title: "Ideal for Parts with Complex Geometry" },
+  { title: "Near-Net Shapes for Precise Post-Machining" },
 ];
 
 // Part characteristics where the multi-angle access of 5-axis machining is most valuable.
-const geometries = [
-  "Complex contours and surfaces",
-  "Angled features",
-  "Deep pockets and cavities",
-  "Precision holes and interfaces",
-  "Features on multiple sides of a component",
-  "Geometries hard to reach with 3-axis machining",
-];
-
-// Pentagon vertices for the five machining tiles, centred on the image and
-// rotated so one point lands at bottom centre. Angles 126/54/198/342/270 deg,
-// with left = 50% + cos(a)*32 and top = 45% - sin(a)*39.5 (a wider-than-tall
-// ellipse, and a centre above the midline so there is no dead band above the
-// top two tiles). Order: upper-left, upper-right, lower-left, lower-right,
-// bottom.
-const pentagonPoints = [
-  { left: "31.2%", top: "13%" },
-  { left: "68.8%", top: "13%" },
-  { left: "19.6%", top: "57.2%" },
-  { left: "80.4%", top: "57.2%" },
-  { left: "50%", top: "84.5%" },
-];
+const geometries = ["Angled features", "Multiple faces", "Compound geometry", "Deep pockets"];
 
 // Real Azoth certifications (shared across the site).
 const certs = ["ISO 9001", "ISO 13485", "ITAR Registered", "Made in USA", "CMMC Lvl 2"];
 
-// The vertically integrated path (machining through quality).
-const pillars = ["Machining", "Heat Treatment", "Finishing", "Quality"];
-
-const integrationPoints = [
-  "The biggest advantage of Azoth's capabilities is our vertical integration",
-  "Get your parts manufactured, machined, treated, and coated in one place",
-  "No more dealing with shipping your parts from facility to facility",
-  "Any part. Any need. One order.",
+// The vertically integrated path (machining through quality). Each stage heads a
+// chevron in the ribbon and, beneath it, a column of common in-house options.
+// The Machining column lists materials; the full list lives on /materials.
+const stages = [
+  {
+    name: "Machining",
+    options: ["Stainless steels", "Alloy steels", "Titaniums", "Nickel-based alloys", "Composites"],
+  },
+  {
+    name: "Heat Treatment",
+    options: ["Solutioning", "Annealing", "HIP (hot isostatic pressing)", "Aging"],
+  },
+  {
+    name: "Finishing",
+    options: [
+      "Cerakote / Powder coat",
+      "PVD (thin metal coating)",
+      "Polish",
+      "Plating",
+      "Passivation",
+    ],
+  },
+  {
+    name: "Quality",
+    options: [
+      "Blue light scanning",
+      "Keyence vision / visual inspection",
+      "CMM inspection",
+      "Hard gaging",
+    ],
+  },
 ];
 
-// A sample of common in-house options. The full materials list lives on /materials.
-const optionColumns = ["Materials", "Heat treatments", "Finishing"];
-const optionRows = [
-  ["Stainless steels", "Solutioning", "Cerakote"],
-  ["Alloy steels", "Annealing", "Powder coat"],
-  ["Titaniums", "HIP (hot isostatic pressing)", "PVD (thin metal coating)"],
-  ["Nickel-based alloys", "and more", "Polish"],
-  ["Composites", "", "Plating"],
-];
+// The options as table rows, one cell per stage (shorter columns leave blanks).
+const optionRows = Array.from(
+  { length: Math.max(...stages.map((stage) => stage.options.length)) },
+  (_, row) => stages.map((stage) => stage.options[row] ?? ""),
+);
 
-// Placeholder application bullets, replace with real copy.
-const medicalPoints = [
-  "Surgical instruments and end-effectors",
-  "Small, feature-dense implantable components",
-  "Tight-tolerance interfaces and mating features",
-  "Fully documented, repeatable production runs",
-];
 
-const defensePoints = [
-  "Mission-critical components and assemblies",
-  "ITAR-compliant, U.S.-based production",
-  "Complex geometries in high-strength alloys",
-  "Full traceability and inspection documentation",
-];
+// Placeholder application copy, one short sentence per industry (condensed from
+// the earlier placeholder bullets). Replace with real copy.
+const defenseSummary =
+  "ITAR-compliant U.S. production of complex, mission-critical parts in high-strength alloys, with full traceability and inspection documentation.";
 
-const consumerPoints = [
-  "Miniaturized housings, frames and enclosures",
-  "Fine cosmetic surfaces and multi-finish detailing",
-  "Precision hinges, mounts and interface features",
-  "High-volume production with part-to-part consistency",
-];
+const medicalSummary =
+  "Surgical instruments, end-effectors and small implantable components with tight-tolerance interfaces, in fully documented, repeatable production runs.";
+
+const consumerSummary =
+  "Miniaturized housings, frames, hinges and mounts with fine multi-finish cosmetic surfaces, at high volume with part-to-part consistency.";
 
 // Chevron-ribbon edge gradient: one stop per segment boundary (deep maroon on the
 // first segment to brand red on the last), so each segment's edge is the matching
@@ -140,10 +131,10 @@ const facts: { value: ReactNode; caption: string }[] = [
   {
     value: (
       <>
-        <span className="text-brand">1</span> Setup
+        <span className="text-brand">±</span>0.005&quot;
       </>
     ),
-    caption: "Complex parts machined complete without re-fixturing",
+    caption: "General tolerance when unspecified",
   },
   {
     value: (
@@ -210,22 +201,21 @@ function PlaceholderGraphic({
   );
 }
 
-// Hover/focus flip card matching the site's other flip tiles: header (icon +
-// title) on the front, content on the back.
+// Static capability tile: a title, with optional supporting content below it.
 function BenefitCard({
   title,
   back,
   className = "",
 }: {
   title: string;
-  back: ReactNode;
+  back?: ReactNode;
   className?: string;
 }) {
   return (
     <div
       className={`flex flex-col items-center justify-center gap-3 rounded-2xl border border-hairline bg-white px-5 py-6 text-center shadow-md ${className}`}
     >
-      <h3 className="text-base font-bold leading-snug text-ink">{title}</h3>
+      <h3 className="text-base font-bold leading-snug text-ink lg:text-lg xl:text-xl">{title}</h3>
       {back}
     </div>
   );
@@ -298,48 +288,27 @@ function AxisDiagramSimple() {
 }
 
 export default function CncPage() {
-  // Capability tiles: the four benefits plus the geometry callout, each a title
-  // over one or two short bullets.
-  const tiles: { icon: string; title: string; back: ReactNode }[] = [
-    ...benefits.map((b) => ({
-      icon: b.icon,
-      title: b.title,
-      back: (
-        <ul className="space-y-1 text-left">
-          {b.points.map((p) => (
-            <li key={p} className="flex items-start gap-1.5 text-xs leading-snug text-muted-soft">
-              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand" />
-              <span>{p}</span>
-            </li>
-          ))}
-        </ul>
-      ),
-    })),
-    {
-      icon: "/images/endless-customization-possibilities.svg",
-      title: "Ideal for Parts With",
-      back: (
-        <ul className="space-y-1 text-left">
-          {geometries.map((g) => (
-            <li key={g} className="flex items-start gap-1.5 text-[11px] leading-snug text-muted-soft">
-              <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-brand" />
-              <span>{g}</span>
-            </li>
-          ))}
-        </ul>
-      ),
-    },
-  ];
+  // Machining tiles: fill their grid row on phones and tablets; on desktop the
+  // two tiles in a column share that column's height equally.
+  const tileClass = "h-full lg:h-auto lg:min-h-0 lg:flex-1";
+  // Link from each industry tile to that industry's page.
+  const industryLinkClass =
+    "link-az mt-4 inline-block";
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="relative overflow-hidden bg-ink text-white">
-        <div className="container-az grid items-center gap-12 py-20 lg:grid-cols-2 lg:py-28">
+        <div className="container-az grid items-center gap-12 py-12 lg:grid-cols-2 lg:py-16">
           <div>
-            <Eyebrow>Precision CNC Machining</Eyebrow>
+            <Eyebrow>5-Axis CNC Machining Services</Eyebrow>
             <h1 className="mt-4 text-4xl font-extrabold leading-[1.05] sm:text-5xl">
-              5-Axis CNC Machining for Small, Complex Parts
+              Precision CNC Machining for Small, Complex Parts
             </h1>
             <p className="mt-6 max-w-xl leading-relaxed text-white/70">
               Additive manufacturing makes it possible to produce complex geometries that traditional
@@ -366,7 +335,7 @@ export default function CncPage() {
           <div className="flex justify-center lg:-mr-12 lg:justify-end xl:-mr-24">
             <Image
               src="/images/white-rotary-outline.png"
-              alt="5-axis rotary machining motion outline"
+              alt="Line drawing of 5-axis CNC machining on a rotary table"
               width={1774}
               height={887}
               className="h-auto w-full max-w-xl lg:max-w-none"
@@ -394,15 +363,15 @@ export default function CncPage() {
       <section className="bg-white pb-20 pt-12">
         <div className="container-az space-y-12">
           {/* Defense */}
-          <div className="relative rounded-3xl bg-[#26262e] px-8 py-8 text-white sm:px-12 sm:py-10 lg:px-14 lg:py-8">
-            <div className="grid items-center gap-10 lg:grid-cols-2">
+          <div className="relative rounded-3xl bg-[#26262e] px-8 py-8 text-white sm:px-12 sm:py-10 lg:flex lg:min-h-[20rem] lg:items-center lg:px-14 lg:py-8">
+            <div className="grid w-full items-center gap-10 lg:grid-cols-2">
               <div className="relative h-52 w-full">
                 <Image
                   src="/images/defense-heat-exchanger.png"
                   alt="Copper heat exchanger cores with internal lattice structures"
                   width={893}
                   height={338}
-                  className="absolute -bottom-6 -left-28 h-[80%] w-auto max-w-none rotate-[20deg] object-contain"
+                  className="absolute -bottom-2.5 -left-[74px] h-[66%] w-auto max-w-none rotate-[26deg] object-contain"
                   sizes="(max-width: 1024px) 90vw, 40vw"
                 />
                 {/* Blisk in front, lower right, both spilling slightly past the box. */}
@@ -416,73 +385,66 @@ export default function CncPage() {
                 />
               </div>
               <div>
-                <Eyebrow>Defense</Eyebrow>
-                <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Defense Applications</h2>
-                <ul className="mt-6 space-y-4">
-                  {defensePoints.map((point) => (
-                    <li key={point} className="flex items-start gap-3 leading-relaxed text-white/70">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
+                <h2 className="text-3xl font-extrabold sm:text-4xl">Defense Applications</h2>
+                <p className="mt-5 leading-relaxed text-white/70">{defenseSummary}</p>
+                <Link href="/industries/defense-industry" className={industryLinkClass}>
+                  Explore defense manufacturing
+                </Link>
               </div>
             </div>
           </div>
 
           {/* Medical */}
-          <div className="relative rounded-3xl bg-[#26262e] px-8 py-8 text-white sm:px-12 sm:py-10 lg:min-h-[20rem] lg:px-14 lg:py-8">
-            <div className="relative z-10 max-w-md lg:ml-[98px]">
-              <Eyebrow>Medical</Eyebrow>
-              <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Medical Applications</h2>
-              <ul className="mt-6 space-y-4">
-                {medicalPoints.map((point) => (
-                  <li key={point} className="flex items-start gap-3 leading-relaxed text-white/70">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="relative rounded-3xl bg-[#26262e] px-8 py-8 text-white sm:px-12 sm:py-10 lg:flex lg:min-h-[20rem] lg:items-center lg:px-14 lg:py-8">
+            <div className="relative z-10 max-w-md lg:max-w-[26rem] xl:ml-[98px] xl:max-w-md">
+              <h2 className="text-3xl font-extrabold sm:text-4xl">Medical Applications</h2>
+              <p className="mt-5 leading-relaxed text-white/70">{medicalSummary}</p>
+              <Link href="/industries/medical" className={industryLinkClass}>
+                Explore medical manufacturing
+              </Link>
             </div>
-            {/* da Vinci anchored to the box's top-right corner, its own top-right
-                radius matching the box so that corner stays cropped, with the
-                extra height spilling past the bottom edge only. */}
-            <Image
-              src="/images/davinci1nobackground.png"
-              alt="da Vinci surgical system"
-              width={1455}
-              height={1386}
-              className="pointer-events-none absolute right-0 top-0 hidden h-auto w-[40%] max-w-[24rem] rounded-tr-3xl lg:block"
-              sizes="(max-width: 1024px) 0px, 24rem"
-              priority
-            />
+            {/* da Vinci in the box's top-right corner, turned clockwise about that
+                corner. The artwork is cut off along the image's own top and right
+                edges (the arms run out of frame), so the image is pushed just past
+                the corner and this wrapper clips it to the box's top and right
+                edges, rounded corner included, while leaving the bottom open for
+                the needles to hang out of the box. overflow-x-clip stops the part
+                pushed past the right edge from widening the page. */}
+            <div
+              className="pointer-events-none absolute inset-0 hidden overflow-x-clip lg:block"
+              style={{ clipPath: "inset(0 0 -200px 0 round 1.5rem 1.5rem 0 0)" }}
+            >
+              <Image
+                src="/images/davinci1nobackground.png"
+                alt="Robotic surgical system instrument arms"
+                width={1455}
+                height={1386}
+                className="absolute -right-[60px] top-0 h-auto w-[46%] max-w-[30rem] origin-top-right rotate-[13deg]"
+                sizes="(max-width: 1023px) 0px, 30rem"
+              />
+            </div>
           </div>
 
           {/* Consumer electronics */}
-          <div className="relative rounded-3xl bg-[#26262e] px-8 py-8 text-white sm:px-12 sm:py-10 lg:px-14 lg:py-6">
-            <div className="relative z-10 lg:ml-auto lg:max-w-md">
-              <Eyebrow>Consumer Electronics</Eyebrow>
-              <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
+          <div className="relative rounded-3xl bg-[#26262e] px-8 py-8 text-white sm:px-12 sm:py-10 lg:flex lg:min-h-[20rem] lg:items-center lg:px-14 lg:py-6">
+            <div className="relative z-10 lg:ml-auto lg:max-w-[26rem] xl:max-w-md">
+              <h2 className="text-3xl font-extrabold sm:text-4xl">
                 Consumer Electronics Applications
               </h2>
-              <ul className="mt-6 space-y-4">
-                {consumerPoints.map((point) => (
-                  <li key={point} className="flex items-start gap-3 leading-relaxed text-white/70">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-5 leading-relaxed text-white/70">{consumerSummary}</p>
+              <Link href="/industries/consumer-electronics" className={industryLinkClass}>
+                Explore consumer electronics manufacturing
+              </Link>
             </div>
             {/* Glasses sit on top of the box, sized off the box height so they
                 just clear its top and bottom edges at any breakpoint. */}
             <Image
               src="/images/Ray-Ban_Stories.png"
-              alt="Ray-Ban Stories smart glasses"
+              alt="Smart glasses"
               width={1672}
               height={941}
-              className="pointer-events-none absolute left-10 top-1/2 hidden h-[92%] w-auto max-w-none -translate-y-[38%] -rotate-[20deg] object-contain drop-shadow-2xl lg:block"
-              sizes="(max-width: 1024px) 0px, 45vw"
+              className="pointer-events-none absolute left-10 top-1/2 hidden h-[76%] w-auto max-w-none xl:h-[92%] -translate-y-[38%] -rotate-[20deg] object-contain drop-shadow-2xl lg:block"
+              sizes="(max-width: 1023px) 0px, 45vw"
             />
           </div>
         </div>
@@ -512,48 +474,55 @@ export default function CncPage() {
               Azoth specializes in producing small, complex, end-use components where precision,
               repeatability and production scalability matter. 5-axis machining complements additive
               manufacturing by turning complex printed components into finished, production-ready
-              parts.
+              parts. Our U.S.-based team runs production machining in-house in Ann Arbor, Michigan,
+              for medical, defense and consumer electronics manufacturers.
             </p>
           </div>
 
-          {/* Mobile / tablet: central image + stacked cards */}
-          <div className="mt-10 lg:hidden">
+          {/* One set of tiles and one photo for every screen size, so each
+              heading appears in the page once. Phones and tablets: the part,
+              then the tiles in a grid. Desktop: two tiles, the part, two tiles;
+              the photo sets the row height and each pair of tiles is pinned to
+              the part's own top and bottom edges (the cutout has 5.62% of clear
+              space above and below it), so the two tiles together stand exactly
+              as tall as the part. */}
+          <div className="mt-10 lg:flex lg:items-center lg:gap-10">
             <Image
               src="/images/single-part-cutout.png"
               alt="Additively manufactured metal bracket with lattice infill"
               width={1337}
               height={1014}
-              className="mx-auto h-auto w-full max-w-md"
-              sizes="(max-width: 1024px) 90vw, 28rem"
+              className="mx-auto h-auto w-full max-w-md lg:order-2 lg:mx-0 lg:w-[44%] lg:max-w-none lg:shrink-0"
+              sizes="(max-width: 1023px) 90vw, 44vw"
             />
-            <div className="mt-6 grid gap-5 sm:grid-cols-2">
-              {tiles.map((t) => (
-                <BenefitCard key={t.title} title={t.title} back={t.back} className="h-full" />
-              ))}
+            <div className="mt-6 lg:relative lg:order-1 lg:mt-0 lg:w-[28%] lg:self-stretch">
+              <div className="grid gap-5 sm:grid-cols-2 lg:absolute lg:inset-x-0 lg:bottom-[5.62%] lg:top-[5.62%] lg:flex lg:flex-col lg:gap-6">
+                <BenefitCard title={benefits[0].title} className={tileClass} />
+                <BenefitCard title={benefits[1].title} className={tileClass} />
+              </div>
+            </div>
+            <div className="mt-5 lg:relative lg:order-3 lg:mt-0 lg:w-[28%] lg:self-stretch">
+              <div className="grid gap-5 sm:grid-cols-2 lg:absolute lg:inset-x-0 lg:bottom-[5.62%] lg:top-[5.62%] lg:flex lg:flex-col lg:gap-6">
+                <BenefitCard title={benefits[2].title} className={tileClass} />
+                <BenefitCard title={benefits[3].title} className={tileClass} />
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Desktop: the five tiles sit on the points of a pentagon centred on
-              the image, rotated so one vertex lands at bottom centre. */}
-          <div className="relative mt-8 hidden h-[740px] lg:block">
-            <Image
-              src="/images/single-part-cutout.png"
-              alt="Additively manufactured metal bracket with lattice infill"
-              width={1337}
-              height={1014}
-              className="absolute left-1/2 top-[45%] h-auto w-[30%] max-w-none -translate-x-1/2 -translate-y-1/2"
-              sizes="(max-width: 1024px) 100vw, 30vw"
-            />
-            {tiles.map((tile, i) => (
-              <div
-                key={tile.title}
-                className="absolute w-[22%] -translate-x-1/2 -translate-y-1/2"
-                style={pentagonPoints[i]}
-              >
-                <BenefitCard title={tile.title} back={tile.back} />
-              </div>
+      {/* Ideal for Parts With, a short strip under the capability tiles */}
+      <section className="bg-brand py-10 text-white">
+        <div className="container-az flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-10">
+          <h2 className="shrink-0 text-xl font-extrabold sm:text-2xl">Ideal for Parts With</h2>
+          <ul className="flex flex-wrap gap-x-8 gap-y-2">
+            {geometries.map((g) => (
+              <li key={g} className="flex items-center gap-2 font-medium">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white" />
+                {g}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -564,16 +533,8 @@ export default function CncPage() {
             <div>
               <Eyebrow>Vertically Integrated</Eyebrow>
               <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
-                Additive Manufacturing + Precision Machining Under One Roof
+                Additive Manufacturing + Precision CNC Machining Under One Roof
               </h2>
-              <ul className="mt-5 space-y-4">
-                {integrationPoints.map((point) => (
-                  <li key={point} className="flex items-start gap-3 leading-relaxed text-white/70">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg ring-1 ring-white/10">
@@ -590,89 +551,144 @@ export default function CncPage() {
           {/* Integrated process flow, a connected chevron ribbon: black segments
               with red chevron edges. Each segment is a red chevron (bg-brand) with
               a black chevron inset inside it (padding = the red edge); segments
-              overlap so the shared edge reads as one red divider. */}
+              overlap so the shared edge reads as one red divider. The chevrons
+              are also the column headers of the options table below, so the two
+              share one scroll container and the same column geometry. */}
           <div className="mt-14 overflow-x-auto">
-            <div className="flex min-w-[720px]">
-              {pillars.map((pillar, i) => {
-                const clip =
-                  i === 0
-                    ? "polygon(0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%)"
-                    : "polygon(26px 50%, 0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%)";
-                return (
-                  <div
-                    key={pillar}
-                    className={`h-16 flex-1 p-[3px] ${i > 0 ? "-ml-[26px]" : ""}`}
-                    style={{
-                      clipPath: clip,
-                      background: `linear-gradient(90deg, ${edgeStops[i]}, ${edgeStops[i + 1]})`,
-                    }}
-                  >
+            <div className="min-w-[720px]">
+              <div className="flex" aria-hidden>
+                {stages.map((stage, i) => {
+                  const clip =
+                    i === 0
+                      ? "polygon(0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%)"
+                      : "polygon(26px 50%, 0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%)";
+                  return (
                     <div
-                      className="flex h-full w-full items-center justify-center bg-ink px-6 text-center text-sm font-bold leading-tight text-white sm:text-base"
-                      style={{ clipPath: clip }}
+                      key={stage.name}
+                      className={`h-16 flex-1 p-[3px] ${i > 0 ? "-ml-[26px]" : ""}`}
+                      style={{
+                        clipPath: clip,
+                        background: `linear-gradient(90deg, ${edgeStops[i]}, ${edgeStops[i + 1]})`,
+                      }}
                     >
-                      {pillar}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Common options table. The full materials list stays on /materials. */}
-          <div className="mt-14">
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[640px] border-collapse text-left">
-                <thead>
-                  <tr>
-                    {optionColumns.map((col) => (
-                      <th
-                        key={col}
-                        scope="col"
-                        className="border-b border-white/20 pb-3 pr-6 text-sm font-bold uppercase tracking-wider text-white"
+                      <div
+                        className="flex h-full w-full items-center justify-center bg-ink px-6 text-center text-sm font-bold leading-tight text-white sm:text-base"
+                        style={{ clipPath: clip }}
                       >
-                        {col}
+                        {stage.name}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Common options under each stage, in equal-width columns. The
+                  chevrons overlap by 26px, so chevron i is centred
+                  (26 / 2n) * (n - 1 - 2i) px to the right of column i; each cell
+                  pads one side by twice that so its text sits centred under the
+                  chevron label. The real headers are kept for screen readers. */}
+              <table className="mt-3 w-full table-fixed border-collapse text-center">
+                <thead className="sr-only">
+                  <tr>
+                    {stages.map((stage) => (
+                      <th key={stage.name} scope="col">
+                        {stage.name}
                       </th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
-                  {optionRows.map((row) => (
-                    <tr key={row.join("|")}>
-                      {row.map((cell, i) => (
-                        <td
-                          key={optionColumns[i]}
-                          className="border-b border-white/10 py-3 pr-6 leading-relaxed text-white/70"
-                        >
-                          {cell}
-                        </td>
-                      ))}
+                  {optionRows.map((row, r) => (
+                    <tr key={r}>
+                      {row.map((cell, i) => {
+                        const shift = (26 / (2 * stages.length)) * (stages.length - 1 - 2 * i);
+                        return (
+                          <td
+                            key={stages[i].name}
+                            className="border-b border-white/10 py-3 leading-relaxed text-white/70"
+                            style={{
+                              paddingLeft: 8 + Math.max(0, 2 * shift),
+                              paddingRight: 8 + Math.max(0, -2 * shift),
+                            }}
+                          >
+                            {cell}
+                          </td>
+                        );
+                      })}
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 text-sm text-white/50">
-              A sample of common options. See the{" "}
-              <Link
-                href="/materials"
-                className="font-semibold text-brand underline underline-offset-2 transition-colors hover:text-brand-hover"
-              >
-                full materials list
-              </Link>
-              .
+          </div>
+          <p className="mt-4 text-sm text-white/50">
+            A sample of common options. See the{" "}
+            <Link
+              href="/materials"
+              className="link-az"
+            >
+              full materials list
+            </Link>
+            , our{" "}
+            <Link
+              href="/capabilities/post-processing"
+              className="link-az"
+            >
+              finishing and post-processing
+            </Link>{" "}
+            services and our{" "}
+            <Link
+              href="/capabilities/quality"
+              className="link-az"
+            >
+              in-house quality inspection
+            </Link>
+            .
+          </p>
+          {/* Renders nothing until CNC_LIVE is true in src/lib/design-guidelines.ts. */}
+          <GuidelinesLinks slugs={["cnc-machining"]} className="mt-2 text-sm text-white/50" />
+        </div>
+      </section>
+
+      {/* Closing CTA banner */}
+      <section className="bg-brand py-10 text-white">
+        <div className="container-az flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
+          <div className="max-w-2xl">
+            <h2 className="text-xl font-extrabold sm:text-2xl">
+              Bring Us the Parts Others Say Are Too Complex
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-white/85">
+              When your application requires complex geometry, tight-tolerance features and a
+              production process built for repeatability, Azoth&apos;s engineers can help determine
+              the right combination of additive manufacturing and 5-axis CNC machining. Ready to
+              manufacture your next component?
             </p>
+          </div>
+          <div className="flex shrink-0 flex-col gap-4 sm:flex-row">
+            <Link
+              href="/quote"
+              className="inline-flex items-center justify-center gap-2.5 rounded-md bg-white px-6 py-3 font-semibold text-ink transition-colors hover:bg-white/90"
+            >
+              Request A Quote
+              <CircleArrow tone="solid" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2.5 rounded-md border border-white/40 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Talk to an Expert
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* What Is 5-Axis CNC Machining?, dual dark cards */}
+      {/* 3-axis and 5-axis machining, dual dark cards */}
       <section className="bg-white py-20">
         <div className="container-az">
           <div className="max-w-3xl">
             <Eyebrow>The Technology</Eyebrow>
             <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-              What Is 5-Axis CNC Machining?
+              3-Axis and 5-Axis CNC Machining
             </h2>
             <p className="mt-4 leading-relaxed text-muted-soft">
               Traditional 3-axis machining moves a cutting tool along three linear directions. A
@@ -740,38 +756,6 @@ export default function CncPage() {
             For complex components, that added flexibility can make a significant difference in how
             efficiently and accurately a finished part can be produced.
           </p>
-        </div>
-      </section>
-
-      {/* Closing CTA banner */}
-      <section className="bg-brand py-10 text-white">
-        <div className="container-az flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
-          <div className="max-w-2xl">
-            <h2 className="text-xl font-extrabold sm:text-2xl">
-              Bring Us the Parts Others Say Are Too Complex
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-white/85">
-              When your application requires complex geometry, tight-tolerance features and a
-              production process built for repeatability, Azoth can help determine the right
-              combination of additive manufacturing and 5-axis CNC machining. Ready to manufacture
-              your next component?
-            </p>
-          </div>
-          <div className="flex shrink-0 flex-col gap-4 sm:flex-row">
-            <Link
-              href="/quote"
-              className="inline-flex items-center justify-center gap-2.5 rounded-md bg-white px-6 py-3 font-semibold text-ink transition-colors hover:bg-white/90"
-            >
-              Request A Quote
-              <CircleArrow tone="solid" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2.5 rounded-md border border-white/40 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
-            >
-              Talk to an Expert
-            </Link>
-          </div>
         </div>
       </section>
 

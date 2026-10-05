@@ -34,7 +34,7 @@ export function CookieConsent() {
           Analytics and marketing cookies load only if you accept. See our{" "}
           <Link
             href="/cookie-policy"
-            className="font-semibold text-brand underline underline-offset-2 transition-colors hover:text-brand-hover"
+            className="link-az"
           >
             Cookie Policy
           </Link>{" "}

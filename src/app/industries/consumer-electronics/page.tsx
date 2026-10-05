@@ -249,7 +249,7 @@ export default function ConsumerElectronicsPage() {
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-2xl border border-hairline bg-white px-6 text-center shadow-sm [backface-visibility:hidden]">
                     <Image src={app.icon} alt="" width={70} height={70} className="h-14 w-14" />
                     <h3 className="text-sm font-bold uppercase tracking-wide text-ink">{app.title}</h3>
-                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+                    <span className="link-az inline-flex items-center gap-1.5 text-sm">
                       Learn More
                       <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden>
                         <path

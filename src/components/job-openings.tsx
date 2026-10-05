@@ -101,7 +101,7 @@ export function JobOpenings({ openings }: { openings: Opening[] }) {
                   href={job.pdf}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 font-semibold text-brand transition-colors hover:text-brand-dark"
+                  className="link-az mt-6 inline-flex items-center gap-2"
                 >
                   Download Description (PDF)
                   <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden>

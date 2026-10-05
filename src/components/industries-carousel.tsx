@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-type Slide = { src: string; alt: string };
+// `fit: "contain"` shows the whole image with some breathing room, for cutouts
+// on a transparent background. The default crops the image to fill the square.
+type Slide = { src: string; alt: string; fit?: "contain" };
 
 // Shows one hero image at a time and auto-advances on an interval, crossfading
 // between slides. Dots let the user jump to a specific slide (which also resets
@@ -27,9 +29,9 @@ export function IndustriesCarousel({ slides, interval = 3500 }: { slides: Slide[
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
           priority={i === 0}
-          className={`object-cover transition-opacity duration-700 ${
-            i === index ? "opacity-100" : "opacity-0"
-          }`}
+          className={`transition-opacity duration-700 ${
+            slide.fit === "contain" ? "object-contain p-8 sm:p-12" : "object-cover"
+          } ${i === index ? "opacity-100" : "opacity-0"}`}
         />
       ))}
 

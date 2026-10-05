@@ -84,7 +84,7 @@ export function GatedDownload({
       <button
         type="button"
         onClick={openModal}
-        className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-brand transition-colors hover:text-brand-hover"
+        className="link-az inline-flex shrink-0 items-center gap-1.5 text-sm"
       >
         <DownloadIcon /> {label}
       </button>
@@ -129,7 +129,7 @@ export function GatedDownload({
                 <a
                   href={href}
                   download
-                  className="font-semibold text-brand underline underline-offset-2 hover:text-brand-hover"
+                  className="link-az"
                 >
                   download it here
                 </a>

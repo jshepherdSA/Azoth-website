@@ -116,7 +116,7 @@ export function BlogGrid() {
               {post.excerpt && (
                 <p className="line-clamp-2 text-sm leading-relaxed text-muted-soft">{post.excerpt}</p>
               )}
-              <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+              <span className="link-az mt-2 inline-flex items-center gap-1.5 text-sm">
                 Read More
                 <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden>
                   <path
