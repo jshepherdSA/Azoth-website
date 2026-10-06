@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { AnalyticsGate } from "@/components/analytics-gate";
 import { CookieConsent } from "@/components/cookie-consent";
+import { SITE_URL } from "@/lib/site";
 
 // Self-hosted Manrope variable font shipped from the reference assets.
 const manrope = localFont({
@@ -15,6 +16,11 @@ const manrope = localFont({
 });
 
 export const metadata: Metadata = {
+  // Base for every relative URL in metadata (canonical tags, social images).
+  metadataBase: new URL(SITE_URL),
+  // "./" resolves against each page's own path, so every page gets a canonical
+  // tag pointing at itself on the www host. Pages can still set their own.
+  alternates: { canonical: "./" },
   title: {
     default: "Azoth 3D | Production Additive Manufacturing",
     template: "%s | Azoth 3D",

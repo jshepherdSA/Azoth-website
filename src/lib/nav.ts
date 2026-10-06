@@ -16,6 +16,7 @@ export const mainNav: NavItem[] = [
       { label: "Binder Jetting", href: "/capabilities/binder-jetting" },
       { label: "LMM", href: "/capabilities/lithography-metal-manufacturing" },
       { label: "Polymer Printing", href: "/capabilities/polymer-printing" },
+      { label: "CNC Machining", href: "/capabilities/cnc" },
       { label: "Finishing", href: "/capabilities/post-processing" },
       { label: "Quality", href: "/capabilities/quality" },
     ],

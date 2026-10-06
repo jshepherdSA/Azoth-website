@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/eyebrow";
 import { CircleArrow } from "@/components/circle-arrow";
 import { IndustriesSection } from "@/components/industries-section";
 import { GuidelinesLinks } from "@/components/guidelines-links";
+import { SITE_URL } from "@/lib/site";
 
 const description =
   "U.S. precision CNC machining services for complex production parts. Additive + 5-axis CNC, finishing and inspection under one roof for medical and defense OEMs.";
@@ -28,11 +29,11 @@ const serviceJsonLd = {
   name: "Precision 5-Axis CNC Machining Services",
   serviceType: "Precision CNC machining",
   description,
-  url: "https://azoth3d.com/capabilities/cnc",
+  url: `${SITE_URL}/capabilities/cnc`,
   provider: {
     "@type": "Organization",
     name: "Azoth",
-    url: "https://azoth3d.com",
+    url: SITE_URL,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Ann Arbor",

@@ -31,7 +31,8 @@ const heroSlides: { src: string; alt: string; fit?: "contain" }[] = [
 const capabilities: { label: string; image: string; href: string }[] = [
   { label: "Binder Jetting", image: "/images/binder-jetting-industrial-automation-machining-close-up.png", href: "/capabilities/binder-jetting" },
   { label: "LMM", image: "/images/holding-chip-incus.png", href: "/capabilities/lithography-metal-manufacturing" },
-  { label: "Polymer Printing", image: "/images/polymer-printing.png", href: "/capabilities/polymer-printing" },
+  // Made from Polymers/Azoth-medical-robotic housing[91].JPG, with the part turned 90 degrees to lie flat.
+  { label: "Polymer Printing", image: "/images/polymer-medical-robotic-housing-landscape.jpg", href: "/capabilities/polymer-printing" },
   { label: "Finishing", image: "/images/post-processing.png", href: "/capabilities/post-processing" },
 ];
 

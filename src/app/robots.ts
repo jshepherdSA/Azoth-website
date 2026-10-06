@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const BASE_URL = "https://azoth3d.com";
+import { SITE_URL as BASE_URL } from "@/lib/site";
 
 // AI/LLM crawlers we explicitly welcome (they're allowed to train on / cite the
 // site). Listed by name so the intent is unambiguous even though "*" already

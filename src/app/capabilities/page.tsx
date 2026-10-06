@@ -35,7 +35,9 @@ const capabilities: {
   {
     title: "Polymer Printing",
     href: "/capabilities/polymer-printing",
-    image: "/images/polymer-printing.png",
+    // Made from Polymers/Azoth-medical-robotic housing[91].JPG: the part is
+    // turned 90 degrees so it lies along the wide tile, on a white 2:1 canvas.
+    image: "/images/polymer-medical-robotic-housing-landscape.jpg",
     blurb: "5 of 7 core polymer technologies in-house, prototyping to production.",
   },
   {

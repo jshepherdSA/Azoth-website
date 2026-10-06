@@ -15,8 +15,10 @@
 // _reference/design-guidelines-open-questions.md.
 
 import { cncMetals } from "@/lib/materials";
+import { SITE_URL } from "@/lib/site";
 
-export const SITE_URL = "https://azoth3d.com";
+// Re-exported so the guidelines pages keep importing it from here.
+export { SITE_URL };
 
 // The CNC capability page (/capabilities/cnc) is still unlisted. While this is
 // false, the 5-Axis CNC Machining guidelines tab stays unpublished and nothing

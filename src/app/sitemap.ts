@@ -2,8 +2,7 @@ import type { MetadataRoute } from "next";
 import { showcaseItems } from "@/lib/showcase";
 import { blogPostsFull } from "@/lib/blog-posts";
 import { publishedTabs, tabHref } from "@/lib/design-guidelines";
-
-const BASE_URL = "https://azoth3d.com";
+import { SITE_URL as BASE_URL } from "@/lib/site";
 
 // Concrete (non-dynamic) routes, mirroring the app/ page tree. Dynamic detail
 // pages (/azoth-blog/[slug], /azoth-showcase/[slug], /design-guidelines/[slug])
