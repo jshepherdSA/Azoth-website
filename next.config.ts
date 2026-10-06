@@ -56,9 +56,10 @@ const OLD_POST_SLUGS = [
   "world-class-sintering-technology",
 ];
 
-// Old PDF links (/wp-content/uploads/...). Job descriptions go straight to the
-// file. White papers and material data sheets sit behind the download form on
-// the new site, so their old links go to the page that offers them.
+// Old PDF links (/wp-content/uploads/...). Job descriptions, the binder jetting
+// one-pager and the copper data sheet go straight to the file. The white papers
+// and the other material data sheets sit behind the download form on the new
+// site, so their old links go to the page that offers them.
 const OLD_DOCUMENTS: [string, string][] = [
   ["/wp-content/uploads/2026/03/azoth-additive-manufacturing_polishing-technician-compressed.pdf", "/docs/azoth-additive-manufacturing_polishing-technician-compressed.pdf"],
   ["/wp-content/uploads/2026/03/azoth-additive-manufacturing-quality-engineerrev2-compressed.pdf", "/docs/azoth-additive-manufacturing-quality-engineerrev2-compressed.pdf"],
@@ -67,8 +68,8 @@ const OLD_DOCUMENTS: [string, string][] = [
   ["/wp-content/uploads/2026/03/mbj-and-mmj-as-complementary-technologies.pdf", "/white-paper"],
   ["/wp-content/uploads/2026/03/case-study-fluid-matter-exchanger.pdf", "/white-paper"],
   ["/wp-content/uploads/2026/03/metal-binder-jetting-vs-laser-powder-bed-fusion.pdf", "/white-paper"],
-  ["/wp-content/uploads/2026/03/azoth-binder-jetting-one-page.pdf", "/capabilities/binder-jetting"],
-  ["/wp-content/uploads/2026/04/1_dm-cu-material-data-sheet.pdf", "/materials"],
+  ["/wp-content/uploads/2026/03/azoth-binder-jetting-one-page.pdf", "/docs/azoth-binder-jetting-one-page.pdf"],
+  ["/wp-content/uploads/2026/04/1_dm-cu-material-data-sheet.pdf", "/docs/1_dm-cu-material-data-sheet.pdf"],
   ["/wp-content/uploads/2026/04/azoth_material-data-sheet_ti64.pdf", "/materials"],
   ["/wp-content/uploads/2026/04/azoth_material-data-sheet_mar247.pdf", "/materials"],
   ["/wp-content/uploads/2026/04/azoth_material-data-sheet_17-4ph.pdf", "/materials"],

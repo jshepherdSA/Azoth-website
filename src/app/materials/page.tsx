@@ -19,7 +19,7 @@ const metals = [
   { name: "Titanium (Ti-6Al-4V)", pdf: "/docs/azoth_material-data-sheet_ti64.pdf" },
   { name: "Mar M247", pdf: "/docs/azoth_material-data-sheet_mar247.pdf" },
   { name: "D2 Tool Steel", pdf: null },
-  { name: "Copper", pdf: null },
+  { name: "Copper", pdf: "/docs/1_dm-cu-material-data-sheet.pdf" },
 ];
 
 const processes = [

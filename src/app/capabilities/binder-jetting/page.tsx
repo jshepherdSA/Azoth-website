@@ -8,6 +8,7 @@ import { YouTubeEmbed } from "@/components/youtube-embed";
 import { Accordion, type AccordionItem } from "@/components/accordion";
 import { IndustriesSection } from "@/components/industries-section";
 import { GuidelinesLinks } from "@/components/guidelines-links";
+import { GatedDownload } from "@/components/gated-download";
 
 export const metadata: Metadata = {
   title: "Binder Jetting",
@@ -158,6 +159,15 @@ export default function BinderJettingPage() {
             <GuidelinesLinks slugs={["binder-jetting"]} className="mt-3 text-muted-soft" />
             <div className="mt-6">
               <Accordion items={specs} />
+              {/* One-pager download, set as one more row of the list above. */}
+              <div className="flex items-center justify-between gap-4 border-b border-black/10 py-5">
+                <span className="text-lg font-bold text-ink">Binder Jetting One-Pager</span>
+                <GatedDownload
+                  href="/docs/azoth-binder-jetting-one-page.pdf"
+                  title="Binder Jetting One-Pager"
+                  label="Download"
+                />
+              </div>
             </div>
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-hairline">
