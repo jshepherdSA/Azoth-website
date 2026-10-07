@@ -85,6 +85,8 @@ const OLD_DOCUMENTS: [string, string][] = [
   ["/wp-content/uploads/2022/11/DM-D2-Material-Data-Sheet-compressed.pdf", "/materials"],
   ["/wp-content/uploads/2022/11/Nanoparticle-Jetting-One-Sheet-compressed.pdf", "/capabilities"],
   ["/wp-content/uploads/2022/11/AZOTH-One-Sheet-compressed.pdf", "/docs/azoth-binder-jetting-one-page.pdf"],
+  ["/wp-content/uploads/2022/11/DM-Cu-Material-Data-Sheet-compressed.pdf", "/docs/1_dm-cu-material-data-sheet.pdf"],
+  ["/wp-content/uploads/2022/11/17-4PH-Material-Data-Sheet-compressed.pdf", "/materials"],
 ];
 
 const permanent = (source: string, destination: string) => ({ source, destination, permanent: true });
