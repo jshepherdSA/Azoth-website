@@ -78,7 +78,7 @@ const stages = [
     name: "Finishing",
     options: [
       "Cerakote / Powder coat",
-      "PVD (thin metal coating)",
+      "PVD",
       "Polish",
       "Plating",
       "Passivation",
@@ -94,6 +94,10 @@ const stages = [
     ],
   },
 ];
+
+// Inspection options a customer can choose from, shown as tiles under the
+// vertically integrated band.
+const inspections = ["Sampling", "Every Part", "First and Last Part of the Day", "CMM Inspection"];
 
 // The options as table rows, one cell per stage (shorter columns leave blanks).
 const optionRows = Array.from(
@@ -120,7 +124,7 @@ const edgeStops = ["#600004", "#7e060b", "#9c0d13", "#b9131a", "#d71921"];
 
 // Four-fact banner (from the 5-axis mockup). NOTE: these figures come from the
 // mockup, not the source copy, confirm they are accurate for Azoth before launch.
-const facts: { value: ReactNode; caption: string }[] = [
+const facts: { value: ReactNode; caption: string; valueClass?: string }[] = [
   {
     value: (
       <>
@@ -148,10 +152,13 @@ const facts: { value: ReactNode; caption: string }[] = [
   {
     value: (
       <>
-        Prototype <span className="text-brand">→</span> Production
+        Development <span className="text-brand">→</span> Production
       </>
     ),
     caption: "From first article through validated production",
+    // Words rather than a figure: one step smaller than the numbers wherever
+    // the column is narrow, so "Development" fits on one line inside it.
+    valueClass: "text-[1.375rem]/[1.2] sm:text-3xl xl:text-4xl",
   },
 ];
 
@@ -456,7 +463,9 @@ export default function CncPage() {
         <div className="container-az grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
           {facts.map((fact) => (
             <div key={fact.caption}>
-              <div className="text-3xl font-extrabold sm:text-4xl">{fact.value}</div>
+              <div className={`font-extrabold ${fact.valueClass ?? "text-3xl sm:text-4xl"}`}>
+                {fact.value}
+              </div>
               <p className="mt-2 max-w-[15rem] text-sm leading-snug text-white/60">{fact.caption}</p>
             </div>
           ))}
@@ -648,6 +657,24 @@ export default function CncPage() {
           </p>
           {/* Renders nothing until CNC_LIVE is true in src/lib/design-guidelines.ts. */}
           <GuidelinesLinks slugs={["cnc-machining"]} className="mt-2 text-sm text-white/50" />
+        </div>
+      </section>
+
+      {/* Inspections, the options as a row of tiles */}
+      <section className="bg-surface py-20">
+        <div className="container-az">
+          <div className="max-w-3xl">
+            <Eyebrow>Quality</Eyebrow>
+            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">Inspections</h2>
+            <p className="mt-4 leading-relaxed text-muted-soft">
+              Choose how your parts are inspected.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {inspections.map((option) => (
+              <BenefitCard key={option} title={option} className="text-balance" />
+            ))}
+          </div>
         </div>
       </section>
 
