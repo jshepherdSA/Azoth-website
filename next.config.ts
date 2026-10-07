@@ -74,6 +74,17 @@ const OLD_DOCUMENTS: [string, string][] = [
   ["/wp-content/uploads/2026/04/azoth_material-data-sheet_mar247.pdf", "/materials"],
   ["/wp-content/uploads/2026/04/azoth_material-data-sheet_17-4ph.pdf", "/materials"],
   ["/wp-content/uploads/2026/04/6_dim0108_data-sheet-316l.pdf.pdf", "/materials"],
+  // Earlier uploads (2022 and 2023) that Google still reports as broken. The
+  // defense and nanoparticle jetting one-sheets have no file on the new site,
+  // so they go to the closest page.
+  ["/wp-content/uploads/2023/01/Azoth-Additive-Manufacturing-Quality-EngineerREV2-compressed.pdf", "/docs/azoth-additive-manufacturing-quality-engineerrev2-compressed.pdf"],
+  ["/wp-content/uploads/2023/01/Azoth-Additive-Manufacturing_-Additive-Techncian-compressed.pdf", "/docs/azoth-additive-manufacturing_-additive-techncian-compressed.pdf"],
+  ["/wp-content/uploads/2023/01/Azoth-Additive-Manufacturing_Polishing-Technician-compressed.pdf", "/docs/azoth-additive-manufacturing_polishing-technician-compressed.pdf"],
+  ["/wp-content/uploads/2023/01/Defense-Page-One-Sheet-compressed.pdf", "/industries/defense-industry"],
+  ["/wp-content/uploads/2022/11/316L-Material-Data-Sheet-compressed.pdf", "/materials"],
+  ["/wp-content/uploads/2022/11/DM-D2-Material-Data-Sheet-compressed.pdf", "/materials"],
+  ["/wp-content/uploads/2022/11/Nanoparticle-Jetting-One-Sheet-compressed.pdf", "/capabilities"],
+  ["/wp-content/uploads/2022/11/AZOTH-One-Sheet-compressed.pdf", "/docs/azoth-binder-jetting-one-page.pdf"],
 ];
 
 const permanent = (source: string, destination: string) => ({ source, destination, permanent: true });
@@ -83,6 +94,8 @@ const nextConfig: NextConfig = {
     return [
       // Blog posts: /post-name -> /azoth-blog/post-name
       ...OLD_POST_SLUGS.map((slug) => permanent(`/${slug}`, `/azoth-blog/${slug}`)),
+      // Each post also had its own feed: /post-name/feed -> /azoth-blog/post-name
+      ...OLD_POST_SLUGS.map((slug) => permanent(`/${slug}/feed`, `/azoth-blog/${slug}`)),
 
       // Showcase: /showcase/part-name -> /azoth-showcase/part-name
       permanent("/showcase", "/azoth-showcase"),
@@ -107,13 +120,14 @@ const nextConfig: NextConfig = {
       permanent("/3d-metal-printing-via-binder-jetting", "/capabilities/binder-jetting"),
       permanent("/capabilities/engineering", "/capabilities"),
       permanent("/capabilities/nano-particle-jetting", "/capabilities"),
-      permanent("/industries/:slug(aerospace|energy|industrial|luxury-goods)", "/industries"),
+      permanent("/industries/:slug(aerospace|energy|industrial|luxury-goods|other)", "/industries"),
       permanent("/resources", "/azoth-blog"),
       permanent("/resources/faqs", "/faqs"),
       permanent("/resources/examples", "/azoth-showcase"),
       permanent("/resources/knowledge-center", "/azoth-blog"),
       permanent("/resources/video", "/azoth-blog"),
       permanent("/resources/materials/:path*", "/materials"),
+      permanent("/newsletter-sign-up", "/contact"),
 
       // Old PDF links
       ...OLD_DOCUMENTS.map(([source, destination]) => permanent(source, destination)),
