@@ -156,11 +156,11 @@ export default function ConsumerElectronicsPage() {
           </h2>
           <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
             <Image
-              src="/images/industries-tab-consumer-electronics-edited-768x768.png"
-              alt="Exploded view of a smartwatch built with metal additive manufacturing"
-              width={768}
-              height={768}
-              className="mx-auto h-auto w-full max-w-md"
+              src="/images/Ray-Ban_Stories.png"
+              alt="Smart glasses"
+              width={1672}
+              height={941}
+              className="mx-auto h-auto w-full max-w-xl"
               sizes="(max-width:1024px) 100vw, 50vw"
             />
             <div>
