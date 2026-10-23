@@ -131,6 +131,9 @@ const nextConfig: NextConfig = {
       permanent("/resources/materials/:path*", "/materials"),
       permanent("/newsletter-sign-up", "/contact"),
 
+      // Short addresses
+      permanent("/cnc", "/capabilities/cnc"),
+
       // Old PDF links
       ...OLD_DOCUMENTS.map(([source, destination]) => permanent(source, destination)),
     ];
