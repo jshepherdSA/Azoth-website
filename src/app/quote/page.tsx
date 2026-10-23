@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
+import { RfqEmbed } from "@/components/rfq-embed";
 
 export const metadata: Metadata = {
   title: "Request A Quote",
@@ -71,11 +72,7 @@ export default function QuotePage() {
 
           {/* Quote form (RFQ embed), centered single-column, adaptive width/height */}
           <div className="mx-auto mt-10 w-full max-w-2xl">
-            <iframe
-              src="https://rfq.digital-quote.com/rfq/index.html?supplier_id=830357ef-57dc-4f70-a097-10c63d4b36ec"
-              title="Request a Quote"
-              className="h-[1580px] w-full border-0 sm:h-[1480px]"
-            />
+            <RfqEmbed thankYouHref="/quote/thank-you" />
           </div>
         </div>
       </section>

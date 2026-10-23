@@ -316,7 +316,11 @@ export default function CareersPage() {
             </p>
           </div>
           <div className="mt-10">
-            <JotformEmbed formId="261765239187064" title="Azoth careers application" />
+            <JotformEmbed
+              formId="261765239187064"
+              title="Azoth careers application"
+              thankYouHref="/about/careers/thank-you"
+            />
           </div>
         </div>
       </section>

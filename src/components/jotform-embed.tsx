@@ -9,8 +9,44 @@ type JotformWindow = Window & {
   jotformEmbedHandler?: (selector: string, origin: string) => void;
 };
 
-/** Embeds a JotForm form as a responsive iframe that auto-resizes to its content. */
-export function JotformEmbed({ formId, title }: { formId: string; title: string }) {
+/**
+ * True when `e` is JotForm telling the page that `formId` was submitted. JotForm
+ * posts `{action:"submission-completed", formID:...}` (older embeds post a
+ * string starting "submission-completed") to the parent window.
+ */
+export function isJotformSubmission(e: MessageEvent, formId: string) {
+  if (typeof e.origin !== "string" || !e.origin.endsWith(".jotform.com")) return false;
+  const d = e.data;
+  if (typeof d === "string") return d.startsWith("submission-completed");
+  if (!d || typeof d !== "object" || d.action !== "submission-completed") return false;
+  return d.formID === undefined || String(d.formID) === formId;
+}
+
+/**
+ * Embeds a JotForm form as a responsive iframe that auto-resizes to its content.
+ * With `thankYouHref`, a completed submission sends the visitor to that page, a
+ * real address that ad and analytics tools can count as a conversion. It is a
+ * full page load so every tag sees it, not only the ones that follow in-app
+ * navigation.
+ */
+export function JotformEmbed({
+  formId,
+  title,
+  thankYouHref,
+}: {
+  formId: string;
+  title: string;
+  thankYouHref?: string;
+}) {
+  useEffect(() => {
+    if (!thankYouHref) return;
+    const onMessage = (e: MessageEvent) => {
+      if (isJotformSubmission(e, formId)) window.location.assign(thankYouHref);
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [formId, thankYouHref]);
+
   useEffect(() => {
     const init = () => {
       const w = window as JotformWindow;

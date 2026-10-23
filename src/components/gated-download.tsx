@@ -1,12 +1,17 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { JotformEmbed } from "@/components/jotform-embed";
+import { JotformEmbed, isJotformSubmission } from "@/components/jotform-embed";
 
 // JotForm used for gated downloads. On a completed submission JotForm posts a
 // message to the parent window, `{action:"submission-completed", formID:...}`, 
 // which we listen for to auto-start the specific document's download.
 const FORM_ID = "262165085294057";
+
+// After the download starts, the visitor moves to the download thank-you page
+// (the conversion address). The pause lets the browser pick up the download
+// before the page changes.
+const THANK_YOU_DELAY_MS = 1500;
 
 function DownloadIcon() {
   return (
@@ -49,13 +54,9 @@ export function GatedDownload({
   // Watch for the JotForm "submission-completed" message, then download the file.
   useEffect(() => {
     if (!open) return;
+    let timer: ReturnType<typeof setTimeout> | undefined;
     const onMessage = (e: MessageEvent) => {
-      if (typeof e.origin !== "string" || !e.origin.endsWith(".jotform.com")) return;
-      const d = e.data;
-      const done =
-        (d && typeof d === "object" && d.action === "submission-completed") ||
-        (typeof d === "string" && d.startsWith("submission-completed"));
-      if (!done) return;
+      if (!isJotformSubmission(e, FORM_ID)) return;
 
       setSubmitted(true);
       if (href && !downloaded.current) {
@@ -67,10 +68,15 @@ export function GatedDownload({
         document.body.appendChild(a);
         a.click();
         a.remove();
+        const thankYou = `/download/thank-you?file=${encodeURIComponent(href)}`;
+        timer = setTimeout(() => window.location.assign(thankYou), THANK_YOU_DELAY_MS);
       }
     };
     window.addEventListener("message", onMessage);
-    return () => window.removeEventListener("message", onMessage);
+    return () => {
+      window.removeEventListener("message", onMessage);
+      clearTimeout(timer);
+    };
   }, [open, href]);
 
   const openModal = () => {

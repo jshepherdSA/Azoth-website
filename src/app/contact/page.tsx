@@ -98,7 +98,7 @@ export default function ContactPage() {
             </p>
           </div>
           <div className="mt-10">
-            <JotformEmbed formId="261764600000039" title="Contact Azoth" />
+            <JotformEmbed formId="261764600000039" title="Contact Azoth" thankYouHref="/contact/thank-you" />
           </div>
         </div>
       </section>
