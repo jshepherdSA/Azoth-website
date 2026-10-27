@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { PageBanner } from "@/components/page-banner";
+import { JsonLd } from "@/components/json-ld";
+import { serviceJsonLd } from "@/lib/structured-data";
 import { CertificationsCarousel } from "@/components/certifications-carousel";
 import { Accordion, type AccordionItem } from "@/components/accordion";
 import { YouTubeEmbed } from "@/components/youtube-embed";
@@ -49,6 +51,7 @@ const specialties: AccordionItem[] = [
 export default function QualityPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd("Quality", metadata.description as string, "/capabilities/quality")} />
       <PageBanner
         title="Quality"
         breadcrumbs={[

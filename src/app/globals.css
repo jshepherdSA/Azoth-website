@@ -178,6 +178,15 @@ body {
   color: var(--color-ink);
   font-weight: 700;
 }
+/* A bold line promoted to a heading (see enhanceBody). Looks identical to the
+   bold paragraph it replaces: body size, ink colour, paragraph spacing. */
+.blog-content h2.blog-bold-heading {
+  color: var(--color-ink);
+  font-size: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  margin: 0 0 1.25rem;
+}
 .blog-content ul,
 .blog-content ol {
   margin: 0 0 1.25rem 1.5rem;

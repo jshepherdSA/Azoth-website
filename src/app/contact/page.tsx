@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
+import { JsonLd } from "@/components/json-ld";
+import { localBusinessJsonLd } from "@/lib/structured-data";
 import { JotformEmbed } from "@/components/jotform-embed";
 import { contactInfo } from "@/lib/nav";
 
@@ -84,6 +86,7 @@ const contactCards = [
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={localBusinessJsonLd} />
       <PageBanner title="Contact Us" breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact Us" }]} />
 
       {/* Form */}

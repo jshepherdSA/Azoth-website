@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
+import { JsonLd } from "@/components/json-ld";
+import { serviceJsonLd } from "@/lib/structured-data";
 import { CircleArrow } from "@/components/circle-arrow";
 import { IndustriesSection } from "@/components/industries-section";
 import { LmmGallery } from "@/components/lmm-gallery";
@@ -68,6 +70,7 @@ function Check() {
 export default function LmmPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd("Lithography Metal Manufacturing", metadata.description as string, "/capabilities/lithography-metal-manufacturing")} />
       <PageBanner
         title="Lithography Metal Manufacturing"
         breadcrumbs={[

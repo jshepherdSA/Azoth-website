@@ -77,17 +77,21 @@ export function IndustryTabs() {
 
       {/* Panel, text fills the left half, the photo fills the right half */}
       <div className="mt-10 grid items-center gap-10 lg:grid-cols-2">
-        <div>
-          <h3 className="text-3xl font-extrabold capitalize text-ink sm:text-4xl">{current.label}</h3>
-          <p className="mt-4 leading-relaxed text-muted-soft">{current.body}</p>
-          <Link
-            href={current.href}
-            className="mt-6 inline-flex items-center gap-2.5 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-hover"
-          >
-            Learn More
-            <CircleArrow tone="onRed" />
-          </Link>
-        </div>
+        {/* Every industry's text is in the page (so search engines can read all
+            four); only the active one is shown. */}
+        {industries.map((industry) => (
+          <div key={industry.key} hidden={industry.key !== current.key}>
+            <h3 className="text-3xl font-extrabold capitalize text-ink sm:text-4xl">{industry.label}</h3>
+            <p className="mt-4 leading-relaxed text-muted-soft">{industry.body}</p>
+            <Link
+              href={industry.href}
+              className="mt-6 inline-flex items-center gap-2.5 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-hover"
+            >
+              Learn More
+              <CircleArrow tone="onRed" />
+            </Link>
+          </div>
+        ))}
         <div
           className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl ${
             current.fit === "cover" ? "ring-1 ring-hairline" : ""

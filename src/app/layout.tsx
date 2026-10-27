@@ -6,6 +6,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { AnalyticsGate } from "@/components/analytics-gate";
 import { CookieConsent } from "@/components/cookie-consent";
 import { SITE_URL } from "@/lib/site";
+import { JsonLd } from "@/components/json-ld";
+import { baseOpenGraph, organizationJsonLd } from "@/lib/structured-data";
 
 // Self-hosted Manrope variable font shipped from the reference assets.
 const manrope = localFont({
@@ -27,6 +29,9 @@ export const metadata: Metadata = {
   },
   description:
     "From rapid prototyping to high-volume part production, Azoth's additive manufacturing solutions deliver unmatched precision, repeatability, and speed in metal and polymer.",
+  // Link previews. Each page's own title and description fill in the rest.
+  openGraph: baseOpenGraph,
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
@@ -39,6 +44,8 @@ export default function RootLayout({
       {/* Discovery reference for the site's llms.txt (served at /llms.txt). */}
       <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
       <body className="flex min-h-full flex-col bg-white text-ink-soft">
+        {/* Who and where Azoth is, for search engines (schema.org Organization). */}
+        <JsonLd data={organizationJsonLd} />
         {/* Analytics & marketing tags (GTM, GA4, Trade Desk), loaded only after
             cookie consent is accepted. */}
         <AnalyticsGate />

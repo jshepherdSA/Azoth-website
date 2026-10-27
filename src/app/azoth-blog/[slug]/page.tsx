@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPostsFull } from "@/lib/blog-posts";
+import { enhanceBody, relatedPosts, serviceLinkFor } from "@/lib/blog-topics";
+import { JsonLd } from "@/components/json-ld";
+import { articleJsonLd, baseOpenGraph, breadcrumbJsonLd, isoDate } from "@/lib/structured-data";
 
 type Params = { slug: string };
 
@@ -26,7 +29,12 @@ export async function generateMetadata({
   return {
     title: post.title,
     description,
-    openGraph: post.image ? { images: [post.image] } : undefined,
+    openGraph: {
+      ...baseOpenGraph,
+      type: "article",
+      publishedTime: isoDate(post.date),
+      ...(post.image ? { images: [post.image] } : {}),
+    },
   };
 }
 
@@ -43,10 +51,19 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
   const post = blogPostsFull.find((p) => p.slug === slug);
   if (!post) notFound();
 
-  const related = blogPostsFull.filter((p) => p.slug !== slug).slice(0, 3);
+  const related = relatedPosts(post, blogPostsFull);
+  const service = serviceLinkFor(post.slug);
 
   return (
     <>
+      <JsonLd data={articleJsonLd(post)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { label: "Home", href: "/" },
+          { label: "Blog", href: "/azoth-blog" },
+          { label: post.title },
+        ])}
+      />
       {/* Post header */}
       <section className="relative isolate overflow-hidden bg-ink">
         <Image
@@ -106,7 +123,14 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             </div>
           )}
 
-          <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.body }} />
+          <div className="blog-content" dangerouslySetInnerHTML={{ __html: enhanceBody(post.slug, post.body) }} />
+
+          <p className="mt-10">
+            <Link href={service.href} className="link-az inline-flex items-center gap-1.5">
+              {service.label}
+              <Chevron />
+            </Link>
+          </p>
 
           <div className="mt-12 border-t border-hairline pt-8">
             <Link

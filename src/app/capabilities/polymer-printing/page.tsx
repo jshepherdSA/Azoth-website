@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
+import { JsonLd } from "@/components/json-ld";
+import { serviceJsonLd } from "@/lib/structured-data";
 import { CircleArrow } from "@/components/circle-arrow";
 import { GuidelinesLinks } from "@/components/guidelines-links";
 
@@ -74,6 +76,7 @@ const lgColsClass = technologies.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-
 export default function PolymerPrintingPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd("Polymer Printing", metadata.description as string, "/capabilities/polymer-printing")} />
       <PageBanner
         title="Polymer Printing"
         breadcrumbs={[
@@ -128,6 +131,13 @@ export default function PolymerPrintingPage() {
             </p>
             {/* Renders nothing until the Polymer Printing guidelines tab is published. */}
             <GuidelinesLinks slugs={["polymer-printing"]} className="mt-4 text-muted-soft" />
+            <p className="mt-4 text-muted-soft">
+              Read more:{" "}
+              <Link href="/azoth-blog/plastic-3d-printing-technology-overview" className="link-az">
+                Plastic 3D printing technology overview
+              </Link>
+              .
+            </p>
             <Link
               href="/materials"
               className="mt-6 inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-3.5 font-semibold text-white transition-colors hover:bg-brand-hover"

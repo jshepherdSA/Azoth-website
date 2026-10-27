@@ -6,6 +6,8 @@ import { IndustriesSection } from "@/components/industries-section";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { CircleArrow } from "@/components/circle-arrow";
 import { NewsList } from "@/components/news-feed";
+import { JsonLd } from "@/components/json-ld";
+import { websiteJsonLd } from "@/lib/structured-data";
 
 const capabilities = [
   { label: "Binder Jetting", icon: "/images/BJetting.png", href: "/capabilities/binder-jetting" },
@@ -17,6 +19,8 @@ const capabilities = [
 export default function Home() {
   return (
     <>
+      <JsonLd data={websiteJsonLd} />
+
       {/* Hero */}
       <section className="relative isolate overflow-hidden bg-ink text-white">
         <Image

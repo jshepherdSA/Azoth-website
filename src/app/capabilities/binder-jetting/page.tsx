@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageBanner } from "@/components/page-banner";
+import { JsonLd } from "@/components/json-ld";
+import { serviceJsonLd } from "@/lib/structured-data";
 import { CircleArrow } from "@/components/circle-arrow";
 import { YouTubeEmbed } from "@/components/youtube-embed";
 import { Accordion, type AccordionItem } from "@/components/accordion";
@@ -102,6 +104,7 @@ const whyCards = [
 export default function BinderJettingPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd("Binder Jetting", metadata.description as string, "/capabilities/binder-jetting")} />
       <PageBanner
         title="Binder Jetting"
         breadcrumbs={[
@@ -157,6 +160,20 @@ export default function BinderJettingPage() {
               Materials, platforms, and workflow for production-grade metal binder jetting.
             </p>
             <GuidelinesLinks slugs={["binder-jetting"]} className="mt-3 text-muted-soft" />
+            <p className="mt-2 text-muted-soft">
+              Read more:{" "}
+              <Link href="/azoth-blog/what-is-metal-binder-jetting" className="link-az">
+                What is metal binder jetting?
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/azoth-blog/what-is-a-sintering-in-a-binder-jetting-3d-printing-process"
+                className="link-az"
+              >
+                how sintering works in binder jetting
+              </Link>
+              .
+            </p>
             <div className="mt-6">
               <Accordion items={specs} />
               {/* One-pager download, set as one more row of the list above. */}
@@ -235,7 +252,8 @@ export default function BinderJettingPage() {
                   </div>
                   {/* Back */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-br from-brand-dark to-black px-6 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                    <h3 className="text-base font-bold">{card.title}</h3>
+                    {/* Same title as the front, kept as plain text so it isn't a second heading. */}
+                    <p className="text-base font-bold">{card.title}</p>
                     <p className="text-sm leading-relaxed text-white/85">{card.body}</p>
                   </div>
                 </div>

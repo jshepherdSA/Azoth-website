@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { CircleArrow } from "@/components/circle-arrow";
 import { AwardRibbon } from "@/components/award-ribbon";
 import { showcaseItems } from "@/lib/showcase";
+import { JsonLd } from "@/components/json-ld";
+import { baseOpenGraph, breadcrumbJsonLd } from "@/lib/structured-data";
 
 type Params = { slug: string };
 
@@ -23,7 +25,7 @@ export async function generateMetadata({
   return {
     title: `${item.title}, Showcase`,
     description: item.desc || `${item.title}, a production part by Azoth in ${item.material}.`,
-    openGraph: { images: [item.image] },
+    openGraph: { ...baseOpenGraph, images: [item.image] },
   };
 }
 
@@ -46,11 +48,18 @@ export default async function ShowcaseItemPage({ params }: { params: Promise<Par
 
   const specs = [
     { label: "Industry", value: item.industry },
-    { label: "Material", value: item.material },
+    { label: "Material", value: item.material, href: "/materials" },
   ].filter((s) => s.value);
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { label: "Home", href: "/" },
+          { label: "Azoth Showcase", href: "/azoth-showcase" },
+          { label: item.title },
+        ])}
+      />
       {/* Breadcrumb header */}
       <section className="relative isolate overflow-hidden bg-ink">
         <Image
@@ -126,7 +135,15 @@ export default async function ShowcaseItemPage({ params }: { params: Promise<Par
                     <dt className="text-sm font-semibold uppercase tracking-wide text-muted">
                       {spec.label}
                     </dt>
-                    <dd className="font-semibold text-ink">{spec.value}</dd>
+                    <dd className="font-semibold text-ink">
+                      {spec.href ? (
+                        <Link href={spec.href} className="link-az">
+                          {spec.value}
+                        </Link>
+                      ) : (
+                        spec.value
+                      )}
+                    </dd>
                   </div>
                 ))}
               </dl>

@@ -14,8 +14,9 @@ export const metadata: Metadata = {
 };
 
 const metals = [
-  { name: "316L Stainless Steel", pdf: "/docs/azoth-data-sheet-316l.pdf" },
-  { name: "17-4PH Stainless Steel", pdf: "/docs/azoth_material-data-sheet_17-4ph.pdf" },
+  // `showcase`: the showcase has many example parts in this metal, so link to it.
+  { name: "316L Stainless Steel", pdf: "/docs/azoth-data-sheet-316l.pdf", showcase: true },
+  { name: "17-4PH Stainless Steel", pdf: "/docs/azoth_material-data-sheet_17-4ph.pdf", showcase: true },
   { name: "Titanium (Ti-6Al-4V)", pdf: "/docs/azoth_material-data-sheet_ti64.pdf" },
   { name: "Mar M247", pdf: "/docs/azoth_material-data-sheet_mar247.pdf" },
   { name: "D2 Tool Steel", pdf: null },
@@ -96,6 +97,13 @@ export default function MaterialsPage() {
                 mastered the use of materials in the 3D binder jet printing process and works with all
                 types of materials, including but not limited to:
               </p>
+              <p className="mt-4 text-muted-soft">
+                Read more:{" "}
+                <Link href="/azoth-blog/understanding-stainless-steels-316-l-and-17-4ph" className="link-az">
+                  Understanding stainless steels: 316L and 17-4PH
+                </Link>
+                .
+              </p>
               <Link
                 href="/quote"
                 className="mt-6 inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-3.5 font-semibold text-white transition-colors hover:bg-brand-hover"
@@ -123,7 +131,14 @@ export default function MaterialsPage() {
                 key={metal.name}
                 className="flex items-center justify-between gap-4 rounded-xl border border-hairline bg-white p-5 shadow-sm"
               >
-                <span className="font-bold text-ink">{metal.name}</span>
+                <div>
+                  <span className="font-bold text-ink">{metal.name}</span>
+                  {"showcase" in metal && metal.showcase && (
+                    <Link href="/azoth-showcase" className="link-az mt-1 block text-sm">
+                      See example parts in our showcase
+                    </Link>
+                  )}
+                </div>
                 {metal.pdf ? (
                   <GatedDownload href={metal.pdf} title={`${metal.name} Data Sheet`} />
                 ) : (

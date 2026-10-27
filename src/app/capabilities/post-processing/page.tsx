@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageBanner } from "@/components/page-banner";
+import { JsonLd } from "@/components/json-ld";
+import { serviceJsonLd } from "@/lib/structured-data";
 import { CircleArrow } from "@/components/circle-arrow";
 import { GuidelinesLinks } from "@/components/guidelines-links";
 
@@ -108,6 +110,7 @@ const services: Service[] = [
 export default function FinishingPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd("Finishing", metadata.description as string, "/capabilities/post-processing")} />
       <PageBanner
         title="Finishing"
         breadcrumbs={[
